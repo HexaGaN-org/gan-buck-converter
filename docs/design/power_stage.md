@@ -42,7 +42,7 @@ One row per calculation. Note where each input came from (specification, datashe
 
 | Calculation | Formula | Result | Notes |
 |---|---|---|---|
-| | | | |
+|Duty Cycle $D$|$D = \frac{V_{Out}}{V_{In}}$|$D = \frac{48V}{12V}0.25$| |
 
 ---
 
