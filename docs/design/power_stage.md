@@ -2,7 +2,7 @@
 
 Sheet: `sheets/power_stage.kicad_sch`
 
-**Owner:** [NAME] · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
+**Owner:** [Reza Rahimzadeh] · **Last updated:** [2026-11-03]
 
 ---
 
