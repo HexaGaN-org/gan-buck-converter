@@ -12,6 +12,8 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 - **Control:** staged bring-up from open loop, to voltage mode, to average current mode
 - **Protections:** cycle-by-cycle overcurrent (CMPSS), output overvoltage, input undervoltage lockout, overtemperature, and a hardware enable firmware cannot override
 
+<img width="4288" height="2800" alt="gan-buck-converter-block-diagram" src="https://github.com/user-attachments/assets/5ee34614-bffc-4734-87d9-a319946c3d2f" />
+
 ## Repository layout
 
 ```
