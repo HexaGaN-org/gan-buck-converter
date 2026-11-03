@@ -8,9 +8,19 @@ Sheet: `sheets/sensing.kicad_sch`
 
 ## Purpose and requirements
 
-What this sheet must achieve. Link to the relevant rows of [specifications.md](../specifications.md) and the sheet's section of [schematic-hierarchy.md](../schematic-hierarchy.md) rather than copying them.
+Turn the output current, the input and output voltages, and the board temperature into filtered, clamped 0–3 V signals for the MCU's ADC and CMPSS comparators.
 
--
+Targets are in [specifications.md](../specifications.md); boundaries and interface signals are in the **Sensing** section of [schematic-hierarchy.md](../schematic-hierarchy.md).
+
+**Requirements**
+
+- `ISENSE`: cover the full inductor current range, including negative current at light load, with the overcurrent threshold inside 0–3 V and enough bandwidth for cycle-by-cycle current limiting.
+- `VOUT_SENSE`: place the overvoltage threshold inside 0–3 V; this signal feeds a CMPSS comparator.
+- `VIN_SENSE`: cover the full input range, including the undervoltage-lockout thresholds.
+- `TEMP_SENSE`: a thermistor placed beside the GaN FETs, covering the overtemperature threshold.
+- Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
+- Size every RC for the ADC's acquisition time, and clamp every signal to `+3V3A` / `AGND`.
+- Inputs: `ISH_P`, `ISH_N` from power_stage, plus `VIN` and `VOUT`. Outputs: `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` to mcu.
 
 ---
 
@@ -26,11 +36,11 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 ## Calculations
 
-One row per calculation. Give the source of every input (specification, datasheet, measurement).
+One row per calculation. Note where each input came from (specification, datasheet, measurement) in Notes.
 
-| # | Calculation | Formula | Inputs (source) | Result | Rating / limit | Margin | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | |
+| Calculation | Formula | Result | Notes |
+|---|---|---|---|
+| | | | |
 
 ---
 

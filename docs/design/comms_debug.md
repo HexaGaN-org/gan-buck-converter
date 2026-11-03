@@ -8,9 +8,17 @@ Sheet: `sheets/comms_debug.kicad_sch`
 
 ## Purpose and requirements
 
-What this sheet must achieve. Link to the relevant rows of [specifications.md](../specifications.md) and the sheet's section of [schematic-hierarchy.md](../schematic-hierarchy.md) rather than copying them.
+Connect the MCU to a host laptop over USB serial, and to a JTAG debugger for programming and debugging.
 
--
+Targets are in [specifications.md](../specifications.md); boundaries and interface signals are in the **Comms and debug** section of [schematic-hierarchy.md](../schematic-hierarchy.md).
+
+**Requirements**
+
+- USB-C, USB 2.0 device, with ESD protection on D+/D− and CC pull-down resistors.
+- A USB-to-UART bridge connected to the MCU's SCI.
+- USB power does not run the board, and a connected laptop cannot back-power the MCU while the board is off.
+- A TI-compatible JTAG header, including `XRSN`.
+- Inputs and outputs: `SCI_TX` / `SCI_RX`, `TCK` / `TMS` / `TDI` / `TDO` and `XRSN` to and from mcu.
 
 ---
 
@@ -26,11 +34,11 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 ## Calculations
 
-One row per calculation. Give the source of every input (specification, datasheet, measurement).
+One row per calculation. Note where each input came from (specification, datasheet, measurement) in Notes.
 
-| # | Calculation | Formula | Inputs (source) | Result | Rating / limit | Margin | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | |
+| Calculation | Formula | Result | Notes |
+|---|---|---|---|
+| | | | |
 
 ---
 

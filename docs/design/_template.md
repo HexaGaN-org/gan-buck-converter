@@ -26,11 +26,11 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 ## Calculations
 
-One row per calculation. Give the source of every input (specification, datasheet, measurement).
+One row per calculation. Note where each input came from (specification, datasheet, measurement) in Notes.
 
-| # | Calculation | Formula | Inputs (source) | Result | Rating / limit | Margin | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | |
+| Calculation | Formula | Result | Notes |
+|---|---|---|---|
+| | | | |
 
 ---
 

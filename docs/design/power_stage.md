@@ -8,9 +8,21 @@ Sheet: `sheets/power_stage.kicad_sch`
 
 ## Purpose and requirements
 
-What this sheet must achieve. Link to the relevant rows of [specifications.md](../specifications.md) and the sheet's section of [schematic-hierarchy.md](../schematic-hierarchy.md) rather than copying them.
+Convert the 48 V bus to the 12 V output with a synchronous buck: two discrete enhancement-mode GaN FETs, a GaN half-bridge gate driver, the output inductor and capacitors, and the current-sense shunt.
 
--
+Targets are in [specifications.md](../specifications.md); boundaries and interface signals are in the **Power stage** section of [schematic-hierarchy.md](../schematic-hierarchy.md).
+
+**Requirements**
+
+- 48 V in, 12 V out at up to 12.5 A (150 W), with parts and copper rated for 16.7 A (200 W).
+- Switching frequency within 300–500 kHz.
+- Meet the efficiency target in the specifications (about 95–96 % expected, roughly 6 W total loss at 150 W) with natural-convection cooling.
+- Keep the GaN gate voltage within the FETs' limits under all conditions, including ringing.
+- Support the shortest safe dead time, set in the MCU's ePWM.
+- Meet the output ripple and load-transient targets in the specifications.
+- Provide a Kelvin-connected current-sense shunt whose value lets sensing place the overcurrent threshold within 0–3 V.
+- Hold both gates off when the driver is unpowered or `GATE_HI` / `GATE_LO` are undriven.
+- Inputs: `GATE_HI`, `GATE_LO` from enable. Outputs: `ISH_P`, `ISH_N` to sensing.
 
 ---
 
@@ -26,11 +38,11 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 ## Calculations
 
-One row per calculation. Give the source of every input (specification, datasheet, measurement).
+One row per calculation. Note where each input came from (specification, datasheet, measurement) in Notes.
 
-| # | Calculation | Formula | Inputs (source) | Result | Rating / limit | Margin | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | |
+| Calculation | Formula | Result | Notes |
+|---|---|---|---|
+| | | | |
 
 ---
 
