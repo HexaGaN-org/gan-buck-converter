@@ -31,10 +31,12 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 
 | Item | Choice | Status |
 |---|---|---|
-| MCU | [F280039C or F28002x] | [TBD] |
+| MCU | TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux in SysConfig and stock before schematic freeze |
 | GaN half-bridge | [part number] | [TBD] |
 | Inductor | [part number, value, Isat] | [TBD] |
 | Current sensing | [shunt + amplifier / other] | [TBD] |
+
+**MCU rationale:** same device as the universal control board, so SysConfig setup, C2000Ware firmware, the LAUNCHXL-F280039C LaunchPad and the team's experience carry over directly. The 64-pin package keeps the schematic and layout simple while retaining what a buck needs: high-resolution PWM, CMPSS comparators for cycle-by-cycle current limiting, and a fast ADC. Early firmware bring-up can run on the LaunchPad before boards arrive.
 
 ## Mechanical and other
 

@@ -8,7 +8,7 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 
 - **Conversion:** 48 V input → 12 V output, synchronous buck
 - **Power stage:** GaN half-bridge with integrated gate driver
-- **Controller:** TI C2000 MCU (F280039C or F28002x family, to be decided)
+- **Controller:** TI TMS320F280039C, 64-pin LQFP (same device as the universal control board)
 - **Control:** staged bring-up from open loop, to voltage mode, to average current mode
 - **Protections:** cycle-by-cycle overcurrent (CMPSS), output overvoltage, input undervoltage lockout, overtemperature, and a hardware enable firmware cannot override
 
