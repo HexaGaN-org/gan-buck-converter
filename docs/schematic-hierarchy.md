@@ -35,6 +35,8 @@ The top sheet lives in the KiCad project folder under `hardware/`. All sub-sheet
 | J3 | comms_debug | USB-C to a host laptop |
 | J4 | comms_debug | JTAG debug header |
 | J5 | enable | Hardware enable switch (or E-stop) input |
+| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up |
+| JP1 | input_supply | 5 V source select: aux regulator (AUX) or external header (EXT) |
 
 ---
 
@@ -48,7 +50,9 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 |---|---|
 | `VIN` | Protected 48 V input bus |
 | `VOUT` | 12 V output |
-| `+5V` | Auxiliary 5 V rail: GaN driver bias and logic |
+| `+5V_AUX` | Output of the onboard 48 V → 5 V auxiliary regulator |
+| `+5V_EXT` | 5 V from the external header J6 |
+| `+5V` | The selected 5 V rail (via JP1): GaN driver bias and the 3.3 V LDO input |
 | `+3V3` | 3.3 V digital supply |
 | `+3V3A` | Filtered 3.3 V for the MCU's analog circuits (VDDA) |
 | `GND` | Board ground (power and signal share one ground plane) |
@@ -148,17 +152,21 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - TVS diode, clamping below the GaN stage's voltage rating
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
-- Auxiliary step-down regulator, 48 V → `+5V`, rated for the full input range
+- Auxiliary step-down regulator, 48 V → `+5V_AUX`, rated for the full input range
+- J6 external 5 V input header, with a fuse or PTC and reverse-polarity protection
+- JP1 3-pin source-select jumper: `+5V_AUX` (AUX) or `+5V_EXT` (EXT) → `+5V`
 - 3.3 V LDO from `+5V` → `+3V3`
 - Analog supply filter (ferrite bead + capacitors) → `+3V3A`
 - Power LED and test points on every rail
 
-**Interface:** power nets only (`VIN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels.
+**Interface:** power nets only (`VIN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
 
 **Notes**
+- **Why a jumper and not a diode-OR:** a jumper has no voltage drop, keeps the two sources from ever back-feeding each other, and its position is visible at a glance. A Schottky OR drops 0.3–0.5 V, which can push the GaN driver's bias out of its allowed range. Without isolation, an external 5 V could also back-feed through the aux regulator into the 48 V bus.
+- **Bring-up order:** set JP1 to EXT and bring up the MCU, firmware, sensing and enable logic from a current-limited 5 V bench supply, with no 48 V connected. Only once that works, move JP1 to AUX and apply 48 V.
+- Label both JP1 positions clearly on the silkscreen (AUX / EXT). Rate JP1 and J6 for at least 0.5 A.
+- Size the aux regulator for about 150 mA on `+5V` (GaN driver bias, MCU through the LDO, USB bridge, LEDs), with a part rated for at least 300 mA.
 - The TVS clamp voltage, the fuse rating and the GaN stage's maximum voltage must be chosen together. The clamp has to stop a transient before it exceeds the GaN rating, since GaN has essentially no avalanche capability.
-- Size the auxiliary regulator for the GaN driver's bias current at the chosen switching frequency, plus the MCU and logic.
-
 ---
 
 ## 3 · Power stage — `power_stage.kicad_sch`
