@@ -11,7 +11,7 @@ This document defines how the KiCad schematic is divided into hierarchical sheet
 ```
 <project>.kicad_sch               1  Top sheet (sheet symbols only)
 ├── input_supply.kicad_sch        2  48 V input, protection, auxiliary rails
-├── power_stage.kicad_sch         3  GaN half-bridge, inductor, output
+├── power_stage.kicad_sch         3  GaN FETs, gate driver, inductor, output
 ├── sensing.kicad_sch             4  Current, voltage and temperature sensing
 ├── mcu.kicad_sch                 5  Microcontroller and its support circuits
 ├── enable.kicad_sch              6  Hardware enable and watchdog
@@ -22,7 +22,7 @@ The top sheet lives in the KiCad project folder under `hardware/`. All sub-sheet
 
 ## How the sheets connect
 
-**input_supply** protects the 48 V input and makes the low-voltage rails everything else runs on. **power_stage** is the converter itself: it takes the 48 V bus, switches it with the GaN half-bridge, and delivers 12 V. **sensing** turns the power stage's current, the input and output voltages, and the board temperature into clean 0–3 V signals for the MCU. The **mcu** sheet runs the control loop and generates PWM, but its PWM never reaches the power stage directly: it passes through the **enable** sheet, which gates both PWM signals off unless the hardware enable switch is on, the watchdog is healthy, and the MCU is requesting switching. **comms_debug** connects the MCU to a laptop and a debugger.
+**input_supply** protects the 48 V input and makes the low-voltage rails everything else runs on. **power_stage** is the converter itself: it takes the 48 V bus, switches it with a half-bridge of discrete GaN FETs and their gate driver, and delivers 12 V. **sensing** turns the power stage's current, the input and output voltages, and the board temperature into clean 0–3 V signals for the MCU. The **mcu** sheet runs the control loop and generates PWM, but its PWM never reaches the power stage directly: it passes through the **enable** sheet, which gates both PWM signals off unless the hardware enable switch is on, the watchdog is healthy, and the MCU is requesting switching. **comms_debug** connects the MCU to a laptop and a debugger.
 
 ---
 
@@ -177,9 +177,12 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Responsible for:** the converter itself, from the 48 V bus to the 12 V output.
 
 **Contains**
-- GaN half-bridge with integrated gate driver
-- Driver bias decoupling and bootstrap capacitor, per the GaN stage's datasheet
-- High-frequency input capacitors, placed tight against the half-bridge (the power loop)
+- Two discrete enhancement-mode GaN FETs, 100 V class (high side and low side)
+- GaN half-bridge gate driver (LMG1205-class) with internal bootstrap clamp, powered from `+5V`
+- Driver supply decoupling and bootstrap capacitor at the driver pins, per its datasheet
+- Separate turn-on and turn-off gate resistors for each FET (using the driver's split outputs)
+- Gate pull-down footprints per the driver datasheet, so the gates stay off with the driver unpowered
+- High-frequency input capacitors, placed tight against the FETs (the power loop)
 - Output inductor
 - Current-sense shunt, with Kelvin connections brought out as `ISH_P` / `ISH_N`
 - Output capacitors
@@ -197,6 +200,10 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Notes**
 - The switch node stays local to this sheet; it never crosses a sheet boundary.
 - This sheet decides most of the board's layout. Mark the power-loop capacitors in the schematic (a field or a note) so the layout owner places them first and closest.
+- **Two loops to keep small:** the power loop (input capacitors → high-side FET → low-side FET → back) and each gate loop (driver output → gate resistor → gate → source → driver return). Place the driver right beside the FETs and return each gate loop to its FET's source (Kelvin source where the package offers one), never through the power path.
+- **Never exceed the gate limit.** Enhancement-mode GaN gates are driven at about 5 V with an absolute maximum only slightly above it. Check the driver's output level and the bootstrap clamp against the chosen FET's datasheet, and keep gate ringing below the limit.
+- **Dead time** is set in the ePWM. Size it from the driver's propagation delay and matching plus the FETs' switching times; GaN's reverse conduction during dead time drops 2 V or more, so too much dead time costs efficiency.
+- Prefer FETs in a packaged form (QFN-style) over bare-die chip-scale parts for the first board: they are far easier to assemble and rework by hand.
 
 ---
 

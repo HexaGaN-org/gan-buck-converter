@@ -11,7 +11,7 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Output current | | | 12.5 | A | Size layout, connectors and parts for 16.7 A (200 W) |
 | Output power | | | 150 | W | Design target; ratings sized for 200 W headroom |
 | Input current | | 3.3 | | A | At 48 V, full load, ~95 % efficiency |
-| Switching frequency | 300 | [TBD] | 500 | kHz | Pick within this range once the GaN stage and inductor are chosen |
+| Switching frequency | 300 | [TBD] | 500 | kHz | Pick within this range once the GaN FETs, gate driver and inductor are chosen |
 | Output voltage ripple | | | [TBD] | mV p-p | |
 | Load transient, 10 % → 90 % step | | | [TBD] | mV deviation | Settling time: [TBD] µs |
 | Efficiency at full load | [TBD] | | | % | ~95–96 % expected (~6 W loss at 150 W) |
@@ -32,7 +32,8 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Item | Choice | Status |
 |---|---|---|
 | MCU | TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux in SysConfig and stock before schematic freeze |
-| GaN half-bridge | [part number] | [TBD] |
+| GaN FETs (×2) | [part number] — 100 V class, enhancement mode, packaged (QFN-style) | [TBD] |
+| Gate driver | [part number] — GaN half-bridge driver, LMG1205-class | [TBD] |
 | Inductor | [part number, value, Isat] | [TBD] |
 | Current sensing | [shunt + amplifier / other] | [TBD] |
 
