@@ -167,6 +167,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - Label both JP1 positions clearly on the silkscreen (AUX / EXT). Rate JP1 and J6 for at least 0.5 A.
 - Size the aux regulator for about 150 mA on `+5V` (GaN driver bias, MCU through the LDO, USB bridge, LEDs), with a part rated for at least 300 mA.
 - The TVS clamp voltage, the fuse rating and the GaN stage's maximum voltage must be chosen together. The clamp has to stop a transient before it exceeds the GaN rating, since GaN has essentially no avalanche capability.
+
 ---
 
 ## 3 · Power stage — `power_stage.kicad_sch`
