@@ -1,0 +1,15 @@
+# Keep KiCad files LF on every OS, so Windows and macOS saves don't
+# produce whole-file diffs.
+*.kicad_sch  text eol=lf
+*.kicad_pcb  text eol=lf
+*.kicad_pro  text eol=lf
+*.kicad_sym  text eol=lf
+*.kicad_mod  text eol=lf
+*-lib-table  text eol=lf
+*.syscfg     text eol=lf
+
+# Binary files
+*.step binary
+*.stp  binary
+*.pdf  binary
+*.png  binary
