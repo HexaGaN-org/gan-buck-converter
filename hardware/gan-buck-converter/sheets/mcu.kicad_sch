@@ -1,0 +1,14 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid eb17fc6f-5b79-4637-88e3-4dd4a12fec27)
+	(paper "A4")
+	(title_block
+		(title "Microcontroller (U1)")
+		(rev "0.1")
+		(company "HexaGaN")
+		(comment 1 "Owner: [NAME]")
+	)
+	(lib_symbols)
+)

@@ -9,7 +9,7 @@ This document defines how the KiCad schematic is divided into hierarchical sheet
 ## Sheet tree
 
 ```
-<project>.kicad_sch               1  Top sheet (sheet symbols only)
+gan-buck-converter.kicad_sch      1  Top sheet (sheet symbols only)
 ├── input_supply.kicad_sch        2  48 V input, protection, auxiliary rails
 ├── power_stage.kicad_sch         3  GaN FETs, gate driver, inductor, output
 ├── sensing.kicad_sch             4  Current, voltage and temperature sensing
@@ -18,7 +18,7 @@ This document defines how the KiCad schematic is divided into hierarchical sheet
 └── comms_debug.kicad_sch         7  USB serial and JTAG
 ```
 
-The top sheet lives in the KiCad project folder under `hardware/`. All sub-sheets live in its `sheets/` subfolder.
+The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`. All sub-sheets live in its `sheets/` subfolder.
 
 ## How the sheets connect
 
