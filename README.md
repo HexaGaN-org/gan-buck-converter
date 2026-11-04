@@ -49,7 +49,7 @@ docs/
   preferred-parts.md         JLCPCB passives to pick first, with measured DC-bias derating
   jlcpcb-assembly.md         Fab and assembly rules, ordering workflow, pre-order checklist
   firmware-requirements.md   Plain-language firmware guide for the firmware team
-  dead-time-optimization.md  Proposal: load-dependent dead time and frequency (fixed vs learned vs online)
+  edge-ai-dead-time-optimizer.md  Proposal: on-board neural network that picks the lowest-loss dead time and frequency
   gan-buck-converter-BOM.xlsx  Working BOM and cost, one tab per sheet
 hardware/gan-buck-converter/
   gan-buck-converter.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 10 project (root sheet and board)
