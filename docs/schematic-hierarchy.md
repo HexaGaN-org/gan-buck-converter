@@ -185,7 +185,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - Gate-to-source pull-down footprints at each FET (DNP by default), so a gate can't float if a driver joint fails
 - High-frequency input capacitors, placed tight against the FETs (the power loop)
 - Output inductor
-- Current-sense shunt, with Kelvin connections brought out as `ISH_P` / `ISH_N`
+- Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `ISH_P` / `ISH_N`
 - Output capacitors
 - J2 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)

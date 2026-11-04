@@ -12,7 +12,7 @@ The passives and indicator parts every sheet should pick from first. Most are JL
 2. **0603 is the default size** for resistors and small capacitors. Use 0805 or 1206 only for power, voltage or capacitance that 0603 can't provide.
 3. **Basic first, then Preferred Extended, then Extended.** Each unique Extended part costs a $3.07 loading fee per order on Economic assembly.
 4. **Calculated values are the exception.** A divider or sense value that needs an exact resistance may use one Extended part. Don't combine two Basic resistors to reach a value.
-5. **Derate ceramic capacitors.** Choose a voltage rating of at least twice the working voltage, and check the manufacturer's DC-bias curve: an X5R or X7R capacitor near its rated voltage keeps only a fraction of its capacitance.
+5. **Derate ceramic capacitors from the curve, not the rating.** Choose a voltage rating of at least twice the working voltage, then read the manufacturer's DC-bias curve at your working voltage (Samsung product pages, Murata SimSurfing, TDK, KEMET K-SIM). Even at half its rated voltage, a 22 µF 25 V 1206 keeps only 26 % at 12 V. Prefer parts whose maker publishes the curve; the measured values for common parts are in the tables below.
 6. **One 100 V capacitor family on the 48 V side.** No Basic ceramic suits the power loop, so pick one or two of the 100 V parts below and reuse them everywhere on the 48 V bus.
 7. **Need something not listed?** Choose it, use it, and add it here in the same pull request so the next person finds it.
 
@@ -108,14 +108,30 @@ Other Basic C0G values in 0603: 12, 15, 18, 20, 30, 33 and 330 pF.
 
 ### 100 V ceramics for the 48 V bus (Extended)
 
-Basic ceramics stop at 50 V, apart from C28233 above. Choose from these and keep the count of unique parts low.
+Basic ceramics stop at 50 V, apart from C28233 above. Choose from these and keep the count of unique parts low. "Kept" is the capacitance remaining at that DC voltage, from Samsung's published DC-bias data (measured at 0.5 Vrms).
 
-| Part | Value | Size | LCSC |
-|---|---|---|---|
-| YAGEO CC1206KKX7R0BB225 | 2.2 µF 100 V X7R | 1206 | C577211 |
-| Samsung CL31B105KCHNNNE | 1 µF 100 V X7R | 1206 | C13832 |
-| PSA FS32X106K101EGG | 10 µF 100 V X7R | 1210 | C5156756 |
-| FH 1206B104K101NT | 100 nF 100 V X7R | 1206 | C110255 |
+| Part | Value | Size | LCSC | Kept at 48 V | Kept at 60 V |
+|---|---|---|---|---|---|
+| Samsung CL21B104KCFNNNE (Basic) | 100 nF 100 V X7R | 0805 | C28233 | 52 % | 42 % |
+| Samsung CL31B105KCHNNNE | 1 µF 100 V X7R | 1206 | C13832 | 46 % | 35 % |
+| **Samsung CL31B225KCHSNNE** | 2.2 µF 100 V X7R | 1206 | **C170101** | 37.5 % | 29 % |
+| Samsung CL32B225KCJSNNE | 2.2 µF 100 V X7R | 1210 | C55151 | 45 % | 34 % |
+| Samsung CL32Y475KCIVPNE | 4.7 µF 100 V X7S | 1210 | C2803397 | 38 % | 28 % |
+| **Samsung CL32Y106KCV6PNE** | 10 µF 100 V X7S | 1210 | **C22380050** | 26.5 % | 20 % |
+| YAGEO CC1206KKX7R0BB225 | 2.2 µF 100 V X7R | 1206 | C577211 | no published curve | |
+| PSA FS32X106K101EGG | 10 µF 100 V X7R | 1210 | C5156756 | no published curve | |
+| FH 1206B104K101NT | 100 nF 100 V X7R | 1206 | C110255 | no published curve | |
+
+### DC bias of common low-voltage parts
+
+| Part | Value | LCSC | Kept at 5 V | Kept at 12 V |
+|---|---|---|---|---|
+| Samsung CL10A105KB8NNNC (Basic) | 1 µF 50 V X5R 0603 | C15849 | 66 % | |
+| Samsung CL31A226KAHNNNE (Basic) | 22 µF 25 V X5R 1206 | C12891 | 62 % | **26 %** |
+| Samsung CL32A226KAJNNNE | 22 µF 25 V X5R 1210 | C52306 | 80 % | 41 % |
+| Samsung CL31A106KBHNNNE | 10 µF 50 V X5R 1206 | — | 73 % | 34 % |
+
+At small ripple (around 10 mV), X5R parts lose roughly another 15 % compared with the 0.5 Vrms test signal.
 
 ---
 
