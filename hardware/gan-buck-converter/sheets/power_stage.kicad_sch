@@ -446,260 +446,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+5V"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "+5V"
-				(at 0 3.556 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+5V\""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "+5V_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+5V_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "power:GND"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "GND_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:R_US"
 			(pin_numbers
 				(hide yes)
@@ -4585,6 +4331,260 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:+5V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+5V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+5V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+5V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+5V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:PWR_FLAG"
 			(power global)
 			(pin_numbers
@@ -6797,6 +6797,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C302")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -6871,6 +6877,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#PWR0302")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#PWR0302")
 					(unit 1)
 				)
@@ -6983,6 +6995,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "L301")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "L301")
 					(unit 1)
 				)
@@ -7114,6 +7132,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "Q302")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7222,6 +7246,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "R303")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "R303")
 					(unit 1)
 				)
@@ -7340,6 +7370,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C324")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7450,6 +7486,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C307")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C307")
 					(unit 1)
 				)
@@ -7568,6 +7610,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C309")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7678,6 +7726,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C303")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C303")
 					(unit 1)
 				)
@@ -7796,6 +7850,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C308")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7908,6 +7968,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "R301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7983,6 +8049,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "TP_GND1")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "TP_GND1")
 					(unit 1)
 				)
@@ -8101,6 +8173,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C317")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8215,6 +8293,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C318")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8325,6 +8409,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C315")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C315")
 					(unit 1)
 				)
@@ -8468,6 +8558,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "U301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8541,6 +8637,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#PWR0304")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#PWR0304")
 					(unit 1)
 				)
@@ -8659,6 +8761,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C322")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8733,6 +8841,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#FLG0304")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#FLG0304")
 					(unit 1)
 				)
@@ -8851,6 +8965,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C319")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8965,6 +9085,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C314")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9039,6 +9165,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#FLG0302")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#FLG0302")
 					(unit 1)
 				)
@@ -9170,6 +9302,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "Q301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9248,6 +9386,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "#FLG0301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9321,6 +9465,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#PWR0305")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#PWR0305")
 					(unit 1)
 				)
@@ -9439,6 +9589,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C325")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9553,6 +9709,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C305")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9662,6 +9824,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "D301")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "D301")
 					(unit 1)
 				)
@@ -9780,6 +9948,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C310")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9894,6 +10068,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C321")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9973,6 +10153,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "TP_VOUT1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10047,6 +10233,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#FLG0303")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#FLG0303")
 					(unit 1)
 				)
@@ -10165,6 +10357,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10239,6 +10437,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#PWR0303")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#PWR0303")
 					(unit 1)
 				)
@@ -10355,6 +10559,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "R305")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10464,6 +10674,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "R306")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "R306")
 					(unit 1)
 				)
@@ -10582,6 +10798,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C313")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10659,6 +10881,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "R302")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "R302")
 					(unit 1)
 				)
@@ -10777,6 +11005,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C304")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10885,6 +11119,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "R304")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "R304")
 					(unit 1)
 				)
@@ -11003,6 +11243,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C311")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11076,6 +11322,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "#PWR0301")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "#PWR0301")
 					(unit 1)
 				)
@@ -11194,6 +11446,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C316")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11304,6 +11562,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C306")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C306")
 					(unit 1)
 				)
@@ -11422,6 +11686,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C312")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11536,6 +11806,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "C323")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11614,6 +11890,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C320")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C320")
 					(unit 1)
 				)
@@ -11697,6 +11979,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "TP_SW1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11772,6 +12060,12 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "TP_GND2")
+					(unit 1)
+				)
+			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "TP_GND2")
 					(unit 1)
 				)
@@ -11891,6 +12185,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "J301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11970,6 +12270,12 @@
 					(unit 1)
 				)
 			)
+			(project "power_stage"
+				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
+					(reference "TP_VIN1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(sheet_instances
@@ -11977,4 +12283,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
