@@ -92,7 +92,3 @@ Use KiCad's built-in `power` library for `GND`, `+5V`, `+3V3` and the other stan
 - Bring up the 5 V supply (through the external 5 V header) before applying 48 V.
 - Check polarity before connecting any electronic load or source.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.
-
-## Team
-
-HexaGaN Power Circuits and Modules pod: Reza Rahimzadeh (lead), Connor Jin, Yunxi He.
