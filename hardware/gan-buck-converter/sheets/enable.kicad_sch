@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid 260913a6-4356-45fc-8879-77352def2f4e)
+	(uuid "260913a6-4356-45fc-8879-77352def2f4e")
 	(paper "A4")
 	(title_block
 		(title "Hardware enable and watchdog")

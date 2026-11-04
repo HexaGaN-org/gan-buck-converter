@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid 48927020-95e9-4c06-9ec1-581064e801e0)
+	(uuid "48927020-95e9-4c06-9ec1-581064e801e0")
 	(paper "A4")
 	(title_block
 		(title "48 V input, protection and aux rails")

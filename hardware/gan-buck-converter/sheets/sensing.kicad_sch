@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid bc4589b6-558d-4739-8b1d-657a1d18c299)
+	(uuid "bc4589b6-558d-4739-8b1d-657a1d18c299")
 	(paper "A4")
 	(title_block
 		(title "Current, voltage and temperature")

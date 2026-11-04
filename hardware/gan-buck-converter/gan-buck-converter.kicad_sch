@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid 81018c94-fb4c-45c9-bba6-c5ea3a6c5d76)
+	(uuid "81018c94-fb4c-45c9-bba6-c5ea3a6c5d76")
 	(paper "A4")
 	(title_block
 		(title "48 V to 12 V GaN Buck — Top")
@@ -11,52 +11,6 @@
 		(comment 1 "Owner: [NAME]")
 	)
 	(lib_symbols)
-	(sheet
-		(at 25.4 30.48)
-		(size 35.56 45.72)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid 4b8aa320-60ae-4662-bdb4-bbf72b4f9843)
-		(property "Sheetname" "input_supply"
-			(at 25.4 29.7684 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "sheets/input_supply.kicad_sch"
-			(at 25.4 76.7844 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(page "2")
-				)
-			)
-		)
-	)
 	(sheet
 		(at 101.6 30.48)
 		(size 40.64 45.72)
@@ -70,9 +24,9 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
-		(uuid 0444207b-857e-41da-9181-e6569e333c47)
+		(uuid "0444207b-857e-41da-9181-e6569e333c47")
 		(property "Sheetname" "power_stage"
 			(at 101.6 29.7684 0)
 			(show_name no)
@@ -104,52 +58,6 @@
 		)
 	)
 	(sheet
-		(at 177.8 30.48)
-		(size 35.56 45.72)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid fa2b1562-2d1a-4504-8d39-68003209b21b)
-		(property "Sheetname" "sensing"
-			(at 177.8 29.7684 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "sheets/sensing.kicad_sch"
-			(at 177.8 76.7844 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(page "4")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 76.2 96.52)
 		(size 40.64 45.72)
 		(exclude_from_sim no)
@@ -162,9 +70,9 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
-		(uuid 2a1cd5f1-1c22-4eaf-ad03-c666fb71ff74)
+		(uuid "2a1cd5f1-1c22-4eaf-ad03-c666fb71ff74")
 		(property "Sheetname" "mcu"
 			(at 76.2 95.8084 0)
 			(show_name no)
@@ -196,6 +104,52 @@
 		)
 	)
 	(sheet
+		(at 25.4 30.48)
+		(size 35.56 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4b8aa320-60ae-4662-bdb4-bbf72b4f9843")
+		(property "Sheetname" "input_supply"
+			(at 25.4 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/input_supply.kicad_sch"
+			(at 25.4 76.7844 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 132.08 96.52)
 		(size 35.56 45.72)
 		(exclude_from_sim no)
@@ -208,9 +162,9 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
-		(uuid c329dfb0-29d8-4836-983b-5f6026af9994)
+		(uuid "c329dfb0-29d8-4836-983b-5f6026af9994")
 		(property "Sheetname" "enable"
 			(at 132.08 95.8084 0)
 			(show_name no)
@@ -254,9 +208,9 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
-		(uuid ed5213cc-44bb-4299-9159-8eb52a6c8543)
+		(uuid "ed5213cc-44bb-4299-9159-8eb52a6c8543")
 		(property "Sheetname" "comms_debug"
 			(at 25.4 95.8084 0)
 			(show_name no)
@@ -283,6 +237,52 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
 					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 30.48)
+		(size 35.56 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "fa2b1562-2d1a-4504-8d39-68003209b21b")
+		(property "Sheetname" "sensing"
+			(at 177.8 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sheets/sensing.kicad_sch"
+			(at 177.8 76.7844 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
+					(page "4")
 				)
 			)
 		)
