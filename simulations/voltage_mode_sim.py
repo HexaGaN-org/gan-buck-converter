@@ -385,141 +385,306 @@ def step_metrics(rec):
 # PLOTS
 # =============================================================================
 
-def style_axes(ax):
-    ax.grid(True, which="both", alpha=0.3)
+from matplotlib.ticker import FuncFormatter, NullFormatter
+
+F_PLOT_MAX = 160e3   # Hz, right edge of the frequency plots (just below the Nyquist limit)
+BOX = dict(boxstyle="round,pad=0.35", fc="white", ec="0.75", alpha=0.95)
+EVENT_STYLE = dict(color="0.55", ls=":", lw=1)
+
+
+def setup_style(plt):
+    plt.rcParams.update({
+        "font.size": 9.5, "axes.labelsize": 10, "axes.titlesize": 10,
+        "legend.fontsize": 8.5, "figure.titlesize": 11.5,
+    })
+
+
+def _hz(x, _pos=None):
+    return f"{x/1e3:g} kHz" if x >= 1e3 else f"{x:g} Hz"
+
+
+def freq_axes(ax):
+    """Log frequency axis labelled in Hz / kHz instead of powers of ten."""
     ax.set_xscale("log")
+    ax.set_xlim(10, F_PLOT_MAX)
+    ax.xaxis.set_major_formatter(FuncFormatter(_hz))
+    ax.xaxis.set_minor_formatter(NullFormatter())
+    ax.grid(True, which="major", alpha=0.35)
+    ax.grid(True, which="minor", alpha=0.12)
+
+
+def times_axis(ax, ticks_db, label):
+    """Right-hand axis that translates dB into 'times bigger'."""
+    sec = ax.secondary_yaxis("right")
+    sec.set_yticks(ticks_db)
+    sec.set_yticklabels([f"×{10 ** (d / 20):g}" for d in ticks_db])
+    sec.set_ylabel(label)
+    return sec
 
 
 def plot_plant(plt, freqs, g_vd):
     f_lc, f_esr = plant_landmarks()
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 7), sharex=True)
-    fig.suptitle("1. The plant: how the output voltage responds to duty-cycle changes\n"
-                 "(no controller yet — this is the power stage on its own)", fontsize=11)
-    ax1.plot(freqs, 20 * np.log10(np.abs(g_vd)), color="tab:blue")
-    ax1.set_ylabel("Gain (dB)")
-    ax2.plot(freqs, np.degrees(np.unwrap(np.angle(g_vd))), color="tab:blue")
-    ax2.set_ylabel("Phase (degrees)")
-    ax2.set_xlabel("Frequency of the duty-cycle wiggle (Hz)")
+    keep = freqs <= F_PLOT_MAX
+    f, g = freqs[keep], g_vd[keep]
+    swing_mv = np.abs(g)          # |G_vd| volts per unit duty = mV per 0.1 % duty
+    phase = np.degrees(np.unwrap(np.angle(g)))
+    i_pk = np.argmax(swing_mv)
+    slow = swing_mv[0]
+    fast_f = 50e3
+    fast = np.interp(np.log10(fast_f), np.log10(f), swing_mv)
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+    fig.suptitle("1. The power stage on its own (no controller yet)\n"
+                 "Wiggle the duty cycle up and down by ±0.1 % at different speeds: "
+                 "how much does the output wiggle, and how late?")
+
+    ax1.plot(f, swing_mv, color="tab:blue", lw=2)
+    ax1.set_yscale("log")
+    ax1.set_ylim(0.05, 2000)
+    ax1.set_ylabel("How much the output wiggles\n(mV, for a ±0.1 % duty wiggle)")
+    ax1.yaxis.set_major_formatter(FuncFormatter(lambda y, _p: f"{y:g}"))
+    ax_db = ax1.twinx()
+    ax_db.set_yscale("log")
+    ax_db.set_ylim(ax1.get_ylim())
+    db_ticks = [-20, 0, 20, 40, 60]
+    ax_db.set_yticks([10 ** (d / 20) for d in db_ticks])
+    ax_db.set_yticklabels([f"{d} dB" for d in db_ticks])
+    ax_db.yaxis.set_minor_formatter(NullFormatter())
+    ax_db.tick_params(axis="y", which="minor", right=False)
+    ax_db.set_ylabel("same thing in dB\n(engineering units)")
+
+    ax1.annotate(f"Slow wiggles: the output simply follows.\n"
+                 f"0.1 % of 48 V = {slow:.0f} mV", xy=(30, slow), xytext=(15, slow * 6),
+                 bbox=BOX, arrowprops=dict(arrowstyle="->", lw=0.8))
+    ax1.annotate(f"{f_lc/1e3:.1f} kHz: LC resonance (the 'spring').\n"
+                 f"The output over-reacts: {swing_mv[i_pk]:.0f} mV, "
+                 f"about {swing_mv[i_pk]/slow:.0f}× the slow value", xy=(f[i_pk], swing_mv[i_pk]),
+                 xytext=(f_lc * 1.6, swing_mv[i_pk] * 3), bbox=BOX,
+                 arrowprops=dict(arrowstyle="->", lw=0.8))
+    ax1.annotate(f"Fast wiggles: the inductor and capacitors\nsmooth them out "
+                 f"({fast_f/1e3:.0f} kHz → {fast:.1f} mV)", xy=(fast_f, fast),
+                 xytext=(1.2e3, 0.12), bbox=BOX, arrowprops=dict(arrowstyle="->", lw=0.8))
+
+    ax2.plot(f, phase, color="tab:blue", lw=2)
+    ax2.set_ylabel("How late the output is\n(degrees of one wiggle)")
+    ax2.set_xlabel("How fast the duty cycle is wiggled up and down")
+    ax2.set_ylim(-200, 20)
+    for y, txt in ((0, "on time"), (-90, "¼ wiggle late"), (-180, "½ wiggle late")):
+        ax2.axhline(y, color="0.5", lw=0.8, ls="--")
+        ax2.text(F_PLOT_MAX * 0.97, y + 4, txt, ha="right", fontsize=8, color="0.35")
+    ax2.text(15, -40, "Below the resonance the\noutput keeps up (≈ 0°)", bbox=BOX)
+    ax2.text(f_lc * 1.55, -62, "Past the resonance it lags by\nalmost half a wiggle", bbox=BOX)
+
     for ax in (ax1, ax2):
-        style_axes(ax)
+        freq_axes(ax)
         ax.axvline(f_lc, color="tab:red", ls="--", lw=1)
         ax.axvline(f_esr, color="tab:green", ls="--", lw=1)
-    ax1.annotate(f"LC resonance ({f_lc/1e3:.1f} kHz)\nthe 'spring' bounce:\n"
-                 "a peak, then the gain falls fast", xy=(f_lc, 20 * np.log10(np.abs(g_vd)).max()),
-                 xytext=(f_lc * 11, 20 * np.log10(np.abs(g_vd)).max() - 8), fontsize=8,
-                 arrowprops=dict(arrowstyle="->", lw=0.8))
-    ax2.text(f_lc * 1.1, -30, "phase drops ~180°\nat the resonance", fontsize=8, color="tab:red")
-    ax2.text(f_esr * 1.1, -150, f"polymer ESR zero\n({f_esr/1e3:.1f} kHz)\ngives some phase back",
-             fontsize=8, color="tab:green")
+    ax2.text(f_esr * 1.08, -165, f"{f_esr/1e3:.1f} kHz: the polymer capacitor's\n"
+             "resistance (ESR) gives some phase back", color="tab:green", fontsize=8)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT_DIR, "01_plant_bode.png"), dpi=150)
     return fig
 
 
 def plot_loop(plt, freqs, g_vd, ctrl, m, alt_ctrl, alt_m):
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 7.5), sharex=True)
-    fig.suptitle("2. The full loop: controller × plant × digital delay\n"
-                 "Crossover = how fast the loop reacts. Phase margin = how far it is from oscillating.",
-                 fontsize=11)
-    loop, g_c = digital_loop_gain(freqs, g_vd, ctrl["b_z"], ctrl["a_z"], ctrl["n_cycles"])
     n = ctrl["n_cycles"]
-    ax1.plot(freqs, 20 * np.log10(np.abs(g_vd)), color="0.6", lw=1, label="Plant alone")
-    ax1.plot(freqs, 20 * np.log10(np.abs(g_c)), color="tab:orange", lw=1, label="Controller alone")
-    ax1.plot(freqs, 20 * np.log10(m["mag"]), color="tab:blue", lw=2,
-             label=f"Loop gain (ISR every {n} cycle{'s' if n > 1 else ''})")
-    ax2.plot(freqs, m["phase"], color="tab:blue", lw=2, label=f"Loop phase (every {n})")
+    loop, g_c = digital_loop_gain(freqs, g_vd, ctrl["b_z"], ctrl["a_z"], n)
+    keep = freqs <= F_PLOT_MAX
+    f = freqs[keep]
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8.5), sharex=True)
+    fig.suptitle("2. The whole control loop: controller × power stage × MCU delay\n"
+                 "Check 1: where the loop gain crosses ×1 (loop speed).   "
+                 "Check 2: how far the phase is from −180° (stability).")
+
+    # Shaded zones either side of crossover.
+    ax1.axvspan(10, m["fc"], color="tab:green", alpha=0.06)
+    ax1.axvspan(m["fc"], F_PLOT_MAX, color="tab:red", alpha=0.05)
+    ax1.text(14, 68, "Loop gain above ×1: disturbances this slow get corrected", color="tab:green")
+    ax1.text(m["fc"] * 1.06, 75, "Below ×1: too fast\nfor the loop", color="tab:red", va="top")
+
+    ax1.plot(f, 20 * np.log10(np.abs(g_vd[keep])), color="0.6", lw=1, label="Power stage alone (plot 1)")
+    ax1.plot(f, 20 * np.log10(np.abs(g_c[keep])), color="tab:orange", lw=1, label="Controller alone")
+    ax1.plot(f, 20 * np.log10(m["mag"][keep]), color="tab:blue", lw=2.2,
+             label="Whole loop (controller × power stage × delay)")
+    ax2.plot(f, m["phase"][keep], color="tab:blue", lw=2.2, label=f"Whole loop: phase margin {m['pm']:.0f}°")
     if alt_m is not None:
         na = alt_ctrl["n_cycles"]
-        ax1.plot(freqs, 20 * np.log10(alt_m["mag"]), color="tab:purple", lw=1, ls="--",
-                 label=f"What if the ISR ran every {na} cycles")
-        ax2.plot(freqs, alt_m["phase"], color="tab:purple", lw=1, ls="--",
-                 label=f"Every {na}: phase margin {alt_m['pm']:.0f}°")
-    ax1.axhline(0, color="k", lw=0.8)
-    ax2.axhline(-180, color="tab:red", lw=1, ls=":")
-    ax2.text(freqs[1], -176, "−180°: the oscillation line", fontsize=8, color="tab:red")
-    for ax in (ax1, ax2):
-        style_axes(ax)
-        ax.axvline(m["fc"], color="k", ls="--", lw=0.8)
-    ax1.text(m["fc"] * 1.08, 30, f"crossover\n{m['fc']/1e3:.1f} kHz", fontsize=8)
+        ka = freqs <= 0.8 * FSW / (2 * na)
+        every = "every cycle" if na == 1 else f"every {na}{'nd' if na == 2 else 'th'} cycle"
+        ax1.plot(freqs[ka], 20 * np.log10(alt_m["mag"][ka]), color="tab:purple", lw=1.2, ls="--",
+                 label=f"Same controller if the ISR ran {every}")
+        ax2.plot(freqs[ka], alt_m["phase"][ka], color="tab:purple", lw=1.2, ls="--",
+                 label=f"ISR {every}: phase margin {alt_m['pm']:.0f}° (more delay, less margin)")
+
+    ax1.axhline(0, color="k", lw=1)
+    ax1.text(14, 2, "0 dB = ×1", fontsize=8)
+    ax1.axvline(m["fc"], color="k", ls="--", lw=0.9)
+    ax1.text(m["fc"] * 0.93, -50, f"Crossover\n{m['fc']/1e3:.0f} kHz\n(loop speed)", ha="right", bbox=BOX)
+    ax1.set_ylabel("Loop gain (dB)")
+    ax1.set_ylim(-60, 80)
+    times_axis(ax1, [-40, -20, 0, 20, 40, 60], "correction strength\n(times)")
+    ax1.legend(loc="lower left", bbox_to_anchor=(0.0, 0.13))
+
+    ax2.axhline(-180, color="tab:red", lw=1.2, ls=":")
+    ax2.text(14, -186, "−180°: the correction arrives half a cycle late and pushes the wrong way → oscillation",
+             color="tab:red", fontsize=8, va="top")
+    ax2.axvline(m["fc"], color="k", ls="--", lw=0.9)
     ph_c = m["pm"] - 180
     ax2.annotate("", xy=(m["fc"], -180), xytext=(m["fc"], ph_c),
-                 arrowprops=dict(arrowstyle="<->", color="tab:green", lw=1.5))
-    ax2.text(m["fc"] * 1.15, (ph_c - 180) / 2, f"phase margin\n{m['pm']:.0f}°",
-             fontsize=9, color="tab:green")
-    ax1.set_ylabel("Gain (dB)")
-    ax1.set_ylim(-60, 80)
-    ax2.set_ylabel("Phase (degrees)")
+                 arrowprops=dict(arrowstyle="<->", color="tab:green", lw=1.8))
+    ax2.text(m["fc"] * 0.93, -157, f"Phase margin {m['pm']:.0f}°\n(distance from −180°\nat the crossover)",
+             ha="right", va="center", color="tab:green", bbox=BOX)
+
+    if m["gm"] is not None:
+        mag_gm = 20 * np.log10(np.interp(np.log10(m["f_gm"]), np.log10(freqs), m["mag"]))
+        for ax in (ax1, ax2):
+            ax.axvline(m["f_gm"], color="tab:purple", ls=":", lw=0.9)
+        ax2.plot([m["f_gm"]], [-180], "o", color="tab:red")
+        ax2.text(m["f_gm"] * 1.07, -172, "−180° here", fontsize=8, color="tab:red")
+        ax1.annotate("", xy=(m["f_gm"], 0), xytext=(m["f_gm"], mag_gm),
+                     arrowprops=dict(arrowstyle="<->", color="tab:purple", lw=1.8))
+        ax1.text(m["f_gm"] * 0.94, 32, f"Gain margin\n{m['gm']:.1f} dB (×{10 ** (m['gm'] / 20):.1f}\n"
+                 "before oscillation)", color="tab:purple", ha="right", bbox=BOX)
+
+    ax2.set_ylabel("Loop phase: how late\nthe correction is (degrees)")
     ax2.set_ylim(-270, 0)
-    ax2.set_xlabel("Frequency (Hz)")
-    ax1.legend(fontsize=8, loc="lower left")
-    ax2.legend(fontsize=8, loc="lower left")
+    ax2.set_xlabel("Frequency of the disturbance")
+    ax2.legend(loc="lower left")
+    for ax in (ax1, ax2):
+        freq_axes(ax)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT_DIR, "02_loop_bode.png"), dpi=150)
     return fig
 
 
+def mark_events(axes, label_ax=None):
+    events = [(SOFTSTART_TIME, None), (T_LOAD_ON, None), (T_STEP_UP, None), (T_STEP_DOWN, None)]
+    for ax in axes:
+        for t_ev, _ in events:
+            ax.axvline(t_ev * 1e3, **EVENT_STYLE)
+
+
 def plot_time(plt, rec, met):
     t_ms = rec["t"] * 1e3
-    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(9, 8.5), sharex=True)
-    fig.suptitle("3. Time simulation: soft-start, then a 10 % → 90 % load step and back", fontsize=11)
-    ax1.plot(t_ms, rec["ref"], color="0.6", lw=1, ls="--", label="Reference (what firmware asks for)")
-    ax1.plot(t_ms, rec["vout"], color="tab:blue", lw=1.5, label="Output voltage")
+    soft_i = (C_CER + C_POLY) * VOUT_TARGET / SOFTSTART_TIME
+    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 9.5), sharex=True)
+    fig.suptitle("3. Time simulation: start-up, then a sudden load change and back\n"
+                 "(like watching the board on an oscilloscope)")
+
+    # --- Output voltage ---
+    ax1.plot(t_ms, rec["ref"], color="0.55", lw=1.2, ls="--", label="Target set by firmware (reference)")
+    ax1.plot(t_ms, rec["vout"], color="tab:blue", lw=1.6, label="Output voltage")
+    ax1.set_title("Output voltage", loc="left", fontweight="bold")
     ax1.set_ylabel("Volts")
-    ax1.legend(fontsize=8, loc="lower right")
-    ax1.text(SOFTSTART_TIME * 1e3 * 0.35, VOUT_TARGET * 0.55, "soft-start ramp", fontsize=8)
-    ax1.text(T_STEP_UP * 1e3 + 0.1, VOUT_TARGET - 1.5,
-             f"load step: dips {met['dip']*1e3:.0f} mV\nsettles in {met['settle_up']*1e6:.0f} µs",
-             fontsize=8)
+    ax1.set_ylim(-0.5, 14.5)
+    ax1.text(0.08, 10.6, "Soft-start: the target ramps\n0 → 12 V over 2 ms", bbox=BOX)
+    ax1.text(T_LOAD_ON * 1e3 + 0.08, 6.0, f"{I_LIGHT:g} A load\nconnected", bbox=BOX)
+    ax1.text(T_STEP_UP * 1e3 + 0.08, 6.0, f"Load jumps to {I_HEAVY:g} A\noutput dips {met['dip']*1e3:.0f} mV\n"
+             f"(too small to see at this scale:\nsee plot 3b)", bbox=BOX)
+    ax1.text(T_STEP_DOWN * 1e3 + 0.08, 6.0, f"Load drops back\nto {I_LIGHT:g} A",
+             bbox=BOX)
+    ax1.legend(loc="lower right")
 
-    ax2.plot(t_ms, rec["il"], color="tab:orange", lw=1, label="Inductor current (average)")
-    ax2.plot(t_ms, rec["iload"], color="k", lw=1, ls="--", label="Load current")
+    # --- Currents ---
+    ax2.plot(t_ms, rec["il"], color="tab:orange", lw=1.2, label="Inductor current (what the converter supplies)")
+    ax2.plot(t_ms, rec["iload"], color="k", lw=1, ls="--", label="Load current (what the load takes)")
+    ax2.set_title("Currents", loc="left", fontweight="bold")
     ax2.set_ylabel("Amps")
-    ax2.legend(fontsize=8, loc="upper left")
+    ax2.set_ylim(-7, 21)
+    ax2.annotate(f"≈ {soft_i:.1f} A just to charge the\noutput capacitors during soft-start",
+                 xy=(1.0, soft_i), xytext=(0.15, 9), bbox=BOX, arrowprops=dict(arrowstyle="->", lw=0.8))
+    k_pk = np.argmax(np.where(rec["t"] >= T_STEP_UP, rec["il"], -np.inf))
+    ax2.annotate(f"Overshoots to {met['il_peak']:.1f} A\nto refill the capacitors",
+                 xy=(t_ms[k_pk], rec["il"][k_pk]), xytext=(T_STEP_UP * 1e3 + 0.35, 17), bbox=BOX,
+                 arrowprops=dict(arrowstyle="->", lw=0.8))
+    k_mn = np.argmin(np.where(rec["t"] >= T_STEP_DOWN, rec["il"], np.inf))
+    ax2.annotate(f"Briefly {met['il_min']:.1f} A: current flows\nback toward the 48 V input",
+                 xy=(t_ms[k_mn], rec["il"][k_mn]), xytext=(T_STEP_DOWN * 1e3 + 0.35, -5.8), bbox=BOX,
+                 arrowprops=dict(arrowstyle="->", lw=0.8))
+    ax2.legend(loc="upper left")
 
+    # --- Duty cycle ---
     ax3.plot(t_ms, rec["duty"] * 100, color="tab:green", lw=1)
-    ax3.set_ylabel("Duty cycle (%)")
+    ax3.axhline(VOUT_TARGET / VIN * 100, color="0.5", lw=0.8, ls="--")
+    ax3.text(T_END * 1e3 * 0.995, VOUT_TARGET / VIN * 100 + 1.5,
+             f"12 V ÷ 48 V = {VOUT_TARGET/VIN*100:.0f} %", ha="right", fontsize=8, color="0.35")
+    ax3.set_title("Duty cycle: the controller's output (fraction of each switching cycle the top FET is on)",
+                  loc="left", fontweight="bold")
+    ax3.set_ylabel("Percent")
+    ax3.set_ylim(0, 55)
+    ax3.text(0.08, 40, "Rises with the soft-start ramp", bbox=BOX)
+    ax3.text(T_STEP_UP * 1e3 + 0.35, 40, "Spikes: the controller reacting to\nthe load change, then settling back",
+             bbox=BOX)
     ax3.set_xlabel("Time (ms)")
-    ax3.text(0.1, 30, f"ideal steady-state duty = {VOUT_TARGET/VIN*100:.0f} %, "
-             "a bit more under load to cover losses", fontsize=8)
+    ax3.set_xlim(0, T_END * 1e3)
     for ax in (ax1, ax2, ax3):
         ax.grid(True, alpha=0.3)
+    mark_events((ax1, ax2, ax3))
     fig.tight_layout()
     fig.savefig(os.path.join(OUT_DIR, "03_time_response.png"), dpi=150)
 
-    # Zoom on the load step.
-    fig2, ax = plt.subplots(figsize=(9, 4))
+    # --- Zoom on the load step ---
+    fig2, ax = plt.subplots(figsize=(10, 4.8))
     w = (rec["t"] > T_STEP_UP - 0.1e-3) & (rec["t"] < T_STEP_UP + 0.5e-3)
-    ax.plot((rec["t"][w] - T_STEP_UP) * 1e6, (rec["vout"][w] - VOUT_TARGET) * 1e3, color="tab:blue")
+    t_us = (rec["t"][w] - T_STEP_UP) * 1e6
+    err_mv = (rec["vout"][w] - VOUT_TARGET) * 1e3
     band = SETTLE_BAND * VOUT_TARGET * 1e3
-    ax.axhspan(-band, band, color="tab:green", alpha=0.15, label=f"±{band:.0f} mV settling band")
-    ax.axvline(0, color="k", lw=0.8, ls="--")
-    ax.set_xlabel("Time after the load steps from 1.25 A to 11.25 A (µs)")
-    ax.set_ylabel("Output error (mV)")
-    ax.set_title("3b. Zoom on the load step: how far the output dips and how fast it recovers", fontsize=11)
+    ax.axhspan(-band, band, color="tab:green", alpha=0.15)
+    ax.text(480, band - 12, f"settled = within ±{band:.0f} mV of 12 V", ha="right", color="tab:green")
+    ax.plot(t_us, err_mv, color="tab:blue", lw=1.8)
+    ax.axhline(0, color="0.5", lw=0.8)
+    ax.axvline(0, color="k", lw=0.9, ls="--")
+    ax.text(-95, -150, f"Load jumps\n{I_LIGHT:g} A → {I_HEAVY:g} A\nhere ►", bbox=BOX)
+    i_min = np.argmin(err_mv)
+    ax.plot([t_us[i_min]], [err_mv[i_min]], "o", color="tab:red")
+    ax.annotate(f"Lowest point: {err_mv[i_min]:.0f} mV,\n{t_us[i_min]:.0f} µs after the jump",
+                xy=(t_us[i_min], err_mv[i_min]), xytext=(60, -330), bbox=BOX,
+                arrowprops=dict(arrowstyle="->", lw=0.8))
+    t_set = met["settle_up"] * 1e6
+    ax.axvline(t_set, color="tab:green", lw=1, ls="--")
+    ax.annotate(f"Back inside the band\nafter {t_set:.0f} µs", xy=(t_set, -band),
+                xytext=(t_set + 60, -190), bbox=BOX, arrowprops=dict(arrowstyle="->", lw=0.8))
+    ax.text(230, -265, "The small wiggles on the way back are ringing.\n"
+            "Less phase margin (plot 2) would mean more, bigger wiggles.", bbox=BOX)
+    ax.set_xlabel(f"Time after the load jumps (µs)")
+    ax.set_ylabel("Output error (mV)\n= output − 12 V")
+    ax.set_title("3b. Zoom on the load jump: how far the output dips and how fast it recovers",
+                 loc="left", fontweight="bold")
+    ax.set_xlim(-100, 500)
+    ax.set_ylim(min(-400, err_mv.min() * 1.1), 90)
     ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=8)
     fig2.tight_layout()
     fig2.savefig(os.path.join(OUT_DIR, "03b_load_step_zoom.png"), dpi=150)
     return fig, fig2
 
 
 def plot_pwm_resolution(plt, rec_hr, rec_plain):
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 6.5), sharex=True)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7), sharex=True)
     w = (rec_hr["t"] > T_STEP_UP - 0.5e-3) & (rec_hr["t"] < T_STEP_UP)
     t_us = (rec_hr["t"][w] - (T_STEP_UP - 0.5e-3)) * 1e6
-    lab_plain = f"Without HRPWM (one duty step = {duty_step(False)*VIN*1e3:.0f} mV of output)"
-    lab_hr = f"With HRPWM (one duty step = {duty_step(True)*VIN*1e3:.1f} mV of output)"
-    ax1.plot(t_us, (rec_plain["vout"][w] - VOUT_TARGET) * 1e3, color="tab:red", lw=1, label=lab_plain)
-    ax1.plot(t_us, (rec_hr["vout"][w] - VOUT_TARGET) * 1e3, color="tab:blue", lw=1.5, label=lab_hr)
-    ax1.set_ylabel("Output error (mV)")
-    ax1.legend(fontsize=8, loc="upper right")
-    ax2.step(t_us, rec_plain["duty"][w] * 100, color="tab:red", lw=1, where="post")
-    ax2.step(t_us, rec_hr["duty"][w] * 100, color="tab:blue", lw=1.5, where="post")
-    ax2.set_ylabel("Duty cycle (%)")
-    ax2.set_xlabel("Time (µs), steady state at light load")
-    fig.suptitle("4. PWM resolution: the duty cycle can only move in steps.\n"
-                 "Without HRPWM the loop can't land on the right duty, so it keeps jumping between steps",
-                 fontsize=11)
+    q_plain, q_hr = duty_step(False), duty_step(True)
+    lab_plain = f"Without HRPWM: duty moves in {q_plain*100:.2f} % steps (= {q_plain*VIN*1e3:.0f} mV of output)"
+    lab_hr = f"With HRPWM: duty moves in {q_hr*100:.3f} % steps (= {q_hr*VIN*1e3:.1f} mV of output)"
+    adc_lsb_mv = ADC_VREF / 2 ** ADC_BITS / VOUT_DIVIDER * 1e3
+
+    ax1.plot(t_us, (rec_plain["vout"][w] - VOUT_TARGET) * 1e3, color="tab:red", lw=1.1, label=lab_plain)
+    ax1.plot(t_us, (rec_hr["vout"][w] - VOUT_TARGET) * 1e3, color="tab:blue", lw=1.8, label=lab_hr)
+    ax1.set_title("Output voltage", loc="left", fontweight="bold")
+    ax1.set_ylabel("Output error (mV)\n= output − 12 V")
+    ax1.set_ylim(-7, 9)
+    ax1.legend(loc="upper left")
+    ax1.text(495, -6.3, f"Both wobble a little because the 12-bit ADC reads the output "
+             f"in {adc_lsb_mv:.0f} mV steps", ha="right", fontsize=8, bbox=BOX)
+
+    ax2.step(t_us, rec_plain["duty"][w] * 100, color="tab:red", lw=1.1, where="post")
+    ax2.step(t_us, rec_hr["duty"][w] * 100, color="tab:blue", lw=1.8, where="post")
+    ax2.set_title("Duty cycle the controller actually gets", loc="left", fontweight="bold")
+    ax2.set_ylabel("Duty (%)")
+    ax2.set_xlabel(f"Time (µs), half a millisecond of steady running at {I_LIGHT:g} A")
+    fig.suptitle("4. PWM resolution: the duty cycle can only change in fixed steps\n"
+                 "Coarse steps (red) can't land on the right value, so the controller keeps "
+                 "jumping between neighbouring steps")
     for ax in (ax1, ax2):
         ax.grid(True, alpha=0.3)
     fig.tight_layout()
@@ -619,6 +784,7 @@ def main():
     if not args.show:
         matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    setup_style(plt)
 
     os.makedirs(OUT_DIR, exist_ok=True)
     n = LOOP_EVERY_N_CYCLES
