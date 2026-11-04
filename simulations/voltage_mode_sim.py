@@ -17,6 +17,9 @@ What this script does, in order:
                 one-cycle delay, duty clamped, and PWM resolution with and
                 without HRPWM.
 
+  4. WORST CASE Re-checks the same controller with every part at the edge of its
+                tolerance (capacitor ESR, inductance, capacitance, input voltage).
+
 It is an *averaged* model: switching ripple is not shown, only the average
 behavior the control loop sees. See README.md for what each plot means and
 what to try.
@@ -28,6 +31,7 @@ Run:   python voltage_mode_sim.py            (plots saved to ./output)
 
 import argparse
 import os
+from contextlib import contextmanager
 
 import numpy as np
 import matplotlib
@@ -40,22 +44,37 @@ from scipy.signal import cont2discrete
 # =============================================================================
 
 # --- Operating point (docs/specifications.md) ---
-VIN = 48.0             # V, input voltage
+VIN = 48.0             # V, input voltage for this run
+VIN_NOMINAL = 48.0     # V, the input voltage the feedforward normalizes to
+VIN_MIN, VIN_MAX = 36.0, 54.0   # V, input range — ASSUMED (specifications.md is [TBD])
 VOUT_TARGET = 12.0     # V, output voltage
 FSW = 400e3            # Hz, switching frequency (power_stage.md decision #4)
 
-# --- Inductor and resistances in the current path (docs/design/power_stage.md) ---
-L = 6.8e-6             # H, SLB2212P6R8MTT
-R_DCR = 2.1e-3         # ohm, inductor winding resistance (datasheet)
+# --- Inductor: Sunltech SLB2212P6R8MTT datasheet (Rev.01) ---
+L = 6.8e-6             # H, nominal (tested at 100 kHz / 0.1 V, zero current)
+L_TOL = 0.20           # +/-20 % tolerance (datasheet "M")
+L_SAG_FULL_LOAD = 0.12 # fraction lost at 12.5 A. Iron-powder core, Isat = 31 A for a 30 % drop;
+                       # no L-vs-I curve is published, so a straight line from 0 A is ASSUMED
+R_DCR = 2.1e-3         # ohm, typical (2.31 mOhm max)
+
+# --- Other resistances in the current path ---
 R_SHUNT = 1e-3         # ohm, current-sense shunt R301
-R_FET = 5e-3           # ohm, hot R_DS(on) averaged over both FETs (3.3 mOhm x 1.5)
+R_FET = 4.8e-3         # ohm, hot R_DS(on): 3.3 mOhm max x 1.45 at ~80 degC
+                       # (IGC033S10S1 datasheet Rev 1.1, Diagram 11)
 R_PCB = 1e-3           # ohm, copper traces — ASSUMED
 
 # --- Output capacitors (power_stage.md decision #10) ---
 C_CER = 39e-6          # F, 8 x 22 uF ceramics after DC-bias derating (effective)
 ESR_CER = 0.5e-3       # ohm, whole ceramic bank — ASSUMED (~4 mOhm each, 8 in parallel)
 C_POLY = 470e-6        # F, polymer bulk capacitor C319
-ESR_POLY = 25e-3       # ohm, C319 datasheet
+C_POLY_TOL = 0.20      # +/-20 % (datasheet)
+ESR_POLY = 25e-3       # ohm, C319's LCSC listing (jieerrui MA25V470M8x10, 25 mOhm @ 100 kHz)
+# ESR range for the worst-case check. Datasheets give only a maximum:
+#   Honorcap HV1E477M0810PZ (the 470 uF / 25 V / 8x10.5 datasheet supplied): 30 mOhm max at
+#   100 kHz, 20 degC; impedance at 105 degC up to 1.25x; end of life up to 1.5x.
+ESR_POLY_MIN = 15e-3   # ohm — ASSUMED (a good part, warm); no minimum is published
+ESR_POLY_MAX = 37.5e-3 # ohm, 30 mOhm x 1.25 (new part, hot)
+ESR_POLY_EOL = 45e-3   # ohm, 30 mOhm x 1.5 (end of life)
 
 # --- Load ---
 # None = electronic load in constant-current mode (the least damping, so the
@@ -67,6 +86,9 @@ LOOP_EVERY_N_CYCLES = 1     # control ISR runs every N PWM periods
 COMPUTE_DELAY_CYCLES = 1.0  # PWM periods from ADC sample to new duty taking effect
 F_TBCLK = 120e6             # Hz, ePWM time-base clock (300 counts per period at 400 kHz)
 USE_HRPWM = True            # high-resolution PWM (required by the firmware guide)
+USE_VIN_FEEDFORWARD = True  # duty = controller output x VIN_NOMINAL / measured VIN, so the
+                            # loop gain doesn't change with input voltage (VIN_SENSE is
+                            # already planned for feedforward in schematic-hierarchy.md)
 HRPWM_STEP = 150e-12        # s, HRPWM fine step (~150 ps, power_stage.md)
 D_MIN, D_MAX = 0.0, 0.60    # duty-cycle clamp
 
@@ -76,13 +98,14 @@ ADC_VREF = 3.3              # V
 VOUT_DIVIDER = 0.2          # VOUT_SENSE = 0.2 x VOUT -> 16.5 V full scale — ASSUMED
 
 # --- Controller design targets ---
-F_CROSSOVER = 20e3          # Hz, target loop speed. power_stage.md assumes ~25 kHz, but with
-                            # the 3.75 us digital delay 25 kHz leaves only ~5 dB gain margin;
-                            # 20 kHz gives ~60 deg phase margin and ~7 dB gain margin.
+F_CROSSOVER = 10e3          # Hz, target loop speed with nominal parts. Chosen so the loop
+                            # stays stable at the worst part-tolerance corner (see the
+                            # WORST CASE section of the summary): a high-ESR polymer and a
+                            # low inductance roughly double the crossover. 20 kHz looks fine
+                            # with nominal parts but drops to ~7 deg phase margin there.
 # Type III placement. None = choose automatically from the plant:
-#   both zeros a little below the LC resonance (0.6 x f_LC), first pole just
-#   above crossover (1.25 x F_CROSSOVER, which also roughly cancels the polymer
-#   ESR zero's effect), second pole at 0.45 x the control rate.
+#   both zeros below the LC resonance (0.4 x f_LC), first pole above crossover
+#   (1.6 x F_CROSSOVER), second pole at 0.45 x the control rate.
 FZ1 = None
 FZ2 = None
 FP1 = None
@@ -139,12 +162,18 @@ def build_plant():
 
 def plant_duty_to_vout(freqs, a, b, c_out, d_out):
     """G_vd(jw): output-voltage change per unit duty-cycle change."""
-    resp = np.empty(len(freqs), dtype=complex)
-    eye = np.eye(a.shape[0])
-    for i, f in enumerate(freqs):
-        s = 2j * np.pi * f
-        resp[i] = c_out @ np.linalg.solve(s * eye - a, b[:, 0]) + d_out[0]
-    return VIN * resp
+    s = 2j * np.pi * np.asarray(freqs)[:, None, None]
+    m = s * np.eye(a.shape[0])[None] - a[None]
+    rhs = np.broadcast_to(b[:, 0], (len(freqs), a.shape[0]))[..., None]
+    x = np.linalg.solve(m, rhs)[..., 0]
+    return VIN * (x @ c_out + d_out[0])
+
+
+def plant_seen_by_controller(freqs):
+    """What the controller drives. With input-voltage feedforward the duty is scaled by
+    VIN_NOMINAL / VIN, which cancels the plant's dependence on the input voltage."""
+    g = plant_duty_to_vout(freqs, *build_plant())
+    return g * VIN_NOMINAL / VIN if USE_VIN_FEEDFORWARD else g
 
 
 def plant_landmarks():
@@ -170,9 +199,9 @@ def plant_landmarks():
 def compensator_placement(n_cycles):
     f_lc, _ = plant_landmarks()
     f_ctrl = FSW / n_cycles
-    fz1 = FZ1 if FZ1 is not None else 0.6 * f_lc
-    fz2 = FZ2 if FZ2 is not None else 0.6 * f_lc
-    fp1 = FP1 if FP1 is not None else 1.25 * F_CROSSOVER
+    fz1 = FZ1 if FZ1 is not None else 0.4 * f_lc
+    fz2 = FZ2 if FZ2 is not None else 0.4 * f_lc
+    fp1 = FP1 if FP1 is not None else 1.6 * F_CROSSOVER
     fp2 = FP2 if FP2 is not None else 0.45 * f_ctrl
     return fz1, fz2, fp1, fp2
 
@@ -209,7 +238,7 @@ def design_controller(freqs, g_vd, n_cycles):
     num, den = compensator_continuous(fz1, fz2, fp1, fp2, 1.0)
     b_z, a_z = discretize(num, den, ts)
     f_probe = np.array([F_CROSSOVER])
-    g_vd_probe = plant_duty_to_vout(f_probe, *build_plant())
+    g_vd_probe = plant_seen_by_controller(f_probe)
     t_probe, _ = digital_loop_gain(f_probe, g_vd_probe, b_z, a_z, n_cycles)
     gain = 1.0 / abs(t_probe[0])
     num, den = compensator_continuous(fz1, fz2, fp1, fp2, gain)
@@ -331,6 +360,8 @@ def simulate(ctrl, use_hrpwm=USE_HRPWM):
         if k % n_cycles == 0:
             err = reference(t0) - adc_read(vout)
             u = comp.step(err)
+            if USE_VIN_FEEDFORWARD:
+                u = min(max(u * VIN_NOMINAL / VIN, D_MIN), D_MAX)
             pending.append(np.round(u / q) * q)
         else:
             pending.append(pending[-1])
@@ -548,7 +579,7 @@ def plot_loop(plt, freqs, g_vd, ctrl, m, alt_ctrl, alt_m):
                  "before oscillation)", color="tab:purple", ha="right", bbox=BOX)
 
     ax2.set_ylabel("Loop phase: how late\nthe correction is (degrees)")
-    ax2.set_ylim(-270, 0)
+    ax2.set_ylim(-270, 45)
     ax2.set_xlabel("Frequency of the disturbance")
     ax2.legend(loc="lower left")
     for ax in (ax1, ax2):
@@ -565,7 +596,7 @@ def mark_events(axes, label_ax=None):
             ax.axvline(t_ev * 1e3, **EVENT_STYLE)
 
 
-def plot_time(plt, rec, met):
+def plot_time(plt, rec, met, margins_pm=None):
     t_ms = rec["t"] * 1e3
     soft_i = (C_CER + C_POLY) * VOUT_TARGET / SOFTSTART_TIME
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 9.5), sharex=True)
@@ -645,8 +676,13 @@ def plot_time(plt, rec, met):
     ax.axvline(t_set, color="tab:green", lw=1, ls="--")
     ax.annotate(f"Back inside the band\nafter {t_set:.0f} µs", xy=(t_set, -band),
                 xytext=(t_set + 60, -190), bbox=BOX, arrowprops=dict(arrowstyle="->", lw=0.8))
-    ax.text(230, -265, "The small wiggles on the way back are ringing.\n"
-            "Less phase margin (plot 2) would mean more, bigger wiggles.", bbox=BOX)
+    if margins_pm is not None and margins_pm > 60:
+        ring_note = (f"No ringing: with {margins_pm:.0f}° of phase margin the output climbs back smoothly.\n"
+                     "Plot 5 shows a board with less margin: that one rings.")
+    else:
+        ring_note = ("The wiggles on the way back are ringing.\n"
+                     "Less phase margin (plot 2) means more, bigger wiggles.")
+    ax.text(200, -265, ring_note, bbox=BOX)
     ax.set_xlabel(f"Time after the load jumps (µs)")
     ax.set_ylabel("Output error (mV)\n= output − 12 V")
     ax.set_title("3b. Zoom on the load jump: how far the output dips and how fast it recovers",
@@ -672,9 +708,11 @@ def plot_pwm_resolution(plt, rec_hr, rec_plain):
     ax1.plot(t_us, (rec_hr["vout"][w] - VOUT_TARGET) * 1e3, color="tab:blue", lw=1.8, label=lab_hr)
     ax1.set_title("Output voltage", loc="left", fontweight="bold")
     ax1.set_ylabel("Output error (mV)\n= output − 12 V")
-    ax1.set_ylim(-7, 9)
+    span = max(7.0, 1.3 * 1e3 * max(np.abs(rec_plain["vout"][w] - VOUT_TARGET).max(),
+                                     np.abs(rec_hr["vout"][w] - VOUT_TARGET).max()))
+    ax1.set_ylim(-span, span * 1.25)
     ax1.legend(loc="upper left")
-    ax1.text(495, -6.3, f"Both wobble a little because the 12-bit ADC reads the output "
+    ax1.text(495, -0.9 * span, f"Both wobble a little because the 12-bit ADC reads the output "
              f"in {adc_lsb_mv:.0f} mV steps", ha="right", fontsize=8, bbox=BOX)
 
     ax2.step(t_us, rec_plain["duty"][w] * 100, color="tab:red", lw=1.1, where="post")
@@ -689,6 +727,127 @@ def plot_pwm_resolution(plt, rec_hr, rec_plain):
         ax.grid(True, alpha=0.3)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT_DIR, "04_pwm_resolution.png"), dpi=150)
+    return fig
+
+
+# =============================================================================
+# 4. WORST CASE — the same controller with every part at the edge of its range
+# =============================================================================
+#
+# Real parts are not exactly their nominal values. The controller is fixed in
+# firmware, so it has to stay stable for every board you build, at every
+# temperature, for the life of the product. This section re-checks the loop
+# with every combination of: polymer ESR (low / nominal / hot max / end of
+# life), inductance (low / nominal / high), polymer capacitance (-20 % / 0 /
+# +20 %) and input voltage (min / max).
+
+@contextmanager
+def parts(**overrides):
+    """Temporarily change module parameters, e.g. with parts(L=5e-6): ..."""
+    g = globals()
+    old = {k: g[k] for k in overrides}
+    g.update(overrides)
+    try:
+        yield
+    finally:
+        g.update(old)
+
+
+def corner_list():
+    l_min = L * (1 - L_TOL) * (1 - L_SAG_FULL_LOAD)   # low tolerance and sagging at full load
+    l_max = L * (1 + L_TOL)                           # high tolerance, light load
+    corners = []
+    for esr in (ESR_POLY_MIN, ESR_POLY, ESR_POLY_MAX, ESR_POLY_EOL):
+        for ind in (l_min, L, l_max):
+            for cap in (C_POLY * (1 - C_POLY_TOL), C_POLY, C_POLY * (1 + C_POLY_TOL)):
+                for vin in (VIN_MIN, VIN_MAX):
+                    corners.append(dict(ESR_POLY=esr, L=ind, C_POLY=cap, VIN=vin))
+    return corners
+
+
+def describe(corner):
+    return (f"ESR {corner['ESR_POLY']*1e3:.1f} mΩ, L {corner['L']*1e6:.2f} µH, "
+            f"C_poly {corner['C_POLY']*1e6:.0f} µF, VIN {corner['VIN']:.0f} V")
+
+
+def worst_case(freqs, ctrl):
+    results = []
+    for corner in corner_list():
+        with parts(**corner):
+            g = plant_seen_by_controller(freqs)
+        loop, _ = digital_loop_gain(freqs, g, ctrl["b_z"], ctrl["a_z"], ctrl["n_cycles"])
+        m = margins(freqs, loop)
+        if m is None:
+            continue
+        m["corner"] = corner
+        m["eol"] = corner["ESR_POLY"] == ESR_POLY_EOL
+        results.append(m)
+    new = [r for r in results if not r["eol"]]
+    eol = [r for r in results if r["eol"]]
+
+    def gm_or_inf(r):
+        return r["gm"] if r["gm"] is not None else np.inf
+
+    return dict(
+        all=results,
+        new_pm=min(new, key=lambda r: r["pm"]), new_gm=min(new, key=gm_or_inf),
+        eol_pm=min(eol, key=lambda r: r["pm"]), eol_gm=min(eol, key=gm_or_inf),
+        fc_range=(min(r["fc"] for r in new), max(r["fc"] for r in new)),
+    )
+
+
+def plot_worst_case(plt, freqs, m_nom, wc, rec_nom, rec_worst):
+    keep = freqs <= F_PLOT_MAX
+    f = freqs[keep]
+    worst = wc["new_pm"]
+    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 11),
+                                        gridspec_kw=dict(height_ratios=[1, 1, 0.9]))
+    fig.suptitle("5. Worst case: the same controller with every part at the edge of its tolerance\n"
+                 "Each thin grey line is one combination of capacitor ESR, inductance, capacitance "
+                 "and input voltage")
+    for r in wc["all"]:
+        if r["eol"]:
+            continue
+        ax1.plot(f, 20 * np.log10(r["mag"][keep]), color="0.75", lw=0.6)
+        ax2.plot(f, r["phase"][keep], color="0.75", lw=0.6)
+    ax1.plot(f, 20 * np.log10(m_nom["mag"][keep]), color="tab:blue", lw=2.2, label="Nominal parts")
+    ax2.plot(f, m_nom["phase"][keep], color="tab:blue", lw=2.2, label=f"Nominal: phase margin {m_nom['pm']:.0f}°")
+    ax1.plot(f, 20 * np.log10(worst["mag"][keep]), color="tab:red", lw=2,
+             label="Worst combination: " + describe(worst["corner"]))
+    ax2.plot(f, worst["phase"][keep], color="tab:red", lw=2,
+             label=f"Worst combination: phase margin {worst['pm']:.0f}°")
+    ax1.axhline(0, color="k", lw=1)
+    lo, hi = wc["fc_range"]
+    ax1.axvspan(lo, hi, color="tab:orange", alpha=0.15)
+    ax1.text(hi * 1.08, 30, f"Crossover moves\nbetween {lo/1e3:.0f} and {hi/1e3:.0f} kHz\n"
+             "as the parts vary", bbox=BOX)
+    ax1.set_ylabel("Loop gain (dB)")
+    ax1.set_ylim(-60, 80)
+    ax1.legend(loc="lower left")
+    ax2.axhline(-180, color="tab:red", lw=1.2, ls=":")
+    ax2.text(14, -186, "−180°: oscillation line", color="tab:red", fontsize=8, va="top")
+    ax2.set_ylabel("Loop phase (degrees)")
+    ax2.set_ylim(-270, 45)
+    ax2.set_xlabel("Frequency of the disturbance")
+    ax2.legend(loc="lower left")
+    for ax in (ax1, ax2):
+        freq_axes(ax)
+
+    w = (rec_nom["t"] > T_STEP_UP - 0.05e-3) & (rec_nom["t"] < T_STEP_UP + 0.6e-3)
+    t_us = (rec_nom["t"][w] - T_STEP_UP) * 1e6
+    band = SETTLE_BAND * VOUT_TARGET * 1e3
+    ax3.axhspan(-band, band, color="tab:green", alpha=0.15)
+    ax3.plot(t_us, (rec_nom["vout"][w] - VOUT_TARGET) * 1e3, color="tab:blue", lw=1.8, label="Nominal parts")
+    ax3.plot(t_us, (rec_worst["vout"][w] - VOUT_TARGET) * 1e3, color="tab:red", lw=1.5,
+             label="Worst combination")
+    ax3.axvline(0, color="k", lw=0.9, ls="--")
+    ax3.set_title(f"The load jump ({I_LIGHT:g} A → {I_HEAVY:g} A) on both boards", loc="left", fontweight="bold")
+    ax3.set_xlabel("Time after the load jumps (µs)")
+    ax3.set_ylabel("Output error (mV)")
+    ax3.grid(True, alpha=0.3)
+    ax3.legend(loc="lower right")
+    fig.tight_layout()
+    fig.savefig(os.path.join(OUT_DIR, "05_worst_case.png"), dpi=150)
     return fig
 
 
@@ -712,7 +871,7 @@ def verdict_gm(gm):
     return "good (aim for > 6 dB)" if gm > 6 else "LOW: raise it before trusting the design"
 
 
-def print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain):
+def print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain, wc, met_worst):
     f_lc, f_esr = plant_landmarks()
     n = ctrl["n_cycles"]
     t_delay = (COMPUTE_DELAY_CYCLES + n / 2) / FSW
@@ -757,6 +916,18 @@ def print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain):
           f"just to charge the output capacitors")
     print(f"  Steady-state wobble, HRPWM on     : {met['wobble_pp']*1e3:6.1f} mV p-p")
     print(f"  Steady-state wobble, HRPWM off    : {met_plain['wobble_pp']*1e3:6.1f} mV p-p")
+    print("\nWORST CASE (same controller, parts at the edges of their tolerances)")
+    print(f"  Crossover moves between           : {wc['fc_range'][0]/1e3:.1f} and {wc['fc_range'][1]/1e3:.1f} kHz")
+    for label, key_pm, key_gm in (("New parts", "new_pm", "new_gm"), ("End of life", "eol_pm", "eol_gm")):
+        r_pm, r_gm = wc[key_pm], wc[key_gm]
+        gm_txt = f"{r_gm['gm']:.1f} dB" if r_gm["gm"] is not None else "n/a"
+        print(f"  {label:<12} worst phase margin : {r_pm['pm']:6.1f} °     {verdict_pm(r_pm['pm'])}")
+        print(f"                 at                 {describe(r_pm['corner'])}")
+        print(f"  {label:<12} worst gain margin  : {gm_txt:>8}    {verdict_gm(r_gm['gm'])}")
+        print(f"                 at                 {describe(r_gm['corner'])}")
+    print(f"  Load-step dip at the worst corner : {met_worst['dip']*1e3:6.0f} mV, "
+          f"settles in {met_worst['settle_up']*1e6:.0f} µs")
+    print(f"  Input-voltage feedforward         : {'on' if USE_VIN_FEEDFORWARD else 'OFF'}")
     print(f"\nPlots saved in {OUT_DIR}")
     print("Remember: this is an averaged model. Real switching ripple (~27 mV p-p at 400 kHz)")
     print("comes on top of these numbers, and every ASSUMED parameter should be updated.\n")
@@ -789,10 +960,11 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     n = LOOP_EVERY_N_CYCLES
     freqs = np.logspace(1, np.log10(0.5 * FSW / n * 0.999), 3000)
-    g_vd = plant_duty_to_vout(freqs, *build_plant())
+    g_vd = plant_duty_to_vout(freqs, *build_plant())     # the power stage itself (plot 1)
+    g_ctrl = plant_seen_by_controller(freqs)             # including feedforward
 
-    ctrl = design_controller(freqs, g_vd, n)
-    loop, _ = digital_loop_gain(freqs, g_vd, ctrl["b_z"], ctrl["a_z"], n)
+    ctrl = design_controller(freqs, g_ctrl, n)
+    loop, _ = digital_loop_gain(freqs, g_ctrl, ctrl["b_z"], ctrl["a_z"], n)
     m = margins(freqs, loop)
     if m is None:
         raise SystemExit("The loop gain never crosses 0 dB: check the parameters.")
@@ -801,7 +973,7 @@ def main():
     n_alt = 2 if n == 1 else 1
     alt_ctrl = dict(ctrl, n_cycles=n_alt)
     alt_ctrl["b_z"], alt_ctrl["a_z"] = discretize(ctrl["num"], ctrl["den"], n_alt / FSW)
-    alt_loop, _ = digital_loop_gain(freqs, g_vd, alt_ctrl["b_z"], alt_ctrl["a_z"], n_alt)
+    alt_loop, _ = digital_loop_gain(freqs, g_ctrl, alt_ctrl["b_z"], alt_ctrl["a_z"], n_alt)
     alt_m = margins(freqs, alt_loop)
 
     rec = simulate(ctrl, USE_HRPWM)
@@ -810,11 +982,17 @@ def main():
     rec_hr = rec if USE_HRPWM else simulate(ctrl, use_hrpwm=True)
     met_plain = step_metrics(rec_plain)
 
+    wc = worst_case(freqs, ctrl)
+    with parts(**wc["new_pm"]["corner"]):
+        rec_worst = simulate(ctrl, USE_HRPWM)
+    met_worst = step_metrics(rec_worst)
+
     plot_plant(plt, freqs, g_vd)
-    plot_loop(plt, freqs, g_vd, ctrl, m, alt_ctrl, alt_m)
-    plot_time(plt, rec, met)
+    plot_loop(plt, freqs, g_ctrl, ctrl, m, alt_ctrl, alt_m)
+    plot_time(plt, rec, met, m["pm"])
     plot_pwm_resolution(plt, rec_hr, rec_plain)
-    print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain)
+    plot_worst_case(plt, freqs, m, wc, rec, rec_worst)
+    print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain, wc, met_worst)
     if args.show:
         plt.show()
 

@@ -4,7 +4,7 @@ Computer models of the converter, used to design the control loop before the har
 
 | Script | What it models | Status |
 |---|---|---|
-| [voltage_mode_sim.py](voltage_mode_sim.py) | Voltage-mode control (firmware stage 2): plant, Type III controller, digital delay, soft-start and load step | First version |
+| [voltage_mode_sim.py](voltage_mode_sim.py) | Voltage-mode control (firmware stage 2): plant, Type III controller, digital delay, soft-start, load step, worst-case part tolerances | Parameters from the inductor, polymer-capacitor and GaN FET datasheets |
 
 Planned next: average current mode (stage 3), and an LTspice switching simulation to check ripple and the current limit.
 
@@ -20,7 +20,7 @@ python voltage_mode_sim.py --show   # also opens the plot windows
 python voltage_mode_sim.py --help   # options
 ```
 
-It runs in a few seconds. All parameters are at the top of the script, each with its source. Values marked **ASSUMED** are not decided yet; update them as the design firms up.
+It runs in under ten seconds. All parameters are at the top of the script, each with its source. Values marked **ASSUMED** are not decided yet; update them as the design firms up.
 
 ---
 
@@ -28,18 +28,20 @@ It runs in a few seconds. All parameters are at the top of the script, each with
 
 ```
             error               duty                      VOUT
- reference ──►(−)──► controller ──► power stage ──────────────┬──► output
- (12 V)        ▲     (Type III,      (FETs, inductor,         │
-               │      in the ISR)     capacitors)             │
-               │                                              │
-               └──── ADC reading (12-bit) ◄── divider ◄───────┘
+ reference ──►(−)──► controller ──► × VIN_nominal / VIN ──► power stage ──┬──► output
+ (12 V)        ▲     (Type III,     (input-voltage          (FETs,         │
+               │      in the ISR)    feedforward)            inductor,     │
+               │                                             capacitors)   │
+               └──── ADC reading (12-bit) ◄── divider ◄────────────────────┘
                      taken once per PWM cycle; the new duty
                      takes effect one cycle later
 ```
 
 - **Averaged model.** The switch node is replaced by its average over each PWM cycle (duty × 48 V). This keeps everything the control loop sees and removes the switching ripple, which makes the simulation fast. Real ripple (≈ 27 mV p-p) comes on top of these results.
 - **Digital controller, run the way firmware will run it.** Sampled once per cycle, rounded to 12 ADC bits, a one-cycle delay before the new duty applies, duty clamped, and duty rounded to the PWM's resolution (with or without HRPWM).
+- **Input-voltage feedforward.** The duty is scaled by 48 V ÷ the measured input voltage. Without it, the loop gain rises and falls with the input voltage. `VIN_SENSE` is already planned for this in `schematic-hierarchy.md`.
 - **Load** is an electronic load in constant-current mode, the hardest case for stability because it adds no damping.
+- **Worst case.** The same controller is re-checked with every combination of part tolerances (plot 5).
 
 ---
 
@@ -61,11 +63,11 @@ A **Bode plot** shows how strongly the output responds (top) and how late it res
 The controller (orange) is shaped so that the **loop gain** (blue = controller × plant × delay) does two things:
 
 - It is large at low frequencies, so the output sits exactly at 12 V.
-- It **crosses 0 dB at 20 kHz**. This crossover frequency is how fast the loop reacts.
+- It **crosses 0 dB at 10 kHz**. This crossover frequency is how fast the loop reacts.
 
-The bottom panel shows **phase margin**: at crossover, how far the phase is from −180°, the point where the loop would oscillate. The current design has **60°**, inside the usual 45–60° target. **Gain margin** (how much the gain could rise before oscillation) is **6.9 dB**, just above the usual 6 dB target.
+The bottom panel shows **phase margin**: at crossover, how far the phase is from −180°, the point where the loop would oscillate. With nominal parts the design has **67°**. **Gain margin** (how much the gain could rise before oscillation) is **13.7 dB**. Both are deliberately generous: plot 5 shows why.
 
-The dashed purple line shows what happens if the control ISR ran every second PWM cycle instead of every cycle. The extra delay costs phase, and the phase margin drops to about 50°.
+The dashed purple line shows what happens if the control ISR ran every second PWM cycle instead of every cycle. The extra delay costs phase, and the phase margin drops to 62°.
 
 ### 3. Soft-start and a load step
 
@@ -78,25 +80,39 @@ The dashed purple line shows what happens if the control ISR ran every second PW
 
 ![Load step zoom](output/03b_load_step_zoom.png)
 
-The zoom shows the dip in detail: **about 365 mV**, back inside ±60 mV within **about 50 µs**.
+The zoom shows the dip in detail: **about 390 mV**, back inside ±60 mV within **about 86 µs**, with no ringing.
 
 ### 4. PWM resolution
 
 ![PWM resolution](output/04_pwm_resolution.png)
 
-The duty cycle can only move in steps. Without HRPWM, one step is 1/300 of a period, which moves the output by 160 mV. The loop can't land on exactly the right duty, so it keeps jumping between neighboring steps (red). HRPWM makes the steps about 50 times finer (blue). In this model the output filter smooths most of the jumping, so the difference is smaller than 160 mV suggests: about 8 mV p-p of wobble without HRPWM against 4 mV with it. The remaining wobble with HRPWM comes from the 12-bit ADC's resolution.
+The duty cycle can only move in steps. Without HRPWM, one step is 1/300 of a period, which moves the output by 160 mV. The loop can't land on exactly the right duty, so it keeps jumping between neighboring steps (red). HRPWM makes the steps about 50 times finer (blue). The output filter smooths most of the jumping, but the wobble is still about 23 mV p-p without HRPWM against 3 mV with it. The remaining wobble with HRPWM comes from the 12-bit ADC's resolution.
+
+### 5. Worst case
+
+![Worst case](output/05_worst_case.png)
+
+The controller is fixed in firmware, but every board's parts are slightly different and drift with temperature and age. Each thin grey line is the same controller with one combination of:
+
+| Part | Range checked | Source |
+|---|---|---|
+| Polymer ESR | 15 / 25 / 37.5 mΩ, plus 45 mΩ at end of life | Datasheet max 30 mΩ at 20 °C; up to 1.25× hot and 1.5× at end of life. 15 mΩ is ASSUMED (no minimum is published) |
+| Inductance | 4.8 / 6.8 / 8.2 µH | ±20 % tolerance, plus about 12 % sag at full load (ASSUMED: no L-vs-current curve is published) |
+| Polymer capacitance | 376 / 470 / 564 µF | ±20 % tolerance |
+| Input voltage | 36 / 54 V | ASSUMED range (the spec is still [TBD]) |
+
+The crossover moves between **7 and 20 kHz** across these combinations. The worst one (red) still has **44° phase margin** and **7.3 dB gain margin** with new parts. At end of life (45 mΩ ESR) the gain margin falls to **5.9 dB**, just under the 6 dB target. The bottom panel shows the load step on the worst-case board: it rings a little, but it is stable.
 
 ---
 
 ## What we've learned so far
 
-These follow from the current parameters, including the assumed ones. They are worth checking as the design firms up.
-
-1. **A 25 kHz crossover is too aggressive with our digital delay.** From ADC sample to new duty there are about 3.75 µs of delay. That limits the gain margin to about 5 dB at 25 kHz. At 20 kHz, the loop has 60° phase margin and 6.9 dB gain margin. `power_stage.md` assumes about 25 kHz.
-2. **The load-step dip is set mostly by the output capacitors, not by the loop.** Right after a 10 A step, the current comes from the capacitors before the controller can respond. The polymer's 25 mΩ ESR alone accounts for about 250 mV (10 A × 25 mΩ). Changing the loop speed barely helps: a 10 kHz crossover gives a dip of about 394 mV and 30 kHz about 356 mV. A 10 mΩ polymer brings the dip to about 264 mV, though the controller then needs retuning (its phase margin falls to 38°). The estimate in `power_stage.md` (≈ 125 mV) leaves out the ESR. The load-transient target in `specifications.md` is still [TBD].
-3. **The inductor current overshoots during a load step.** On the 10 A step the average inductor current peaks at about 16.8 A, about 18.5 A instantaneous once ripple is added. The cycle-by-cycle overcurrent threshold has to leave room for this, or it will trip on a normal load step.
-4. **Run the control ISR every cycle if possible.** Running it every second cycle costs about 10° of phase margin at 20 kHz with the same controller.
-5. **The inductor current goes negative (about −4 A) when the load is released.** This is the synchronous buck briefly returning energy to the input, as discussed for bidirectional operation. The bench supply must tolerate it, or the input bus rises.
+1. **The controller has to be designed for the worst-case board, not the nominal one.** A high-ESR polymer and a low inductance together roughly double the crossover frequency, and the extra speed runs into the digital delay. A design tuned to 20 kHz with nominal parts looks fine (70° phase margin), but at the worst corner its phase margin falls to about 3°: on the edge of oscillating. Tuning to 10 kHz keeps every corner stable.
+2. **The slower loop costs almost nothing.** The load-step dip grows from about 362 mV (20 kHz) to 388 mV (10 kHz). The dip is set mostly by the output capacitors, not by the loop: right after a 10 A step the current comes from the capacitors before any controller can react, and the polymer's 25 mΩ ESR alone accounts for about 250 mV. The estimate in `power_stage.md` (≈ 125 mV) leaves out the ESR. The load-transient target in `specifications.md` is still [TBD].
+3. **Input-voltage feedforward is worth having.** Without it, the 36–54 V input range alone moves the loop gain by −2.5 to +1 dB, and the worst-case margins fall to 42° and 6.3 dB.
+4. **The slower loop also helps the current limit.** On the 10 A step the average inductor current now peaks at about 13.5 A (15.1 A instantaneous with ripple), down from about 15.6 A with a 20 kHz loop. The overcurrent threshold still has to sit above this.
+5. **Run the control ISR every cycle if possible.** Running it every second cycle costs about 5° of phase margin at 10 kHz.
+6. **The polymer datasheet doesn't match the BOM listing.** The datasheet supplied is Honorcap HV1E477M0810PZ: 30 mΩ max, 2.8 A ripple, 8 × 10.5 mm. The BOM part is jieerrui MA25V470M8x10, which LCSC lists at 25 mΩ and 4.1 A. Check which part will be fitted, and use that part's datasheet.
 
 ---
 
@@ -106,28 +122,38 @@ Change a value at the top of the script (or use an option), rerun, and compare.
 
 | Try | How | What to look for |
 |---|---|---|
-| Faster or slower loop | `--fc 10` or `--fc 30` (kHz) | Phase and gain margin change a lot; the load-step dip barely changes |
-| Slower ISR | `--every 2` | Less phase margin, more ringing after the load step |
+| Faster loop | `--fc 20` | Nominal margins look fine; the WORST CASE section shows the problem |
+| Slower ISR | `--every 2` | Less phase margin |
 | No HRPWM | `--no-hrpwm` | The duty keeps jumping between steps (plot 4) |
-| Lower-ESR polymer | `ESR_POLY = 10e-3` | Smaller dip, but less phase margin: the controller needs retuning |
+| No feedforward | `USE_VIN_FEEDFORWARD = False` | Worse worst-case margins |
+| Lower-ESR polymer | `ESR_POLY = 10e-3` (and the range) | Smaller dip, different worst corner |
 | Move the controller zeros | `FZ1`, `FZ2` | Placing them lower adds phase margin but slows the low-frequency response |
 | Resistive load | `LOAD_R = 0.96` (full load) | More damping at the resonance, so the peak in plot 1 shrinks |
 | Longer soft-start | `SOFTSTART_TIME = 5e-3` | Lower capacitor-charging current at start-up |
 
 ---
 
-## Assumptions and limits
+## Parameters and their sources
 
-| Item | Value used | Replace with |
+| Item | Value used | Source |
 |---|---|---|
-| Ceramic bank ESR | 0.5 mΩ total | Datasheet ESR at ~100 kHz |
-| PCB resistance | 1 mΩ | Estimate after layout |
-| VOUT divider | 0.2 (16.5 V full scale) | Sensing sheet's divider |
-| Sense-line RC filter | Not modeled | Sensing sheet's filter: it adds delay and costs phase |
-| Hot R<sub>DS(on)</sub> | 1.5 × 3.3 mΩ | Datasheet curve at the expected temperature |
+| Inductance | 6.8 µH ±20 % | Sunltech SLB2212P6R8MTT datasheet |
+| Inductor DCR | 2.1 mΩ typ (2.31 mΩ max) | Same |
+| Inductance at full load | −12 % | ASSUMED: straight line to the 30 % drop at I<sub>sat</sub> = 31 A |
+| GaN R<sub>DS(on)</sub>, hot | 4.8 mΩ | IGC033S10S1: 3.3 mΩ max × 1.45 at about 80 °C (Diagram 11) |
+| Polymer capacitance | 470 µF ±20 % | Polymer datasheet |
+| Polymer ESR | 25 mΩ nominal, 15–45 mΩ range | See plot 5 |
+| Ceramic capacitance | 39 µF effective | `power_stage.md` decision #10 (DC-bias derated) |
+| Ceramic ESR | 0.5 mΩ for the bank | ASSUMED; barely affects the results |
+| PCB resistance | 1 mΩ | ASSUMED; estimate after layout |
+| VOUT divider | 0.2 (16.5 V full scale) | ASSUMED; replace with the sensing sheet's divider |
+| Sense-line RC filter | Not modeled | Add once the sensing sheet chooses it: it adds delay and costs phase |
+| MCU delay | 1 PWM cycle + hold | ASSUMED; confirm from the firmware timing |
+| Input voltage range | 36–54 V | ASSUMED; the spec is [TBD] |
+
+**Limits:**
 
 - **Averaged model:** no switching ripple, and no behavior within a cycle. That needs a switching simulation (LTspice or PLECS).
-- **Input voltage is fixed at 48 V.** A real supply has its own impedance and ripple.
 - **Voltage mode only.** Average current mode, with its inner current loop, is the next script.
 - **Coefficients:** the summary prints the digital coefficients as u[n] = b0·e[n] + … − a1·u[n−1] − …. The C2000 Digital Control Library may use a different sign convention, so check it before copying them into firmware.
 
