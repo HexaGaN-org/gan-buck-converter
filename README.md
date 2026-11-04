@@ -55,6 +55,9 @@ hardware/gan-buck-converter/
   sheets/                    The six hierarchical sheets
   lib/                       hexagan library: hand-made symbols, footprints, 3D models
   JLCImport.*                Parts imported from LCSC by the JLCImport plugin
+simulations/
+  voltage_mode_sim.py        Python model of the voltage-mode control loop: Bode plots, load step
+  README.md                  How to run it, how to read the plots, what we've learned
 ```
 
 Firmware source (C2000, SysConfig) will live in `firmware/` once that work starts.
