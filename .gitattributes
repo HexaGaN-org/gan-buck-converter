@@ -13,3 +13,8 @@
 *.stp  binary
 *.pdf  binary
 *.png  binary
+
+# KiCad Linguist
+*.kicad_pcb linguist-detectable=true
+*.kicad_sch linguist-detectable=true
+*.kicad_pro linguist-detectable=true
