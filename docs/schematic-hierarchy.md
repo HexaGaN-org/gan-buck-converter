@@ -45,6 +45,8 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 
 **Power nets** (global, via power symbols)
 
+Place `V_IN` and `V_OUT` with the `hexagan:V_IN` and `hexagan:V_OUT` power symbols, and the rest from KiCad's standard `power` library. Never rename another power symbol's value to make a net: a typo silently creates a separate net.
+
 | Net | Meaning |
 |---|---|
 | `V_IN` | Protected 48 V input bus |

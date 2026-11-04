@@ -446,7 +446,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ELEC240:+5V"
+		(symbol "power:+5V"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -585,7 +585,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ELEC240:GND"
+		(symbol "power:GND"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -700,7 +700,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ELEC240:R_US"
+		(symbol "Device:R_US"
 			(pin_numbers
 				(hide yes)
 			)
@@ -732,7 +732,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(property "Footprint" ""
 				(at 1.016 -0.254 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4307,7 +4307,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+48V"
+		(symbol "hexagan:V_IN"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -4332,7 +4332,7 @@
 					)
 				)
 			)
-			(property "Value" "+48V"
+			(property "Value" "V_IN"
 				(at 0 3.556 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4364,7 +4364,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"+48V\""
+			(property "Description" "Power symbol creates a global label with name \"V_IN\": protected 48 V input bus"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4386,7 +4386,7 @@
 					)
 				)
 			)
-			(symbol "+48V_0_1"
+			(symbol "V_IN_0_1"
 				(polyline
 					(pts
 						(xy -0.762 1.27) (xy 0 2.54)
@@ -4424,7 +4424,146 @@
 					)
 				)
 			)
-			(symbol "+48V_1_1"
+			(symbol "V_IN_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "hexagan:V_OUT"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "V_OUT"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "V_OUT_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "V_OUT_1_1"
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
@@ -4556,145 +4695,6 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "power:VCC"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "VCC"
-				(at 0 3.556 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"VCC\""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "VCC_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "VCC_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
 					)
 				)
 			)
@@ -6800,7 +6800,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ELEC240:+5V")
+		(lib_id "power:+5V")
 		(at 64.77 104.14 0)
 		(unit 1)
 		(body_style 1)
@@ -7916,9 +7916,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "3d26ae20-25d7-433e-82e6-eca9ba3803c6")
 		(property "Reference" "TP_GND1"
@@ -7944,7 +7944,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 254 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -8471,7 +8471,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ELEC240:GND")
+		(lib_id "power:GND")
 		(at 19.05 83.82 0)
 		(unit 1)
 		(body_style 1)
@@ -9251,7 +9251,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
+		(lib_id "hexagan:V_OUT")
 		(at 271.78 58.42 0)
 		(unit 1)
 		(body_style 1)
@@ -9304,7 +9304,7 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
 			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -9902,9 +9902,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "9ad8a30c-b012-4eca-a18b-4de265077c7c")
 		(property "Reference" "TP_VOUT1"
@@ -9930,7 +9930,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 267.97 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10168,7 +10168,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ELEC240:GND")
+		(lib_id "power:GND")
 		(at 76.2 148.59 0)
 		(unit 1)
 		(body_style 1)
@@ -10585,14 +10585,14 @@
 		)
 	)
 	(symbol
-		(lib_id "ELEC240:R_US")
+		(lib_id "Device:R_US")
 		(at 154.94 66.04 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "bb40d7db-122d-4f56-8801-24b9cb772269")
 		(property "Reference" "R302"
@@ -11006,7 +11006,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+48V")
+		(lib_id "hexagan:V_IN")
 		(at 19.05 35.56 0)
 		(unit 1)
 		(body_style 1)
@@ -11059,7 +11059,7 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+48V\""
+		(property "Description" "Power symbol creates a global label with name \"V_IN\": protected 48 V input bus"
 			(at 19.05 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -11544,9 +11544,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e68c7e03-84d0-4f94-827a-227abfe5e972")
@@ -11626,9 +11626,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "e9564028-6db9-46eb-a0b7-e47ce9109513")
 		(property "Reference" "TP_SW1"
@@ -11654,7 +11654,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 160.02 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -11705,9 +11705,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "e9dd0f70-2a3f-43f9-85ce-b8194d503b38")
 		(property "Reference" "TP_GND2"
@@ -11733,7 +11733,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 262.89 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -11899,9 +11899,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "f97fd35e-df67-434d-bf5f-75789e054d69")
 		(property "Reference" "TP_VIN1"
@@ -11927,7 +11927,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 127 36.83 0)
 			(hide yes)
 			(show_name no)
