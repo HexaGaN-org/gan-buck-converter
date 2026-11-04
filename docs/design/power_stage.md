@@ -43,7 +43,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 | 9 | 2026-11-03 | Input ceramics: 2× 100 nF 0805 (C28233) + 6× Samsung 2.2 µF 1206 (C170101) + 2× Samsung 10 µF 1210 (C22380050); 10.4 µF effective at 48 V | YAGEO 2.2 µF 1206 (C577211) and PSA 10 µF 1210 (C5156756): no published DC-bias curves | Every part has a published Samsung DC-bias curve; 33 % margin over the 7.8 µF requirement at 48 V, and still passes at 60 V | input_supply: bulk electrolytics stay on that sheet | Accepted |
 | 10 | 2026-11-03 | Output capacitors: 8× Samsung 22 µF 25 V 1206 (C12891, Basic) + 1× 470 µF 25 V polymer (C46550466) | 6× C12891 (fails: only 26 % kept at 12 V); 5× 22 µF 1210 (C52306, 41 % kept, but an extra $3.07 loading fee) | 46 µF ceramic effective (≈ 39 µF at small ripple) vs 37 µF needed; polymer holds a 10 A step to ≈ 125 mV | sensing / firmware: loop crossover target ≈ 25 kHz assumed for the transient estimate | Accepted |
 | 11 | 2026-11-03 | Current-sense shunt: 1 mΩ 3 W 2512 (C7420016), in series with the inductor between L301 and the output capacitors | Low-side source shunt (ground-referenced, but misses the high-side peak); input-side shunt | Sees the full inductor current, including the peak the cycle-by-cycle limit needs | sensing: amplifier must tolerate 12 V common mode (INA240-class); 12.5 mV at 12.5 A, 18.9 mV at peak | Accepted |
-| 12 | 2026-11-03 | J2 output connector: Kefa KF635-6.35-2P screw terminal (C475102), plus switch-node RC snubber footprints (DNP) and test pads | XT60PW (needs adapter leads for the e-load); 5.08 mm terminals (24 A rating, 2.5 mm² wire) | 32 A, 10 AWG / 4 mm², M3 screws; connects straight to bench loads. Snubber values come from the measured ringing | input_supply: using the same terminal for J1 adds no loading fee | Accepted |
+| 12 | 2026-11-03 | J301 output connector: Kefa KF635-6.35-2P screw terminal (C475102), plus switch-node RC snubber footprints (DNP) and test pads | XT60PW (needs adapter leads for the e-load); 5.08 mm terminals (24 A rating, 2.5 mm² wire) | 32 A, 10 AWG / 4 mm², M3 screws; connects straight to bench loads. Snubber values come from the measured ringing | input_supply: using the same terminal for J1 adds no loading fee | Accepted |
 | 13 | 2026-11-03 | No gate-to-source pull-downs (supersedes #6) | DNP 10 kΩ footprints (#6) | Matches TI's reference design; the driver's output structures hold the gates when unpowered. Verification test 5 checks the cold start | none | Accepted |
 
 ---
@@ -94,23 +94,23 @@ One row per calculation. Note where each input came from (specification, datashe
 |---|---|---|---|---|---|
 | Q301, Q302 | 100 V enhancement-mode GaN FET | Infineon IGC033S10S1 | C41381300 | 100 V (120 V pulsed); 3.3 mΩ max; $Q_g$ 11 nC; $Q_{oss}$ 43 nC; gate 5 V typ, 5.5 V recommended max; PG-TSON-6, 3 × 5 mm | [Infineon](https://www.infineon.com/assets/row/public/documents/10/49/infineon-igc033s10s1q-datasheet-en.pdf) (automotive variant, same die) |
 | U301 | GaN half-bridge gate driver | TI LM5113-Q1 (LM5113QDPRRQ1) | C2677036 | HS 90 V recommended / 93 V abs max (HB 100 V); 4.5–5.5 V supply; 5.2 V bootstrap clamp; 1.2 A source / 5 A sink split outputs; 28 ns delay, 1.5 ns matching; WSON-10 4 × 4 mm | [TI](https://ti.com/product/LM5113-Q1) |
-| C301 | Bootstrap capacitor, HB–HS | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF 50 V X7R 0603, Basic; ≈ 0.21 V droop per cycle | |
-| C304, C305 | VDD bypass | YAGEO CC0603KRX7R9BB104; Samsung CL10A105KB8NNNC | C14663; C15849 | 100 nF X7R at the pins + 1 µF 50 V X5R, Basic | |
+| C323 | Bootstrap capacitor, HB–HS | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF 50 V X7R 0603, Basic; ≈ 0.21 V droop per cycle | |
+| C321, C322 | VDD bypass | YAGEO CC0603KRX7R9BB104; Samsung CL10A105KB8NNNC | C14663; C15849 | 100 nF X7R at the pins + 1 µF 50 V X5R, Basic | |
 | D301 | External bootstrap diode, VDD → HB | BAT46W (hongjiacheng) | C7420332 | 100 V Schottky, SOD-123, Preferred (no loading fee); the datasheet lists BAT46, BAT41 or LL4148 | |
-| R301 | Bootstrap series resistor | UNI-ROYAL 0603WAF1000T5E | C22775 | 100 Ω, per datasheet section 7.3.2 | |
-| R303 | High-side turn-on resistor (HOH) | UNI-ROYAL 0603WAF200KT5E | C22977 | 2 Ω, Basic; tune 0–4.7 Ω on the bench | |
-| R302, R304 | HI / LI input-filter resistors | UNI-ROYAL 0603WAF1001T5E | C21190 | 1 kΩ, Basic; datasheet Figure 16 | |
-| C302, C303 | HI / LI input-filter capacitors | Samsung CL10C220JB8NNNC | C1653 | 22 pF C0G, Basic; datasheet Figure 16 | |
+| R303 | Bootstrap series resistor | UNI-ROYAL 0603WAF1000T5E | C22775 | 100 Ω, per datasheet section 7.3.2 | |
+| R304 | High-side turn-on resistor (HOH) | UNI-ROYAL 0603WAF200KT5E | C22977 | 2 Ω, Basic; tune 0–4.7 Ω on the bench | |
+| R305, R306 | HI / LI input-filter resistors | UNI-ROYAL 0603WAF1001T5E | C21190 | 1 kΩ, Basic; datasheet Figure 16 | |
+| C324, C325 | HI / LI input-filter capacitors | Samsung CL10C220JB8NNNC | C1653 | 22 pF C0G, Basic; datasheet Figure 16 | |
 | L301 | Output inductor | Sunltech SLB2212P6R8MTT | C2842794 | 6.8 µH ±20 %, 31 A $I_{sat}$, 28.5 A rated, 2.1 mΩ, 22.5 × 22 mm | [LCSC](https://www.lcsc.com/product-detail/C2842794.html) |
-| C316, C317 | Input ceramics, closest to the FETs | Samsung CL21B104KCFNNNE | C28233 | 100 nF 100 V X7R 0805, Basic; 52 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL21B104KCFNNN.do) |
-| C318–C323 | Input ceramics, main bank | Samsung CL31B225KCHSNNE | C170101 | 2.2 µF 100 V X7R 1206; 37.5 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL31B225KCHSNN.do) |
-| C324, C325 | Input ceramics, main bank | Samsung CL32Y106KCV6PNE | C22380050 | 10 µF 100 V X7S 1210; 26.5 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL32Y106KCV6PN.do) |
-| C306–C313 | Output ceramics | Samsung CL31A226KAHNNNE | C12891 | 22 µF 25 V X5R 1206, Basic; 26 % kept at 12 V | [Samsung](https://product.samsungsem.com/mlcc/CL31A226KAHNNN.do) |
-| C314 | Output bulk | jieerrui MA25V470M8x10 | C46550466 | 470 µF 25 V polymer, 25 mΩ, 4.1 A ripple, SMD 8 × 10 mm | |
-| R305 | Current-sense shunt | FOJAN FPM253WFR001TML | C7420016 | 1 mΩ 1 % 3 W 2512, ±50 ppm/°C | |
-| J2 | 12 V output connector | Kefa KF635-6.35-2P | C475102 | 2-pin screw terminal, 32 A, 10–22 AWG, M3, 6.35 mm pitch; through-hole | [LCSC](https://www.lcsc.com/product-detail/C475102.html) |
-| R306, C315 | Switch-node RC snubber (DNP) | — | — | 1206 resistor + 1206 100 V C0G footprints; values from the measured ringing | |
-| TP301–TP305 | Test pads `TP_SW`, `TP_VOUT`, `TP_VIN`, `TP_GND1`, `TP_GND2` | — | — | Footprint only; each ground pad sits beside a signal pad | |
+| C309, C310 | Input ceramics, closest to the FETs | Samsung CL21B104KCFNNNE | C28233 | 100 nF 100 V X7R 0805, Basic; 52 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL21B104KCFNNN.do) |
+| C303–C308 | Input ceramics, main bank | Samsung CL31B225KCHSNNE | C170101 | 2.2 µF 100 V X7R 1206; 37.5 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL31B225KCHSNN.do) |
+| C301, C302 | Input ceramics, main bank | Samsung CL32Y106KCV6PNE | C22380050 | 10 µF 100 V X7S 1210; 26.5 % kept at 48 V | [Samsung](https://product.samsungsem.com/mlcc/CL32Y106KCV6PN.do) |
+| C311–C318 | Output ceramics | Samsung CL31A226KAHNNNE | C12891 | 22 µF 25 V X5R 1206, Basic; 26 % kept at 12 V | [Samsung](https://product.samsungsem.com/mlcc/CL31A226KAHNNN.do) |
+| C319 | Output bulk | jieerrui MA25V470M8x10 | C46550466 | 470 µF 25 V polymer, 25 mΩ, 4.1 A ripple, SMD 8 × 10 mm | |
+| R301 | Current-sense shunt | FOJAN FPM253WFR001TML | C7420016 | 1 mΩ 1 % 3 W 2512, ±50 ppm/°C | |
+| J301 | 12 V output connector | Kefa KF635-6.35-2P | C475102 | 2-pin screw terminal, 32 A, 10–22 AWG, M3, 6.35 mm pitch; through-hole | [LCSC](https://www.lcsc.com/product-detail/C475102.html) |
+| R302, C320 | Switch-node RC snubber (DNP) | — | — | 1206 resistor + 1206 100 V C0G footprints; values from the measured ringing | |
+| TP_VIN, TP_SW, TP_VOUT, TP_GND1, TP_GND2 | Test pads | — | — | Footprint only. In layout, put one ground pad right beside `TP_SW` (near Q302's source) and the other beside `TP_VOUT` | |
 
 ---
 
@@ -141,13 +141,13 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - The IGC033S10S1 has **no separate Kelvin source pin**. Return each gate loop to the source pad nearest that FET's gate pin, and route the power current away from that spot.
 - Place the LM5113-Q1 right beside the FETs, with its bootstrap capacitor at its HB/HS pins and its VDD decoupling at its VDD pin.
 - Gate margin is about 0.5 V (5 V drive, 5.5 V recommended max), so gate-loop inductance must be as small as possible.
-- Put C301 (bootstrap) and C304 (100 nF VDD) on the same side as the driver, right at its pins, with no vias between them and the pins.
-- Keep the bootstrap charging loop (C304 → D301/R301 → C301 → low-side FET → back) short.
+- Put C323 (bootstrap) and C321 (100 nF VDD) on the same side as the driver, right at its pins, with no vias between them and the pins.
+- Keep the bootstrap charging loop (C321 → D301/R303 → C323 → low-side FET → back) short.
 - Connect the driver's VSS to the low-side FET's source by a short, direct path. If a shunt ever sits in that source path, VSS goes on the FET side of it.
-- TI's layout examples assume 0402 parts; 0402 for R303 and C301 would tighten the gate loop if space is short.
-- **Power loop first:** C316/C317 (100 nF 0805) go directly across the high-side drain and low-side source, then C318–C325 just outside them. Mark them `Layout = power loop, place first`.
-- Place R305 between L301 and the output capacitors, and route `I_SH_P` / `I_SH_N` as a tight pair from the shunt's inner pad edges (Kelvin), away from the switch node. Net ties between each shunt pad and its sense label keep layout from tapping the power copper anywhere else.
-- Put the snubber (R306, C315) across the low-side FET, drain to source, inside the power loop.
+- TI's layout examples assume 0402 parts; 0402 for R304 and C323 would tighten the gate loop if space is short.
+- **Power loop first:** C309/C310 (100 nF 0805) go directly across the high-side drain and low-side source, then C301–C308 just outside them. Mark them `Layout = power loop, place first`.
+- Place R301 between L301 and the output capacitors, and route `I_SH_P` / `I_SH_N` as a tight pair from the shunt's inner pad edges (Kelvin), away from the switch node. Net ties between each shunt pad and its sense label keep layout from tapping the power copper anywhere else.
+- Put the snubber (R302, C320) across the low-side FET, drain to source, inside the power loop.
 - Keep the switch-node copper only as large as L301's pad needs; it radiates.
 
 ---
@@ -163,10 +163,10 @@ How bring-up confirms this sheet works.
 | 3 | FET temperature at full load | Thermal camera after 30 min at 150 W | Within the thermal budget (TBD) | | |
 | 4 | Dead time at the gates | Scope both gates at the FETs | Both edges positive (no overlap) and close to the ePWM setting + ≈ 6.5 ns | | |
 | 5 | Cold start with 48 V before `+5V` | Scope both gates while raising 48 V with the driver unpowered | Neither gate rises above 1 V; if one does, add gate-to-source pull-downs in the next revision | | |
-| 6 | High-side turn-on resistor | Sweep R303 (0, 2, 4.7 Ω) at full load | Choose the lowest value that keeps switch-node and gate overshoot within limits | | |
+| 6 | High-side turn-on resistor | Sweep R304 (0, 2, 4.7 Ω) at full load | Choose the lowest value that keeps switch-node and gate overshoot within limits | | |
 | 7 | Efficiency vs frequency | Sweep 300 → 500 kHz at 20 %, 50 % and 100 % load | Curve recorded; confirm 400 kHz or choose a better point | | |
-| 8 | Output ripple | Scope at J2 with a short ground spring, 20 MHz bandwidth limit, full load, 300 and 400 kHz | ≤ 50 mV p-p | | |
-| 9 | Input ripple at the FETs | Scope across C316 at full load | ≤ 1 V p-p | | |
+| 8 | Output ripple | Scope at J301 with a short ground spring, 20 MHz bandwidth limit, full load, 300 and 400 kHz | ≤ 50 mV p-p | | |
+| 9 | Input ripple at the FETs | Scope across C309 at full load | ≤ 1 V p-p | | |
 | 10 | Load step | 10 % → 90 % step on the e-load | Deviation and settling recorded against the spec | | |
 | 11 | Inductor temperature | Thermal camera after 30 min at 150 W | Within the inductor's rating | | |
 

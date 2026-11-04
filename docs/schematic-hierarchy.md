@@ -31,7 +31,7 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 | Ref | Sheet | Function |
 |---|---|---|
 | J1 | input_supply | 48 V input |
-| J2 | power_stage | 12 V output |
+| J301 | power_stage | 12 V output |
 | J3 | comms_debug | USB-C to a host laptop |
 | J4 | comms_debug | JTAG debug header |
 | J5 | enable | Hardware enable switch (or E-stop) input |
@@ -186,7 +186,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - Output inductor
 - Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `I_SH_P` / `I_SH_N`, through a net tie at each shunt pad
 - Output capacitors
-- J2 12 V output connector
+- J301 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)
 - Test points `TP_SW`, `TP_VOUT`, `TP_VIN`, with ground points `TP_GND1` / `TP_GND2` beside them for short scope grounding
 
