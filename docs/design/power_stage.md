@@ -110,7 +110,7 @@ One row per calculation. Note where each input came from (specification, datashe
 | R301 | Current-sense shunt | FOJAN FPM253WFR001TML | C7420016 | 1 mΩ 1 % 3 W 2512, ±50 ppm/°C | |
 | J301 | 12 V output connector | Kefa KF635-6.35-2P | C475102 | 2-pin screw terminal, 32 A, 10–22 AWG, M3, 6.35 mm pitch; through-hole | [LCSC](https://www.lcsc.com/product-detail/C475102.html) |
 | R302, C320 | Switch-node RC snubber (DNP) | — | — | 1206 resistor + 1206 100 V C0G footprints; values from the measured ringing | |
-| TP_VIN, TP_SW, TP_VOUT, TP_GND1, TP_GND2 | Test pads | — | — | Footprint only. In layout, put one ground pad right beside `TP_SW` (near Q302's source) and the other beside `TP_VOUT` | |
+| TP_VIN1, TP_SW1, TP_VOUT1, TP_GND1, TP_GND2 | Test pads | — | — | Footprint only. In layout, put one ground pad right beside `TP_SW` (near Q302's source) and the other beside `TP_VOUT` | |
 
 ---
 
