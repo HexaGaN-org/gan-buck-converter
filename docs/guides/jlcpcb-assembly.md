@@ -57,9 +57,7 @@ Load the house rules into KiCad (**Board Setup → Design Rules → Constraints*
 ## 3. Part selection rules
 
 - **Every assembled part gets an LCSC part number** in a symbol field named `LCSC`, added when the part goes into the schematic, not just before ordering.
-- **Prefer parts in this order:** Basic → Preferred Extended → Extended → Global Sourcing. Basic and Preferred Extended parts are free to load on Economic; each other unique Extended part costs a loading fee.
-- **Consolidate values.** Use the same part number for all decoupling capacitors, pull-ups and LED resistors where the value isn't critical. Leave calculated values (dividers, sense resistors, timing parts) alone.
-- **Passive size:** 0603 by default for hand rework and probing; 0402 only where space demands it. Never below 0402 (Economic's limit).
+- **Choosing parts** (library-type order, consolidating values, passive size, derating): follow the rules in [preferred-parts.md](preferred-parts.md).
 - **Check stock before freezing the BOM.** A part out of stock at JLCPCB must be bought through Global Sourcing, which can impose large minimum order quantities and delays the build until parts arrive.
 - **Avoid through-hole parts** except where a connector truly needs one. Through-hole parts are hand-soldered and charged per joint plus a labour fee per order.
 - **Parts JLCPCB should not place** (DNP parts, parts we will hand-solder, test points) get *Exclude from BOM* and *Exclude from position files* set in their footprint attributes.

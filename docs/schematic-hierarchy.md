@@ -1,6 +1,6 @@
 # Schematic Hierarchy — 48 V → 12 V GaN Synchronous Buck
 
-This document defines how the KiCad schematic is divided into hierarchical sheets: what each sheet is responsible for, what it contains, and every signal that crosses between sheets. For what the board is and does, see the [README](../README.md); for the design targets, see [specifications.md](specifications.md).
+This document is the contract between sheets: what each sheet is responsible for, what it contains, and every signal that crosses between sheets. How each sheet is designed inside (decisions, calculations, parts) lives in its design note in [design/](design/). For what the board is and does, see the [README](../README.md); for the design targets, see [specifications.md](specifications.md).
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
@@ -45,7 +45,7 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 
 **Power nets** (global, via power symbols)
 
-Place `V_IN` and `V_OUT` with the `hexagan:V_IN` and `hexagan:V_OUT` power symbols, and the rest from KiCad's standard `power` library. Never rename another power symbol's value to make a net: a typo silently creates a separate net.
+Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 | Net | Meaning |
 |---|---|
@@ -94,40 +94,7 @@ Place `V_IN` and `V_OUT` with the `hexagan:V_IN` and `hexagan:V_OUT` power symbo
 
 ---
 
-## Owners
-
-| # | Sheet | Owner | Reviewer |
-|---|---|---|---|
-| 1 | Top | Reza Rahimzadeh | [NAME] |
-| 2 | input_supply | Reza Rahimzadeh | [NAME] |
-| 3 | power_stage | Reza Rahimzadeh | [NAME] |
-| 4 | sensing | Connor Jin | [NAME] |
-| 5 | mcu | Yunxi He | [NAME] |
-| 6 | enable | Connor Jin | [NAME] |
-| 7 | comms_debug | Yunxi He | [NAME] |
-
-One owner per sheet. Only the owner edits it; changes from anyone else go through the owner. The reviewer is never the owner.
-
-## Conventions
-
-**Connections between sheets**
-- Power nets use KiCad power symbols, which are global.
-- Every other signal crosses sheets through **hierarchical labels** only. No global labels.
-- Label direction is written from the sheet's own point of view: a signal leaving the sheet is an *output*.
-
-**Net names**
-- UPPER_SNAKE_CASE. Active-low signals end in `_N`.
-- A net has the same name on every sheet it appears on, exactly as listed in the glossary.
-
-**Reference designators**
-- Annotate with *"Use first free number after sheet number × 100"*, so each sheet owns a range (input_supply: R201…, power_stage: R301…). Two people annotating in parallel never collide.
-- Connectors keep the fixed designators in this document. The MCU is U1.
-- Annotate only new parts on your own sheet. Never re-annotate the whole schematic.
-
-**Other**
-- Mark do-not-populate parts with the DNP attribute, not by deleting them.
-- Every sheet's title block carries the board revision, sheet title, owner and date.
-- Each sheet passes ERC with zero errors before its owner opens a merge.
+Owners and status for each sheet are in the [README](../README.md). Schematic conventions (labels, net names, annotation, DNP) and the merge checklist are in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ---
 
@@ -150,7 +117,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Contains**
 - J1 48 V input connector
 - Input fuse
-- TVS diode, clamping below the GaN stage's voltage rating
+- TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
 - Auxiliary step-down regulator, 48 V → `+5V_AUX`, rated for the full input range
@@ -164,13 +131,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Interface:** power nets only (`V_IN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
 
 **Notes**
-- **Why a power mux and not a diode-OR:** the mux selects a source automatically with only milliohms of drop, and blocks reverse current, so the external supply can never back-feed through the aux regulator into the 48 V bus. A Schottky OR drops 0.3–0.5 V, which can push the GaN driver's bias out of its allowed range.
-- **Priority:** the external input wins whenever it is present. Plugging in a bench supply is a deliberate act, so it overrides the aux regulator; unplugging it hands the rail back to the aux regulator automatically. Set the priority threshold so a sagging or disconnected bench supply is detected cleanly.
-- **Switchover:** size the `+5V` output capacitance so the rail rides through the mux's switchover without browning out the MCU. If the MCU does reset during a switchover, the enable sheet holds both gates off, so the failure is safe.
-- **Bring-up order:** bring up the MCU, firmware, sensing and enable logic from a current-limited 5 V bench supply on J6, with no 48 V connected. Only once that works, apply 48 V, then unplug J6 to confirm the hand-over to the aux regulator.
-- Rate J6 for at least 0.5 A. Put a test point on each mux input and on `+5V`.
-- Size the aux regulator for about 150 mA on `+5V` (GaN driver bias, MCU through the LDO, USB bridge, LEDs), with a part rated for at least 300 mA.
-- The TVS clamp voltage, the fuse rating and the GaN stage's maximum voltage must be chosen together. The clamp has to stop a transient before it exceeds the GaN rating, since GaN has essentially no avalanche capability.
+- Design guidance and decisions for this sheet are in [design/input_supply.md](design/input_supply.md).
 
 ---
 
@@ -201,11 +162,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 
 **Notes**
 - The switch node (`SW_NODE`) and the gate nets (`HS_DRIVE`, `LS_DRIVE`) are local labels; they never cross a sheet boundary.
-- This sheet decides most of the board's layout. Mark the power-loop capacitors in the schematic (a field or a note) so the layout owner places them first and closest.
-- **Two loops to keep small:** the power loop (input capacitors → high-side FET → low-side FET → back) and each gate loop (driver output → gate resistor → gate → source → driver return). Place the driver right beside the FETs and return each gate loop to its FET's source (Kelvin source where the package offers one), never through the power path.
-- **Never exceed the gate limit.** Enhancement-mode GaN gates are driven at about 5 V with an absolute maximum only slightly above it. Check the driver's output level and the bootstrap clamp against the chosen FET's datasheet, and keep gate ringing below the limit.
-- **Dead time** is set in the ePWM. Size it from the driver's propagation delay and matching plus the FETs' switching times; GaN's reverse conduction during dead time drops 2 V or more, so too much dead time costs efficiency.
-- Prefer FETs in a packaged form (QFN-style) over bare-die chip-scale parts for the first board: they are far easier to assemble and rework by hand.
+- Design decisions, values and layout rules for this sheet are in [design/power_stage.md](design/power_stage.md).
 
 ---
 
@@ -232,8 +189,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 | `TEMP_SENSE` | out | mcu |
 
 **Notes**
-- `ISENSE` bandwidth sets how fast cycle-by-cycle current limiting can act. Keep its filter light; filter `VIN_SENSE` and `TEMP_SENSE` more heavily.
-- Size each RC for the ADC's sample-and-hold acquisition time, not only for noise.
+- Design guidance for this sheet is in [design/sensing.md](design/sensing.md).
 
 ---
 
@@ -268,10 +224,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 | `TDO` | out | comms_debug |
 
 **Notes**
-- Every U1 pin assignment must match `pinmux.syscfg`. Change the `.syscfg` first, then the schematic.
-- `MCU_PWMH` / `MCU_PWML` are one ePWM A/B pair on high-resolution-capable pins, with dead time generated in the ePWM.
-- `ISENSE` and `VOUT_SENSE` go on ADC pins that also reach CMPSS comparators, routed through the ePWM X-BAR to the trip zone, so overcurrent and overvoltage shut the PWM down in hardware.
-- Keep the boot pins free of any function that could be driven during boot.
+- Every U1 pin assignment must match `pinmux.syscfg`. Design guidance is in [design/mcu.md](design/mcu.md).
 
 ---
 
@@ -303,9 +256,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 | `STAGE_EN_FB` | out | mcu |
 
 **Notes**
-- Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `HS_PWM` and `LS_PWM`. Every undriven or floating state must mean *off*.
-- Use fast logic gates (74LVC-class) and keep their delay matched between the two PWM paths, so the gating does not eat into the dead time.
-- Review walkthrough: power-up, reset, watchdog timeout, enable switch off, MCU hung. Confirm both gates end up off in every case.
+- Design guidance and the review walkthrough are in [design/enable.md](design/enable.md).
 
 ---
 
@@ -329,16 +280,4 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 | `XRSN` | bidir | mcu, enable |
 
 **Notes**
-- USB power does not run the board. Power the bridge's I/O from `+3V3`, so a plugged-in laptop cannot back-power the MCU while the board is off.
-
----
-
-## Before merging a sheet
-
-- [ ] ERC passes with zero errors on that sheet
-- [ ] Every hierarchical label matches this document, in name and direction
-- [ ] Every U1 pin used matches `pinmux.syscfg`
-- [ ] All parts come from the project library, with footprints assigned
-- [ ] DNP parts are marked DNP
-- [ ] Title block updated (revision, owner, date)
-- [ ] Reviewed by the sheet's listed reviewer
+- Design guidance for this sheet is in [design/comms_debug.md](design/comms_debug.md).

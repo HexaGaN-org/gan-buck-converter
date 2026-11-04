@@ -10,7 +10,7 @@ Nothing here changes the schematic. It extends the step 10 frequency sweep in [f
 
 ## 1. The problem the model solves
 
-The IGC033S10S1 has no body diode. During dead time the low-side FET conducts in reverse at $V_{SD} \approx 2.4$ V typ, about three times a Si body diode. [design/power_stage.md](design/power_stage.md) budgets 0.24 W for this at 10 ns per edge, out of about 2.3 W total FET loss.
+The IGC033S10S1 has no body diode. During dead time the low-side FET conducts in reverse at $V_{SD} \approx 2.4$ V typ, about three times a Si body diode. [design/power_stage.md](../design/power_stage.md) budgets 0.24 W for this at 10 ns per edge, out of about 2.3 W total FET loss.
 
 The best dead time depends on the operating point, and the two edges behave differently:
 

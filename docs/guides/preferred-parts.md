@@ -9,12 +9,13 @@ The passives and indicator parts every sheet should pick from first. Most are JL
 ## Rules
 
 1. **Start here.** Choose a value from these tables before searching for anything else.
-2. **0603 is the default size** for resistors and small capacitors. Use 0805 or 1206 only for power, voltage or capacitance that 0603 can't provide.
-3. **Basic first, then Preferred Extended, then Extended.** Each unique Extended part costs a $3.07 loading fee per order on Economic assembly.
-4. **Calculated values are the exception.** A divider or sense value that needs an exact resistance may use one Extended part. Don't combine two Basic resistors to reach a value.
-5. **Derate ceramic capacitors from the curve, not the rating.** Choose a voltage rating of at least twice the working voltage, then read the manufacturer's DC-bias curve at your working voltage (Samsung product pages, Murata SimSurfing, TDK, KEMET K-SIM). Even at half its rated voltage, a 22 µF 25 V 1206 keeps only 26 % at 12 V. Prefer parts whose maker publishes the curve; the measured values for common parts are in the tables below.
-6. **One 100 V capacitor family on the 48 V side.** No Basic ceramic suits the power loop, so pick one or two of the 100 V parts below and reuse them everywhere on the 48 V bus.
-7. **Need something not listed?** Choose it, use it, and add it here in the same pull request so the next person finds it.
+2. **0603 is the default size** for resistors and small capacitors, for hand rework and probing. Use 0805 or 1206 only for power, voltage or capacitance that 0603 can't provide; 0402 only where space demands it, and never below 0402 (Economic PCBA's limit).
+3. **Basic first, then Preferred Extended, then Extended, then Global Sourcing.** Basic and Preferred Extended parts load free on Economic assembly; each other unique Extended part costs a $3.07 loading fee per order.
+4. **Consolidate values.** Use the same part number for all decoupling capacitors, pull-ups and LED resistors where the value isn't critical.
+5. **Calculated values are the exception.** Leave dividers, sense resistors and timing parts at the value they need; one that needs an exact resistance may use one Extended part. Don't combine two Basic resistors to reach a value.
+6. **Derate ceramic capacitors from the curve, not the rating.** Choose a voltage rating of at least twice the working voltage, then read the manufacturer's DC-bias curve at your working voltage (Samsung product pages, Murata SimSurfing, TDK, KEMET K-SIM). Even at half its rated voltage, a 22 µF 25 V 1206 keeps only 26 % at 12 V. Prefer parts whose maker publishes the curve; the measured values for common parts are in the tables below.
+7. **One 100 V capacitor family on the 48 V side.** No Basic ceramic suits the power loop, so pick one or two of the 100 V parts below and reuse them everywhere on the 48 V bus.
+8. **Need something not listed?** Choose it, use it, and add it here in the same pull request so the next person finds it.
 
 ---
 

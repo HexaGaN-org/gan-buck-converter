@@ -1,6 +1,6 @@
 # Firmware Guide — 48 V → 12 V GaN Buck Converter
 
-What the firmware for this board needs to do, explained for someone new to power electronics. Read this first; the hardware details live in [specifications.md](specifications.md) and [schematic-hierarchy.md](schematic-hierarchy.md) when you need them.
+What the firmware for this board needs to do, explained for someone new to power electronics. Read this first; the hardware details live in [specifications.md](../specifications.md) and [schematic-hierarchy.md](../schematic-hierarchy.md) when you need them.
 
 > **Status:** Draft. Numbers marked `[TBD]` are still being decided by the hardware team.
 

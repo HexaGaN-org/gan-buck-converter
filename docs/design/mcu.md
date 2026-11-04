@@ -22,7 +22,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Connect SCI and JTAG to comms_debug.
 - Boot from flash by default, with boot pins free of other functions.
 - Join `AGND` to `GND` at exactly one net tie, at the ADC reference.
-- Every pin assignment matches the frozen SysConfig pin-mux.
+- Every pin assignment matches the frozen SysConfig pin-mux. Change `pinmux.syscfg` first, then the schematic.
 
 ---
 
@@ -32,7 +32,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 | # | Date | Decision | Options considered | Rationale | Impact on other sheets | Status |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
+| 1 | 2026-11-03 | MCU: TI TMS320F280039C, 64-pin LQFP (PM) | Smaller C2000 parts (F28002x / F28003x family members) | Same device as the universal control board, so SysConfig setup, C2000Ware firmware, the LAUNCHXL-F280039C LaunchPad and the team's experience carry over. The 64-pin package keeps schematic and layout simple while keeping what a buck needs: high-resolution PWM, CMPSS comparators for cycle-by-cycle limiting, and a fast ADC. Firmware bring-up can start on the LaunchPad before boards arrive | All sheets: pin-mux frozen in SysConfig before layout. Confirm stock before schematic freeze | Accepted |
 
 ---
 

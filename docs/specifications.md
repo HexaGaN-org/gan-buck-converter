@@ -27,17 +27,18 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Overtemperature | [TBD] °C | Disable PWM | Thermistor + ADC |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
 
-## Components (decisions)
+## Components
 
-| Item | Choice | Status |
-|---|---|---|
-| MCU | TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux in SysConfig and stock before schematic freeze |
-| GaN FETs (×2) | Infineon IGC033S10S1 (LCSC C41381300) — 100 V, 3.3 mΩ max, 3 × 5 mm | Chosen. See [design/power_stage.md](design/power_stage.md) |
-| Gate driver | TI LM5113-Q1 (LCSC C2677036) — 90 V GaN half-bridge driver (HS pin 90 V recommended, 93 V absolute max), WSON-10 | Chosen. See [design/power_stage.md](design/power_stage.md) |
-| Inductor | Sunltech SLB2212P6R8MTT (LCSC C2842794) — 6.8 µH, 31 A I<sub>sat</sub>, 2.1 mΩ | Chosen. See [design/power_stage.md](design/power_stage.md) |
-| Current sensing | 1 mΩ shunt (LCSC C7420016) in series with the inductor; amplifier [TBD] on the sensing sheet | Shunt chosen |
+The headline parts per sheet. The exact part on the board (MPN, LCSC number, footprint) lives in the KiCad symbol fields; why each part was chosen lives in the sheet's design note.
 
-**MCU rationale:** same device as the universal control board, so SysConfig setup, C2000Ware firmware, the LAUNCHXL-F280039C LaunchPad and the team's experience carry over directly. The 64-pin package keeps the schematic and layout simple while retaining what a buck needs: high-resolution PWM, CMPSS comparators for cycle-by-cycle current limiting, and a fast ADC. Early firmware bring-up can run on the LaunchPad before boards arrive.
+| Sheet | Key parts | Status | Details |
+|---|---|---|---|
+| power_stage | 2 × Infineon IGC033S10S1 GaN FETs (100 V); TI LM5113-Q1 gate driver (90 V); 6.8 µH Sunltech SLB2212P6R8MTT inductor; 1 mΩ shunt in series with the inductor | Chosen | [design/power_stage.md](design/power_stage.md) |
+| mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
+| sensing | Current-sense amplifier [TBD] | [TBD] | [design/sensing.md](design/sensing.md) |
+| input_supply | Aux regulator, power mux, TVS [TBD] | [TBD] | [design/input_supply.md](design/input_supply.md) |
+| enable | Windowed watchdog, gating logic [TBD] | [TBD] | [design/enable.md](design/enable.md) |
+| comms_debug | USB-UART bridge [TBD] | [TBD] | [design/comms_debug.md](design/comms_debug.md) |
 
 ## Mechanical and other
 

@@ -14,13 +14,12 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 
 **Requirements**
 
-- `STAGE_EN` = enable switch on AND `WD_OK` AND `RESET_OK` AND `MCU_EN`.
-- `HS_PWM` / `LS_PWM` = `MCU_PWMH` / `MCU_PWML` AND `STAGE_EN`.
+- Implement the gating logic in the **How it works** list of the Enable section of [schematic-hierarchy.md](../schematic-hierarchy.md): `STAGE_EN` from four conditions, then each PWM ANDed with `STAGE_EN`.
 - Both gates off in every undriven, floating, power-up and reset state.
 - A windowed watchdog: kicks that are too slow or too fast both count as failures.
-- Matched gating delay between the high-side and low-side paths, so gating does not eat into dead time.
+- Matched gating delay between the high-side and low-side paths, so gating does not eat into dead time: fast logic (74LVC-class).
+- Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `HS_PWM` and `LS_PWM`, and on the J5 input, so every undriven or floating state means *off*.
 - Provide `STAGE_EN_FB` so firmware can read whether the stage is enabled.
-- Inputs: `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `WDI` from mcu, and J5. Outputs: `HS_PWM`, `LS_PWM` to power_stage; `STAGE_EN_FB` to mcu; `XRSN` shared.
 
 ---
 
@@ -30,7 +29,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 | # | Date | Decision | Options considered | Rationale | Impact on other sheets | Status |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
+| 1 | Gates off in every fault state | Walk through power-up, reset, watchdog timeout, enable switch off and a hung MCU; probe `HS_PWM` / `LS_PWM` | Both gates off in every case | | | |
 
 ---
 

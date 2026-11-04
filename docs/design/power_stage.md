@@ -22,7 +22,6 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Meet the output ripple and load-transient targets in the specifications.
 - Provide a Kelvin-connected current-sense shunt whose value lets sensing place the overcurrent threshold within 0–3 V.
 - Hold both gates off when the driver is unpowered or `HS_PWM` / `LS_PWM` are undriven.
-- Inputs: `HS_PWM`, `LS_PWM` from enable. Outputs: `I_SH_P`, `I_SH_N` to sensing.
 
 ---
 

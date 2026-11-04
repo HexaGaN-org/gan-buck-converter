@@ -19,8 +19,8 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - `VIN_SENSE`: cover the full input range, including the undervoltage-lockout thresholds.
 - `TEMP_SENSE`: a thermistor placed beside the GaN FETs, covering the overtemperature threshold.
 - Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
-- Size every RC for the ADC's acquisition time, and clamp every signal to `+3V3A` / `AGND`.
-- Inputs: `I_SH_P`, `I_SH_N` from power_stage, plus `V_IN` and `V_OUT`. Outputs: `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` to mcu.
+- Size every RC for the ADC's acquisition time, not only for noise, and clamp every signal to `+3V3A` / `AGND`.
+- `ISENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter `VIN_SENSE` and `TEMP_SENSE` more heavily.
 
 ---
 
