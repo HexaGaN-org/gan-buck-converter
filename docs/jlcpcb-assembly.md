@@ -25,7 +25,7 @@ JLCPCB offers two assembly services. The choice limits which parts and layouts y
 
 **House rule: design for Economic PCBA** — single-sided SMT, 0402 or larger, 2 or 4 layers, 1.6 mm, standard stackup. Move to Standard only when a part forces it, and record why in `specifications.md`.
 
-**Open decision for the buck converter:** the LMG1205 gate driver is a 12-ball DSBGA. Check its ball pitch in the datasheet. If it is under 0.5 mm, Economic cannot place it, so either choose Standard PCBA (with rails, fiducials and the higher setup fee) or choose a GaN gate driver in a leaded or QFN package.
+**Decision for the buck converter:** the LMG1205 gate driver's DSBGA package is Standard-PCBA only at JLCPCB, so the board uses the LM5113-Q1 in a WSON-10 package instead, keeping the order on Economic PCBA. Check each new part's PCBA type (Economic or Standard only) when you choose it: one Standard-only part moves the whole order to Standard.
 
 ---
 

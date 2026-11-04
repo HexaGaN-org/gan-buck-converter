@@ -32,8 +32,8 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Item | Choice | Status |
 |---|---|---|
 | MCU | TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux in SysConfig and stock before schematic freeze |
-| GaN FETs (×2) | [part number] — 100 V class, enhancement mode, packaged (QFN-style) | [TBD] |
-| Gate driver | [part number] — GaN half-bridge driver, LMG1205-class | [TBD] |
+| GaN FETs (×2) | Infineon IGC033S10S1 (LCSC C41381300) — 100 V, 3.3 mΩ max, 3 × 5 mm | Chosen. See [design/power_stage.md](design/power_stage.md) |
+| Gate driver | TI LM5113-Q1 (LCSC C2677036) — 100 V GaN half-bridge driver, WSON-10 | Chosen. See [design/power_stage.md](design/power_stage.md) |
 | Inductor | [part number, value, Isat] | [TBD] |
 | Current sensing | [shunt + amplifier / other] | [TBD] |
 

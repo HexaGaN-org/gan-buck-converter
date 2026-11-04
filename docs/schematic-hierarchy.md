@@ -177,8 +177,8 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Responsible for:** the converter itself, from the 48 V bus to the 12 V output.
 
 **Contains**
-- Two discrete enhancement-mode GaN FETs, 100 V class (high side and low side)
-- GaN half-bridge gate driver (LMG1205-class) with internal bootstrap clamp, powered from `+5V`
+- Two Infineon IGC033S10S1 enhancement-mode GaN FETs, 100 V (high side and low side)
+- TI LM5113-Q1 GaN half-bridge gate driver, with internal bootstrap diode and 5.2 V bootstrap clamp, powered from `+5V`
 - Driver supply decoupling and bootstrap capacitor at the driver pins, per its datasheet
 - Separate turn-on and turn-off gate resistors for each FET (using the driver's split outputs)
 - Gate pull-down footprints per the driver datasheet, so the gates stay off with the driver unpowered
