@@ -1,4 +1,5 @@
 (fp_lib_table
 	(version 7)
 	(lib (name "hexagan") (type "KiCad") (uri "${KIPRJMOD}/lib/footprints/hexagan.pretty") (options "") (descr ""))
+  (lib (name "JLCImport")(type "KiCad")(uri "${KIPRJMOD}/JLCImport.pretty")(options "")(descr ""))
 )

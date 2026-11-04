@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid ff83566a-1a00-49fa-964b-85a0e44f76ce)
+	(uuid "ff83566a-1a00-49fa-964b-85a0e44f76ce")
 	(paper "A4")
 	(title_block
 		(title "GaN half-bridge, inductor, output")
@@ -11,4 +11,10 @@
 		(comment 1 "Owner: [NAME]")
 	)
 	(lib_symbols)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
