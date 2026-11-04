@@ -15,12 +15,12 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 **Requirements**
 
 - `STAGE_EN` = enable switch on AND `WD_OK` AND `RESET_OK` AND `MCU_EN`.
-- `GATE_HI` / `GATE_LO` = `MCU_PWMH` / `MCU_PWML` AND `STAGE_EN`.
+- `HS_PWM` / `LS_PWM` = `MCU_PWMH` / `MCU_PWML` AND `STAGE_EN`.
 - Both gates off in every undriven, floating, power-up and reset state.
 - A windowed watchdog: kicks that are too slow or too fast both count as failures.
 - Matched gating delay between the high-side and low-side paths, so gating does not eat into dead time.
 - Provide `STAGE_EN_FB` so firmware can read whether the stage is enabled.
-- Inputs: `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `WDI` from mcu, and J5. Outputs: `GATE_HI`, `GATE_LO` to power_stage; `STAGE_EN_FB` to mcu; `XRSN` shared.
+- Inputs: `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `WDI` from mcu, and J5. Outputs: `HS_PWM`, `LS_PWM` to power_stage; `STAGE_EN_FB` to mcu; `XRSN` shared.
 
 ---
 

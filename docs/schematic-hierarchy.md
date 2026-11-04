@@ -47,8 +47,8 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 
 | Net | Meaning |
 |---|---|
-| `VIN` | Protected 48 V input bus |
-| `VOUT` | 12 V output |
+| `V_IN` | Protected 48 V input bus |
+| `V_OUT` | 12 V output |
 | `+5V_AUX` | Output of the onboard 48 V → 5 V auxiliary regulator |
 | `+5V_EXT` | 5 V from the external header J6 |
 | `+5V` | The selected 5 V rail (via the power mux): GaN driver bias and the 3.3 V LDO input |
@@ -61,7 +61,7 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 
 | Signal | Meaning |
 |---|---|
-| `ISH_P`, `ISH_N` | Kelvin connections across the current-sense shunt |
+| `I_SH_P`, `I_SH_N` | Kelvin connections across the current-sense shunt |
 
 **Sensing to MCU**
 
@@ -78,7 +78,7 @@ Every signal that crosses a sheet boundary. Active-low signals end in `_N`.
 |---|---|
 | `MCU_PWMH`, `MCU_PWML` | High-side and low-side PWM from the MCU, before gating |
 | `MCU_EN` | The MCU's request to switch. Necessary but not sufficient |
-| `GATE_HI`, `GATE_LO` | Gated PWM to the half-bridge: `MCU_PWMx` AND `STAGE_EN` |
+| `HS_PWM`, `LS_PWM` | Gated PWM to the half-bridge driver: `MCU_PWMx` AND `STAGE_EN` |
 | `STAGE_EN_FB` | Copy of the internal `STAGE_EN` for the MCU to read |
 | `WDI` | Watchdog kick from the MCU. Too slow *or* too fast counts as a failure |
 | `XRSN` | MCU reset, active low, open-drain. Driven by the supervisor and the JTAG debugger |
@@ -159,7 +159,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - Analog supply filter (ferrite bead + capacitors) → `+3V3A`
 - Power LED and test points on every rail
 
-**Interface:** power nets only (`VIN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
+**Interface:** power nets only (`V_IN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
 
 **Notes**
 - **Why a power mux and not a diode-OR:** the mux selects a source automatically with only milliohms of drop, and blocks reverse current, so the external supply can never back-feed through the aux regulator into the 48 V bus. A Schottky OR drops 0.3–0.5 V, which can push the GaN driver's bias out of its allowed range.
@@ -181,25 +181,24 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - TI LM5113-Q1 GaN half-bridge gate driver (90 V), with 5.2 V bootstrap clamp, powered from `+5V`
 - Driver supply decoupling and bootstrap capacitor at the driver pins, plus the external bootstrap diode and 100 Ω series resistor its datasheet requires
 - Gate resistors on the driver's split outputs (values in [design/power_stage.md](design/power_stage.md))
-- RC input filters on `GATE_HI` / `GATE_LO` at the driver pins
-- Gate-to-source pull-down footprints at each FET (DNP by default), so a gate can't float if a driver joint fails
+- RC input filters on `HS_PWM` / `LS_PWM` at the driver pins
 - High-frequency input capacitors, placed tight against the FETs (the power loop)
 - Output inductor
-- Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `ISH_P` / `ISH_N`
+- Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `I_SH_P` / `I_SH_N`, through a net tie at each shunt pad
 - Output capacitors
 - J2 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)
-- Test points: switch node, `VOUT`, and a ground point beside each for short scope grounding
+- Test points `TP_SW`, `TP_VOUT`, `TP_VIN`, with ground points `TP_GND1` / `TP_GND2` beside them for short scope grounding
 
 **Hierarchical labels**
 
 | Signal | Dir | To / from |
 |---|---|---|
-| `GATE_HI`, `GATE_LO` | in | enable |
-| `ISH_P`, `ISH_N` | out | sensing |
+| `HS_PWM`, `LS_PWM` | in | enable |
+| `I_SH_P`, `I_SH_N` | out | sensing |
 
 **Notes**
-- The switch node stays local to this sheet; it never crosses a sheet boundary.
+- The switch node (`SW_NODE`) and the gate nets (`HS_DRIVE`, `LS_DRIVE`) are local labels; they never cross a sheet boundary.
 - This sheet decides most of the board's layout. Mark the power-loop capacitors in the schematic (a field or a note) so the layout owner places them first and closest.
 - **Two loops to keep small:** the power loop (input capacitors → high-side FET → low-side FET → back) and each gate loop (driver output → gate resistor → gate → source → driver return). Place the driver right beside the FETs and return each gate loop to its FET's source (Kelvin source where the package offers one), never through the power path.
 - **Never exceed the gate limit.** Enhancement-mode GaN gates are driven at about 5 V with an absolute maximum only slightly above it. Check the driver's output level and the bootstrap clamp against the chosen FET's datasheet, and keep gate ringing below the limit.
@@ -213,9 +212,9 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 **Responsible for:** turning power-stage quantities into clean, protected 0–3 V signals for the MCU.
 
 **Contains**
-- Current-sense amplifier across `ISH_P` / `ISH_N`, scaled so the overcurrent threshold sits well inside 0–3 V
-- Output-voltage divider from `VOUT`
-- Input-voltage divider from `VIN`
+- Current-sense amplifier across `I_SH_P` / `I_SH_N`, scaled so the overcurrent threshold sits well inside 0–3 V
+- Output-voltage divider from `V_OUT`
+- Input-voltage divider from `V_IN`
 - Thermistor divider (the thermistor itself is placed beside the GaN stage in layout)
 - Per channel: RC filter and clamp to `+3V3A` / `AGND`
 - Test points on each sense signal
@@ -224,7 +223,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 
 | Signal | Dir | To / from |
 |---|---|---|
-| `ISH_P`, `ISH_N` | in | power_stage |
+| `I_SH_P`, `I_SH_N` | in | power_stage |
 | `ISENSE` | out | mcu |
 | `VOUT_SENSE` | out | mcu |
 | `VIN_SENSE` | out | mcu |
@@ -287,7 +286,7 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 - Windowed watchdog supervisor (TPS3850-class): monitors `+3V3`, drives `XRSN` and the internal `RESET_OK` and `WD_OK`
 - J5 enable switch input, with pull-down so an open switch means *off*
 - AND logic producing `STAGE_EN`
-- Two AND gates: `MCU_PWMx` AND `STAGE_EN` → `GATE_HI` / `GATE_LO`
+- Two AND gates: `MCU_PWMx` AND `STAGE_EN` → `HS_PWM` / `LS_PWM`
 - ENABLE LED, test points on `STAGE_EN` and `WD_OK`
 
 **Hierarchical labels**
@@ -298,11 +297,11 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 | `MCU_EN` | in | mcu |
 | `WDI` | in | mcu |
 | `XRSN` | bidir | mcu, comms_debug |
-| `GATE_HI`, `GATE_LO` | out | power_stage |
+| `HS_PWM`, `LS_PWM` | out | power_stage |
 | `STAGE_EN_FB` | out | mcu |
 
 **Notes**
-- Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `GATE_HI` and `GATE_LO`. Every undriven or floating state must mean *off*.
+- Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `HS_PWM` and `LS_PWM`. Every undriven or floating state must mean *off*.
 - Use fast logic gates (74LVC-class) and keep their delay matched between the two PWM paths, so the gating does not eat into the dead time.
 - Review walkthrough: power-up, reset, watchdog timeout, enable switch off, MCU hung. Confirm both gates end up off in every case.
 

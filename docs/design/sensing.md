@@ -20,7 +20,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - `TEMP_SENSE`: a thermistor placed beside the GaN FETs, covering the overtemperature threshold.
 - Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
 - Size every RC for the ADC's acquisition time, and clamp every signal to `+3V3A` / `AGND`.
-- Inputs: `ISH_P`, `ISH_N` from power_stage, plus `VIN` and `VOUT`. Outputs: `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` to mcu.
+- Inputs: `I_SH_P`, `I_SH_N` from power_stage, plus `V_IN` and `V_OUT`. Outputs: `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` to mcu.
 
 ---
 
