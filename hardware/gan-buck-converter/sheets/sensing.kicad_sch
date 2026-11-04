@@ -11,9 +11,9 @@
 		(comment 1 "Owner: [NAME]")
 	)
 	(lib_symbols
-		(symbol "Amplifier_Instrumentation:INA128"
+		(symbol "JLCImport:INA128UA_2K5"
 			(pin_names
-				(offset 0.127)
+				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -21,50 +21,26 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
-				(at 3.81 3.175 0)
+				(at 0 8.858 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "INA128"
-				(at 3.81 -3.175 0)
+			(property "Value" "INA128UA_2K5"
+				(at 0 -8.858 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Footprint" ""
-				(at 2.54 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ina128.pdf"
-				(at 2.54 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Precision, Low Power Instrumentation Amplifier G = 1 + 50kOhm/Rg, DIP-8/SOIC-8"
+			(property "Footprint" "JLCImport:INA128UA_2K5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -75,7 +51,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "instrumentation opamp"
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1806150315_Texas-Instruments-INA128UA-2K5_C22233.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -86,7 +62,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "DIP*W7.62mm* SOIC*P1.27mm*"
+			(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 1.3MHz 120dB 12us 36V 36V 4V/us 500nV/℃ 50uV 5nA 5nA 6mA 700uA 8nV/√Hz@1kHz SOIC-8-150mil Instrumentation Amplifiers ROHS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -97,25 +73,95 @@
 					)
 				)
 			)
-			(symbol "INA128_0_1"
+			(property "LCSC" "C22233"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "INA128UA/2K5"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C22233 INA128UA/2K5 SOIC-8_L4.9-W3.9-P1.27-LS6.0-BL Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "INA128UA_2K5_0_1"
+				(circle
+					(center -6.35 5.588)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center -6.35 5.588)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
 				(polyline
 					(pts
-						(xy 7.62 0) (xy -5.08 6.35) (xy -5.08 -6.35) (xy 7.62 0)
+						(xy 7.112 -6.858) (xy 7.2111 -6.8482) (xy 7.3064 -6.8193) (xy 7.3942 -6.7724) (xy 7.4712 -6.7092)
+						(xy 7.5344 -6.6322) (xy 7.5813 -6.5444) (xy 7.6102 -6.4491) (xy 7.62 -6.35) (xy 7.6102 6.4491)
+						(xy 7.5813 6.5444) (xy 7.5344 6.6322) (xy 7.4712 6.7092) (xy 7.3942 6.7724) (xy 7.3064 6.8193)
+						(xy 7.2111 6.8482) (xy 7.112 6.858) (xy -7.2111 6.8482) (xy -7.3064 6.8193) (xy -7.3942 6.7724)
+						(xy -7.4712 6.7092) (xy -7.5344 6.6322) (xy -7.5813 6.5444) (xy -7.6102 6.4491) (xy -7.62 6.35)
+						(xy -7.6102 -6.4491) (xy -7.5813 -6.5444) (xy -7.5344 -6.6322) (xy -7.4712 -6.7092) (xy -7.3942 -6.7724)
+						(xy -7.3064 -6.8193) (xy -7.2111 -6.8482) (xy -7.112 -6.858) (xy 7.112 -6.858)
 					)
 					(stroke
 						(width 0.254)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type background)
 					)
 				)
-			)
-			(symbol "INA128_1_1"
-				(pin passive line
-					(at -7.62 2.54 0)
+				(pin unspecified line
+					(at -10.16 3.81 0)
 					(length 2.54)
-					(name "Rg"
+					(name "RG"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -130,10 +176,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at -7.62 -5.08 0)
+				(pin unspecified line
+					(at -10.16 1.27 0)
 					(length 2.54)
-					(name "-"
+					(name "V–IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -148,10 +194,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at -7.62 5.08 0)
+				(pin unspecified line
+					(at -10.16 -1.27 0)
 					(length 2.54)
-					(name "+"
+					(name "V+IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -166,10 +212,10 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 3.81)
-					(name "V-"
+				(pin unspecified line
+					(at -10.16 -3.81 0)
+					(length 2.54)
+					(name "V–"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -184,9 +230,9 @@
 						)
 					)
 				)
-				(pin input line
-					(at 2.54 -7.62 90)
-					(length 5.08)
+				(pin unspecified line
+					(at 10.16 -3.81 180)
+					(length 2.54)
 					(name "Ref"
 						(effects
 							(font
@@ -202,10 +248,10 @@
 						)
 					)
 				)
-				(pin output line
-					(at 10.16 0 180)
+				(pin unspecified line
+					(at 10.16 -1.27 180)
 					(length 2.54)
-					(name ""
+					(name "VO"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -220,9 +266,9 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 7.62 270)
-					(length 3.81)
+				(pin unspecified line
+					(at 10.16 1.27 180)
+					(length 2.54)
 					(name "V+"
 						(effects
 							(font
@@ -238,10 +284,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -7.62 -2.54 0)
+				(pin unspecified line
+					(at 10.16 3.81 180)
 					(length 2.54)
-					(name "Rg"
+					(name "RG"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -249,6 +295,458 @@
 						)
 					)
 					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:OPA192IDBVR"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 9.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "OPA192IDBVR"
+				(at 0 -9.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:OPA192IDBVR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C139648"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "OPA192IDBVR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C139648 OPA192IDBVR SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BL Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "OPA192IDBVR_0_1"
+				(circle
+					(center -4.445 -4.445)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -2.54) (xy -3.81 -2.54) (xy -3.81 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.016) (xy 0.508 -1.524)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 1.27) (xy 0.254 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.254 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy -2.54 0) (xy 1.27 -2.54) (xy 1.27 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 1.27) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -5.08) (xy 2.54 -1.27) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.572 -5.08) (xy 4.6711 -5.0702) (xy 4.7664 -5.0413) (xy 4.8542 -4.9944) (xy 4.9312 -4.9312)
+						(xy 4.9944 -4.8542) (xy 5.0413 -4.7664) (xy 5.0702 -4.6711) (xy 5.08 -4.572) (xy 5.0702 4.6711)
+						(xy 5.0413 4.7664) (xy 4.9944 4.8542) (xy 4.9312 4.9312) (xy 4.8542 4.9944) (xy 4.7664 5.0413)
+						(xy 4.6711 5.0702) (xy 4.572 5.08) (xy -4.6711 5.0702) (xy -4.7664 5.0413) (xy -4.8542 4.9944)
+						(xy -4.9312 4.9312) (xy -4.9944 4.8542) (xy -5.0413 4.7664) (xy -5.0702 4.6711) (xy -5.08 4.572)
+						(xy -5.0702 -4.6711) (xy -5.0413 -4.7664) (xy -4.9944 -4.8542) (xy -4.9312 -4.9312) (xy -4.8542 -4.9944)
+						(xy -4.7664 -5.0413) (xy -4.6711 -5.0702) (xy -4.572 -5.08) (xy 4.572 -5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at -2.54 -7.62 90)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 -7.62 90)
+					(length 2.54)
+					(name "IN+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "IN-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -2.54 7.62 270)
+					(length 2.54)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "hexagan:V_OUT"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "V_OUT"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "V_OUT_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "V_OUT_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -540,7 +1038,17 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 50.8) (xy 177.8 52.07)
+			(xy 210.82 50.8) (xy 219.71 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0318e4dc-1ad5-4738-9237-d52b390ae23c")
+	)
+	(wire
+		(pts
+			(xy 219.71 49.53) (xy 219.71 50.8)
 		)
 		(stroke
 			(width 0)
@@ -550,7 +1058,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 54.61) (xy 170.18 54.61)
+			(xy 182.88 53.34) (xy 190.5 53.34)
 		)
 		(stroke
 			(width 0)
@@ -560,7 +1068,47 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 64.77) (xy 170.18 64.77)
+			(xy 54.61 48.26) (xy 64.77 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a607db8d-dd2d-48f4-92bb-d666164d8cdb")
+	)
+	(wire
+		(pts
+			(xy 49.53 24.13) (xy 49.53 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b478d5cb-e485-4d17-b80c-0c9ce2d53caf")
+	)
+	(wire
+		(pts
+			(xy 64.77 24.13) (xy 49.53 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5cc37df-048c-4d26-8fc0-5f383a31ebb4")
+	)
+	(wire
+		(pts
+			(xy 64.77 48.26) (xy 64.77 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e26d3030-1010-4e4c-bacd-80df37d7fa7f")
+	)
+	(wire
+		(pts
+			(xy 182.88 50.8) (xy 190.5 50.8)
 		)
 		(stroke
 			(width 0)
@@ -570,7 +1118,7 @@
 	)
 	(hierarchical_label "I_SH_P"
 		(shape output)
-		(at 162.56 54.61 180)
+		(at 182.88 53.34 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -583,7 +1131,7 @@
 	)
 	(hierarchical_label "I_SH_N"
 		(shape output)
-		(at 162.56 64.77 180)
+		(at 182.88 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -595,8 +1143,8 @@
 		(uuid "c6f77ab4-0b25-4f27-8339-64a49e4f7ac3")
 	)
 	(symbol
-		(lib_id "Amplifier_Instrumentation:INA128")
-		(at 177.8 59.69 0)
+		(lib_id "JLCImport:INA128UA_2K5")
+		(at 200.66 52.07 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -605,9 +1153,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "84047cbe-3b9b-46be-acc6-0a4cc6400c88")
-		(property "Reference" "U1"
-			(at 190.5 53.2698 0)
+		(uuid "1eb78027-2a28-425f-b841-9e58526a87b8")
+		(property "Reference" "U402"
+			(at 200.66 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -616,8 +1164,8 @@
 				)
 			)
 		)
-		(property "Value" "INA128"
-			(at 190.5 55.8098 0)
+		(property "Value" "INA128UA_2K5"
+			(at 200.66 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -626,8 +1174,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
-			(at 180.34 59.69 0)
+		(property "Footprint" "JLCImport:INA128UA_2K5"
+			(at 200.66 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -637,8 +1185,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ina128.pdf"
-			(at 180.34 59.69 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1806150315_Texas-Instruments-INA128UA-2K5_C22233.pdf"
+			(at 200.66 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -648,8 +1196,8 @@
 				)
 			)
 		)
-		(property "Description" "Precision, Low Power Instrumentation Amplifier G = 1 + 50kOhm/Rg, DIP-8/SOIC-8"
-			(at 177.8 59.69 0)
+		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 1.3MHz 120dB 12us 36V 36V 4V/us 500nV/℃ 50uV 5nA 5nA 6mA 700uA 8nV/√Hz@1kHz SOIC-8-150mil Instrumentation Amplifiers ROHS"
+			(at 200.66 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -659,42 +1207,75 @@
 				)
 			)
 		)
-		(pin "8"
-			(uuid "341445af-df1d-4cd6-bea5-8a78e1c9ba43")
+		(property "LCSC" "C22233"
+			(at 200.66 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
-		(pin "6"
-			(uuid "5b3c49fc-0b48-4443-b876-2228062e23d0")
+		(property "Manufacturer" "Texas Instruments"
+			(at 200.66 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "INA128UA/2K5"
+			(at 200.66 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
 		(pin "5"
-			(uuid "8bb19830-bea9-4ae7-a9c7-87c75fa8ca48")
+			(uuid "c6165f20-61e8-4132-91af-80a0a58e1538")
 		)
 		(pin "1"
-			(uuid "17188e5c-8ce0-4f96-9fce-7ebd338542fb")
+			(uuid "d7eb6f4f-bf75-4762-b69d-81d9f16381eb")
 		)
-		(pin "7"
-			(uuid "9fd581ab-8e1e-4051-a6a0-f35b267efd0c")
+		(pin "8"
+			(uuid "512389ac-e1af-4892-8450-3ddce93b9d1f")
 		)
 		(pin "4"
-			(uuid "463f56ef-818a-4e1f-97c6-09aebd865c0f")
-		)
-		(pin "3"
-			(uuid "d70294b0-d0e6-452b-92fc-7c08793933bc")
+			(uuid "77bb40c6-3f81-4340-ba09-10175b38c58a")
 		)
 		(pin "2"
-			(uuid "12561bb1-e827-4fb4-83a8-80e2cc850d0f")
+			(uuid "9fa2cc06-bb25-4847-ad64-fb3f4df8fe29")
+		)
+		(pin "3"
+			(uuid "392544ed-e0c6-469e-92fb-1ec228b63295")
+		)
+		(pin "7"
+			(uuid "608b3184-015f-4269-a63a-e6768d8eb8ec")
+		)
+		(pin "6"
+			(uuid "768e2101-7e40-4e3f-821f-32fae7577e79")
 		)
 		(instances
-			(project "sensing"
-				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
-					(reference "U1")
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "U402")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 177.8 50.8 0)
+		(lib_id "hexagan:V_OUT")
+		(at 40.64 31.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -702,10 +1283,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a6231c9e-2cc4-4541-8410-42d9e3767dd9")
-		(property "Reference" "#PWR0302"
-			(at 177.8 54.61 0)
+		(uuid "4601391d-6200-41ba-86c3-0466737afecf")
+		(property "Reference" "#PWR0305"
+			(at 40.64 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -715,8 +1295,8 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
-			(at 177.8 45.72 0)
+		(property "Value" "V_OUT"
+			(at 40.64 27.178 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -726,7 +1306,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 50.8 0)
+			(at 40.64 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -737,7 +1317,175 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 50.8 0)
+			(at 40.64 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
+			(at 40.64 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "49cfbf98-081d-4cd8-b5a8-3b3fcf48149b")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0305")
+					(unit 1)
+				)
+			)
+			(project "sensing"
+				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
+					(reference "#PWR0305")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 52.07 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6e14eacd-3465-4fb1-b59c-a78197fe8126")
+		(property "Reference" "#PWR0306"
+			(at 52.07 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 52.07 53.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 52.07 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 52.07 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 52.07 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "debeef1c-2407-4ab4-8eda-4382847f06c0")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0306")
+					(unit 1)
+				)
+			)
+			(project "sensing"
+				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
+					(reference "#PWR0306")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 54.61 33.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7677288c-2f79-455f-a541-002206d1e362")
+		(property "Reference" "#PWR0304"
+			(at 54.61 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 54.61 27.94 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 54.61 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -748,7 +1496,215 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 177.8 50.8 0)
+			(at 54.61 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6073cd40-18c5-4cdd-9c94-201013c41824")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0304")
+					(unit 1)
+				)
+			)
+			(project "sensing"
+				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
+					(reference "#PWR0304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:OPA192IDBVR")
+		(at 52.07 40.64 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7a9bf4a1-fcc2-4739-88f0-9c3c38e20f27")
+		(property "Reference" "U401"
+			(at 58.42 41.9101 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "OPA192IDBVR"
+			(at 58.42 39.3701 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:OPA192IDBVR"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C139648"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "OPA192IDBVR"
+			(at 52.07 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9912444c-4eb6-4311-93a3-fb61752a562b")
+		)
+		(pin "2"
+			(uuid "238c09a2-a2c7-422a-95b7-e98fb537e5f5")
+		)
+		(pin "5"
+			(uuid "aad21f66-96d0-4f48-910b-8714be6c6dc6")
+		)
+		(pin "4"
+			(uuid "5955634b-fc10-4d84-b1e0-1dc8e633ff35")
+		)
+		(pin "3"
+			(uuid "8fbc74c2-54c0-4a99-b012-78e6ec1b7268")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "U401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 219.71 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a6231c9e-2cc4-4541-8410-42d9e3767dd9")
+		(property "Reference" "#PWR0302"
+			(at 219.71 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 219.71 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 219.71 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 219.71 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 219.71 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -762,6 +1718,12 @@
 			(uuid "f81d4b55-5a5e-4863-b3e4-de74c3afbe85")
 		)
 		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0302")
+					(unit 1)
+				)
+			)
 			(project "sensing"
 				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
 					(reference "#PWR0302")
@@ -772,7 +1734,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 177.8 67.31 0)
+		(at 190.5 55.88 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -783,7 +1745,7 @@
 		(fields_autoplaced yes)
 		(uuid "b295c07f-2b5e-4b66-93d4-e4c66da176df")
 		(property "Reference" "#PWR0303"
-			(at 177.8 73.66 0)
+			(at 190.5 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -794,7 +1756,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 177.8 72.39 0)
+			(at 190.5 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -804,7 +1766,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 67.31 0)
+			(at 190.5 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -815,7 +1777,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 67.31 0)
+			(at 190.5 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -826,7 +1788,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 177.8 67.31 0)
+			(at 190.5 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -840,6 +1802,12 @@
 			(uuid "e563d7b9-a471-4126-a07a-378e95b1a67e")
 		)
 		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0303")
+					(unit 1)
+				)
+			)
 			(project "sensing"
 				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
 					(reference "#PWR0303")
@@ -853,5 +1821,4 @@
 			(page "1")
 		)
 	)
-	(embedded_fonts no)
 )
