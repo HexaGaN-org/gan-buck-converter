@@ -2,7 +2,7 @@
 
 Sheet: `sheets/input_supply.kicad_sch`
 
-**Owner:** [NAME] · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
+**Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
 
 ---
 

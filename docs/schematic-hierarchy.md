@@ -98,13 +98,13 @@ Place `V_IN` and `V_OUT` with the `hexagan:V_IN` and `hexagan:V_OUT` power symbo
 
 | # | Sheet | Owner | Reviewer |
 |---|---|---|---|
-| 1 | Top | [NAME] | [NAME] |
-| 2 | input_supply | [NAME] | [NAME] |
-| 3 | power_stage | [NAME] | [NAME] |
-| 4 | sensing | [NAME] | [NAME] |
-| 5 | mcu | [NAME] | [NAME] |
-| 6 | enable | [NAME] | [NAME] |
-| 7 | comms_debug | [NAME] | [NAME] |
+| 1 | Top | Reza Rahimzadeh | [NAME] |
+| 2 | input_supply | Reza Rahimzadeh | [NAME] |
+| 3 | power_stage | Reza Rahimzadeh | [NAME] |
+| 4 | sensing | Connor Jin | [NAME] |
+| 5 | mcu | Yunxi He | [NAME] |
+| 6 | enable | Connor Jin | [NAME] |
+| 7 | comms_debug | Yunxi He | [NAME] |
 
 One owner per sheet. Only the owner edits it; changes from anyone else go through the owner. The reviewer is never the owner.
 

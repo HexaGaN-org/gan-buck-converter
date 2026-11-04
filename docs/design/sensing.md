@@ -2,7 +2,7 @@
 
 Sheet: `sheets/sensing.kicad_sch`
 
-**Owner:** [NAME] · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
+**Owner:** Connor Jin · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
 
 ---
 

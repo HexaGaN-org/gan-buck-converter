@@ -2,7 +2,7 @@
 
 Sheet: `sheets/mcu.kicad_sch`
 
-**Owner:** [NAME] · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
+**Owner:** Yunxi He · **Reviewer:** [NAME] · **Last updated:** [YYYY-MM-DD]
 
 ---
 
