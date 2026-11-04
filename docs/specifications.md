@@ -6,12 +6,12 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 
 | Parameter | Min | Typ | Max | Unit | Notes |
 |---|---|---|---|---|---|
-| Input voltage | [TBD] | 48 | [TBD] | V | Max must stay below 60 V (SELV) |
+| Input voltage | [TBD] | 48 | [TBD] | V | Max must stay below 60 V (SELV). Transients at the switch node must stay below 90 V (gate driver HS rating) |
 | Output voltage | | 12 | | V | |
 | Output current | | | 12.5 | A | Size layout, connectors and parts for 16.7 A (200 W) |
 | Output power | | | 150 | W | Design target; ratings sized for 200 W headroom |
 | Input current | | 3.3 | | A | At 48 V, full load, ~95 % efficiency |
-| Switching frequency | 300 | [TBD] | 500 | kHz | Pick within this range once the GaN FETs, gate driver and inductor are chosen |
+| Switching frequency | 300 | 400 | 500 | kHz | 400 kHz nominal. Hardware is sized to run anywhere in 300–500 kHz so firmware can sweep it. Decision #4 in [design/power_stage.md](design/power_stage.md) |
 | Output voltage ripple | | | [TBD] | mV p-p | |
 | Load transient, 10 % → 90 % step | | | [TBD] | mV deviation | Settling time: [TBD] µs |
 | Efficiency at full load | [TBD] | | | % | ~95–96 % expected (~6 W loss at 150 W) |
@@ -33,8 +33,8 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 |---|---|---|
 | MCU | TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux in SysConfig and stock before schematic freeze |
 | GaN FETs (×2) | Infineon IGC033S10S1 (LCSC C41381300) — 100 V, 3.3 mΩ max, 3 × 5 mm | Chosen. See [design/power_stage.md](design/power_stage.md) |
-| Gate driver | TI LM5113-Q1 (LCSC C2677036) — 100 V GaN half-bridge driver, WSON-10 | Chosen. See [design/power_stage.md](design/power_stage.md) |
-| Inductor | [part number, value, Isat] | [TBD] |
+| Gate driver | TI LM5113-Q1 (LCSC C2677036) — 90 V GaN half-bridge driver (HS pin 90 V recommended, 93 V absolute max), WSON-10 | Chosen. See [design/power_stage.md](design/power_stage.md) |
+| Inductor | 6.8 µH, I<sub>sat</sub> ≥ 20 A, DCR ≤ ~5 mΩ; part number [TBD] | Value chosen. One part covers 300–500 kHz |
 | Current sensing | [shunt + amplifier / other] | [TBD] |
 
 **MCU rationale:** same device as the universal control board, so SysConfig setup, C2000Ware firmware, the LAUNCHXL-F280039C LaunchPad and the team's experience carry over directly. The 64-pin package keeps the schematic and layout simple while retaining what a buck needs: high-resolution PWM, CMPSS comparators for cycle-by-cycle current limiting, and a fast ADC. Early firmware bring-up can run on the LaunchPad before boards arrive.

@@ -15,7 +15,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 **Requirements**
 
 - 48 V in, 12 V out at up to 12.5 A (150 W), with parts and copper rated for 16.7 A (200 W).
-- Switching frequency within 300–500 kHz.
+- Switch at 400 kHz nominal, with every part sized to run anywhere in 300–500 kHz.
 - Meet the efficiency target in the specifications (about 95–96 % expected, roughly 6 W total loss at 150 W) with natural-convection cooling.
 - Keep the GaN gate voltage within the FETs' limits under all conditions, including ringing.
 - Support the shortest safe dead time, set in the MCU's ePWM.
@@ -35,6 +35,9 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 | 1 | 2026-11-03 | Discrete GaN FETs with a separate GaN half-bridge gate driver | Integrated GaN half-bridge with built-in driver (LMG2100 family) | Team decision | Gate-loop layout and gate-voltage limits become this sheet's responsibility | Accepted |
 | 2 | 2026-11-03 | GaN FETs: Infineon IGC033S10S1, same part in both positions | EPC2306 (0 stock at JLCPCB), EPC2302 (9 in stock, larger die), EPC2308 (150 V, 51 in stock, no EasyEDA footprint), Infineon IGB070S10S1 (5 mΩ, 80 in stock), Innoscience 100 V parts (WLCSP / LGA) | In stock at JLCPCB and Economic-assemblable; 3.3 mΩ max keeps total FET loss near 1.7 W at full load; packaged 3 × 5 mm; one part number for both positions | input_supply: TVS clamp must stay well below the 100 V rating. Enable/mcu: none | Accepted |
 | 3 | 2026-11-03 | Gate driver: TI LM5113-Q1 (WSON-10) | LMG1205 (DSBGA, Standard-PCBA only), LMG1210 (needs 6–18 V supply; $12.72) | Keeps the order on Economic PCBA; 5.2 V bootstrap clamp is below the FET's 5.5 V recommended max; runs from `+5V`; split outputs; active part with JLCPCB stock | mcu: dead time must cover the 28 ns propagation delay and 1.5 ns matching. input_supply: about 10 mA more on `+5V` | Accepted |
+| 4 | 2026-11-03 | Switching frequency 400 kHz nominal; hardware valid across 300–500 kHz | 300 kHz (1.15 W frequency-dependent loss, larger passives), 500 kHz (1.91 W, high-side FET ~50 °C rise, 240 CPU cycles per period), 1 MHz (3.8 W, needs a heatsink) | Middle of the spec range: 1.54 W frequency-dependent loss, high-side FET ~42 °C rise, 300 CPU cycles per period. One 6.8 µH inductor keeps ripple and peak current acceptable across 300–500 kHz, so frequency becomes a firmware setting and the bench can measure efficiency vs frequency | mcu/firmware: HRPWM required; control ISR budget 300 cycles. Input and output capacitors sized for the 300 kHz worst case | Accepted |
+| 5 | 2026-11-03 | Gate-drive passives per the LM5113-Q1 datasheet and TI's reference circuit (Figure 18): 100 nF bootstrap, 1 µF + 100 nF on VDD, external BAT46W + 100 Ω bootstrap path, 2 Ω on HOH, HOL direct, LOH and LOL tied, 1 kΩ + 22 pF input filters | 0 Ω turn-on (≈ 0.3 W less loss, ≈ 17 V/ns edges); no input filters (TI's reference fits 0 Ω and leaves the capacitors off) | Datasheet section 7.3.2 requires the external diode and 100 Ω. 2 Ω roughly halves turn-on dv/dt and ringing on a first board and can be tuned 0–4.7 Ω on the bench. Turn-off paths stay stiff so Miller current can't lift the gates. Filters reject glitches on PWM traces that cross the board | mcu/firmware: input filters add ≈ 6.5 ns to every dead time. input_supply: `+5V` must stay ≤ 5.5 V, because VDD drives the low-side gate directly | Accepted |
+| 6 | 2026-11-03 | 10 kΩ gate-to-source footprints at each FET, DNP | Fitted 10 kΩ; no footprint (TI's reference) | Not required by the datasheet: when unpowered, the driver's output structures clamp the gates into the bootstrap and VDD capacitors. The footprint guards against assembly faults (an open gate resistor or driver joint) and can be fitted if the bench shows gate movement on a cold 48 V start | none | Accepted |
 
 ---
 
@@ -49,10 +52,26 @@ One row per calculation. Note where each input came from (specification, datashe
 | Low-side conduction loss | $I_{out}^2 \cdot R_{DS(on),hot} \cdot (1-D)$ | $12.5^2 \cdot 5\,m\Omega \cdot 0.75 \approx 0.59$ W | Same assumptions |
 | Output-charge loss | $\tfrac{1}{2} Q_{oss} V_{in} f_{sw}$ | $0.5 \cdot 43\,nC \cdot 48 \cdot 400\,kHz \approx 0.41$ W | $Q_{oss}$ 43 nC typ at 50 V (datasheet); $f_{sw}$ = 400 kHz planned |
 | Dead-time conduction loss | $V_{SD} \cdot I_{out} \cdot 2 t_{dt} \cdot f_{sw}$ | $2.4 \cdot 12.5 \cdot 20\,ns \cdot 400\,kHz \approx 0.24$ W | $V_{SD}$ 2.4 V typ (datasheet); 10 ns dead time per edge assumed |
-| Switching overlap loss | Estimate | ≈ 0.3 W | Rough estimate; refine from driver current and $Q_{gd}$ (2.6 nC) |
-| Total FET loss | Sum of the above | ≈ 1.7 W | Against a ~6 W total budget at 150 W |
-| High-side turn-on time | $Q_g / I_{source}$ | $11\,nC / 1.2\,A \approx 9$ ns | $Q_g$ from FET datasheet; 1.2 A source from LM5113-Q1 page; turn-on resistor slows this further |
-| Driver gate-charge current | $2 \cdot Q_g \cdot f_{sw}$ | $2 \cdot 11\,nC \cdot 400\,kHz \approx 8.8$ mA | Plus driver quiescent current; ≈ 10 mA total on `+5V` |
+| High-side turn-on gate current (plateau) | $(V_{DD} - V_{plateau}) / (R_{pullup} + R_{HOH} + R_{G})$ | $(5 - 2.6) / (2.1 + 2 + 0.5) \approx 0.52$ A | 2.1 Ω driver pull-up, 0.5 Ω FET internal $R_G$, 2.6 V plateau (datasheets); 2 Ω HOH (decision #5). Peak at 0 V gate: $5 / 4.6 \approx 1.1$ A, inside the driver's 1.2 A |
+| Turn-on switching time | $Q_{sw} / I_{G}$ | $3.3\,nC / 0.52\,A \approx 6.3$ ns | $Q_{sw}$ 3.3 nC typ (datasheet). Common-source inductance (no Kelvin pin) slows this further |
+| Turn-on dv/dt | $V_{in} / (Q_{gd} / I_{G})$ | $48 / (2.6\,nC / 0.52\,A) \approx 10$ V/ns | About 17 V/ns with 0 Ω. LM5113-Q1 HS slew limit is 50 V/ns |
+| Turn-on overlap loss | $\tfrac{1}{2} V_{in} I_{valley} t_{sw} f_{sw}$ | $0.5 \cdot 48 \cdot 10.8 \cdot 6.3\,ns \cdot 400\,kHz \approx 0.66$ W | High-side hard turn-on; valley current $12.5 - 3.3/2$ A. About 0.37 W with 0 Ω |
+| Turn-off overlap loss (upper bound) | $\tfrac{1}{2} V_{in} I_{peak} t_{off} f_{sw}$ | $0.5 \cdot 48 \cdot 14.2 \cdot 1.4\,ns \cdot 400\,kHz \approx 0.19$ W | $t_{off} = Q_{sw} / (2.6\,V / 1.1\,\Omega)$; the load current charges $C_{oss}$, so the real loss is lower |
+| Total FET loss | Sum of the above | ≈ 2.3 W | 0.79 W conduction + 0.41 W $Q_{oss}$ + 0.24 W dead time + 0.85 W overlap. Against a ~6 W total budget at 150 W |
+| Miller-induced low-side gate bump | $C_{rss} \cdot dv/dt \cdot (R_{pulldown} + R_G)$ | $8\,pF \cdot 17\,V/ns \cdot 1.1\,\Omega \approx 0.15$ V | Worst case (0 Ω turn-on). Far below the 1.2 V minimum threshold, which is why the turn-off paths have no added resistance |
+| Driver gate-charge current | $2 \cdot Q_g \cdot f_{sw}$ | $2 \cdot 11\,nC \cdot 400\,kHz \approx 8.8$ mA | Plus driver operating current; ≈ 10 mA total on `+5V` |
+| Bootstrap capacitor | $C_{BST} \ge (Q_{gH} + I_{HB} t_{on} + Q_{rr}) / \Delta V$ | $(14 + 2.5\,mA \cdot 1.25\,\mu s + 4)\,nC / 100\,nF \approx 0.21$ V droop | Datasheet eq. 2. $Q_g$ 14 nC max; $I_{HB}$ 2.5 mA max at 500 kHz; $t_{on}$ budgeted at D = 0.5; $Q_{rr}$ 4 nC. 100 nF chosen; 220 nF if the bench shows sag |
+| VDD bypass | $C_{VDD} \ge (Q_{gH} + Q_{gL} + Q_{rr}) / \Delta V$, and $\ge 10\,C_{BST}$ | 32 nC / 1.1 µF ≈ 30 mV droop | Datasheet eq. 1 and section 9 (100 nF at the pins + 220 nF–10 µF). Well inside the 200 mV UVLO hysteresis |
+| Input-filter delay, rising | $\tau \ln\big(V_{OH} / (V_{OH} - V_{IR})\big)$ | $22\,ns \cdot \ln(3.3 / 1.24) \approx 21.5$ ns | 1 kΩ × 22 pF; 3.3 V logic; 2.06 V rising threshold typ |
+| Input-filter delay, falling | $\tau \ln(V_{OH} / V_{IF})$ | $22\,ns \cdot \ln(3.3 / 1.66) \approx 15$ ns | 1.66 V falling threshold typ. Turn-on lags turn-off by ≈ 6.5 ns, adding that to each dead time |
+| Inductance | $L = (V_{in} - V_{out}) D / (f_{sw} \Delta I_L)$ | $36 \cdot 0.25 / (400\,kHz \cdot 3.75\,A) \approx 6.0$ µH → 6.8 µH | 30 % ripple target |
+| Inductor ripple current | $\Delta I_L = (V_{in} - V_{out}) D / (L f_{sw})$ | 3.3 A at 400 kHz (4.4 A at 300 kHz, 2.6 A at 500 kHz) | 6.8 µH |
+| Peak inductor current | $I_{out,max} + \Delta I_L / 2$ | $16.7 + 4.4/2 \approx 18.9$ A | 200 W rating, 300 kHz worst case. Inductor $I_{sat}$ ≥ 20 A; the current-limit trip must sit below $I_{sat}$ |
+| Input capacitor RMS current | $I_{out} \sqrt{D(1-D)}$ | $12.5 \sqrt{0.1875} \approx 5.4$ A rms | Shared across the ceramic bank |
+| Input capacitance | $C_{in} \ge I_{out} D(1-D) / (f_{sw} \Delta V_{in})$ | $2.34 / (300\,kHz \cdot 1\,V) \approx 7.8$ µF effective | 1 V p-p at the FETs, 300 kHz worst case. Effective value at 48 V after DC-bias derating |
+| Output capacitance (ripple) | $C_{out} \ge \Delta I_L / (8 f_{sw} \Delta V_{out})$ | $4.4 / (8 \cdot 300\,kHz \cdot 50\,mV) \approx 37$ µF effective | Example at 50 mV p-p, 300 kHz worst case; recompute once the ripple target is set. Effective value at 12 V |
+| Frequency-dependent loss | $Q_{oss}$ + dead time + overlap + gate drive | 1.15 W (300 kHz) · 1.54 W (400 kHz) · 1.91 W (500 kHz) | Same assumptions as the rows above; basis for decision #4 |
+| PWM resolution without HRPWM | $V_{in} \cdot f_{sw} / f_{EPWM}$ | $48 \cdot 400\,kHz / 120\,MHz \approx 160$ mV per count | 300 counts per period in up-count mode (half that in up-down). HRPWM's ~150 ps step gives ≈ 3 mV |
 
 ---
 
@@ -61,7 +80,16 @@ One row per calculation. Note where each input came from (specification, datashe
 | Ref des | Part | Manufacturer / MPN | LCSC # | Key parameters that justified it | Datasheet |
 |---|---|---|---|---|---|
 | Q301, Q302 | 100 V enhancement-mode GaN FET | Infineon IGC033S10S1 | C41381300 | 100 V (120 V pulsed); 3.3 mΩ max; $Q_g$ 11 nC; $Q_{oss}$ 43 nC; gate 5 V typ, 5.5 V recommended max; PG-TSON-6, 3 × 5 mm | [Infineon](https://www.infineon.com/assets/row/public/documents/10/49/infineon-igc033s10s1q-datasheet-en.pdf) (automotive variant, same die) |
-| U301 | GaN half-bridge gate driver | TI LM5113-Q1 (LM5113QDPRRQ1) | C2677036 | 100 V bootstrap; 4.5–5.5 V supply; 5.2 V bootstrap clamp; 1.2 A source / 5 A sink split outputs; 28 ns delay, 1.5 ns matching; WSON-10 4 × 4 mm | [TI](https://ti.com/product/LM5113-Q1) |
+| U301 | GaN half-bridge gate driver | TI LM5113-Q1 (LM5113QDPRRQ1) | C2677036 | HS 90 V recommended / 93 V abs max (HB 100 V); 4.5–5.5 V supply; 5.2 V bootstrap clamp; 1.2 A source / 5 A sink split outputs; 28 ns delay, 1.5 ns matching; WSON-10 4 × 4 mm | [TI](https://ti.com/product/LM5113-Q1) |
+| C301 | Bootstrap capacitor, HB–HS | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF 50 V X7R 0603, Basic; ≈ 0.21 V droop per cycle | |
+| C304, C305 | VDD bypass | YAGEO CC0603KRX7R9BB104; Samsung CL10A105KB8NNNC | C14663; C15849 | 100 nF X7R at the pins + 1 µF 50 V X5R, Basic | |
+| D301 | External bootstrap diode, VDD → HB | BAT46W (hongjiacheng) | C7420332 | 100 V Schottky, SOD-123, Preferred (no loading fee); the datasheet lists BAT46, BAT41 or LL4148 | |
+| R301 | Bootstrap series resistor | UNI-ROYAL 0603WAF1000T5E | C22775 | 100 Ω, per datasheet section 7.3.2 | |
+| R303 | High-side turn-on resistor (HOH) | UNI-ROYAL 0603WAF200KT5E | C22977 | 2 Ω, Basic; tune 0–4.7 Ω on the bench | |
+| R302, R304 | HI / LI input-filter resistors | UNI-ROYAL 0603WAF1001T5E | C21190 | 1 kΩ, Basic; datasheet Figure 16 | |
+| C302, C303 | HI / LI input-filter capacitors | Samsung CL10C220JB8NNNC | C1653 | 22 pF C0G, Basic; datasheet Figure 16 | |
+| [TBD] | Gate-to-source pull-downs, one per FET (DNP) | UNI-ROYAL 0603WAF1002T5E | C25804 | 10 kΩ; footprint only, excluded from BOM and position files | |
+| L301 | Output inductor | [TBD] | [TBD] | 6.8 µH, $I_{sat}$ ≥ 20 A, DCR ≤ ~5 mΩ | |
 
 ---
 
@@ -71,9 +99,14 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 
 | Value | Result | Used by | Notes |
 |---|---|---|---|
-| GaN FET drain-source rating | 100 V (120 V pulsed) | input_supply | The input TVS must clamp well below this |
+| Maximum switch-node voltage | 90 V (LM5113-Q1 HS recommended max; 93 V abs max) | input_supply | Tighter than the FETs' 100 V. TVS clamping voltage at surge current, plus ringing, must stay below this |
+| GaN FET drain-source rating | 100 V (120 V pulsed) | input_supply | Not the limiting rating; see the row above |
+| Switching frequency | 400 kHz nominal, 300–500 kHz range | mcu, firmware, sensing | HRPWM required |
+| `+5V` maximum | 5.5 V, including transients | input_supply | VDD drives the low-side gate directly, with no clamp |
 | Driver current on `+5V` | ≈ 10 mA at 400 kHz | input_supply | Rises with switching frequency |
 | Driver propagation delay / matching | 28 ns typ / 1.5 ns typ | mcu, firmware | Include in the ePWM dead-time setting |
+| Extra dead time from input filters | ≈ 6.5 ns per edge | mcu, firmware | Turn-on is delayed more than turn-off; measure the real dead time at the gates |
+| Peak inductor current | ≈ 18.9 A at 200 W, 300 kHz | sensing | The overcurrent trip must sit below the inductor's $I_{sat}$ |
 | FET reverse-conduction voltage | 2.4 V typ at 20 A | mcu, firmware | Every extra ns of dead time costs loss |
 
 ---
@@ -85,6 +118,11 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - The IGC033S10S1 has **no separate Kelvin source pin**. Return each gate loop to the source pad nearest that FET's gate pin, and route the power current away from that spot.
 - Place the LM5113-Q1 right beside the FETs, with its bootstrap capacitor at its HB/HS pins and its VDD decoupling at its VDD pin.
 - Gate margin is about 0.5 V (5 V drive, 5.5 V recommended max), so gate-loop inductance must be as small as possible.
+- Put C301 (bootstrap) and C304 (100 nF VDD) on the same side as the driver, right at its pins, with no vias between them and the pins.
+- Keep the bootstrap charging loop (C304 → D301/R301 → C301 → low-side FET → back) short.
+- Connect the driver's VSS to the low-side FET's source by a short, direct path. If a shunt ever sits in that source path, VSS goes on the FET side of it.
+- Place the DNP gate pull-down footprints at the FET pads, not at the driver.
+- TI's layout examples assume 0402 parts; 0402 for R303 and C301 would tighten the gate loop if space is short.
 
 ---
 
@@ -95,13 +133,19 @@ How bring-up confirms this sheet works.
 | # | Test | Method / equipment | Pass criterion | Result | Date |
 |---|---|---|---|---|---|
 | 1 | High- and low-side gate voltage | Scope with a low-inductance probe tip at the FET, at reduced then full input voltage | Peaks stay below 5.5 V; no turn-on during the other FET's switching | | |
-| 2 | Switch-node overshoot | Scope at the switch node, full load | Peak well below 100 V | | |
+| 2 | Switch-node overshoot | Scope at the switch node, full load | Peak below 80 V (driver HS max 90 V) | | |
 | 3 | FET temperature at full load | Thermal camera after 30 min at 150 W | Within the thermal budget (TBD) | | |
+| 4 | Dead time at the gates | Scope both gates at the FETs | Both edges positive (no overlap) and close to the ePWM setting + ≈ 6.5 ns | | |
+| 5 | Cold start with 48 V before `+5V` | Scope both gates while raising 48 V with the driver unpowered | Neither gate rises above 1 V; fit the DNP pull-downs if it does | | |
+| 6 | High-side turn-on resistor | Sweep R303 (0, 2, 4.7 Ω) at full load | Choose the lowest value that keeps switch-node and gate overshoot within limits | | |
+| 7 | Efficiency vs frequency | Sweep 300 → 500 kHz at 20 %, 50 % and 100 % load | Curve recorded; confirm 400 kHz or choose a better point | | |
 
 ---
 
 ## Open questions
 
 - Confirm the hot $R_{DS(on)}$ factor (1.5× assumed) from the datasheet's normalized curve.
-- Read the LM5113-Q1 datasheet's start-up section: TI lists improved start-up as a difference in the LMG1205, so check the bootstrap's behaviour at first switching.
-- Refine the overlap-loss estimate once the gate resistors are chosen.
+- Set the output ripple target in the specifications, then size the output capacitors (the 37 µF row uses 50 mV as an example).
+- Choose the inductor part (6.8 µH, $I_{sat}$ ≥ 20 A). In-stock candidates: COILMX MTF1810-6R8M (C20069095), Sunltech SLB2212P6R8MTT (C2842794).
+- Decide the shunt position with sensing. Recommended: in series with the inductor, so the cycle-by-cycle limit sees the peak current.
+- Our board breaks the datasheet's "VDD first, then VIN" sequencing because `+5V` comes from the 48 V bus. Verification test 5 checks the effect; on the bench, bring up 5 V through J6 first.

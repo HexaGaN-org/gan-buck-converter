@@ -178,10 +178,11 @@ One owner per sheet. Only the owner edits it; changes from anyone else go throug
 
 **Contains**
 - Two Infineon IGC033S10S1 enhancement-mode GaN FETs, 100 V (high side and low side)
-- TI LM5113-Q1 GaN half-bridge gate driver, with internal bootstrap diode and 5.2 V bootstrap clamp, powered from `+5V`
-- Driver supply decoupling and bootstrap capacitor at the driver pins, per its datasheet
-- Separate turn-on and turn-off gate resistors for each FET (using the driver's split outputs)
-- Gate pull-down footprints per the driver datasheet, so the gates stay off with the driver unpowered
+- TI LM5113-Q1 GaN half-bridge gate driver (90 V), with 5.2 V bootstrap clamp, powered from `+5V`
+- Driver supply decoupling and bootstrap capacitor at the driver pins, plus the external bootstrap diode and 100 Ω series resistor its datasheet requires
+- Gate resistors on the driver's split outputs (values in [design/power_stage.md](design/power_stage.md))
+- RC input filters on `GATE_HI` / `GATE_LO` at the driver pins
+- Gate-to-source pull-down footprints at each FET (DNP by default), so a gate can't float if a driver joint fails
 - High-frequency input capacitors, placed tight against the FETs (the power loop)
 - Output inductor
 - Current-sense shunt, with Kelvin connections brought out as `ISH_P` / `ISH_N`
