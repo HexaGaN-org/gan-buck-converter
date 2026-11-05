@@ -5,6 +5,7 @@ Computer models of the converter, used to design the control loop before the har
 | Script | What it models | Status |
 |---|---|---|
 | [voltage_mode_sim.py](voltage_mode_sim.py) | Voltage-mode control (firmware stage 2): plant, Type III controller, digital delay, soft-start, load step, worst-case part tolerances | Parameters from the inductor, polymer-capacitor and GaN FET datasheets |
+| [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing with and without the bulk electrolytic C201, ripple current in C201, input-filter stability | Lead inductance and resistance ASSUMED; part values from input_supply.md |
 
 Planned next: average current mode (stage 3), and an LTspice switching simulation to check ripple and the current limit.
 
@@ -18,6 +19,7 @@ pip install -r requirements.txt
 python voltage_mode_sim.py          # prints a summary, saves plots to output/
 python voltage_mode_sim.py --show   # also opens the plot windows
 python voltage_mode_sim.py --help   # options
+python input_hotplug_sim.py         # the input hot-plug check, plots saved to output/input_*.png
 ```
 
 It runs in under ten seconds. All parameters are at the top of the script, each with its source. Values marked **ASSUMED** are not decided yet; update them as the design firms up.
@@ -99,9 +101,33 @@ The controller is fixed in firmware, but every board's parts are slightly differ
 | Polymer ESR | 15 / 25 / 37.5 mΩ, plus 45 mΩ at end of life | Datasheet max 30 mΩ at 20 °C; up to 1.25× hot and 1.5× at end of life. 15 mΩ is ASSUMED (no minimum is published) |
 | Inductance | 4.8 / 6.8 / 8.2 µH | ±20 % tolerance, plus about 12 % sag at full load (ASSUMED: no L-vs-current curve is published) |
 | Polymer capacitance | 376 / 470 / 564 µF | ±20 % tolerance |
-| Input voltage | 36 / 54 V | ASSUMED range (the spec is still [TBD]) |
+| Input voltage | 40 / 51 V | `specifications.md` (input_supply.md decision #2) |
 
 The crossover moves between **7 and 20 kHz** across these combinations. The worst one (red) still has **44° phase margin** and **7.3 dB gain margin** with new parts. At end of life (45 mΩ ESR) the gain margin falls to **5.9 dB**, just under the 6 dB target. The bottom panel shows the load step on the worst-case board: it rings a little, but it is stable.
+
+---
+
+## The input: hot-plug and damping (`input_hotplug_sim.py`)
+
+Plugging the board into a live supply connects the bench leads' inductance (about 1 µH) to the power stage's 10.4 µF of input ceramics. Ceramics have almost no resistance, so the pair rings like a struck bell and can overshoot to nearly twice the input voltage. The bulk electrolytic C201 on input_supply damps the ring: its ESR (0.32 Ω) almost equals the ring's characteristic impedance √(L/C) ≈ 0.31 Ω, which is the condition for soaking up the energy as heat.
+
+![Hot-plug](output/input_01_hotplug.png)
+
+| Bench leads | Ceramics only | With C201 | I²t the fuse sees |
+|---|---|---|---|
+| 0.5 µH | 85 V | 56 V | 0.51 A²s |
+| 1 µH | **90 V** | **54 V** | 0.49 A²s |
+| 2 µH | 93 V | 54 V | 0.47 A²s |
+
+Without C201, an ordinary plug-in at 51 V reaches the gate driver's 90 V limit. With it, the peak stays below the TVS's 56.7 V minimum breakdown, so the TVS stays off and is saved for real faults. The fuse's 10.3 A²s melting I²t is 20× the hot-plug I²t, so plugging in won't age it.
+
+![Input filter impedance](output/input_02_filter_impedance.png)
+
+The same leads and capacitors form an input filter in front of a converter whose input impedance is *negative* (draw more current as the voltage falls). The filter stays stable if its output impedance stays well below the converter's input impedance, about 10 Ω at 40 V and full load (Middlebrook's criterion). C201 lowers the filter's peak from 1.8 Ω to 0.27 Ω.
+
+**One open problem:** because C201 sits in parallel with the ceramics, it also carries part of the converter's pulsed input current. The script splits that current harmonic by harmonic: about 0.49 A rms at 48 V and 400 kHz, but 0.75 A at 40 V and 300 kHz, against the part's 0.5 A listed rating. See the open questions in `docs/design/input_supply.md`.
+
+The lead inductance and resistance are ASSUMED. More lead resistance only adds damping. Verification test 3 in `input_supply.md` measures a real hot-plug.
 
 ---
 
@@ -109,7 +135,7 @@ The crossover moves between **7 and 20 kHz** across these combinations. The wors
 
 1. **The controller has to be designed for the worst-case board, not the nominal one.** A high-ESR polymer and a low inductance together roughly double the crossover frequency, and the extra speed runs into the digital delay. A design tuned to 20 kHz with nominal parts looks fine (70° phase margin), but at the worst corner its phase margin falls to about 3°: on the edge of oscillating. Tuning to 10 kHz keeps every corner stable.
 2. **The slower loop costs almost nothing.** The load-step dip grows from about 362 mV (20 kHz) to 388 mV (10 kHz). The dip is set mostly by the output capacitors, not by the loop: right after a 10 A step the current comes from the capacitors before any controller can react, and the polymer's 25 mΩ ESR alone accounts for about 250 mV. The estimate in `power_stage.md` (≈ 125 mV) leaves out the ESR. The load-transient target in `specifications.md` is still [TBD].
-3. **Input-voltage feedforward is worth having.** Without it, the 36–54 V input range alone moves the loop gain by −2.5 to +1 dB, and the worst-case margins fall to 42° and 6.3 dB.
+3. **Input-voltage feedforward is worth having.** Without it, the 40–51 V input range alone moves the loop gain by −1.6 to +0.5 dB, and the worst-case margins fall to 43° and 6.8 dB. With feedforward the input voltage drops out of the loop entirely: narrowing the assumed 36–54 V range to the specified 40–51 V changed none of the margins.
 4. **The slower loop also helps the current limit.** On the 10 A step the average inductor current now peaks at about 13.5 A (15.1 A instantaneous with ripple), down from about 15.6 A with a 20 kHz loop. The overcurrent threshold still has to sit above this.
 5. **Run the control ISR every cycle if possible.** Running it every second cycle costs about 5° of phase margin at 10 kHz.
 6. **The polymer datasheet doesn't match the BOM listing.** The datasheet supplied is Honorcap HV1E477M0810PZ: 30 mΩ max, 2.8 A ripple, 8 × 10.5 mm. The BOM part is jieerrui MA25V470M8x10, which LCSC lists at 25 mΩ and 4.1 A. Check which part will be fitted, and use that part's datasheet.
@@ -149,7 +175,7 @@ Change a value at the top of the script (or use an option), rerun, and compare.
 | VOUT divider | 0.2 (16.5 V full scale) | ASSUMED; replace with the sensing sheet's divider |
 | Sense-line RC filter | Not modeled | Add once the sensing sheet chooses it: it adds delay and costs phase |
 | MCU delay | 1 PWM cycle + hold | ASSUMED; confirm from the firmware timing |
-| Input voltage range | 36–54 V | ASSUMED; the spec is [TBD] |
+| Input voltage range | 40–51 V | `specifications.md` |
 
 **Limits:**
 
