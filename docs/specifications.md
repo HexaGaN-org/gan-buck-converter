@@ -36,7 +36,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | power_stage | 2 × Infineon IGC033S10S1 GaN FETs (100 V); TI LM5113-Q1 gate driver (90 V); 6.8 µH Sunltech SLB2212P6R8MTT inductor; 1 mΩ shunt in series with the inductor | Chosen | [design/power_stage.md](design/power_stage.md) |
 | mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
 | sensing | Current-sense amplifiers for the output and input shunts [TBD] | [TBD] | [design/sensing.md](design/sensing.md) |
-| input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J6; 1 mΩ input current-sense shunt | Chosen; 3.3 V LDO [TBD] | [design/input_supply.md](design/input_supply.md) |
+| input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J6; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
 | enable | Windowed watchdog, gating logic [TBD] | [TBD] | [design/enable.md](design/enable.md) |
 | comms_debug | USB-UART bridge [TBD] | [TBD] | [design/comms_debug.md](design/comms_debug.md) |
 

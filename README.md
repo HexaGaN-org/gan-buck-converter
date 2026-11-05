@@ -26,7 +26,7 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 | # | Sheet | Owner | Status |
 |---|---|---|---|
 | 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed |
-| 2 | input_supply | Reza Rahimzadeh | In progress: 48 V input protection, aux regulator and 5 V mux designed |
+| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Root-sheet pins to sensing pending |
 | 3 | power_stage | Reza Rahimzadeh | Captured; parent-sheet connections unfinished |
 | 4 | sensing | Connor Jin | In progress: sensing circuitry captured; sheet interfaces unfinished |
 | 5 | mcu | Yunxi He | Captured; source/destination interfaces unfinished |

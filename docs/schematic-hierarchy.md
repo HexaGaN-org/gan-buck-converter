@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
-**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The input-supply, power-stage and sensing circuits from main are retained; enable and comms_debug remain empty. The interfaces below remain the design contract; complete top-sheet signal paths are unfinished. `I_IN_SENSE` still needs an MCU pin assignment and corresponding sheet pins. The reset interface is named `XRSn`, matching the current MCU sheet.
+**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The input-supply sheet is complete, but its sheet symbol has no pins yet (`I_SH_IN_P` / `I_SH_IN_N` to sensing pending). The power-stage and sensing circuits from main are retained; enable and comms_debug remain empty. The interfaces below remain the design contract; complete top-sheet signal paths are unfinished. `I_IN_SENSE` still needs an MCU pin assignment and corresponding sheet pins. The reset interface is named `XRSn`, matching the current MCU sheet.
 
 ---
 
@@ -53,11 +53,10 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 |---|---|
 | `V_IN` | Protected 48 V input bus |
 | `V_OUT` | 12 V output |
-| `+5V_AUX` | Output of the onboard 48 V → 5 V auxiliary regulator |
-| `+5V_EXT` | 5 V from the external header J6 |
+| `5V_AUX` | Output of the onboard 48 V → 5 V auxiliary regulator (local to input_supply) |
+| `5V_EXT` | 5 V from the external header J6 (J202), after its reverse-polarity FET (local to input_supply) |
 | `+5V` | The selected 5 V rail (via the power mux): GaN driver bias and the 3.3 V LDO input |
-| `+3V3` | 3.3 V digital supply |
-| `+3V3A` | Filtered 3.3 V for the MCU's analog circuits (VDDA) |
+| `+3V3` | 3.3 V supply for the MCU (VDDIO and VDDA) and logic |
 | `GND` | Board ground (power and signal share one ground plane) |
 | `GNDA` | MCU analog ground; joins `GND` at exactly one point |
 
@@ -65,7 +64,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 
 | Signal | Meaning |
 |---|---|
-| `I_IN_P`, `I_IN_N` | Kelvin connections across the input current-sense shunt |
+| `I_SH_IN_P`, `I_SH_IN_N` | Kelvin connections across the input current-sense shunt R201 (`_P` on the fuse side, `_N` on the `V_IN` side) |
 
 **Power stage to sensing**
 
@@ -124,27 +123,26 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 **Responsible for:** protecting the board from the 48 V input and generating the low-voltage rails.
 
 **Contains**
-- J1 48 V input connector
+- J1 48 V input connector (J201 in the schematic)
 - Input fuse
 - TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
-- Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_IN_P` / `I_IN_N` through a net tie at each shunt pad
-- Auxiliary step-down regulator (LM5164), 48 V → `+5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
-- J6 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
-- Two-input power multiplexer (TPS2121): `+5V_EXT` (priority) and `+5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `+5V_EXT`
+- Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_SH_IN_P` / `I_SH_IN_N` through a net tie at each shunt pad
+- Auxiliary step-down regulator (LM5164), 48 V → `5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
+- J6 external 5 V input (J202, keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
+- Two-input power multiplexer (TPS2121): `5V_EXT` (priority) and `5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `5V_EXT`
 - SOURCE LED showing when the external input is active
-- 3.3 V LDO from `+5V` → `+3V3`
-- Analog supply filter (ferrite bead + capacitors) → `+3V3A`
-- Power LED and test points on every rail
+- 3.3 V LDO (ST LDL1117S33R) from `+5V` → `+3V3`. No separate analog rail: MCU VDDA runs from `+3V3`
+- Power LED on `+3V3` and test points on every low-voltage rail (`V_IN` uses power_stage's `TP_VIN`)
 
-**Interface:** power nets (`V_IN`, `+5V`, `+3V3`, `+3V3A`, `GND`), plus the input-shunt Kelvin pair. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
+**Interface:** power nets (`V_IN`, `+5V`, `+3V3`, `GND`), plus the input-shunt Kelvin pair. `5V_AUX`, `5V_EXT` and `V_IN_RTN` (J201 negative, ahead of the reverse-polarity FET) stay local to this sheet.
 
 **Hierarchical labels**
 
 | Signal | Dir | To / from |
 |---|---|---|
-| `I_IN_P`, `I_IN_N` | out | sensing |
+| `I_SH_IN_P`, `I_SH_IN_N` | out | sensing |
 
 **Notes**
 - Design guidance and decisions for this sheet are in [design/input_supply.md](design/input_supply.md).
@@ -188,11 +186,11 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Contains**
 - Current-sense amplifier across `I_SH_P` / `I_SH_N`, scaled so the overcurrent threshold sits well inside 0–3 V
-- Input-current amplifier across `I_IN_P` / `I_IN_N` (common mode at `V_IN`)
+- Input-current amplifier across `I_SH_IN_P` / `I_SH_IN_N` (common mode at `V_IN`)
 - Output-voltage divider from `V_OUT`
 - Input-voltage divider from `V_IN`
 - Thermistor divider (the thermistor itself is placed beside the GaN stage in layout)
-- Per channel: RC filter and clamp to `+3V3A` / `GNDA`
+- Per channel: RC filter and clamp to `+3V3` / `GNDA`
 - Test points on each sense signal
 
 **Hierarchical labels**
@@ -200,7 +198,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | Signal | Dir | To / from |
 |---|---|---|
 | `I_SH_P`, `I_SH_N` | in | power_stage |
-| `I_IN_P`, `I_IN_N` | in | input_supply |
+| `I_SH_IN_P`, `I_SH_IN_N` | in | input_supply |
 | `I_SENSE` | out | mcu |
 | `I_IN_SENSE` | out | mcu |
 | `VOUT_SENSE` | out | mcu |
