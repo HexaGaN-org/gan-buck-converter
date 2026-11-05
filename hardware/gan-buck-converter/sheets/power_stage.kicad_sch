@@ -6646,7 +6646,7 @@
 		)
 		(uuid "2a2a6a25-5dc9-4c15-be43-93359efc9487")
 	)
-	(hierarchical_label "I_SH_P"
+	(hierarchical_label "I_SH_OUT_P"
 		(shape output)
 		(at 173.99 55.88 90)
 		(effects
@@ -6659,7 +6659,7 @@
 		)
 		(uuid "3b0196f8-1952-451e-868d-e800b16f02e9")
 	)
-	(hierarchical_label "I_SH_N"
+	(hierarchical_label "I_SH_OUT_N"
 		(shape output)
 		(at 184.15 55.88 90)
 		(effects
