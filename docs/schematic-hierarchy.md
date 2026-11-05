@@ -35,7 +35,7 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 | J3 | comms_debug | USB-C to a host laptop |
 | J4 | comms_debug | JTAG debug header |
 | J5 | enable | Hardware enable switch (or E-stop) input |
-| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up |
+| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
 
 ---
 
@@ -120,9 +120,9 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
-- Auxiliary step-down regulator, 48 V → `+5V_AUX`, rated for the full input range
-- J6 external 5 V input header, with a fuse or PTC and reverse-polarity protection
-- Two-input power multiplexer (TPS2121-class): `+5V_EXT` (priority) and `+5V_AUX` → `+5V`, with reverse-current blocking on both inputs
+- Auxiliary step-down regulator (LM5164), 48 V → `+5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
+- J6 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
+- Two-input power multiplexer (TPS2121): `+5V_EXT` (priority) and `+5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `+5V_EXT`
 - SOURCE LED showing when the external input is active
 - 3.3 V LDO from `+5V` → `+3V3`
 - Analog supply filter (ferrite bead + capacitors) → `+3V3A`

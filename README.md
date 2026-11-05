@@ -26,7 +26,7 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 | # | Sheet | Owner | Status |
 |---|---|---|---|
 | 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed |
-| 2 | input_supply | Reza Rahimzadeh | In progress: 48 V input protection designed |
+| 2 | input_supply | Reza Rahimzadeh | In progress: 48 V input protection, aux regulator and 5 V mux designed |
 | 3 | power_stage | Reza Rahimzadeh | Complete, ERC clean |
 | 4 | sensing | Connor Jin | Not started |
 | 5 | mcu | Yunxi He | Not started |
@@ -72,7 +72,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 48 V is below the 60 V DC SELV limit, but a shorted output or a failed switch can still deliver large currents and burn hardware.
 
 - Always bring up from a **current-limited bench supply**, starting at reduced input voltage with no load.
-- Bring up the 5 V supply (through the external 5 V header) before applying 48 V.
+- Bring up the 5 V supply (through J6, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J6 cuts off above about 5.2–5.7 V.
 - Check polarity before connecting any electronic load or source. J1 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
 - Keep the 48 V supply's output floating (no earth strap), and set its overvoltage protection at about 55 V if it has one. Above about 57 V the input TVS conducts continuously.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.
