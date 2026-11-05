@@ -2828,7 +2828,7 @@
 		)
 		(uuid "07f33499-f78a-487c-a8d5-92edfa30b760")
 	)
-	(hierarchical_label "FET_thermistor"
+	(hierarchical_label "LS_thermistor"
 		(shape input)
 		(at 95.25 148.59 0)
 		(effects
@@ -2861,7 +2861,7 @@
 		)
 		(uuid "7d00edad-0faf-4670-9f23-06eeb92acf96")
 	)
-	(hierarchical_label "Other_thermistor"
+	(hierarchical_label "HS_thermistor"
 		(shape input)
 		(at 93.98 101.6 0)
 		(effects

@@ -6477,7 +6477,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "JLCImport:0603WAF1001T5E")
 		(at 170.18 157.48 180)
@@ -7202,7 +7201,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "power:GND")
 		(at 209.55 72.39 180)
