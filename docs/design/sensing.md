@@ -18,9 +18,9 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - `VOUT_SENSE`: place the overvoltage threshold inside 0–3 V; this signal feeds a CMPSS comparator.
 - `VIN_SENSE`: cover the full input range, including the undervoltage-lockout thresholds.
 - `TEMP_SENSE`: a thermistor placed beside the GaN FETs, covering the overtemperature threshold.
-- `I_IN_SENSE`: amplify the input shunt (1 mΩ, input_supply #17) with an amplifier whose common mode covers 40–51 V and **survives the 82.4 V clamped surge**. Telemetry and a firmware input-current limit only, so filter it heavily.
+- `I_IN_SENSE`: amplify the input shunt (1 mΩ R201, Kelvin pair `I_SH_IN_P` / `I_SH_IN_N`, input_supply #17) with an amplifier whose common mode covers 40–51 V and **survives the 82.4 V clamped surge**. Telemetry and a firmware input-current limit only, so filter it heavily.
 - Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
-- Size every RC for the ADC's acquisition time, not only for noise, and clamp every signal to `+3V3A` / `AGND`.
+- Size every RC for the ADC's acquisition time, not only for noise, and clamp every signal to `+3V3` / `GNDA` (there is no separate `+3V3A` rail: input_supply #19).
 - `ISENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter `VIN_SENSE` and `TEMP_SENSE` more heavily.
 
 ---
