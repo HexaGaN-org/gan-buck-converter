@@ -4686,16 +4686,16 @@
 		(uuid "0f8989eb-9246-499a-9422-93ef388c8b2b")
 	)
 	(no_connect
+		(at 132.08 105.41)
+		(uuid "23a8ef5a-c7c8-406d-a4ee-ac916a624b6b")
+	)
+	(no_connect
 		(at 132.08 97.79)
 		(uuid "32ff0732-6c68-408c-b961-b9842b9df153")
 	)
 	(no_connect
 		(at 73.66 132.08)
 		(uuid "435d4bed-9461-4248-b721-78c33e4e7aab")
-	)
-	(no_connect
-		(at 132.08 105.41)
-		(uuid "52c2e2dd-7105-4406-94e6-0781fd8fec9d")
 	)
 	(no_connect
 		(at 132.08 90.17)
