@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** The MCU schematic is captured, with corrected symbol types, unused-pin markers and parent-sheet interfaces. The other five sheets are empty in this working tree. Source circuits and full inter-sheet wiring remain unfinished. Layout has not started.
+> **Status (November 2026): schematic capture.** MCU, input-supply, power-stage and sensing circuitry are captured. Full inter-sheet wiring, enable and comms/debug circuitry remain unfinished. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -26,9 +26,9 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 | # | Sheet | Owner | Status |
 |---|---|---|---|
 | 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed |
-| 2 | input_supply | Reza Rahimzadeh | Not started |
-| 3 | power_stage | Reza Rahimzadeh | Empty in current working tree |
-| 4 | sensing | Connor Jin | Not started |
+| 2 | input_supply | Reza Rahimzadeh | In progress: 48 V input protection, aux regulator and 5 V mux designed |
+| 3 | power_stage | Reza Rahimzadeh | Captured; parent-sheet connections unfinished |
+| 4 | sensing | Connor Jin | In progress: sensing circuitry captured; sheet interfaces unfinished |
 | 5 | mcu | Yunxi He | Captured; source/destination interfaces unfinished |
 | 6 | enable | Connor Jin | Not started |
 | 7 | comms_debug | Yunxi He | Not started |
@@ -57,6 +57,7 @@ hardware/gan-buck-converter/
   JLCImport.*                Parts imported from LCSC by the JLCImport plugin
 simulations/
   voltage_mode_sim.py        Python model of the voltage-mode control loop: Bode plots, load step
+  input_hotplug_sim.py       Input hot-plug ringing and damping, bulk-capacitor ripple, input-filter stability
   README.md                  How to run it, how to read the plots, what we've learned
 ```
 
@@ -71,6 +72,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 48 V is below the 60 V DC SELV limit, but a shorted output or a failed switch can still deliver large currents and burn hardware.
 
 - Always bring up from a **current-limited bench supply**, starting at reduced input voltage with no load.
-- Bring up the 5 V supply (through the external 5 V header) before applying 48 V.
-- Check polarity before connecting any electronic load or source.
+- Bring up the 5 V supply (through J6, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J6 cuts off above about 5.2–5.7 V.
+- Check polarity before connecting any electronic load or source. J1 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
+- Keep the 48 V supply's output floating (no earth strap), and set its overvoltage protection at about 55 V if it has one. Above about 57 V the input TVS conducts continuously.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.

@@ -46,7 +46,7 @@ from scipy.signal import cont2discrete
 # --- Operating point (docs/specifications.md) ---
 VIN = 48.0             # V, input voltage for this run
 VIN_NOMINAL = 48.0     # V, the input voltage the feedforward normalizes to
-VIN_MIN, VIN_MAX = 36.0, 54.0   # V, input range — ASSUMED (specifications.md is [TBD])
+VIN_MIN, VIN_MAX = 40.0, 51.0   # V, input range (specifications.md; input_supply.md decision #2)
 VOUT_TARGET = 12.0     # V, output voltage
 FSW = 400e3            # Hz, switching frequency (power_stage.md decision #4)
 

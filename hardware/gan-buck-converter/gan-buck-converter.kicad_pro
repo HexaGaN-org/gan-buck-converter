@@ -695,7 +695,7 @@
         "uuid": "81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
       }
     ],
-    "used_designators": "#FLG1-3,#PWR1-37,C1-4,Cvcc2-4,Cvdd2-5,Cvddio2-4,LED1-2,NT1,R1-12,U1-2",
+    "used_designators": "#FLG1-3,#FLG301-304,#PWR1-2,#PWR1-37,#PWR301-305,#PWR401-419,C1-4,C1-5,C301-325,C401,Cvcc2-4,Cvdd2-5,Cvddio2-4,D1,D301,J301,L301,LED1-2,NT1,NT301,Q2,Q301-302,R1-12,R1-3,R206,R301-306,R401-412,TP301,TP_SW301,TP_VOUT301,U1,U1-2,U301-302,U401-408",
     "variants": []
   },
   "sheets": [

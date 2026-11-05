@@ -2,11 +2,11 @@
 
 Sheet: `sheets/mcu.kicad_sch`
 
-**Owner:** Yunxi He · **Reviewer:** [NAME] · **Last updated:** 2026-11-04
+**Owner:** Yunxi He · **Reviewer:** [NAME] · **Last updated:** 2026-11-05
 
 ## MCU section
 
-Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md), using the names currently present in the schematic. Current saved connections were rechecked on 2026-11-04; intended connections and unfinished interfaces are identified below.
+Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md), using the names currently present in the schematic. MCU connections were checked on 2026-11-04 and preserved while merging main on 2026-11-05; intended connections and unfinished interfaces are identified below.
 
 ## 5 · MCU — `mcu.kicad_sch`
 
@@ -56,6 +56,8 @@ U1 controls the 48 V-to-12 V buck converter using the TMS320F280039C, 64-pin PM 
 
 **Draft:** signal assignments and example component values below are proposed; `firmware/pinmux.syscfg` and protection thresholds are not finalized. Requirements are retained here with the current schematic names. See [specifications](../specifications.md) for converter targets.
 
+Input-current telemetry (`I_IN_SENSE`) is also required for input power and the input-current limit. Its MCU ADC pin and top-sheet connection remain unassigned; retain the existing unused-pin markers until that assignment is chosen.
+
 ---
 
 Check page 57 for connections for Unused Pins
@@ -77,14 +79,14 @@ Connections for Unused Pins
 Device: **F280039CSPMR**, LCSC **C20345419**, standard 64-pin PM LQFP. The `R` is reel packaging; the pinout matches F280039CSPM. Pin numbers below are physical package pin numbers.
 
 
-### Captured-circuit ERC status - 2026-11-04
+### Captured-circuit ERC status - 2026-11-05
 
 - Project-library and embedded symbol electrical types have been corrected. Resistors, capacitors, LEDs and U2 use Passive terminals. U1 uses the selected power/input/bidirectional classifications; its internal VDD outputs are modeled as Power output. No component references, signal names, part choices or component-to-component connections were changed.
 - All 27 unused pins retain their no-connect markers. Firmware configuration of unused GPIO pull-ups is still required.
 - All 16 MCU hierarchical labels now have matching parent-sheet pins. Six outgoing labels have Output direction; `XRSn` is Bidirectional; incoming labels are Input.
-- The top sheet contains open wire stubs and an explicit unfinished-interface note. The other five sheets remain empty; no dummy source components or ERC exclusions were added to represent them.
-- Remaining ERC: **5 undriven-input errors** (`TCK`, `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE`) and **25 unfinished-interface warnings** (16 open wire ends, 9 labels connected to one component pin). These require the actual source/destination circuits.
-- Existing power flags on +3V3, GND and GNDA are ERC declarations. The supply circuit still has to be implemented.
+- The top sheet contains open MCU wire stubs and an explicit unfinished-interface note. Input-supply, power-stage and sensing circuits from main are retained; enable and comms_debug remain empty. No dummy source components or ERC exclusions were added.
+- MCU interfaces retain **5 undriven-input errors** (`TCK`, `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE`) and **25 unfinished-interface warnings** (16 open wire ends, 9 labels connected to one component pin). Top-sheet wiring and the debug source circuit remain unfinished. Full-project ERC after merging is **38 errors and 162 warnings**, compared with **33 errors and 137 warnings** on main before this merge. The difference is the five known MCU undriven inputs and 25 unfinished-interface warnings.
+- MCU power flags on GND and GNDA are ERC declarations. The redundant MCU +3V3 flag and its standalone power symbol were removed during the merge because the power-stage sheet already declares +3V3 supplied. The +3V3 regulator and full supply integration still require completion.
 
 To reload saved file edits in the open KiCad Schematic Editor, use **File -> Revert**. This reloads from disk and discards unsaved editor changes; a redraw or Update Symbols from Library does not reload the entire schematic.
 
