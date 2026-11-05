@@ -16,7 +16,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 
 - Generate one high-resolution ePWM A/B pair with dead time (`MCU_PWMH`, `MCU_PWML`) at the chosen switching frequency.
 - Put `ISENSE` and `VOUT_SENSE` on CMPSS-capable ADC pins routed to the ePWM trip zone, so overcurrent (cycle by cycle) and overvoltage shut the PWM down in hardware.
-- Sample `VIN_SENSE` and `TEMP_SENSE` for undervoltage lockout and overtemperature.
+- Sample `VIN_SENSE` and `TEMP_SENSE` for undervoltage lockout and overtemperature, and `I_IN_SENSE` for input power and the input-current limit (any ADC pin).
 - Support the staged control bring-up: open loop, then voltage mode, then average current mode.
 - Drive `MCU_EN` and `WDI`, read `STAGE_EN_FB`, and share the open-drain `XRSN`.
 - Connect SCI and JTAG to comms_debug.

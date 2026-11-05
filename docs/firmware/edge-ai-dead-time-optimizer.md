@@ -98,7 +98,7 @@ Run in open loop or voltage mode, with a hardware team member present, from a cu
 | Rising-edge dead time | floor to ceiling, about 5 steps |
 | Falling-edge dead time | floor to ceiling, about 5 steps |
 
-Label each row with loss computed from bench instruments: $P_{loss} = V_{in} I_{in} - V_{out} I_{out}$ (the board has no input-current sense). Also log board telemetry (duty command, `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE`) so a later model could use on-board signals only. Probe the switch node with a short ground spring at selected points.
+Label each row with loss computed from bench instruments: $P_{loss} = V_{in} I_{in} - V_{out} I_{out}$ (the board's own input-current sense, `I_IN_SENSE`, is only about ±1–2 % accurate, far too coarse to resolve 0.1 W, so labels come from bench meters). Also log board telemetry (duty command, `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `I_IN_SENSE`, `TEMP_SENSE`) so a later model could use on-board signals only. Probe the switch node with a short ground spring at selected points.
 
 Start with a coarse grid at 48 V and 400 kHz, then refine around the optimum. Store data in `ml/dead-time/data/` as CSV, one row per operating point.
 

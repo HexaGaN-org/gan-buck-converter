@@ -54,6 +54,7 @@ It does this with two fast electronic switches (GaN transistors) that flip on an
 | `ISENSE` | in | Output current |
 | `VOUT_SENSE` | in | Output voltage |
 | `VIN_SENSE` | in | Input voltage |
+| `I_IN_SENSE` | in | Input current (for input power, efficiency estimates and an input-current limit) |
 | `TEMP_SENSE` | in | Temperature near the switches |
 | `SCI_TX`, `SCI_RX` | out / in | Serial link to the laptop over USB |
 | HEARTBEAT, FAULT LEDs | out | Status lights |

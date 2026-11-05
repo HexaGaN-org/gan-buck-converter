@@ -25,8 +25,9 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Rate J6 for at least 0.5 A. Overcurrent on the 5 V path is limited by the bench supply and the mux's current limit (decision #15).
 - Provide `+3V3` for logic and a filtered `+3V3A` for the MCU's analog supply.
 - Allow full low-voltage bring-up from J6 with no 48 V connected.
+- Measure the board's input current with a high-side shunt (decision #17), so firmware can report input power, estimate efficiency and limit input current.
 
-**Status (2026-11-05):** designed: the 48 V front end (J1, fuse, TVS, reverse-polarity FET, damping capacitor), the aux regulator, the power mux and the J6 path. Next: the 3.3 V LDO, the `+3V3A` filter, the power LED and the rail test points.
+**Status (2026-11-05):** designed: the 48 V front end (J1, fuse, TVS, reverse-polarity FET, damping capacitor), the aux regulator, the power mux and the J6 path. Decided: the input current-sense shunt (#17), to be drawn. Next: the 3.3 V LDO, the `+3V3A` filter, the power LED and the rail test points.
 
 ---
 
@@ -52,6 +53,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 | 14 | 2026-11-05 | J6: JST B2B-XH-A(LF)(SN) 2-pin keyed header (C158012), with a dedicated banana-to-XH bench cable | 5.08 mm screw terminal (C8465); 2.54 mm pin header; barrel jack | A keyed wire-to-board connector physically can't take the 48 V bench leads; a screw terminal accepts any wire, and 48 V on J6 exceeds the TPS2121's 24 V absolute maximum. Keying also makes reversed polarity unlikely. 3 A rating; genuine JST, 600k in stock, $0.04 | Bench: build one J6 cable (XH housing and crimps to banana plugs) | Accepted |
 | 15 | 2026-11-05 | J6 reverse polarity: high-side P-FET Q202 AO3401A (C15127, Basic), drain to J6+, source to `+5V_EXT`, gate to GND. No PTC on J6 | PTC (e.g. 500 mA 1206); Schottky diode (0.3–0.4 V drop, too much for the driver's 4.5 V minimum); the TPS2121's GND-pin diode scheme (protects only the mux) | 60 mΩ at 4.5 V, ≈ 9 mV drop; gate rated ±12 V, so no zener at 5 V. Overcurrent is already limited by the bench supply, the TPS2121's ≈ 1.24 A current limit and the 3 A connector; between J6 and the mux there is only Q202 and a short trace. Changes the requirement that J6 have a fuse or PTC | none | Accepted |
 | 16 | 2026-11-05 | USB-C (J3, comms_debug) stays data only; J6 remains the 5 V bring-up input | USB VBUS as mux IN1 in place of J6 | Keeps comms_debug.md's requirement that USB never powers the board or back-powers the MCU. VBUS can sag to ≈ 4.75 V, tight against the driver's 4.5 V minimum, and a board fault would load the laptop's port | none | Accepted |
+| 17 | 2026-11-05 | Input current sense: **1 mΩ shunt R213, the same part as power_stage R301** (FOJAN FPM253WFR001TML, C7420016), high side, between the protected input (after F201 and D201; Q201 sits in the return) and the `V_IN` node, so it carries C201's, U201's and the power stage's current. Kelvin pair `I_IN_P` / `I_IN_N` to sensing through net ties | No input sensing (firmware infers input power from the output); 2 mΩ shunt (2× the signal, 22 mW, but a new Extended part); low-side shunt in the return (ground-referenced, but it splits board ground from J1− further and a bench ground loop can bypass it) | One unique part already on the board, so no loading fee; 16 mW at 40 V full load. Gives on-board input power for telemetry, an input-current limit, fault diagnosis (input power that doesn't match output power), and coarse on-board efficiency (about ±1–2 %, ±0.3 % after bench calibration). It is **not** accurate enough to label the edge-AI training data, which still comes from bench instruments | sensing: new amplifier channel with common mode at `V_IN`, surviving the 82.4 V transient. mcu: one more ADC pin. schematic-hierarchy: new signals `I_IN_P`, `I_IN_N`, `I_IN_SENSE` | Accepted |
 
 ---
 
@@ -102,6 +104,9 @@ One row per calculation. Note where each input came from (specification, datashe
 | Divider currents | $V / R$ | 48 µA (PR1/OV1 chain), 124 µA (CP2) | |
 | Q202 drop | $I \cdot R_{DS(on)}$ | $0.15\,A \cdot 60\,m\Omega \approx 9$ mV | AO3401A at 4.5 V drive |
 | SOURCE LED current | $(V_{EXT} - V_F) / R_{212}$ | $(5 - 2.0) / 3.3\,k\Omega \approx 0.9$ mA | |
+| **Input current sense (R213)** | | | |
+| Shunt loss | $I_{in}^2 R$ | $3.95^2 \cdot 1\,m\Omega \approx 16$ mW at 40 V, 150 W; 28 mW at 5.3 A | 3 W part, so no thermal concern |
+| Shunt signal | $I_{in} R$ | 3.3 mV at 48 V / 150 W · 3.95 mV at 40 V · 5.3 mV at 200 W, 40 V · 0.66 mV at 20 % load | Amplifier offset (tens of µV) is a few percent at 20 % load: calibrate the zero at start-up with switching off |
 
 ---
 
@@ -137,6 +142,7 @@ Refs U201 through C207 match the schematic; U202 onward are suggested until the 
 | R206, R207, R208 | PR1 / OV1 chain from IN1 | UNI-ROYAL 0603WAF7502T5E; 0603WAF8201T5E; 0603WAF2002T5E | C23242; C25981; C4184 | 75 kΩ → PR1 → 8.2 kΩ → OV1 → 20 kΩ → GND, 1 %, Basic | |
 | R209, R210 | CP2 divider from IN2 | UNI-ROYAL 0603WAF3002T5E; 0603WAF1002T5E | C22984; C25804 | 30 kΩ → CP2 → 10 kΩ → GND, 1 %, Basic | |
 | R211 | U202 ILM | UNI-ROYAL 0603WAF1003T5E | C25803 | 100 kΩ 1 %, Basic | |
+| R213 (suggested) | Input current-sense shunt | FOJAN FPM253WFR001TML | C7420016 | 1 mΩ 1 % 3 W 2512, ±50 ppm/°C; same part as power_stage R301 | |
 | D203, R212 | SOURCE LED on `+5V_EXT` | KENTO KT-0805Y; UNI-ROYAL 0603WAF3301T5E | C2296; C22978 | Yellow 0805 LED, 3.3 kΩ (≈ 0.9 mA); Basic | |
 
 ---
@@ -156,6 +162,7 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 | `+5V` minimum during a J6 → aux hand-over | ≈ 4.48 V for ≈ 5 µs | power_stage, mcu | About 20 mV below the driver's 4.5 V recommended minimum, for ≈ 5 µs, and above its UVLO. Raising `+5V_AUX` slightly or the hand-over point (R207) buys margin if the bench shows a problem. The 3.3 V LDO must regulate from 4.4 V |
 | `+5V` overvoltage protection | J6 is cut off above 5.21–5.68 V | power_stage | `+5V_AUX` is regulated, so it has no cutoff (OV2 grounded) |
 | `+5V` current limit | ≈ 1.24 A (TPS2121 ILM) | all `+5V` loads | Fast trip at ≈ 3 A |
+| Input shunt | 1 mΩ high side; Kelvin pair `I_IN_P` / `I_IN_N`; 0.66–5.3 mV over the load range | sensing, firmware | Common mode is `V_IN`: 40–51 V in operation, up to 82.4 V during a clamped surge |
 
 ---
 
@@ -174,6 +181,7 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - J1 and J301 are identical terminals. Put them on **opposite board edges**, with large `48 V IN  + / −` and `12 V OUT  + / −` silkscreen, and give both the same polarity orientation.
 - Place C201 between Q201 and the power stage, not inside the power loop. The trace inductance between C201 and the power-stage ceramics keeps switching ripple out of C201 (the ripple estimate assumes about 20 nH).
 - Size `V_IN`, `VIN_RTN` and GND copper for 5.3 A (200 W at 40 V).
+- **R213:** in the high-side path after the front end, before C201 and U201's tap. Route `I_IN_P` / `I_IN_N` as a tight pair from the shunt's inner pad edges through net ties, away from the switch node.
 
 ---
 
@@ -194,6 +202,7 @@ How bring-up confirms this sheet works.
 | 9 | Hand-over dip | Scope `+5V` (single shot, 2 µs/div) while unplugging J6 with 48 V applied, at full `+5V` load | Minimum above 4.4 V; MCU does not reset (with test 2) | | |
 | 10 | J6 overvoltage cutoff | Raise J6 slowly from 5.0 V with 48 V off, then with 48 V on | J6 drops out between 5.2 and 5.7 V; `+5V` never exceeds 5.7 V (switches to aux when 48 V is on) | | |
 | 11 | J6 reverse polarity | Reverse the J6 cable with the bench supply limited to 0.2 A | Under 1 mA drawn; board works normally afterwards | | |
+| 12 | Input current reading | Compare `I_IN_SENSE` (firmware readout) with a bench meter at 0, 20 %, 50 % and 100 % load | Within ±2 % of reading above 50 % load after zero calibration; record the gain correction | | |
 
 ---
 
