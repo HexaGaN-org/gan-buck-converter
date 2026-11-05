@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** The power stage schematic is complete and ERC-clean. The other five sheets are in progress. Layout has not started.
+> **Status (November 2026): schematic capture.** The MCU schematic is captured, with corrected symbol types, unused-pin markers and parent-sheet interfaces. The other five sheets are empty in this working tree. Source circuits and full inter-sheet wiring remain unfinished. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -27,9 +27,9 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 |---|---|---|---|
 | 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed |
 | 2 | input_supply | Reza Rahimzadeh | Not started |
-| 3 | power_stage | Reza Rahimzadeh | Complete, ERC clean |
+| 3 | power_stage | Reza Rahimzadeh | Empty in current working tree |
 | 4 | sensing | Connor Jin | Not started |
-| 5 | mcu | Yunxi He | Not started |
+| 5 | mcu | Yunxi He | Captured; source/destination interfaces unfinished |
 | 6 | enable | Connor Jin | Not started |
 | 7 | comms_debug | Yunxi He | Not started |
 

@@ -50,7 +50,7 @@ It does this with two fast electronic switches (GaN transistors) that flip on an
 | `MCU_PWMH`, `MCU_PWML` | out | The two PWM signals: top switch and bottom switch |
 | `MCU_EN` | out | "I'd like to run." Goes to the hardware enable |
 | `STAGE_EN_FB` | in | "Running is actually allowed." Comes back from the hardware enable |
-| `WDI` | out | The regular check-in pulse to the watchdog |
+| `WD_IN` | out | The regular check-in pulse to the watchdog |
 | `ISENSE` | in | Output current |
 | `VOUT_SENSE` | in | Output voltage |
 | `VIN_SENSE` | in | Input voltage |
@@ -112,7 +112,7 @@ For every fault:
 - Keep every threshold in **one configuration file**, with a comment saying where the number came from.
 
 ### 5.4 Keep the watchdog happy, but only when healthy
-- Send the `WDI` check-in pulse regularly. This watchdog is "windowed": checking in **too early** counts as a failure, just like too late.
+- Send the `WD_IN` check-in pulse regularly. This watchdog is "windowed": checking in **too early** counts as a failure, just like too late.
 - Only check in after confirming the control loop really ran. **Never** check in from a simple timer, because a timer would keep checking in even if the rest of the code had frozen, which defeats the purpose.
 
 ### 5.5 Control the output

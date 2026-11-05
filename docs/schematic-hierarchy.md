@@ -4,6 +4,8 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
+**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The other five sheets are empty in this working tree. The interfaces below remain the design contract; destination circuits and complete top-sheet signal paths are unfinished. The reset interface is named `XRSn`, matching the current MCU sheet.
+
 ---
 
 ## Sheet tree
@@ -57,7 +59,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 | `+3V3` | 3.3 V digital supply |
 | `+3V3A` | Filtered 3.3 V for the MCU's analog circuits (VDDA) |
 | `GND` | Board ground (power and signal share one ground plane) |
-| `AGND` | MCU analog ground; joins `GND` at exactly one point |
+| `GNDA` | MCU analog ground; joins `GND` at exactly one point |
 
 **Power stage to sensing**
 
@@ -69,7 +71,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 
 | Signal | Meaning |
 |---|---|
-| `ISENSE` | Inductor (output) current, scaled to 0–3 V. Feeds a CMPSS comparator for cycle-by-cycle overcurrent |
+| `I_SENSE` | Inductor (output) current, scaled to 0–3 V. Feeds a CMPSS comparator for cycle-by-cycle overcurrent |
 | `VOUT_SENSE` | Output voltage, divided to 0–3 V. Feeds a CMPSS comparator for overvoltage |
 | `VIN_SENSE` | Input voltage, divided to 0–3 V. Used for undervoltage lockout and feedforward |
 | `TEMP_SENSE` | Thermistor voltage near the GaN stage |
@@ -82,8 +84,8 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 | `MCU_EN` | The MCU's request to switch. Necessary but not sufficient |
 | `HS_PWM`, `LS_PWM` | Gated PWM to the half-bridge driver: `MCU_PWMx` AND `STAGE_EN` |
 | `STAGE_EN_FB` | Copy of the internal `STAGE_EN` for the MCU to read |
-| `WDI` | Watchdog kick from the MCU. Too slow *or* too fast counts as a failure |
-| `XRSN` | MCU reset, active low, open-drain. Driven by the supervisor and the JTAG debugger |
+| `WD_IN` | Watchdog kick from the MCU. Too slow *or* too fast counts as a failure |
+| `XRSn` | MCU reset, active low, open-drain. Driven by the supervisor and the JTAG debugger |
 
 **Host and debug**
 
@@ -175,7 +177,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Output-voltage divider from `V_OUT`
 - Input-voltage divider from `V_IN`
 - Thermistor divider (the thermistor itself is placed beside the GaN stage in layout)
-- Per channel: RC filter and clamp to `+3V3A` / `AGND`
+- Per channel: RC filter and clamp to `+3V3A` / `GNDA`
 - Test points on each sense signal
 
 **Hierarchical labels**
@@ -183,7 +185,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | Signal | Dir | To / from |
 |---|---|---|
 | `I_SH_P`, `I_SH_N` | in | power_stage |
-| `ISENSE` | out | mcu |
+| `I_SENSE` | out | mcu |
 | `VOUT_SENSE` | out | mcu |
 | `VIN_SENSE` | out | mcu |
 | `TEMP_SENSE` | out | mcu |
@@ -202,9 +204,9 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Decoupling per TI's datasheet
 - Internal core-regulator strapping and core-supply capacitance
 - ADC reference and analog-supply capacitance
-- **The single net tie joining `AGND` to `GND`**, at the ADC reference
-- Reset (`XRSN`) pull-up and capacitor
-- Crystal footprint (DNP; the internal oscillator is used)
+- **The single net tie joining `GNDA` to `GND`**, at the ADC reference
+- Reset (`XRSn`) pull-up and capacitor
+- External 20 MHz crystal **ECS-200-8-30B-CKM**, two **12 pF** load capacitors and an X2 series resistor; populated, using footprint `hexagan:ECS-200-8-30B-CKM`
 - Boot-mode jumpers on the boot pins
 - HEARTBEAT and FAULT LEDs
 
@@ -214,10 +216,10 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 |---|---|---|
 | `MCU_PWMH`, `MCU_PWML` | out | enable |
 | `MCU_EN` | out | enable |
-| `WDI` | out | enable |
+| `WD_IN` | out | enable |
 | `STAGE_EN_FB` | in | enable |
-| `XRSN` | bidir | enable, comms_debug |
-| `ISENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` | in | sensing |
+| `XRSn` | bidir | enable, comms_debug |
+| `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` | in | sensing |
 | `SCI_TX` | out | comms_debug |
 | `SCI_RX` | in | comms_debug |
 | `TCK`, `TMS`, `TDI` | in | comms_debug |
@@ -238,7 +240,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 3. During power-up and reset, `RESET_OK` is low, so the gates stay off until the MCU is running.
 
 **Contains**
-- Windowed watchdog supervisor (TPS3850-class): monitors `+3V3`, drives `XRSN` and the internal `RESET_OK` and `WD_OK`
+- Windowed watchdog supervisor (TPS3850-class): monitors `+3V3`, drives `XRSn` and the internal `RESET_OK` and `WD_OK`
 - J5 enable switch input, with pull-down so an open switch means *off*
 - AND logic producing `STAGE_EN`
 - Two AND gates: `MCU_PWMx` AND `STAGE_EN` → `HS_PWM` / `LS_PWM`
@@ -250,8 +252,8 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 |---|---|---|
 | `MCU_PWMH`, `MCU_PWML` | in | mcu |
 | `MCU_EN` | in | mcu |
-| `WDI` | in | mcu |
-| `XRSN` | bidir | mcu, comms_debug |
+| `WD_IN` | in | mcu |
+| `XRSn` | bidir | mcu, comms_debug |
 | `HS_PWM`, `LS_PWM` | out | power_stage |
 | `STAGE_EN_FB` | out | mcu |
 
@@ -277,7 +279,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | `SCI_RX` | out | mcu |
 | `TCK`, `TMS`, `TDI` | out | mcu |
 | `TDO` | in | mcu |
-| `XRSN` | bidir | mcu, enable |
+| `XRSn` | bidir | mcu, enable |
 
 **Notes**
 - Design guidance for this sheet is in [design/comms_debug.md](design/comms_debug.md).
