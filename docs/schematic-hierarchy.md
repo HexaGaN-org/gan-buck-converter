@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
-**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The other five sheets are empty in this working tree. The interfaces below remain the design contract; destination circuits and complete top-sheet signal paths are unfinished. The reset interface is named `XRSn`, matching the current MCU sheet.
+**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The input-supply, power-stage and sensing circuits from main are retained; enable and comms_debug remain empty. The interfaces below remain the design contract; complete top-sheet signal paths are unfinished. `I_IN_SENSE` still needs an MCU pin assignment and corresponding sheet pins. The reset interface is named `XRSn`, matching the current MCU sheet.
 
 ---
 
@@ -37,7 +37,7 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 | J3 | comms_debug | USB-C to a host laptop |
 | J4 | comms_debug | JTAG debug header |
 | J5 | enable | Hardware enable switch (or E-stop) input |
-| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up |
+| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
 
 ---
 
@@ -61,6 +61,12 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 | `GND` | Board ground (power and signal share one ground plane) |
 | `GNDA` | MCU analog ground; joins `GND` at exactly one point |
 
+**Input supply to sensing**
+
+| Signal | Meaning |
+|---|---|
+| `I_IN_P`, `I_IN_N` | Kelvin connections across the input current-sense shunt |
+
 **Power stage to sensing**
 
 | Signal | Meaning |
@@ -75,6 +81,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 | `VOUT_SENSE` | Output voltage, divided to 0–3 V. Feeds a CMPSS comparator for overvoltage |
 | `VIN_SENSE` | Input voltage, divided to 0–3 V. Used for undervoltage lockout and feedforward |
 | `TEMP_SENSE` | Thermistor voltage near the GaN stage |
+| `I_IN_SENSE` | Input current, scaled to 0–3 V. Telemetry, input power and an input-current limit in firmware; not a hardware trip |
 
 **PWM and enable**
 
@@ -122,15 +129,22 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
-- Auxiliary step-down regulator, 48 V → `+5V_AUX`, rated for the full input range
-- J6 external 5 V input header, with a fuse or PTC and reverse-polarity protection
-- Two-input power multiplexer (TPS2121-class): `+5V_EXT` (priority) and `+5V_AUX` → `+5V`, with reverse-current blocking on both inputs
+- Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_IN_P` / `I_IN_N` through a net tie at each shunt pad
+- Auxiliary step-down regulator (LM5164), 48 V → `+5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
+- J6 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
+- Two-input power multiplexer (TPS2121): `+5V_EXT` (priority) and `+5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `+5V_EXT`
 - SOURCE LED showing when the external input is active
 - 3.3 V LDO from `+5V` → `+3V3`
 - Analog supply filter (ferrite bead + capacitors) → `+3V3A`
 - Power LED and test points on every rail
 
-**Interface:** power nets only (`V_IN`, `+5V`, `+3V3`, `+3V3A`, `GND`). No hierarchical labels. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
+**Interface:** power nets (`V_IN`, `+5V`, `+3V3`, `+3V3A`, `GND`), plus the input-shunt Kelvin pair. `+5V_AUX` and `+5V_EXT` stay local to this sheet.
+
+**Hierarchical labels**
+
+| Signal | Dir | To / from |
+|---|---|---|
+| `I_IN_P`, `I_IN_N` | out | sensing |
 
 **Notes**
 - Design guidance and decisions for this sheet are in [design/input_supply.md](design/input_supply.md).
@@ -174,6 +188,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Contains**
 - Current-sense amplifier across `I_SH_P` / `I_SH_N`, scaled so the overcurrent threshold sits well inside 0–3 V
+- Input-current amplifier across `I_IN_P` / `I_IN_N` (common mode at `V_IN`)
 - Output-voltage divider from `V_OUT`
 - Input-voltage divider from `V_IN`
 - Thermistor divider (the thermistor itself is placed beside the GaN stage in layout)
@@ -185,7 +200,9 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | Signal | Dir | To / from |
 |---|---|---|
 | `I_SH_P`, `I_SH_N` | in | power_stage |
+| `I_IN_P`, `I_IN_N` | in | input_supply |
 | `I_SENSE` | out | mcu |
+| `I_IN_SENSE` | out | mcu |
 | `VOUT_SENSE` | out | mcu |
 | `VIN_SENSE` | out | mcu |
 | `TEMP_SENSE` | out | mcu |
@@ -219,7 +236,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | `WD_IN` | out | enable |
 | `STAGE_EN_FB` | in | enable |
 | `XRSn` | bidir | enable, comms_debug |
-| `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` | in | sensing |
+| `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE`, `I_IN_SENSE` | in | sensing |
 | `SCI_TX` | out | comms_debug |
 | `SCI_RX` | in | comms_debug |
 | `TCK`, `TMS`, `TDI` | in | comms_debug |

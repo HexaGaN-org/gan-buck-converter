@@ -18,6 +18,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - `VOUT_SENSE`: place the overvoltage threshold inside 0–3 V; this signal feeds a CMPSS comparator.
 - `VIN_SENSE`: cover the full input range, including the undervoltage-lockout thresholds.
 - `TEMP_SENSE`: a thermistor placed beside the GaN FETs, covering the overtemperature threshold.
+- `I_IN_SENSE`: amplify the input shunt (1 mΩ, input_supply #17) with an amplifier whose common mode covers 40–51 V and **survives the 82.4 V clamped surge**. Telemetry and a firmware input-current limit only, so filter it heavily.
 - Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
 - Size every RC for the ADC's acquisition time, not only for noise, and clamp every signal to `+3V3A` / `AGND`.
 - `ISENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter `VIN_SENSE` and `TEMP_SENSE` more heavily.
@@ -30,7 +31,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 
 | # | Date | Decision | Options considered | Rationale | Impact on other sheets | Status |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
+| 1 | 2026-11-05 | Proposed: one current-sense amplifier part for both channels (`ISENSE` and `I_IN_SENSE`), gain ≈ 100, chosen so its common-mode rating covers the input side (operation to 51 V, survival to ≥ 82.4 V) | Gain 200 on the input channel (about 0.13–1.1 V over the load range; better light-load resolution, but a second amplifier part and loading fee) | One unique part for four placements (two shunts, two amplifiers). At gain 100 the input channel spans about 0.07–0.53 V: fine for telemetry and a limit; move it to gain 200 if bench readings at light load are too noisy | mcu: `I_IN_SENSE` on any ADC pin (no CMPSS needed) | Proposed (owner to confirm) |
 
 ---
 
