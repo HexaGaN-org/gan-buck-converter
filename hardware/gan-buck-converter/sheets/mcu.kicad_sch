@@ -6496,7 +6496,7 @@
 				)
 			)
 		)
-		(property "Value" "0603_Green_509-620mcd"
+		(property "Value" "Green"
 			(at 189.23 152.4 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6725,7 +6725,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0603WAF2201T5E"
+		(property "Value" "2.2k"
 			(at 50.8 77.4699 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8229,7 +8229,7 @@
 				)
 			)
 		)
-		(property "Value" "CL10C180JB8NNNC"
+		(property "Value" "18pF"
 			(at 147.32 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8758,7 +8758,7 @@
 				)
 			)
 		)
-		(property "Value" "ESD16_0000F12M25F"
+		(property "Value" "16MHz"
 			(at 153.67 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9604,7 +9604,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CL10C180JB8NNNC"
+		(property "Value" "18pF"
 			(at 175.26 114.2999 90)
 			(show_name no)
 			(do_not_autoplace no)
