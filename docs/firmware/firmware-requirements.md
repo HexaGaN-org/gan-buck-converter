@@ -108,6 +108,11 @@ Two kinds of protection, both required:
 - **Overtemperature:** stop if the temperature goes above [TBD] °C.
 - **Stuck in current limit:** if the overcurrent trip keeps firing for longer than a set time, treat it as a fault.
 
+**PWM safety setup:**
+- Configure the PWM's dead-time block before anything else, in **one reviewed setup file**. No other code writes the PWM pins directly.
+- Set the PWM to **force both outputs low when the debugger halts the CPU**; otherwise a breakpoint can freeze one switch on.
+- Test every PWM change on the LaunchPad first, checking on a scope that the two outputs never overlap, and give new firmware its first run at low input voltage (for example 12 V, supply limited to 0.5 A).
+
 For every fault:
 - Record **why** it happened (a fault code), report it over serial, and light the FAULT LED.
 - Keep every threshold in **one configuration file**, with a comment saying where the number came from.
@@ -156,7 +161,7 @@ Requirements:
 
 If you remember nothing else:
 
-1. **Never let both switches be on at the same time.** Always keep dead time between them.
+1. **Never let both switches be on at the same time.** Always keep dead time between them. The board has a hardware interlock as a last line of defence, but it does not create dead time: that's your job.
 2. **Protections are armed before PWM ever starts,** and nothing can turn them off.
 3. **No host command can bypass a protection or the state machine.**
 4. **After a fault, never restart automatically.** A person must clear it.
