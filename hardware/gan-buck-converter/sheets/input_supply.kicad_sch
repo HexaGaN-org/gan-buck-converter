@@ -12070,7 +12070,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
 			(at 91.44 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -12666,7 +12666,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
 			(at 81.28 30.48 0)
 			(hide yes)
 			(show_name no)

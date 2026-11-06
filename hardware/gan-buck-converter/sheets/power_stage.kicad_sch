@@ -10034,7 +10034,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
 			(at 184.15 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -10647,7 +10647,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
 			(at 173.99 54.61 0)
 			(hide yes)
 			(show_name no)
