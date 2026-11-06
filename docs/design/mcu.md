@@ -156,7 +156,7 @@ Supply limits: [TI datasheet, Section 6.12.1.5.1, p. 80](../datasheets/tms320f28
 ##### TCK - physical pin 36
 
 - **Function:** JTAG clock input from the debugger; hierarchical label `TCK`, input on the MCU sheet, from `comms_debug`.
-- **Connection:** `U1.36 -> TCK` -> top-sheet connection -> debug header TCK. Header terminal number is not assigned yet.
+- **Connection:** `U1.36 -> TCK` -> top-sheet connection -> H1 pin 11 (TCK).
 
 ##### TMS - physical pin 38
 
@@ -169,13 +169,13 @@ Supply limits: [TI datasheet, Section 6.12.1.5.1, p. 80](../datasheets/tms320f28
 ##### GPIO35 / TDI - physical pin 39
 
 - **Function:** Test Data In, debugger -> MCU; reserve GPIO35 for JTAG. Use an input hierarchical label `TDI` from `comms_debug`.
-- **Connection:** `U1.39 -> TDI` -> top-sheet connection -> debug header TDI. Header terminal number remains unassigned.
+- **Connection:** `U1.39 -> TDI` -> top-sheet connection -> H1 pin 3 (TDI).
 - **Chosen part for this pin:** `R2`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**; pull-up, with `R2.1 -> U1.39/TDI` and `R2.2 -> +3V3`.
 
 ##### GPIO37 / TDO - physical pin 37
 
 - **Function:** Test Data Out, MCU -> debugger; reserve GPIO37 for JTAG. Use an output hierarchical label `TDO` to `comms_debug`.
-- **Connection:** `U1.37 -> TDO` -> top-sheet connection -> debug header TDO. Header terminal number remains unassigned.
+- **Connection:** `U1.37 -> TDO` -> top-sheet connection -> H1 pin 7 (TDO).
 - **Chosen part for this pin:** `R3`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**; pull-up, with `R3.1 -> U1.37/TDO` and `R3.2 -> +3V3`.
 
 #### Boot select `GPIO24` / `GPIO32`
@@ -196,25 +196,25 @@ Both pins default high for the planned flash boot, assuming OTP boot settings ar
 
 #### `GPIO18/X2` / `GPIO19/X1`
 
-- **Shared selected crystal:** `U2`, **Monec ESD16.0000F12M25F**, **[JLCPCB C353726](https://jlcpcb.com/partdetail/ZHUHAI_MONECELEC-ESD160000F12M25F/C353726)**; 16 MHz, fundamental AT-cut, CL 12 pF, ESR <=40 Ohm, C0 <=5 pF, maximum drive 1 mW (50 uW nominal); +/-20 ppm initial tolerance and +/-50 ppm temperature stability, -40 to +85 degC.
+- **Shared selected crystal:** `X1`, **Monec ESD16.0000F12M25F**, **[JLCPCB C353726](https://jlcpcb.com/partdetail/ZHUHAI_MONECELEC-ESD160000F12M25F/C353726)**; 16 MHz, fundamental AT-cut, CL 12 pF, ESR <=40 Ohm, C0 <=5 pF, maximum drive 1 mW (50 uW nominal); +/-20 ppm initial tolerance and +/-50 ppm temperature stability, -40 to +85 degC.
 - **Population/configuration:** Populate the crystal, both load capacitors and the X2 series resistor. Configure firmware for a **16 MHz** external crystal and recalculate the PLL settings for the planned 120 MHz CPU clock. Keep connections short.
 - **Chosen load capacitors:** `C3 = C4 = 18 pF`, **Samsung CL10C180JB8NNNC**, **[JLCPCB C1647](https://jlcpcb.com/partdetail/1999-CL10C180JB8NNNC/C1647)** (Basic), C0G, +/-5%, 50 V, 0603. Initial calculation: `CL = C3*C4/(C3+C4) + Cstray = 9 pF + 3 pF = 12 pF`. The 3 pF stray term is an estimate; adjust the capacitor values using the actual layout/frequency result.
 - **Chosen R4:** **0 Ohm**, **0603WAJ0000T5E / C15402**, as the initial selection. The crystal's 1 mW maximum drive rating meets TI's drive-rating screening. Board startup and frequency still require verification; any later damping resistance must preserve startup margin.
-- **Package/connections:** Two-terminal HC-49SMB SMD crystal, 3.2 mm maximum height. `U2.1 -> U1.42/X1` and C3; `U2.2 -> R4.1` and C4; `R4.2 -> U1.41/X2`. C3/C4 return to GND. Neither crystal terminal connects directly to GND.
+- **Package/connections:** Two-terminal HC-49SMB SMD crystal, 3.2 mm maximum height. `X1.1 -> U1.42/X1` and C4; `X1.2 -> R4.1` and C3; `R4.2 -> U1.41/X2`. C3/C4 return to GND. Neither crystal terminal connects directly to GND.
 
 Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 4](../datasheets/monec-esd16.0000f12m25f.pdf#page=2); [TI frequency limits, p. 88](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=88); [TI crystal selection/testing and ESR table, pp. 94-95](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=94).
 
 ##### GPIO18 / X2 - physical pin 41
 
 - **Function:** Crystal oscillator output; reserve GPIO18 for the external crystal.
-- **Intended connection:** `U1.41/X2 -> R4.2`; `R4.1 -> U2.2` and `C4.2`; `C4.1 -> GND`. The resistor is in series with the crystal branch, and C4 is on the crystal side of it.
-- **Chosen parts for this pin:** `R4`, **0 Ohm**, **0603WAJ0000T5E**, **LCSC C15402**; `C4`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal U2 as above.
+- **Intended connection:** `U1.41/X2 -> R4.2`; `R4.1 -> X1.2` and `C3.2`; `C3.1 -> GND`. The resistor is in series with the crystal branch, and C3 is on the crystal side of it.
+- **Chosen parts for this pin:** `R4`, **0 Ohm**, **0603WAJ0000T5E**, **LCSC C15402**; `C3`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal X1 as above.
 
 ##### GPIO19 / X1 - physical pin 42
 
 - **Function:** Crystal oscillator input; reserve GPIO19 for the external crystal.
-- **Connection:** `U1.42/X1 -> U2.1` and `C3.1`; `C3.2 -> GND`.
-- **Chosen parts for this pin:** `C3`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal U2 as above.
+- **Connection:** `U1.42/X1 -> X1.1` and `C4.2`; `C4.1 -> GND`.
+- **Chosen parts for this pin:** `C4`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal X1 as above.
 
 #### ADC inputs (`Ax`, `Bx`, `Cx`)
 
@@ -274,7 +274,7 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 ##### GPIO29 - physical pin 1 - `SCI_TX`
 
 - **Function:** SCIA_TX output transmitting serial data to the USB-UART bridge.
-- **Connection:** `U1.1 -> SCI_TX` -> comms_debug SCI_TX input -> bridge RX. Bridge MPN and physical RX-pin number remain TBD.
+- **Connection:** `U1.1 -> SCI_TX` -> comms_debug SCI_TX input -> bridge RX. CP2102N-A02-GQFN24R U703 pin 20 is RXD.
 - **Chosen parts for this pin:** No local support part selected for this pin; UART bridge is on comms_debug.
 
 ##### GPIO39 - physical pin 46 - `HEARTBEAT`

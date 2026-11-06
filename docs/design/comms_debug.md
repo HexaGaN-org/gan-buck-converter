@@ -16,11 +16,11 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 
 | Item | Required specification |
 |---|---|
-| USB connector | J3 USB-C, USB 2.0 device; CC pull-down resistors and ESD protection on D+/D−. |
+| USB connector | USBC1 USB-C, USB 2.0 device; CC pull-down resistors and ESD protection on D+/D−. |
 | Serial bridge | USB-to-UART bridge with decoupling and 3.3 V MCU-side I/O. CP2102N or equivalent. |
 | UART wiring | MCU `SCI_TX` (U1 pin 1, GPIO29 / SCIA_TX) -> bridge RX; bridge TX -> MCU `SCI_RX` (U1 pin 2, GPIO28 / SCIA_RX). |
 | Power | USB must not power the board. Bridge I/O uses board `+3V3`; ensure USB/UART connections cannot back-power the MCU when the board is off. |
-| Debug connector | J4 TI-compatible JTAG header carrying `TCK`, `TMS`, `TDI`, `TDO`, `XRSn`, target-voltage reference and GND; pinout must match the debugger. |
+| Debug connector | H1 TI-compatible JTAG header carrying `TCK`, `TMS`, `TDI`, `TDO`, `XRSn`, target-voltage reference and GND; pinout must match the debugger. |
 | Reset | Share active-low `XRSn` with MCU and enable sheets; debugger reset must be compatible with the existing open-drain reset network. |
 | Host link | Text commands and status at approximately 10-50 updates/s: state, fault, input/output voltage, current, temperature, duty and frequency. Serial work must not delay the control interrupt. |
 
@@ -28,12 +28,12 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 
 | Item | Chosen parts / values |
 |---|---|
-| USB connector | J3 **TYPE-C-31-M-12** ([C165948](https://jlcpcb.com/partdetail/C165948)); 2 × **5.1 kΩ** CC pull-downs (C23186); **USBLC6-2SC6** ESD protection (C7519). |
-| Serial bridge | **CP2102N-A02-GQFN24R** ([C969151](https://jlcpcb.com/partdetail/C969151)); **100 nF** (C14663) and proposed **10 µF** (C96446) decoupling; bulk quantity pending effective-capacitance check. |
+| USB connector | USBC1 **TYPE-C-31-M-12** ([C165948](https://jlcpcb.com/partdetail/C165948)); 2 × **5.1 kΩ** CC pull-downs (C23186); D701 **USBLC6-2SC6** ESD protection (C7519). |
+| Serial bridge | U703 **CP2102N-A02-GQFN24R** ([C969151](https://jlcpcb.com/partdetail/C969151)); **100 nF** (C14663) and **4.7 µF** (C107368) decoupling at each supply pin; verify effective capacitance. |
 | UART wiring | `SCI_TX` (U1.1) -> bridge RX; bridge TX -> `SCI_RX` (U1.2). |
 | Power | Board `+3V3`; USB VBUS sense divider: **22.1 kΩ** upper (C25961), **47.5 kΩ** lower (C23061). USB VBUS stays separate from board supply rails. |
-| Debug connector | J4 **FTR-110-03-G-D-06-TR** ([C3332048](https://jlcpcb.com/partdetail/Samtec-FTR_110_03_G_D_06TR/C3332048)), cTI-20; external **TI XDS110 / TMDSEMU110-U**. JLC Extended, Economic-compatible; assembly support fixture required. |
-| Reset | J4 pin 15 -> `XRSn`; existing MCU **4.7 kΩ + 22 nF** network. Bridge `RSTb`: separate **1 kΩ** pull-up (C21190). |
+| Debug connector | H1 **FTR-110-03-G-D-06-TR** ([C3332048](https://jlcpcb.com/partdetail/Samtec-FTR_110_03_G_D_06TR/C3332048)), cTI-20; external **TI XDS110 / TMDSEMU110-U**. JLC Extended, Economic-compatible; assembly support fixture required. |
+| Reset | H1 pin 15 -> `XRSn`; existing MCU **4.7 kΩ + 22 nF** network. Bridge `RSTb`: separate **1.02 kΩ** pull-up (R717, C705734). |
 | Host link | Text commands/status at **10-50 updates/s**; UART baud rate and framing TBD. |
 
 ### Sheet interfaces
