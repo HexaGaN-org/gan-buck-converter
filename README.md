@@ -74,7 +74,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 48 V is below the 60 V DC SELV limit, but a shorted output or a failed switch can still deliver large currents and burn hardware.
 
 - Always bring up from a **current-limited bench supply**, starting at reduced input voltage with no load.
-- Bring up the 5 V supply (through J6, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J6 cuts off above about 5.2–5.7 V.
-- Check polarity before connecting any electronic load or source. J1 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
+- Bring up the 5 V supply (through J202, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J202 cuts off above about 5.2–5.7 V.
+- Check polarity before connecting any electronic load or source. J201 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
 - Keep the 48 V supply's output floating (no earth strap), and set its overvoltage protection at about 55 V if it has one. Above about 57 V the input TVS conducts continuously.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.

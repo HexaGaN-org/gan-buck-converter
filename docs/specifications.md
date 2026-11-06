@@ -24,6 +24,7 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Cycle-by-cycle overcurrent | [TBD] A | Truncate PWM pulse | CMPSS → ePWM trip zone |
 | Output overvoltage | [TBD] V | Disable PWM, latch off | CMPSS / ADC |
 | Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC / comparator |
+| Input overvoltage, fast | ≈ 55 V | Trip PWM within ≈ 1 µs, latch off | CMPSS on `VIN_SENSE` → ePWM trip zone. Decision #24 in [design/input_supply.md](design/input_supply.md) |
 | Overtemperature | [TBD] °C | Disable PWM | Thermistor + ADC |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
 
@@ -36,7 +37,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | power_stage | 2 × Infineon IGC033S10S1 GaN FETs (100 V); TI LM5113-Q1 gate driver (90 V); 6.8 µH Sunltech SLB2212P6R8MTT inductor; 1 mΩ shunt in series with the inductor | Chosen | [design/power_stage.md](design/power_stage.md) |
 | mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
 | sensing | Current-sense amplifiers for the output and input shunts [TBD] | [TBD] | [design/sensing.md](design/sensing.md) |
-| input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J6; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
+| input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J202; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
 | enable | Windowed watchdog [TBD]; PWM gating with a hardware shoot-through interlock (SN74LVC2G04 + 2 × 74LVC1G11) | Interlock chosen; watchdog [TBD] | [design/enable.md](design/enable.md) |
 | comms_debug | USB-UART bridge [TBD] | [TBD] | [design/comms_debug.md](design/comms_debug.md) |
 
@@ -46,7 +47,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 |---|---|
 | Board size | [TBD] |
 | Layer count | [TBD] |
-| Input / output connectors | J1 and J301: Kefa KF635-6.35-2P 2-pin screw terminals (32 A, 10 AWG). Identical parts, so they go on opposite board edges with clear silkscreen |
+| Input / output connectors | J201 and J301: Kefa KF635-6.35-2P 2-pin screw terminals (32 A, 10 AWG). Identical parts, so they go on opposite board edges with clear silkscreen |
 | Cooling | Natural convection through copper pours (no heatsink planned at 150 W) |
 | Debug and comms | JTAG header, USB-UART |
 

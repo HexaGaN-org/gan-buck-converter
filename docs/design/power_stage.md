@@ -2,7 +2,7 @@
 
 Sheet: `sheets/power_stage.kicad_sch`
 
-**Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-03
+**Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
 
 ---
 
@@ -21,7 +21,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Support the shortest safe dead time, set in the MCU's ePWM.
 - Meet the output ripple and load-transient targets in the specifications.
 - Provide a Kelvin-connected current-sense shunt whose value lets sensing place the overcurrent threshold within 0–3 V.
-- Hold both gates off when the driver is unpowered or `HS_PWM` / `LS_PWM` are undriven.
+- Hold both gates off when the driver is unpowered or `HS_PWM` / `LS_PWM` are undriven. The LM5113-Q1's HI / LI must not float and have no documented internal pull-downs; on this board the 10 kΩ pull-downs R21 / R22 on the enable sheet's `HS_PWM` / `LS_PWM` outputs provide this (see open questions).
 
 ---
 
@@ -42,8 +42,10 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 | 9 | 2026-11-03 | Input ceramics: 2× 100 nF 0805 (C28233) + 6× Samsung 2.2 µF 1206 (C170101) + 2× Samsung 10 µF 1210 (C22380050); 10.4 µF effective at 48 V | YAGEO 2.2 µF 1206 (C577211) and PSA 10 µF 1210 (C5156756): no published DC-bias curves | Every part has a published Samsung DC-bias curve; 33 % margin over the 7.8 µF requirement at 48 V, and still passes at 60 V | input_supply: bulk electrolytics stay on that sheet | Accepted |
 | 10 | 2026-11-03 | Output capacitors: 8× Samsung 22 µF 25 V 1206 (C12891, Basic) + 1× 470 µF 25 V polymer (C46550466) | 6× C12891 (fails: only 26 % kept at 12 V); 5× 22 µF 1210 (C52306, 41 % kept, but an extra $3.07 loading fee) | 46 µF ceramic effective (≈ 39 µF at small ripple) vs 37 µF needed; polymer holds a 10 A step to ≈ 125 mV | sensing / firmware: loop crossover target ≈ 25 kHz assumed for the transient estimate | Accepted |
 | 11 | 2026-11-03 | Current-sense shunt: 1 mΩ 3 W 2512 (C7420016), in series with the inductor between L301 and the output capacitors | Low-side source shunt (ground-referenced, but misses the high-side peak); input-side shunt | Sees the full inductor current, including the peak the cycle-by-cycle limit needs | sensing: amplifier must tolerate 12 V common mode (INA240-class); 12.5 mV at 12.5 A, 18.9 mV at peak | Accepted |
-| 12 | 2026-11-03 | J301 output connector: Kefa KF635-6.35-2P screw terminal (C475102), plus switch-node RC snubber footprints (DNP) and test pads | XT60PW (needs adapter leads for the e-load); 5.08 mm terminals (24 A rating, 2.5 mm² wire) | 32 A, 10 AWG / 4 mm², M3 screws; connects straight to bench loads. Snubber values come from the measured ringing | input_supply: using the same terminal for J1 adds no loading fee | Accepted |
+| 12 | 2026-11-03 | J301 output connector: Kefa KF635-6.35-2P screw terminal (C475102), plus switch-node RC snubber footprints (DNP) and test pads | XT60PW (needs adapter leads for the e-load); 5.08 mm terminals (24 A rating, 2.5 mm² wire) | 32 A, 10 AWG / 4 mm², M3 screws; connects straight to bench loads. Snubber values come from the measured ringing | input_supply: using the same terminal for J201 adds no loading fee | Accepted |
 | 13 | 2026-11-03 | No gate-to-source pull-downs (supersedes #6) | DNP 10 kΩ footprints (#6) | Matches TI's reference design; the driver's output structures hold the gates when unpowered. Verification test 5 checks the cold start | none | Accepted |
+| 14 | 2026-11-06 | Shunt Kelvin connections through net ties NT302 (L301 side → `I_SH_OUT_P`) and NT301 (`V_OUT` side → `I_SH_OUT_N`); hierarchical labels named `I_SH_OUT_P` / `I_SH_OUT_N` | Labels directly on R301's power wires | Same reasoning as input_supply #21: the ties make the sense pair two separate nets that meet the power copper only at R301's pads, and DRC enforces it. The `_OUT` names pair with the input shunt's `I_SH_IN_*` and match the sensing sheet | sensing: inputs already named `I_SH_OUT_P` / `I_SH_OUT_N`. schematic-hierarchy updated | Accepted |
+| 15 | 2026-11-06 | `+5V` maximum stays 5.5 V in normal operation, with one accepted exception: a J202 bench supply mis-set above 5.5 V can reach the TPS2121's overvoltage cutoff (5.21–5.68 V), putting up to 5.68 V on the low-side gate | Requiring input_supply to guarantee ≤ 5.5 V (a cutoff that can trip on a correctly set 5.0 V supply) | See input_supply #23. The bench rule is 5.0 V on J202; the exceedance needs a mis-set supply and stays below the FET's ±6.5 V pulsed rating, though that rating isn't meant for continuous use | input_supply: none (cutoff unchanged) | Accepted |
 
 ---
 
@@ -107,6 +109,7 @@ One row per calculation. Note where each input came from (specification, datashe
 | C311–C318 | Output ceramics | Samsung CL31A226KAHNNNE | C12891 | 22 µF 25 V X5R 1206, Basic; 26 % kept at 12 V | [Samsung](https://product.samsungsem.com/mlcc/CL31A226KAHNNN.do) |
 | C319 | Output bulk | jieerrui MA25V470M8x10 | C46550466 | 470 µF 25 V polymer, 25 mΩ, 4.1 A ripple, SMD 8 × 10 mm | |
 | R301 | Current-sense shunt | FOJAN FPM253WFR001TML | C7420016 | 1 mΩ 1 % 3 W 2512, ±50 ppm/°C | |
+| NT301, NT302 | Shunt Kelvin net ties | KiCad `Device:NetTie_2` | — | Footprint only (copper), no part placed. NT302 on the L301 side (`I_SH_OUT_P`), NT301 on the `V_OUT` side (`I_SH_OUT_N`) | |
 | J301 | 12 V output connector | Kefa KF635-6.35-2P | C475102 | 2-pin screw terminal, 32 A, 10–22 AWG, M3, 6.35 mm pitch; through-hole | [LCSC](https://www.lcsc.com/product-detail/C475102.html) |
 | R302, C320 | Switch-node RC snubber (DNP) | — | — | 1206 resistor + 1206 100 V C0G footprints; values from the measured ringing | |
 | TP_VIN1, TP_SW1, TP_VOUT1, TP_GND1, TP_GND2 | Test pads | — | — | Footprint only. In layout, put one ground pad right beside `TP_SW` (near Q302's source) and the other beside `TP_VOUT` | |
@@ -122,13 +125,13 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 | Maximum switch-node voltage | 90 V (LM5113-Q1 HS recommended max; 93 V abs max) | input_supply | Tighter than the FETs' 100 V. TVS clamping voltage at surge current, plus ringing, must stay below this |
 | GaN FET drain-source rating | 100 V (120 V pulsed) | input_supply | Not the limiting rating; see the row above |
 | Switching frequency | 400 kHz nominal, 300–500 kHz range | mcu, firmware, sensing | HRPWM required |
-| `+5V` maximum | 5.5 V, including transients | input_supply | VDD drives the low-side gate directly, with no clamp |
+| `+5V` maximum | 5.5 V in normal operation, including transients | input_supply | VDD drives the low-side gate directly, with no clamp. Accepted exception (#15): a mis-set J202 supply can reach the TPS2121 cutoff, up to 5.68 V |
 | Driver current on `+5V` | ≈ 10 mA at 400 kHz | input_supply | Rises with switching frequency |
 | Driver propagation delay / matching | 28 ns typ / 1.5 ns typ | mcu, firmware | Include in the ePWM dead-time setting |
 | Extra dead time from input filters | ≈ 6.5 ns per edge | mcu, firmware | Turn-on is delayed more than turn-off; measure the real dead time at the gates |
 | Peak inductor current | ≈ 18.9 A at 200 W, 300 kHz | sensing | The overcurrent trip must sit below the inductor's 31 A $I_{sat}$ |
-| Shunt | 1 mΩ, in series with the inductor; Kelvin pair `I_SH_P` / `I_SH_N` | sensing | 12 V common mode with switching ripple; 12.5 mV at 12.5 A |
-| Output connector | KF635-6.35-2P screw terminal | input_supply | Reusing it for J1 avoids a second loading fee |
+| Shunt | 1 mΩ, in series with the inductor; Kelvin pair `I_SH_OUT_P` / `I_SH_OUT_N` through NT302 / NT301 | sensing | 12 V common mode with switching ripple; 12.5 mV at 12.5 A |
+| Output connector | KF635-6.35-2P screw terminal | input_supply | Reusing it for J201 avoids a second loading fee |
 | FET reverse-conduction voltage | 2.4 V typ at 20 A | mcu, firmware | Every extra ns of dead time costs loss |
 
 ---
@@ -137,7 +140,7 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 
 What the layout owner must know: loops to keep small, parts to place first, keep-outs, thermal needs.
 
-- The IGC033S10S1 has **no separate Kelvin source pin**. Return each gate loop to the source pad nearest that FET's gate pin, and route the power current away from that spot.
+- The IGC033S10S1 has **no separate Kelvin source pin**. Return each gate loop to the source pad nearest that FET's gate pin, and route the power current away from that spot. On the PG-TSON-6 that is pin 6, the source pad directly beside the gate (pin 1).
 - Place the LM5113-Q1 right beside the FETs, with its bootstrap capacitor at its HB/HS pins and its VDD decoupling at its VDD pin.
 - Gate margin is about 0.5 V (5 V drive, 5.5 V recommended max), so gate-loop inductance must be as small as possible.
 - Put C323 (bootstrap) and C321 (100 nF VDD) on the same side as the driver, right at its pins, with no vias between them and the pins.
@@ -145,7 +148,7 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - Connect the driver's VSS to the low-side FET's source by a short, direct path. If a shunt ever sits in that source path, VSS goes on the FET side of it.
 - TI's layout examples assume 0402 parts; 0402 for R304 and C323 would tighten the gate loop if space is short.
 - **Power loop first:** C309/C310 (100 nF 0805) go directly across the high-side drain and low-side source, then C301–C308 just outside them. Mark them `Layout = power loop, place first`.
-- Place R301 between L301 and the output capacitors, and route `I_SH_P` / `I_SH_N` as a tight pair from the shunt's inner pad edges (Kelvin), away from the switch node. Net ties between each shunt pad and its sense label keep layout from tapping the power copper anywhere else.
+- Place R301 between L301 and the output capacitors, and route `I_SH_OUT_P` / `I_SH_OUT_N` as a tight pair from the shunt's inner pad edges (Kelvin), away from the switch node. Place NT302 and NT301 against the inner edge of their shunt pads; they keep layout from tapping the power copper anywhere else.
 - Put the snubber (R302, C320) across the low-side FET, drain to source, inside the power loop.
 - Keep the switch-node copper only as large as L301's pad needs; it radiates.
 
@@ -176,4 +179,5 @@ How bring-up confirms this sheet works.
 - Confirm the hot $R_{DS(on)}$ factor (1.5× assumed) from the datasheet's normalized curve.
 - Check the SLB2212P6R8MTT datasheet for how $I_{sat}$ is defined and for core-loss data near 400 kHz.
 - The load-transient target in the specifications is still [TBD]; the polymer sizing assumes ≈ 25 kHz crossover.
-- Our board breaks the datasheet's "VDD first, then VIN" sequencing because `+5V` comes from the 48 V bus. Verification test 5 checks the effect; on the bench, bring up 5 V through J6 first.
+- Our board breaks the datasheet's "VDD first, then VIN" sequencing because `+5V` comes from the 48 V bus. Verification test 5 checks the effect; on the bench, bring up 5 V through J202 first.
+- Gate hold-off with `HS_PWM` / `LS_PWM` undriven relies on the enable sheet's pull-downs (R21 / R22). For the universal control board, where PWM will arrive over a connector, consider 10 kΩ pull-downs at the driver's HI / LI on this sheet.

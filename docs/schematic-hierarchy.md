@@ -32,12 +32,12 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 
 | Ref | Sheet | Function |
 |---|---|---|
-| J1 | input_supply | 48 V input |
+| J201 | input_supply | 48 V input |
 | J301 | power_stage | 12 V output |
 | J3 | comms_debug | USB-C to a host laptop |
 | J4 | comms_debug | JTAG debug header |
 | J5 | enable | Hardware enable switch (or E-stop) input |
-| J6 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
+| J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
 
 ---
 
@@ -54,7 +54,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 | `V_IN` | Protected 48 V input bus |
 | `V_OUT` | 12 V output |
 | `5V_AUX` | Output of the onboard 48 V → 5 V auxiliary regulator (local to input_supply) |
-| `5V_EXT` | 5 V from the external header J6 (J202), after its reverse-polarity FET (local to input_supply) |
+| `5V_EXT` | 5 V from the external header J202, after its reverse-polarity FET (local to input_supply) |
 | `+5V` | The selected 5 V rail (via the power mux): GaN driver bias and the 3.3 V LDO input |
 | `+3V3` | 3.3 V supply for the MCU (VDDIO and VDDA) and logic |
 | `GND` | Board ground (power and signal share one ground plane) |
@@ -70,7 +70,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 
 | Signal | Meaning |
 |---|---|
-| `I_SH_P`, `I_SH_N` | Kelvin connections across the current-sense shunt |
+| `I_SH_OUT_P`, `I_SH_OUT_N` | Kelvin connections across the output current-sense shunt R301 (`_P` on the L301 side, `_N` on the `V_OUT` side) |
 
 **Sensing to MCU**
 
@@ -78,7 +78,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 |---|---|
 | `I_SENSE` | Inductor (output) current, scaled to 0–3 V. Feeds a CMPSS comparator for cycle-by-cycle overcurrent |
 | `VOUT_SENSE` | Output voltage, divided to 0–3 V. Feeds a CMPSS comparator for overvoltage |
-| `VIN_SENSE` | Input voltage, divided to 0–3 V. Used for undervoltage lockout and feedforward |
+| `VIN_SENSE` | Input voltage, divided to 0–3 V. Feeds a CMPSS comparator for the fast input-overvoltage trip (≈ 55 V), and the ADC for undervoltage lockout and feedforward |
 | `TEMP_SENSE` | Thermistor voltage near the GaN stage |
 | `I_IN_SENSE` | Input current, scaled to 0–3 V. Telemetry, input power and an input-current limit in firmware; not a hardware trip |
 
@@ -123,14 +123,14 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 **Responsible for:** protecting the board from the 48 V input and generating the low-voltage rails.
 
 **Contains**
-- J1 48 V input connector (J201 in the schematic)
+- J201 48 V input connector
 - Input fuse
 - TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
 - Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
 - Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_SH_IN_P` / `I_SH_IN_N` through a net tie at each shunt pad
 - Auxiliary step-down regulator (LM5164), 48 V → `5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
-- J6 external 5 V input (J202, keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
+- J202 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
 - Two-input power multiplexer (TPS2121): `5V_EXT` (priority) and `5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `5V_EXT`
 - SOURCE LED showing when the external input is active
 - 3.3 V LDO (ST LDL1117S33R) from `+5V` → `+3V3`. No separate analog rail: MCU VDDA runs from `+3V3`
@@ -161,7 +161,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - RC input filters on `HS_PWM` / `LS_PWM` at the driver pins
 - High-frequency input capacitors, placed tight against the FETs (the power loop)
 - Output inductor
-- Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `I_SH_P` / `I_SH_N`, through a net tie at each shunt pad
+- Current-sense shunt in series with the output inductor, with Kelvin connections brought out as `I_SH_OUT_P` / `I_SH_OUT_N`, through a net tie at each shunt pad
 - Output capacitors
 - J301 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)
@@ -172,7 +172,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | Signal | Dir | To / from |
 |---|---|---|
 | `HS_PWM`, `LS_PWM` | in | enable |
-| `I_SH_P`, `I_SH_N` | out | sensing |
+| `I_SH_OUT_P`, `I_SH_OUT_N` | out | sensing |
 
 **Notes**
 - The switch node (`SW_NODE`) and the gate nets (`HS_DRIVE`, `LS_DRIVE`) are local labels; they never cross a sheet boundary.
@@ -185,7 +185,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 **Responsible for:** turning power-stage quantities into clean, protected 0–3 V signals for the MCU.
 
 **Contains**
-- Current-sense amplifier across `I_SH_P` / `I_SH_N`, scaled so the overcurrent threshold sits well inside 0–3 V
+- Current-sense amplifier across `I_SH_OUT_P` / `I_SH_OUT_N`, scaled so the overcurrent threshold sits well inside 0–3 V
 - Input-current amplifier across `I_SH_IN_P` / `I_SH_IN_N` (common mode at `V_IN`)
 - Output-voltage divider from `V_OUT`
 - Input-voltage divider from `V_IN`
@@ -197,7 +197,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 | Signal | Dir | To / from |
 |---|---|---|
-| `I_SH_P`, `I_SH_N` | in | power_stage |
+| `I_SH_OUT_P`, `I_SH_OUT_N` | in | power_stage |
 | `I_SH_IN_P`, `I_SH_IN_N` | in | input_supply |
 | `I_SENSE` | out | mcu |
 | `I_IN_SENSE` | out | mcu |
