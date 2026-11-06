@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** MCU, input-supply, power-stage and sensing circuitry are captured. Full inter-sheet wiring, enable and comms/debug circuitry remain unfinished. Layout has not started.
+> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, including the hardware enable with its shoot-through interlock and the USB-serial and JTAG debug interfaces. Remaining before layout: root-sheet wiring (only the mcu and comms_debug pins are on the root sheet so far), aligning the sensing sheet's label names with the MCU's, annotation, and each design note's open questions. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -16,7 +16,8 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 | Power stage | 2 × Infineon IGC033S10S1 GaN FETs, TI LM5113-Q1 gate driver |
 | Controller | TI TMS320F280039C, 64-pin LQFP (same device as the universal control board) |
 | Control | Staged bring-up: open loop → voltage mode → average current mode |
-| Protections | Cycle-by-cycle overcurrent (CMPSS), output overvoltage, input undervoltage lockout, overtemperature, and a hardware enable that firmware cannot override |
+| Protections | Cycle-by-cycle overcurrent (CMPSS), output overvoltage, input undervoltage lockout, overtemperature, a hardware enable that firmware cannot override, and a hardware shoot-through interlock on the PWM gating |
+| Host interface | USB-C serial (CP2102N USB-UART bridge, ESD-protected) and a TI-compatible JTAG header |
 | Assembly | JLCPCB Economic PCBA, single-sided |
 
 Targets are in [docs/specifications.md](docs/specifications.md); each sheet's decisions and parts are in its design note in [docs/design/](docs/design/).
@@ -25,13 +26,13 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed; mcu ↔ comms_debug pins imported. Pins for the other four sheets pending |
 | 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Root-sheet pins to sensing pending |
-| 3 | power_stage | Reza Rahimzadeh | Captured; parent-sheet connections unfinished |
-| 4 | sensing | Connor Jin | In progress: sensing circuitry captured; sheet interfaces unfinished |
-| 5 | mcu | Yunxi He | Captured; source/destination interfaces unfinished |
-| 6 | enable | Connor Jin | Not started |
-| 7 | comms_debug | Yunxi He | Not started |
+| 3 | power_stage | Reza Rahimzadeh | Captured; root-sheet pins pending |
+| 4 | sensing | Connor Jin | Circuitry captured (six channels). Label names to align with the MCU sheet; root-sheet pins pending |
+| 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels on the root sheet |
+| 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and the shoot-through interlock. Root-sheet pins pending |
+| 7 | comms_debug | Yunxi He | Captured: USB-C with CP2102N bridge and USBLC6 ESD protection, JTAG header; wired to mcu on the root sheet |
 
 Only a sheet's owner edits it. What each sheet contains and every signal that crosses between sheets are defined in [docs/schematic-hierarchy.md](docs/schematic-hierarchy.md).
 
@@ -49,6 +50,7 @@ docs/
   firmware/
     firmware-requirements.md         Plain-language firmware guide for the firmware team
     edge-ai-dead-time-optimizer.md   Proposal: on-board model that picks the lowest-loss dead time and frequency
+  datasheets/                Datasheets and reference images for key parts (MCU, crystal, JTAG pinout)
   gan-buck-converter-BOM.xlsx  Cost and notes per sheet, refreshed from KiCad BOM exports
 hardware/gan-buck-converter/
   gan-buck-converter.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 10 project (root sheet and board)
