@@ -5157,7 +5157,7 @@
 				)
 			)
 		)
-		(property "Value" "0603WAF5101T5E"
+		(property "Value" "5.1k"
 			(at 59.69 50.8 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6054,7 +6054,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CC0603KRX7R9BB104"
+		(property "Value" "100nF"
 			(at 106.68 38.1001 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6168,7 +6168,7 @@
 				)
 			)
 		)
-		(property "Value" "0603WAF5101T5E"
+		(property "Value" "5.1k"
 			(at 63.5 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6516,7 +6516,7 @@
 				)
 			)
 		)
-		(property "Value" "0603WAF1000T5E"
+		(property "Value" "100R"
 			(at 52.07 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6788,7 +6788,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0603WAF4752T5E"
+		(property "Value" "47.5k"
 			(at 95.2501 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6981,7 +6981,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CC0603KRX7R9BB104"
+		(property "Value" "100nF"
 			(at 143.51 43.1801 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7096,7 +7096,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CL10B475KQ8NQNC"
+		(property "Value" "4.7uF"
 			(at 137.16 106.6799 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7679,7 +7679,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CL10B475KQ8NQNC"
+		(property "Value" "4.7uF"
 			(at 121.92 38.1001 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7794,7 +7794,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CC0603KRX7R9BB104"
+		(property "Value" "100nF"
 			(at 152.4 106.6799 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8379,7 +8379,7 @@
 				)
 			)
 		)
-		(property "Value" "RCT034K7JLF"
+		(property "Value" "4.7k"
 			(at 52.07 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8649,7 +8649,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CL10B475KQ8NQNC"
+		(property "Value" "4.7uF"
 			(at 158.75 43.1801 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9078,7 +9078,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0603WAF2212T5E"
+		(property "Value" "22.1k"
 			(at 85.0901 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9193,7 +9193,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "RT0603BRD071K02L"
+		(property "Value" "1.02k"
 			(at 156.718 97.79 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9541,7 +9541,7 @@
 				)
 			)
 		)
-		(property "Value" "RCT034K7JLF"
+		(property "Value" "4.7k"
 			(at 116.84 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9655,7 +9655,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "CC0603KRX7R9BB104"
+		(property "Value" "100nF"
 			(at 86.36 114.2999 90)
 			(show_name no)
 			(do_not_autoplace no)

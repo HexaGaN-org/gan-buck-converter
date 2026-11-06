@@ -3800,7 +3800,7 @@
 				)
 			)
 		)
-		(property "Value" "0805G_Green"
+		(property "Value" "Green"
 			(at 205.74 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
