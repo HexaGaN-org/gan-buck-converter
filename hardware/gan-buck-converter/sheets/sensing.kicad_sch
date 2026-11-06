@@ -2336,319 +2336,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:OPA192IDBVR"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at 0 9.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "OPA192IDBVR"
-				(at 0 -9.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:OPA192IDBVR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C139648"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "OPA192IDBVR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C139648 OPA192IDBVR SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BL Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "OPA192IDBVR_0_1"
-				(circle
-					(center -4.445 -4.445)
-					(radius 0.381)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -5.08) (xy -2.54 -2.54) (xy -3.81 -2.54) (xy -3.81 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 -1.016) (xy 0.508 -1.524)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 1.27) (xy 0.254 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.254 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy -2.54 0) (xy 1.27 -2.54) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 5.08) (xy 2.54 1.27) (xy 1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -5.08) (xy 2.54 -1.27) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.572 -5.08) (xy 4.6711 -5.0702) (xy 4.7664 -5.0413) (xy 4.8542 -4.9944) (xy 4.9312 -4.9312)
-						(xy 4.9944 -4.8542) (xy 5.0413 -4.7664) (xy 5.0702 -4.6711) (xy 5.08 -4.572) (xy 5.0702 4.6711)
-						(xy 5.0413 4.7664) (xy 4.9944 4.8542) (xy 4.9312 4.9312) (xy 4.8542 4.9944) (xy 4.7664 5.0413)
-						(xy 4.6711 5.0702) (xy 4.572 5.08) (xy -4.6711 5.0702) (xy -4.7664 5.0413) (xy -4.8542 4.9944)
-						(xy -4.9312 4.9312) (xy -4.9944 4.8542) (xy -5.0413 4.7664) (xy -5.0702 4.6711) (xy -5.08 4.572)
-						(xy -5.0702 -4.6711) (xy -5.0413 -4.7664) (xy -4.9944 -4.8542) (xy -4.9312 -4.9312) (xy -4.8542 -4.9944)
-						(xy -4.7664 -5.0413) (xy -4.6711 -5.0702) (xy -4.572 -5.08) (xy 4.572 -5.08)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin unspecified line
-					(at -2.54 -7.62 90)
-					(length 2.54)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "V-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 -7.62 90)
-					(length 2.54)
-					(name "IN+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 7.62 270)
-					(length 2.54)
-					(name "IN-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -2.54 7.62 270)
-					(length 2.54)
-					(name "V+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "JLCImport:PTS1206M2B1K00P100"
 			(pin_names
 				(offset 1.016)
@@ -2965,6 +2652,319 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:TLV9061IDBVR"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 7.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TLV9061IDBVR"
+				(at 0 -7.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:TLV9061IDBVR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Texas-Instruments-TLV9061IDBVR_C398358.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-40℃~+125℃ 0.05pA 0.5pA 1 1.6mV 1.8V~5.5V 103dB 10MHz 10nV/√Hz@1kHz 50mA 530nV/℃ 538uA 6.5V/us Enable/shutdown function、ESD protection、EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Operational Amplifier ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C398358"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "TLV9061IDBVR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C398358 SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BL TLV9061IDBVR Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TLV9061IDBVR_0_1"
+				(circle
+					(center -4.445 -4.445)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -2.54) (xy -3.81 -2.54) (xy -3.81 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.016) (xy 0.508 -1.524)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 1.27) (xy 0.254 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.254 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy -2.54 0) (xy 1.27 -2.54) (xy 1.27 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 1.27) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -5.08) (xy 2.54 -1.27) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.572 -5.08) (xy 4.6711 -5.0702) (xy 4.7664 -5.0413) (xy 4.8542 -4.9944) (xy 4.9312 -4.9312)
+						(xy 4.9944 -4.8542) (xy 5.0413 -4.7664) (xy 5.0702 -4.6711) (xy 5.08 -4.572) (xy 5.0702 4.6711)
+						(xy 5.0413 4.7664) (xy 4.9944 4.8542) (xy 4.9312 4.9312) (xy 4.8542 4.9944) (xy 4.7664 5.0413)
+						(xy 4.6711 5.0702) (xy 4.572 5.08) (xy -4.6711 5.0702) (xy -4.7664 5.0413) (xy -4.8542 4.9944)
+						(xy -4.9312 4.9312) (xy -4.9944 4.8542) (xy -5.0413 4.7664) (xy -5.0702 4.6711) (xy -5.08 4.572)
+						(xy -5.0702 -4.6711) (xy -5.0413 -4.7664) (xy -4.9944 -4.8542) (xy -4.9312 -4.9312) (xy -4.8542 -4.9944)
+						(xy -4.7664 -5.0413) (xy -4.6711 -5.0702) (xy -4.572 -5.08) (xy 4.572 -5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at -2.54 -7.62 90)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 -7.62 90)
+					(length 2.54)
+					(name "IN+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 7.62 270)
+					(length 2.54)
+					(name "IN-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -2.54 7.62 270)
+					(length 2.54)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6382,7 +6382,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:OPA192IDBVR")
+		(lib_id "JLCImport:TLV9061IDBVR")
 		(at 91.44 154.94 0)
 		(mirror y)
 		(unit 1)
@@ -6404,7 +6404,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "OPA192IDBVR"
+		(property "Value" "TLV9061"
 			(at 97.79 153.6701 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6415,7 +6415,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:OPA192IDBVR"
+		(property "Footprint" "JLCImport:TLV9061IDBVR"
 			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -6426,7 +6426,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Texas-Instruments-TLV9061IDBVR_C398358.pdf"
 			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -6437,7 +6437,7 @@
 				)
 			)
 		)
-		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+		(property "Description" "-40℃~+125℃ 0.05pA 0.5pA 1 1.6mV 1.8V~5.5V 103dB 10MHz 10nV/√Hz@1kHz 50mA 530nV/℃ 538uA 6.5V/us Enable/shutdown function、ESD protection、EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Operational Amplifier ROHS"
 			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -6448,7 +6448,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C139648"
+		(property "LCSC" "C398358"
 			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -6470,7 +6470,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "OPA192IDBVR"
+		(property "Manufacturer Part" "TLV9061IDBVR"
 			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -7387,7 +7387,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:OPA192IDBVR")
+		(lib_id "JLCImport:TLV9061IDBVR")
 		(at 91.44 107.95 0)
 		(mirror y)
 		(unit 1)
@@ -7409,7 +7409,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "OPA192IDBVR"
+		(property "Value" "TLV9061"
 			(at 97.79 106.6801 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7420,7 +7420,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:OPA192IDBVR"
+		(property "Footprint" "JLCImport:TLV9061IDBVR"
 			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7431,7 +7431,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Texas-Instruments-TLV9061IDBVR_C398358.pdf"
 			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7442,7 +7442,7 @@
 				)
 			)
 		)
-		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+		(property "Description" "-40℃~+125℃ 0.05pA 0.5pA 1 1.6mV 1.8V~5.5V 103dB 10MHz 10nV/√Hz@1kHz 50mA 530nV/℃ 538uA 6.5V/us Enable/shutdown function、ESD protection、EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Operational Amplifier ROHS"
 			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7453,7 +7453,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C139648"
+		(property "LCSC" "C398358"
 			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7475,7 +7475,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "OPA192IDBVR"
+		(property "Manufacturer Part" "TLV9061IDBVR"
 			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8482,7 +8482,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:OPA192IDBVR")
+		(lib_id "JLCImport:TLV9061IDBVR")
 		(at 135.89 33.02 0)
 		(mirror y)
 		(unit 1)
@@ -8504,7 +8504,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "OPA192IDBVR"
+		(property "Value" "TLV9061"
 			(at 142.24 31.7501 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8515,7 +8515,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:OPA192IDBVR"
+		(property "Footprint" "JLCImport:TLV9061IDBVR"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8526,7 +8526,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Texas-Instruments-TLV9061IDBVR_C398358.pdf"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8537,7 +8537,7 @@
 				)
 			)
 		)
-		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+		(property "Description" "-40℃~+125℃ 0.05pA 0.5pA 1 1.6mV 1.8V~5.5V 103dB 10MHz 10nV/√Hz@1kHz 50mA 530nV/℃ 538uA 6.5V/us Enable/shutdown function、ESD protection、EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Operational Amplifier ROHS"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8548,7 +8548,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C139648"
+		(property "LCSC" "C398358"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8570,7 +8570,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "OPA192IDBVR"
+		(property "Manufacturer Part" "TLV9061IDBVR"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -9340,7 +9340,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:OPA192IDBVR")
+		(lib_id "JLCImport:TLV9061IDBVR")
 		(at 57.15 35.56 0)
 		(mirror y)
 		(unit 1)
@@ -9362,7 +9362,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "OPA192IDBVR"
+		(property "Value" "TLV9061"
 			(at 63.5 34.2901 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9373,7 +9373,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:OPA192IDBVR"
+		(property "Footprint" "JLCImport:TLV9061IDBVR"
 			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -9384,7 +9384,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Texas-Instruments-TLV9061IDBVR_C398358.pdf"
 			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -9395,7 +9395,7 @@
 				)
 			)
 		)
-		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
+		(property "Description" "-40℃~+125℃ 0.05pA 0.5pA 1 1.6mV 1.8V~5.5V 103dB 10MHz 10nV/√Hz@1kHz 50mA 530nV/℃ 538uA 6.5V/us Enable/shutdown function、ESD protection、EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Operational Amplifier ROHS"
 			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -9406,7 +9406,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C139648"
+		(property "LCSC" "C398358"
 			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -9428,7 +9428,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "OPA192IDBVR"
+		(property "Manufacturer Part" "TLV9061IDBVR"
 			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
