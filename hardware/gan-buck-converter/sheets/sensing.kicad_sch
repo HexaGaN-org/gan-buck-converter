@@ -168,6 +168,163 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:0603WAF1002T5E"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "0603WAF1002T5E"
+				(at 0 -3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:0603WAF1002T5E"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0603WAF1002T5E_C25804.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C25804"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "0603WAF1002T5E"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "0603WAF1002T5E C25804 R0603 UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "0603WAF1002T5E_0_1"
+				(rectangle
+					(start -2.54 1.016)
+					(end 2.54 -1.016)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:0603WAF1503T5E"
 			(pin_names
 				(offset 1.016)
@@ -3606,8 +3763,8 @@
 		)
 	)
 	(rectangle
-		(start 17.78 15.24)
-		(end 175.26 60.96)
+		(start 14.605 15.24)
+		(end 184.785 75.565)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -3618,8 +3775,8 @@
 		(uuid "03cacd4a-bc1e-45a5-9480-a0722c209752")
 	)
 	(rectangle
-		(start 15.875 78.74)
-		(end 104.775 185.42)
+		(start 43.815 81.28)
+		(end 161.925 187.96)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -3628,18 +3785,6 @@
 			(type none)
 		)
 		(uuid "053e2623-444e-4b72-96b0-8405c3c6ebe5")
-	)
-	(rectangle
-		(start 109.22 64.77)
-		(end 175.26 187.325)
-		(stroke
-			(width 0.254)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "718723ba-3c2c-41b9-bd8b-9a81c4c781bc")
 	)
 	(rectangle
 		(start 191.77 16.51)
@@ -3655,7 +3800,7 @@
 	)
 	(text "Voltage-sensing\n"
 		(exclude_from_sim no)
-		(at 162.306 58.166 0)
+		(at 125.984 70.612 0)
 		(effects
 			(font
 				(size 1.778 1.778)
@@ -3677,22 +3822,9 @@
 		)
 		(uuid "56106b77-ad96-4d0c-a1e2-9106711e330e")
 	)
-	(text "filter and clamp diodes"
-		(exclude_from_sim no)
-		(at 111.39 69.85 0)
-		(effects
-			(font
-				(size 1.778 1.778)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "66682c6a-8260-4c1a-b625-0fe39f96705d")
-	)
 	(text "Temp-sensing"
 		(exclude_from_sim no)
-		(at 88.9 181.864 0)
+		(at 116.84 184.404 0)
 		(effects
 			(font
 				(size 1.778 1.778)
@@ -3703,40 +3835,16 @@
 		(uuid "b80bc62e-a11f-4f65-80eb-495c4a394145")
 	)
 	(junction
-		(at 146.05 163.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "06b46666-a7b1-4cfd-b82f-15cd417c9045")
-	)
-	(junction
-		(at 143.51 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "122fe5e7-51df-4433-866a-bd26a3d0b7f8")
-	)
-	(junction
 		(at 254 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1396497a-6552-4118-b00e-3646aa22d850")
 	)
 	(junction
-		(at 138.43 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1baa5db2-4277-4b41-878a-d4908fc0909a")
-	)
-	(junction
-		(at 76.2 113.03)
+		(at 104.14 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "310bf6ec-e0e6-4725-9499-76aa686eb9fc")
-	)
-	(junction
-		(at 138.43 104.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "35a699e8-a78a-4e00-8edf-9d64233f2a31")
 	)
 	(junction
 		(at 104.14 40.64)
@@ -3745,7 +3853,7 @@
 		(uuid "3927abed-81d4-45a2-b112-6b79b488c231")
 	)
 	(junction
-		(at 138.43 163.83)
+		(at 132.08 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "39715eb8-66dd-4454-a771-d4121189084b")
@@ -3757,64 +3865,46 @@
 		(uuid "3a3f291a-e321-43ca-a6d3-23424713931e")
 	)
 	(junction
+		(at 160.02 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "45c305c3-47b9-4e1c-836e-cd06521d55f3")
+	)
+	(junction
 		(at 259.08 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4b683082-9fc9-49da-a4e0-320342e5b425")
 	)
 	(junction
-		(at 60.96 140.97)
+		(at 88.9 143.51)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4fa1e473-4db9-40a3-b93d-99ccb8f9ae6d")
 	)
 	(junction
-		(at 60.96 93.98)
+		(at 88.9 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "514ef65f-e3bb-4b82-a83f-e723cb57a7ea")
 	)
 	(junction
-		(at 26.67 40.64)
+		(at 29.21 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "52d03ab2-171a-43ed-bbd3-45ea54c17b2d")
 	)
 	(junction
-		(at 255.27 60.96)
+		(at 254 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "547bba73-1f4f-4d2a-910e-7ce1b9f79f05")
 	)
 	(junction
-		(at 143.51 119.38)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "64345009-7f39-42cb-b9a2-07dc660f7505")
-	)
-	(junction
-		(at 76.2 160.02)
+		(at 104.14 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "650d9c55-f3ea-4115-b728-0b318df581ec")
-	)
-	(junction
-		(at 143.51 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6b6cf224-c3b5-4dcf-ae9b-accec1bb42b8")
-	)
-	(junction
-		(at 146.05 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8fb0e5c8-f270-49d4-9cf3-7986cdaa3782")
-	)
-	(junction
-		(at 146.05 104.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a303ab41-3461-4143-bc26-91d0642b6b0d")
 	)
 	(junction
 		(at 148.59 40.64)
@@ -3829,28 +3919,28 @@
 		(uuid "b3bc21ba-bed3-4dd0-a4ec-7a689c5844bc")
 	)
 	(junction
-		(at 22.86 160.02)
+		(at 50.8 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b4b0e2f0-dd25-44b8-b44f-1d71465b809b")
 	)
 	(junction
-		(at 138.43 132.08)
+		(at 130.81 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bb5ed5d2-c951-4a97-9058-808a386eb415")
 	)
 	(junction
-		(at 22.86 113.03)
+		(at 50.8 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bd35e15d-bdf8-4c2b-a8a1-c5d717a369f8")
 	)
 	(junction
-		(at 146.05 132.08)
+		(at 69.85 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c589a8e7-c004-4602-b772-c5fc281f587b")
+		(uuid "cd6723d2-0587-466d-a644-facecd53cbc4")
 	)
 	(junction
 		(at 217.17 58.42)
@@ -3865,7 +3955,7 @@
 		(uuid "de0c2b81-ccb5-4b80-be29-db788cb55a54")
 	)
 	(junction
-		(at 71.12 40.64)
+		(at 69.85 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e0448934-8b4c-42cb-86d2-bdb63812c138")
@@ -3875,12 +3965,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ebbaa28e-7ece-46ae-b025-17738aede67f")
-	)
-	(junction
-		(at 143.51 179.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f13c25e8-5fbd-4b57-bdf7-d3707d6069ff")
 	)
 	(no_connect
 		(at 219.71 60.96)
@@ -3892,7 +3976,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 77.47) (xy 146.05 77.47)
+			(xy 69.85 53.34) (xy 78.74 53.34)
 		)
 		(stroke
 			(width 0)
@@ -3902,7 +3986,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 160.02) (xy 91.44 160.02)
+			(xy 104.14 162.56) (xy 119.38 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3912,17 +3996,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 104.14) (xy 125.73 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a4279b1-babd-4314-a7c5-13f5e734eefe")
-	)
-	(wire
-		(pts
-			(xy 53.34 93.98) (xy 60.96 93.98)
+			(xy 81.28 96.52) (xy 88.9 96.52)
 		)
 		(stroke
 			(width 0)
@@ -3952,6 +4026,16 @@
 	)
 	(wire
 		(pts
+			(xy 160.02 52.07) (xy 160.02 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "182cda39-ad50-4c39-a4e8-05d1e4b4342e")
+	)
+	(wire
+		(pts
 			(xy 218.44 113.03) (xy 215.9 113.03)
 		)
 		(stroke
@@ -3962,7 +4046,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 160.02) (xy 76.2 160.02)
+			(xy 93.98 162.56) (xy 104.14 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3979,16 +4063,6 @@
 			(type default)
 		)
 		(uuid "1f4eca5c-f930-4d31-9a7a-0cdb9584a2c6")
-	)
-	(wire
-		(pts
-			(xy 255.27 60.96) (xy 260.35 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20dcc5e9-3444-49e3-afc8-e8d786d73bb5")
 	)
 	(wire
 		(pts
@@ -4042,16 +4116,6 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 85.09) (xy 138.43 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35509740-dcaf-491b-bfd6-fb24dc3c211d")
-	)
-	(wire
-		(pts
 			(xy 217.17 58.42) (xy 217.17 63.5)
 		)
 		(stroke
@@ -4062,13 +4126,23 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 160.02) (xy 76.2 135.89)
+			(xy 104.14 162.56) (xy 104.14 138.43)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3aaf005d-161f-48b8-a36e-b64e5f93b0bd")
+	)
+	(wire
+		(pts
+			(xy 69.85 64.77) (xy 69.85 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ab5758c-824b-45a8-888a-3fd5db7b63ae")
 	)
 	(wire
 		(pts
@@ -4082,7 +4156,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 113.03) (xy 76.2 88.9)
+			(xy 104.14 115.57) (xy 104.14 91.44)
 		)
 		(stroke
 			(width 0)
@@ -4092,7 +4166,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 140.97) (xy 43.18 140.97)
+			(xy 68.58 143.51) (xy 71.12 143.51)
 		)
 		(stroke
 			(width 0)
@@ -4102,17 +4176,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 163.83) (xy 125.73 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f223012-629f-4055-83a6-49793a355cb8")
-	)
-	(wire
-		(pts
-			(xy 22.86 156.21) (xy 22.86 160.02)
+			(xy 50.8 158.75) (xy 50.8 162.56)
 		)
 		(stroke
 			(width 0)
@@ -4122,23 +4186,13 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 88.9) (xy 76.2 88.9)
+			(xy 101.6 91.44) (xy 104.14 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "45b07284-2da6-4172-8b1e-79aa58494a73")
-	)
-	(wire
-		(pts
-			(xy 123.19 77.47) (xy 125.73 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "466e0da9-7af0-41a9-87d1-d07b1772fe86")
 	)
 	(wire
 		(pts
@@ -4152,17 +4206,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 92.71) (xy 151.13 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f7e531a-65b6-472f-8543-e5cea5cf9d0d")
-	)
-	(wire
-		(pts
-			(xy 60.96 135.89) (xy 63.5 135.89)
+			(xy 88.9 138.43) (xy 91.44 138.43)
 		)
 		(stroke
 			(width 0)
@@ -4182,16 +4226,6 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 92.71) (xy 143.51 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "52c1dc6a-b239-410b-b06c-cab7b848ed16")
-	)
-	(wire
-		(pts
 			(xy 254 118.11) (xy 259.08 118.11)
 		)
 		(stroke
@@ -4199,16 +4233,6 @@
 			(type default)
 		)
 		(uuid "587205ac-0abd-444b-80c2-74fe74983cf4")
-	)
-	(wire
-		(pts
-			(xy 146.05 132.08) (xy 153.67 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "59c598da-88b5-4a96-b651-f17654f3a253")
 	)
 	(wire
 		(pts
@@ -4252,17 +4276,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 77.47) (xy 153.67 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67fd7c2d-019c-4157-8c5f-d69841e24cdc")
-	)
-	(wire
-		(pts
-			(xy 135.89 163.83) (xy 138.43 163.83)
+			(xy 129.54 162.56) (xy 132.08 162.56)
 		)
 		(stroke
 			(width 0)
@@ -4292,7 +4306,7 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 36.83) (xy 26.67 40.64)
+			(xy 29.21 39.37) (xy 29.21 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4302,17 +4316,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 40.64) (xy 82.55 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "705173bc-3b3f-43b5-96bb-4bd0d3af76f8")
-	)
-	(wire
-		(pts
-			(xy 255.27 76.2) (xy 257.81 76.2)
+			(xy 254 76.2) (xy 257.81 76.2)
 		)
 		(stroke
 			(width 0)
@@ -4322,23 +4326,13 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 113.03) (xy 76.2 113.03)
+			(xy 93.98 115.57) (xy 104.14 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "73ecbc1f-c340-4feb-903a-29d8dcb29c8e")
-	)
-	(wire
-		(pts
-			(xy 146.05 104.14) (xy 153.67 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76666002-1902-48e3-98fb-68b9fc659bb3")
 	)
 	(wire
 		(pts
@@ -4362,16 +4356,6 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 104.14) (xy 138.43 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bfaca2e-9b71-46e3-8e37-9016cdd6720f")
-	)
-	(wire
-		(pts
 			(xy 250.19 53.34) (xy 255.27 53.34)
 		)
 		(stroke
@@ -4382,17 +4366,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 163.83) (xy 153.67 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7da1ab13-1abc-4318-83f0-836b95f291c3")
-	)
-	(wire
-		(pts
-			(xy 252.73 60.96) (xy 255.27 60.96)
+			(xy 252.73 60.96) (xy 260.35 60.96)
 		)
 		(stroke
 			(width 0)
@@ -4402,23 +4376,13 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 140.97) (xy 60.96 140.97)
+			(xy 81.28 143.51) (xy 88.9 143.51)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "8aa8c056-3624-42e3-95be-173cf88f4d9c")
-	)
-	(wire
-		(pts
-			(xy 148.59 119.38) (xy 156.21 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8b580b60-5da7-4822-b065-7e53cfeffc29")
 	)
 	(wire
 		(pts
@@ -4429,16 +4393,6 @@
 			(type default)
 		)
 		(uuid "8c5e002e-6336-46c2-b638-99a5a441e7de")
-	)
-	(wire
-		(pts
-			(xy 138.43 119.38) (xy 143.51 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8ca8bd37-143f-488e-8fa8-bb473cd11940")
 	)
 	(wire
 		(pts
@@ -4462,7 +4416,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 173.99) (xy 138.43 179.07)
+			(xy 132.08 172.72) (xy 132.08 177.8)
 		)
 		(stroke
 			(width 0)
@@ -4482,7 +4436,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 93.98) (xy 43.18 93.98)
+			(xy 68.58 96.52) (xy 71.12 96.52)
 		)
 		(stroke
 			(width 0)
@@ -4522,7 +4476,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 93.98) (xy 60.96 97.79)
+			(xy 88.9 96.52) (xy 88.9 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4532,7 +4486,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 40.64) (xy 26.67 40.64)
+			(xy 54.61 43.18) (xy 29.21 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4542,7 +4496,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 135.89) (xy 60.96 140.97)
+			(xy 88.9 138.43) (xy 88.9 143.51)
 		)
 		(stroke
 			(width 0)
@@ -4562,7 +4516,7 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 40.64) (xy 26.67 41.91)
+			(xy 29.21 43.18) (xy 29.21 44.45)
 		)
 		(stroke
 			(width 0)
@@ -4582,7 +4536,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 109.22) (xy 22.86 113.03)
+			(xy 50.8 111.76) (xy 50.8 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4592,7 +4546,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 40.64) (xy 71.12 40.64)
+			(xy 59.69 43.18) (xy 69.85 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4602,7 +4556,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 132.08) (xy 146.05 132.08)
+			(xy 130.81 115.57) (xy 138.43 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4622,7 +4576,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 113.03) (xy 22.86 118.11)
+			(xy 50.8 115.57) (xy 50.8 120.65)
 		)
 		(stroke
 			(width 0)
@@ -4662,7 +4616,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 17.78) (xy 55.88 25.4)
+			(xy 54.61 20.32) (xy 54.61 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4672,7 +4626,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 163.83) (xy 146.05 163.83)
+			(xy 132.08 162.56) (xy 139.7 162.56)
 		)
 		(stroke
 			(width 0)
@@ -4682,7 +4636,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 17.78) (xy 55.88 17.78)
+			(xy 69.85 20.32) (xy 54.61 20.32)
 		)
 		(stroke
 			(width 0)
@@ -4692,27 +4646,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 77.47) (xy 138.43 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7f694be-c57e-4885-baa7-1d06a3a9dfe7")
-	)
-	(wire
-		(pts
-			(xy 138.43 179.07) (xy 143.51 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8ecd6ae-0d16-4f72-b5b3-1334ca09f7d7")
-	)
-	(wire
-		(pts
-			(xy 73.66 135.89) (xy 76.2 135.89)
+			(xy 101.6 138.43) (xy 104.14 138.43)
 		)
 		(stroke
 			(width 0)
@@ -4722,27 +4656,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 104.14) (xy 146.05 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c33d28a6-67b0-460a-82a9-30a48ac901a4")
-	)
-	(wire
-		(pts
-			(xy 148.59 179.07) (xy 151.13 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cbb7196b-267b-43e9-86ff-2d7650773b57")
-	)
-	(wire
-		(pts
-			(xy 60.96 88.9) (xy 60.96 93.98)
+			(xy 88.9 91.44) (xy 88.9 96.52)
 		)
 		(stroke
 			(width 0)
@@ -4762,7 +4676,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 142.24) (xy 138.43 147.32)
+			(xy 130.81 125.73) (xy 130.81 130.81)
 		)
 		(stroke
 			(width 0)
@@ -4772,17 +4686,17 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 147.32) (xy 151.13 147.32)
+			(xy 160.02 52.07) (xy 168.91 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d40e3752-e8b0-4666-990d-e49924337ec7")
+		(uuid "d76f5c3c-196a-49fa-8dc2-5d6535281006")
 	)
 	(wire
 		(pts
-			(xy 135.89 132.08) (xy 138.43 132.08)
+			(xy 128.27 115.57) (xy 130.81 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4799,26 +4713,6 @@
 			(type default)
 		)
 		(uuid "dc64b996-dd46-44d0-8ec9-ddfba3c4b2f9")
-	)
-	(wire
-		(pts
-			(xy 138.43 114.3) (xy 138.43 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de9e1722-041b-4c5a-9b44-29f25670394c")
-	)
-	(wire
-		(pts
-			(xy 138.43 147.32) (xy 143.51 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e11ab42a-b0ab-40fd-a8a5-ef5480b47289")
 	)
 	(wire
 		(pts
@@ -4842,7 +4736,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 40.64) (xy 71.12 17.78)
+			(xy 69.85 43.18) (xy 69.85 20.32)
 		)
 		(stroke
 			(width 0)
@@ -4852,7 +4746,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 140.97) (xy 60.96 144.78)
+			(xy 88.9 143.51) (xy 88.9 147.32)
 		)
 		(stroke
 			(width 0)
@@ -4872,17 +4766,17 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 41.91) (xy 215.9 41.91)
+			(xy 69.85 55.88) (xy 69.85 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "eb56ba1c-a3c0-4a44-bfe3-3d53d1dbd806")
+		(uuid "ebe74204-32d7-4694-9ee0-445913d50895")
 	)
 	(wire
 		(pts
-			(xy 22.86 113.03) (xy 60.96 113.03)
+			(xy 50.8 115.57) (xy 88.9 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4892,7 +4786,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 160.02) (xy 60.96 160.02)
+			(xy 50.8 162.56) (xy 88.9 162.56)
 		)
 		(stroke
 			(width 0)
@@ -4902,7 +4796,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 160.02) (xy 22.86 165.1)
+			(xy 50.8 162.56) (xy 50.8 167.64)
 		)
 		(stroke
 			(width 0)
@@ -4912,17 +4806,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 132.08) (xy 125.73 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f64f7fba-d71d-48a7-9df5-2093f4bc2db3")
-	)
-	(wire
-		(pts
-			(xy 76.2 113.03) (xy 90.17 113.03)
+			(xy 104.14 115.57) (xy 118.11 115.57)
 		)
 		(stroke
 			(width 0)
@@ -4932,7 +4816,7 @@
 	)
 	(wire
 		(pts
-			(xy 255.27 71.12) (xy 255.27 76.2)
+			(xy 254 71.12) (xy 254 76.2)
 		)
 		(stroke
 			(width 0)
@@ -4942,7 +4826,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 88.9) (xy 63.5 88.9)
+			(xy 88.9 91.44) (xy 91.44 91.44)
 		)
 		(stroke
 			(width 0)
@@ -4970,94 +4854,14 @@
 		)
 		(uuid "fe6a924a-f253-4769-aec6-e96ec11f0317")
 	)
-	(label "HS_buf"
-		(at 90.17 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "03696d0a-5c30-48f1-b302-ae978e96baa9")
-	)
-	(label "HS_buf"
-		(at 123.19 132.08 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "2af8cb69-b72b-4dc2-834a-bddc378763d9")
-	)
-	(label "vout_buf"
-		(at 82.55 40.64 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "53d8beb4-8e1f-408a-be0f-91aaab6b915d")
-	)
-	(label "LS_buf"
-		(at 91.44 160.02 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "637f022e-387e-4555-afe1-afcd435305ae")
-	)
-	(label "vin_buf"
-		(at 123.19 104.14 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "79a8cd98-4189-4645-afdb-d382847107b9")
-	)
-	(label "LS_buf"
-		(at 123.19 163.83 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8e62bd96-4788-4160-acef-91ad6c5359f5")
-	)
-	(label "vout_buf"
-		(at 123.19 77.47 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9f9563bd-d199-4064-a9cd-d7322bda7940")
-	)
-	(label "vin_buf"
-		(at 160.02 40.64 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c6f9181d-570c-4321-ac41-194c2f0d50ee")
-	)
 	(hierarchical_label "I_SH_OUT_N"
 		(shape input)
-		(at 215.9 41.91 180)
+		(at 217.17 41.91 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "042754ec-349b-4e16-9fb5-8b9dfd869cb9")
 	)
@@ -5085,7 +4889,7 @@
 	)
 	(hierarchical_label "LS_thermistor"
 		(shape input)
-		(at 153.67 163.83 0)
+		(at 139.7 162.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5094,9 +4898,20 @@
 		)
 		(uuid "1658269b-070c-4d04-9caf-d4ee1b086dcd")
 	)
+	(hierarchical_label "vin_analog"
+		(shape input)
+		(at 168.91 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "37b9590b-3b31-434f-8aa5-ff3a33a89a54")
+	)
 	(hierarchical_label "vout_analog"
 		(shape input)
-		(at 153.67 77.47 0)
+		(at 78.74 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5105,20 +4920,9 @@
 		)
 		(uuid "705715c5-d34e-4a24-8ee2-0803fc904991")
 	)
-	(hierarchical_label "vin_analog"
-		(shape input)
-		(at 153.67 104.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "7d00edad-0faf-4670-9f23-06eeb92acf96")
-	)
 	(hierarchical_label "HS_thermistor"
 		(shape input)
-		(at 153.67 132.08 0)
+		(at 138.43 115.57 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5129,7 +4933,7 @@
 	)
 	(hierarchical_label "I_SH_OUT_P"
 		(shape input)
-		(at 243.84 41.91 0)
+		(at 243.84 41.91 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5239,7 +5043,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 138.43 137.16 90)
+		(at 130.81 120.65 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5249,7 +5053,7 @@
 		(dnp no)
 		(uuid "03949a61-5db2-4479-a935-3dabd15879d6")
 		(property "Reference" "C413"
-			(at 135.382 137.16 90)
+			(at 127.762 120.65 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5260,7 +5064,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 135.382 139.7 90)
+			(at 127.762 123.19 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5271,7 +5075,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5282,7 +5086,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5293,7 +5097,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5304,7 +5108,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5315,7 +5119,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5326,7 +5130,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 138.43 137.16 0)
+			(at 130.81 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5346,6 +5150,84 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
 					(reference "C413")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 50.8 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "09229a3b-19a1-46c2-a8c2-8e73468b44f2")
+		(property "Reference" "#PWR0412"
+			(at 50.8 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 50.8 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 50.8 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 50.8 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "da9bdce0-dece-4e16-989c-ed4d08aca535")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0412")
 					(unit 1)
 				)
 			)
@@ -5545,7 +5427,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10C220JB8NNNC")
-		(at 255.27 66.04 90)
+		(at 254 66.04 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5555,7 +5437,7 @@
 		(dnp no)
 		(uuid "14d78c51-6eba-4382-adff-2475cd96bf3c")
 		(property "Reference" "C415"
-			(at 252.222 66.04 90)
+			(at 250.952 66.04 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5566,7 +5448,7 @@
 			)
 		)
 		(property "Value" "22pF"
-			(at 252.222 68.58 90)
+			(at 250.952 68.58 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5577,7 +5459,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL10C220JB8NNNC"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5588,7 +5470,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10C220JB8NNNC_C1653.pdf"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5599,7 +5481,7 @@
 			)
 		)
 		(property "Description" "22pF 50V C0G ±5% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5610,7 +5492,7 @@
 			)
 		)
 		(property "LCSC" "C1653"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5621,7 +5503,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5632,7 +5514,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10C220JB8NNNC"
-			(at 255.27 66.04 0)
+			(at 254 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5772,7 +5654,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
+		(lib_id "power:+3V3")
 		(at 138.43 25.4 0)
 		(unit 1)
 		(body_style 1)
@@ -5782,8 +5664,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "15e73c57-b423-411c-a8f8-6c3138f792fe")
-		(property "Reference" "#PWR0419"
+		(uuid "16c162a2-2a3e-475c-86bc-ea782a4680bc")
+		(property "Reference" "#PWR0413"
 			(at 138.43 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -5794,7 +5676,7 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+3V3"
 			(at 138.43 20.32 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5826,7 +5708,7 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
 			(at 138.43 25.4 0)
 			(hide yes)
 			(show_name no)
@@ -5838,12 +5720,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b59ab0eb-4473-4fa7-9c1b-70bb0d58fb86")
+			(uuid "f88c1617-86ae-40e5-9dc4-d73c3094b7f0")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0419")
+					(reference "#PWR0413")
 					(unit 1)
 				)
 			)
@@ -5965,7 +5847,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDA")
-		(at 143.51 179.07 0)
+		(at 69.85 64.77 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5973,9 +5855,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1f1cf340-5401-4b52-b655-1e2b0e7e874b")
-		(property "Reference" "#PWR0457"
-			(at 143.51 179.07 0)
+		(uuid "1d4ba320-7abb-4619-82e6-99f7a41b3611")
+		(property "Reference" "#PWR0414"
+			(at 69.85 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5986,7 +5868,7 @@
 			)
 		)
 		(property "Value" "GNDA"
-			(at 143.51 182.88 0)
+			(at 69.85 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5996,7 +5878,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 179.07 0)
+			(at 69.85 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6007,7 +5889,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 179.07 0)
+			(at 69.85 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6018,7 +5900,84 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 143.51 179.07 0)
+			(at 69.85 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5bceb66c-dabc-4bd5-801e-7fe50c6edb65")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0414")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 132.08 177.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1f1cf340-5401-4b52-b655-1e2b0e7e874b")
+		(property "Reference" "#PWR0457"
+			(at 132.08 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 132.08 181.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 132.08 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 132.08 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6042,7 +6001,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF2002T5E")
-		(at 68.58 88.9 0)
+		(at 96.52 91.44 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6053,7 +6012,7 @@
 		(fields_autoplaced yes)
 		(uuid "218f14d2-2d7a-4ead-92dd-32bdd021affc")
 		(property "Reference" "R405"
-			(at 68.58 82.55 0)
+			(at 96.52 85.09 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6063,7 +6022,7 @@
 			)
 		)
 		(property "Value" "20k"
-			(at 68.58 85.09 0)
+			(at 96.52 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6073,7 +6032,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF2002T5E"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6084,7 +6043,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2002T5E_C4184.pdf"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6095,7 +6054,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 20kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6106,7 +6065,7 @@
 			)
 		)
 		(property "LCSC" "C4184"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6117,7 +6076,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6128,7 +6087,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF2002T5E"
-			(at 68.58 88.9 0)
+			(at 96.52 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6155,7 +6114,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 63.5 113.03 0)
+		(at 91.44 115.57 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6166,7 +6125,7 @@
 		(fields_autoplaced yes)
 		(uuid "22de9b20-9da6-4e8e-97f5-7703f0e95926")
 		(property "Reference" "#PWR0404"
-			(at 63.5 119.38 0)
+			(at 91.44 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6177,7 +6136,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 63.5 118.11 0)
+			(at 91.44 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6187,7 +6146,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 113.03 0)
+			(at 91.44 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6198,7 +6157,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 113.03 0)
+			(at 91.44 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6209,7 +6168,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 63.5 113.03 0)
+			(at 91.44 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6233,7 +6192,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 92.71 95.25 90)
+		(at 120.65 97.79 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6243,7 +6202,7 @@
 		(dnp no)
 		(uuid "238fc3d4-4f9e-4222-bfec-3b3ae891dbc6")
 		(property "Reference" "C401"
-			(at 95.758 93.98 90)
+			(at 123.698 96.52 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6254,7 +6213,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 95.758 96.52 90)
+			(at 123.698 99.06 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6265,7 +6224,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6276,7 +6235,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6287,7 +6246,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6298,7 +6257,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6309,7 +6268,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6320,7 +6279,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 92.71 95.25 0)
+			(at 120.65 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6346,85 +6305,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 151.13 92.71 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "24ec7bb3-cae2-42b4-aec0-0e8e206a556a")
-		(property "Reference" "#PWR0452"
-			(at 151.13 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 154.94 91.44 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 151.13 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 151.13 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 151.13 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5739e918-7bff-4523-8bb8-4ec79333e2ef")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0452")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 41.91 33.02 0)
+		(at 40.64 35.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6434,7 +6316,7 @@
 		(dnp no)
 		(uuid "26ac8dd9-73f1-4a99-a45b-86a8aed316c3")
 		(property "Reference" "#PWR0474"
-			(at 41.91 33.02 0)
+			(at 40.64 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6445,7 +6327,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 41.91 36.83 0)
+			(at 40.64 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6455,7 +6337,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 33.02 0)
+			(at 40.64 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6466,7 +6348,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 33.02 0)
+			(at 40.64 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6477,7 +6359,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 41.91 33.02 0)
+			(at 40.64 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6500,122 +6382,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 138.43 109.22 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "270cb038-8c39-49ed-8f45-b721287af909")
-		(property "Reference" "C412"
-			(at 135.382 109.22 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 135.382 111.76 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C14663"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 138.43 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "657517bf-b990-4ff1-9759-b1340169b4a7")
-		)
-		(pin "2"
-			(uuid "6035fadc-bba7-48a4-82bf-5474576cd354")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C412")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:OPA192IDBVR")
-		(at 63.5 152.4 0)
+		(at 91.44 154.94 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -6626,7 +6394,7 @@
 		(dnp no)
 		(uuid "27c4a4d6-031f-4c8d-867d-2c413afdc6d9")
 		(property "Reference" "U406"
-			(at 69.85 153.6701 0)
+			(at 97.79 156.2101 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6637,7 +6405,7 @@
 			)
 		)
 		(property "Value" "OPA192IDBVR"
-			(at 69.85 151.1301 0)
+			(at 97.79 153.6701 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6648,7 +6416,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:OPA192IDBVR"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6659,7 +6427,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6670,7 +6438,7 @@
 			)
 		)
 		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6681,7 +6449,7 @@
 			)
 		)
 		(property "LCSC" "C139648"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6692,7 +6460,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6703,7 +6471,7 @@
 			)
 		)
 		(property "Manufacturer Part" "OPA192IDBVR"
-			(at 63.5 152.4 0)
+			(at 91.44 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6738,8 +6506,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 151.13 147.32 0)
+		(lib_id "power:GNDA")
+		(at 160.02 62.23 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6747,9 +6515,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "299f6a8a-6297-428b-8c09-ed790eaa881c")
-		(property "Reference" "#PWR0456"
-			(at 151.13 147.32 0)
+		(uuid "297a7f64-93a8-484e-9d29-0057979e1acc")
+		(property "Reference" "#PWR0419"
+			(at 160.02 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6759,8 +6527,8 @@
 				)
 			)
 		)
-		(property "Value" "+3V3"
-			(at 154.94 146.05 0)
+		(property "Value" "GNDA"
+			(at 160.02 66.04 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6770,7 +6538,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 147.32 0)
+			(at 160.02 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6781,7 +6549,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 147.32 0)
+			(at 160.02 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6791,8 +6559,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 151.13 147.32 0)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 160.02 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6803,12 +6571,90 @@
 			)
 		)
 		(pin "1"
-			(uuid "cf8a7116-6b02-46ce-ba08-e624e30a598e")
+			(uuid "d87dc34a-b223-4732-89b7-0c03796d51a9")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0456")
+					(reference "#PWR0419")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 120.65 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2c0f4e4b-cf9e-41d1-8d41-9d74960aae4e")
+		(property "Reference" "#PWR0422"
+			(at 120.65 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 120.65 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.65 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 120.65 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "19e9026f-81c8-4603-9504-13b3d0927336")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0422")
 					(unit 1)
 				)
 			)
@@ -6893,7 +6739,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 120.65 31.75 0)
+		(at 118.11 33.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6903,7 +6749,7 @@
 		(dnp no)
 		(uuid "30fd789a-130c-4a46-a11d-fd67ef58d478")
 		(property "Reference" "#PWR0476"
-			(at 120.65 31.75 0)
+			(at 118.11 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6914,7 +6760,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 120.65 35.56 0)
+			(at 118.11 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6924,7 +6770,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 31.75 0)
+			(at 118.11 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6935,7 +6781,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 31.75 0)
+			(at 118.11 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6946,7 +6792,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 120.65 31.75 0)
+			(at 118.11 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6970,7 +6816,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 40.64 140.97 0)
+		(at 68.58 143.51 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6981,7 +6827,7 @@
 		(fields_autoplaced yes)
 		(uuid "321250c1-1a35-4618-bd0c-715a97f575b5")
 		(property "Reference" "#PWR0409"
-			(at 40.64 147.32 0)
+			(at 68.58 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6992,7 +6838,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 40.64 146.05 0)
+			(at 68.58 148.59 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7002,7 +6848,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 40.64 140.97 0)
+			(at 68.58 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7013,7 +6859,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 40.64 140.97 0)
+			(at 68.58 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7024,7 +6870,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 40.64 140.97 0)
+			(at 68.58 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7048,7 +6894,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDA")
-		(at 143.51 147.32 0)
+		(at 130.81 130.81 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7058,7 +6904,7 @@
 		(dnp no)
 		(uuid "350bf6b7-d15a-4519-a086-a9510e3ae27f")
 		(property "Reference" "#PWR0455"
-			(at 143.51 147.32 0)
+			(at 130.81 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7069,7 +6915,7 @@
 			)
 		)
 		(property "Value" "GNDA"
-			(at 143.51 151.13 0)
+			(at 130.81 134.62 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7079,7 +6925,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 147.32 0)
+			(at 130.81 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7090,7 +6936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 147.32 0)
+			(at 130.81 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7101,7 +6947,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 143.51 147.32 0)
+			(at 130.81 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7124,8 +6970,86 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 50.8 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35da7a29-ceab-4481-8f27-7cb5844bbe1e")
+		(property "Reference" "#PWR0403"
+			(at 50.8 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 50.8 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 50.8 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 50.8 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "daf4d474-5868-4d4e-b727-8ff12eef9bc7")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0403")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:0603WAF1001T5E")
-		(at 130.81 77.47 0)
+		(at 69.85 48.26 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7135,7 +7059,7 @@
 		(dnp no)
 		(uuid "36617a68-bf1e-4ce5-a2d7-53ead60d0ad7")
 		(property "Reference" "R413"
-			(at 128.27 74.93 0)
+			(at 72.39 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7145,7 +7069,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 133.6 74.93 0)
+			(at 72.39 44.7 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7155,7 +7079,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF1001T5E"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7166,7 +7090,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7177,7 +7101,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7188,7 +7112,7 @@
 			)
 		)
 		(property "LCSC" "C21190"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7199,7 +7123,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7210,7 +7134,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF1001T5E"
-			(at 130.81 77.47 0)
+			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7236,123 +7160,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:0603WAF2002T5E")
-		(at 22.86 151.13 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "369bdfd3-034e-4460-89f7-473dc3b53964")
-		(property "Reference" "R407"
-			(at 25.4 149.8599 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "20k"
-			(at 25.4 152.3999 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:0603WAF2002T5E"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2002T5E_C4184.pdf"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100mW 20kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C4184"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0603WAF2002T5E"
-			(at 22.86 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "b5ed6de8-0537-4a57-8f5e-cace5f1ac95c")
-		)
-		(pin "1"
-			(uuid "a3452ebd-7042-4a0a-95b1-a98d63d7906d")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R407")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 120.65 26.67 90)
+		(at 118.11 27.94 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7362,7 +7171,7 @@
 		(dnp no)
 		(uuid "3b257cb6-788c-4638-b456-f8216cb87d5f")
 		(property "Reference" "C408"
-			(at 123.698 25.4 90)
+			(at 121.158 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7373,7 +7182,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 123.698 27.94 90)
+			(at 121.158 29.21 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7384,7 +7193,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7395,7 +7204,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7406,7 +7215,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7417,7 +7226,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7428,7 +7237,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7439,7 +7248,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 120.65 26.67 0)
+			(at 118.11 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7466,7 +7275,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF4021T5E_C23040")
-		(at 48.26 93.98 0)
+		(at 76.2 96.52 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7477,7 +7286,7 @@
 		(fields_autoplaced yes)
 		(uuid "3c9ed5aa-ea8a-4e82-abeb-f9d3dd7aab48")
 		(property "Reference" "R406"
-			(at 48.26 87.63 0)
+			(at 76.2 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7487,7 +7296,7 @@
 			)
 		)
 		(property "Value" "4.02k"
-			(at 48.26 90.17 0)
+			(at 76.2 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7497,7 +7306,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF4021T5E_C23040"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7508,7 +7317,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF4021T5E_C23040.pdf"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7519,7 +7328,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 4.02kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7530,7 +7339,7 @@
 			)
 		)
 		(property "LCSC" "C23040"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7541,7 +7350,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7552,7 +7361,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF4021T5E"
-			(at 48.26 93.98 0)
+			(at 76.2 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7579,7 +7388,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:OPA192IDBVR")
-		(at 63.5 105.41 0)
+		(at 91.44 107.95 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -7590,7 +7399,7 @@
 		(dnp no)
 		(uuid "3cc9d59c-3167-4992-af05-6d6527fd605f")
 		(property "Reference" "U403"
-			(at 69.85 106.6801 0)
+			(at 97.79 109.2201 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7601,7 +7410,7 @@
 			)
 		)
 		(property "Value" "OPA192IDBVR"
-			(at 69.85 104.1401 0)
+			(at 97.79 106.6801 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7612,7 +7421,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:OPA192IDBVR"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7623,7 +7432,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7634,7 +7443,7 @@
 			)
 		)
 		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7645,7 +7454,7 @@
 			)
 		)
 		(property "LCSC" "C139648"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7656,7 +7465,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7667,7 +7476,7 @@
 			)
 		)
 		(property "Manufacturer Part" "OPA192IDBVR"
-			(at 63.5 105.41 0)
+			(at 91.44 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7779,123 +7588,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:0603WAF2002T5E")
-		(at 22.86 104.14 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "44c530ec-bed8-4ed0-a943-fe1433aea027")
-		(property "Reference" "R404"
-			(at 25.4 102.8699 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "20k"
-			(at 25.4 105.4099 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:0603WAF2002T5E"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2002T5E_C4184.pdf"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100mW 20kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C4184"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0603WAF2002T5E"
-			(at 22.86 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "5c7c70ee-9ba0-483b-9fcc-35824f0bfca7")
-		)
-		(pin "1"
-			(uuid "c8d177c9-d7cd-4329-ac8d-7ccc7846a080")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R404")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 40.64 93.98 0)
+		(at 68.58 96.52 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7906,7 +7600,7 @@
 		(fields_autoplaced yes)
 		(uuid "44e1a7c5-c878-4bbd-b92f-cb21eac31680")
 		(property "Reference" "#PWR0406"
-			(at 40.64 100.33 0)
+			(at 68.58 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7917,7 +7611,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 40.64 99.06 0)
+			(at 68.58 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7927,7 +7621,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 40.64 93.98 0)
+			(at 68.58 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7938,7 +7632,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 40.64 93.98 0)
+			(at 68.58 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7949,7 +7643,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 40.64 93.98 0)
+			(at 68.58 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7973,7 +7667,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF1001T5E")
-		(at 130.81 163.83 0)
+		(at 124.46 162.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7983,7 +7677,7 @@
 		(dnp no)
 		(uuid "45e4b4e7-6c33-4ffb-bcf4-6e4016ef8788")
 		(property "Reference" "R416"
-			(at 128.27 161.29 0)
+			(at 121.92 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7993,7 +7687,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 133.6 161.29 0)
+			(at 127.25 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8003,7 +7697,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF1001T5E"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8014,7 +7708,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8025,7 +7719,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8036,7 +7730,7 @@
 			)
 		)
 		(property "LCSC" "C21190"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8047,7 +7741,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8058,7 +7752,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF1001T5E"
-			(at 130.81 163.83 0)
+			(at 124.46 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8085,7 +7779,7 @@
 	)
 	(symbol
 		(lib_id "hexagan:V_OUT")
-		(at 26.67 26.67 0)
+		(at 29.21 29.21 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8095,7 +7789,7 @@
 		(dnp no)
 		(uuid "4601391d-6200-41ba-86c3-0466737afecf")
 		(property "Reference" "#PWR0305"
-			(at 26.67 30.48 0)
+			(at 29.21 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8106,7 +7800,7 @@
 			)
 		)
 		(property "Value" "V_OUT"
-			(at 26.67 22.098 0)
+			(at 29.21 24.638 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8116,7 +7810,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 26.67 26.67 0)
+			(at 29.21 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8127,7 +7821,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 26.67 26.67 0)
+			(at 29.21 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8138,7 +7832,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
-			(at 26.67 26.67 0)
+			(at 29.21 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8322,8 +8016,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 92.71 90.17 0)
+		(lib_id "power:+3V3")
+		(at 93.98 100.33 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8331,9 +8025,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "54b0da93-943f-4701-9d53-28afbf183996")
-		(property "Reference" "#PWR0469"
-			(at 92.71 90.17 0)
+		(fields_autoplaced yes)
+		(uuid "57abb0f6-4c45-47fd-b379-17461b797e1f")
+		(property "Reference" "#PWR0405"
+			(at 93.98 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8343,8 +8038,8 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
-			(at 92.71 86.36 0)
+		(property "Value" "+3V3"
+			(at 93.98 95.25 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8354,7 +8049,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 92.71 90.17 0)
+			(at 93.98 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8365,7 +8060,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 90.17 0)
+			(at 93.98 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8375,8 +8070,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 92.71 90.17 0)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 93.98 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8387,12 +8082,90 @@
 			)
 		)
 		(pin "1"
-			(uuid "9dbfdf4d-441b-4b22-9544-b4ecca37bdb3")
+			(uuid "fad4c605-9c07-441c-a1c4-449f4c82fa32")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0469")
+					(reference "#PWR0405")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 40.64 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "585a95ee-7bed-4b83-8f3a-ea6cd167c8b7")
+		(property "Reference" "#PWR0415"
+			(at 40.64 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 40.64 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 40.64 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fa4a9cb1-9b45-4da9-a776-aae917c16327")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -8477,125 +8250,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:BAT54S_215")
-		(at 146.05 139.7 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5c94b1b6-5e8d-4971-91da-6657b86cfe5e")
-		(property "Reference" "D403"
-			(at 149.86 135.89 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BAT54S"
-			(at 149.86 138.43 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:BAT54S_215"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Nexperia-BAT54S-215_C47546.pdf"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "1 Pair Series Connection 200mA 2uA@25V 30V 600mA 800mV@100mA SOT-23 Schottky Diodes ROHS"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C47546"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Nexperia"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BAT54S,215"
-			(at 146.05 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1f973a0d-e1ee-4c47-a15e-b249e737cae0")
-		)
-		(pin "2"
-			(uuid "826bd38a-3128-41a1-8981-fcbaf56bcb69")
-		)
-		(pin "3"
-			(uuid "a8d27c22-4e1e-4e0f-aa08-de54fc2c5b02")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D403")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 22.86 175.26 0)
+		(at 50.8 177.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8606,7 +8262,7 @@
 		(fields_autoplaced yes)
 		(uuid "5fbc4f23-cbaf-4699-bada-6a24b17368b8")
 		(property "Reference" "#PWR0408"
-			(at 22.86 181.61 0)
+			(at 50.8 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8617,7 +8273,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 22.86 180.34 0)
+			(at 50.8 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8627,7 +8283,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 22.86 175.26 0)
+			(at 50.8 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8638,7 +8294,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 22.86 175.26 0)
+			(at 50.8 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8649,7 +8305,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 22.86 175.26 0)
+			(at 50.8 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8672,86 +8328,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 22.86 146.05 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "62d480fa-50b0-4e32-8b66-9fed933578a9")
-		(property "Reference" "#PWR0407"
-			(at 22.86 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 22.86 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 22.86 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 22.86 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 22.86 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1d1931c5-f8bb-41a6-a36c-5c720d3c28fa")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0407")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 92.71 146.05 0)
+		(at 115.57 149.86 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8761,7 +8339,7 @@
 		(dnp no)
 		(uuid "63e41295-2dd6-4607-b9f0-be7062039507")
 		(property "Reference" "#PWR0472"
-			(at 92.71 146.05 0)
+			(at 115.57 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8772,7 +8350,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 92.71 149.86 0)
+			(at 115.57 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8782,7 +8360,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 92.71 146.05 0)
+			(at 115.57 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8793,7 +8371,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 146.05 0)
+			(at 115.57 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8804,7 +8382,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 92.71 146.05 0)
+			(at 115.57 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9029,7 +8607,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF2002T5E")
-		(at 68.58 135.89 0)
+		(at 96.52 138.43 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9040,7 +8618,7 @@
 		(fields_autoplaced yes)
 		(uuid "6bdfc5db-28c5-46a0-b30c-df430a10638d")
 		(property "Reference" "R409"
-			(at 68.58 129.54 0)
+			(at 96.52 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9050,7 +8628,7 @@
 			)
 		)
 		(property "Value" "20k"
-			(at 68.58 132.08 0)
+			(at 96.52 134.62 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9060,7 +8638,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF2002T5E"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9071,7 +8649,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2002T5E_C4184.pdf"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9082,7 +8660,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 20kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9093,7 +8671,7 @@
 			)
 		)
 		(property "LCSC" "C4184"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9104,7 +8682,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9115,7 +8693,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF2002T5E"
-			(at 68.58 135.89 0)
+			(at 96.52 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9142,7 +8720,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 58.42 40.64 0)
+		(at 57.15 43.18 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9153,7 +8731,7 @@
 		(fields_autoplaced yes)
 		(uuid "6e14eacd-3465-4fb1-b59c-a78197fe8126")
 		(property "Reference" "#PWR0306"
-			(at 58.42 46.99 0)
+			(at 57.15 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9164,7 +8742,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 58.42 45.72 0)
+			(at 57.15 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9174,7 +8752,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 58.42 40.64 0)
+			(at 57.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9185,7 +8763,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 58.42 40.64 0)
+			(at 57.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9196,7 +8774,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 58.42 40.64 0)
+			(at 57.15 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9456,6 +9034,121 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:0603WAF1002T5E")
+		(at 50.8 106.68 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "741cda4a-3239-4331-9aea-480b8c09e549")
+		(property "Reference" "R403"
+			(at 53.34 105.4099 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0603WAF1002T5E"
+			(at 53.34 107.9499 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:0603WAF1002T5E"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0603WAF1002T5E_C25804.pdf"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0603WAF1002T5E"
+			(at 50.8 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7e244d91-89f8-4654-a321-b1f3c8886dba")
+		)
+		(pin "2"
+			(uuid "f073162e-ffba-45d0-9520-d867feca9ed8")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "R403")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 264.16 133.35 0)
 		(unit 1)
@@ -9533,92 +9226,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 60.96 25.4 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7677288c-2f79-455f-a541-002206d1e362")
-		(property "Reference" "#PWR0304"
-			(at 60.96 29.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 60.96 20.32 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 60.96 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 60.96 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6073cd40-18c5-4cdd-9c94-201013c41824")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0304")
-					(unit 1)
-				)
-			)
-			(project "sensing"
-				(path "/bc4589b6-558d-4739-8b1d-657a1d18c299"
-					(reference "#PWR0304")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 138.43 168.91 90)
+		(at 132.08 167.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9628,7 +9237,7 @@
 		(dnp no)
 		(uuid "78fb4b30-880a-469f-9a91-e5c01d21e4b1")
 		(property "Reference" "C414"
-			(at 135.382 168.91 90)
+			(at 129.032 167.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9639,7 +9248,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 135.382 171.45 90)
+			(at 129.032 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9650,7 +9259,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9661,7 +9270,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9672,7 +9281,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9683,7 +9292,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9694,7 +9303,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9705,7 +9314,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 138.43 168.91 0)
+			(at 132.08 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9732,7 +9341,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:OPA192IDBVR")
-		(at 58.42 33.02 0)
+		(at 57.15 35.56 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -9743,7 +9352,7 @@
 		(dnp no)
 		(uuid "7a9bf4a1-fcc2-4739-88f0-9c3c38e20f27")
 		(property "Reference" "U401"
-			(at 64.77 34.2901 0)
+			(at 63.5 36.8301 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9754,7 +9363,7 @@
 			)
 		)
 		(property "Value" "OPA192IDBVR"
-			(at 64.77 31.7501 0)
+			(at 63.5 34.2901 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9765,7 +9374,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:OPA192IDBVR"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9776,7 +9385,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809251741_Texas-Instruments-OPA192IDBVR_C139648.pdf"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9787,7 +9396,7 @@
 			)
 		)
 		(property "Description" "-18V~-2.25V、2.25V~18V -40℃~+125℃ 1 10MHz 140dB 1mA 200nV/℃ 20V/us 2pA 4.5V~36V 5.5nV/√Hz@1kHz 5pA 5uV 65mA EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output SOT-23-5 Precision Op Amps ROHS"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9798,7 +9407,7 @@
 			)
 		)
 		(property "LCSC" "C139648"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9809,7 +9418,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9820,7 +9429,7 @@
 			)
 		)
 		(property "Manufacturer Part" "OPA192IDBVR"
-			(at 58.42 33.02 0)
+			(at 57.15 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9856,7 +9465,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B102KB8NNNC")
-		(at 138.43 81.28 90)
+		(at 69.85 59.69 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9866,7 +9475,7 @@
 		(dnp no)
 		(uuid "7b6d5504-d44f-40cb-a0e1-aeb251669d44")
 		(property "Reference" "C411"
-			(at 135.382 81.28 90)
+			(at 66.802 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9877,7 +9486,7 @@
 			)
 		)
 		(property "Value" "1nF"
-			(at 135.382 83.82 90)
+			(at 66.802 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9888,7 +9497,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL10B102KB8NNNC"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9899,7 +9508,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10B102KB8NNNC_C1588.pdf"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9910,7 +9519,7 @@
 			)
 		)
 		(property "Description" "-55℃~+125℃ 1nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9921,7 +9530,7 @@
 			)
 		)
 		(property "LCSC" "C1588"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9932,7 +9541,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9943,7 +9552,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10B102KB8NNNC"
-			(at 138.43 81.28 0)
+			(at 69.85 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9970,7 +9579,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF1503T5E")
-		(at 26.67 46.99 90)
+		(at 29.21 49.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9981,7 +9590,7 @@
 		(fields_autoplaced yes)
 		(uuid "7b73ed8f-f865-4b7e-9294-f33eb28c11ee")
 		(property "Reference" "R402"
-			(at 29.21 45.7199 90)
+			(at 31.75 48.2599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9992,7 +9601,7 @@
 			)
 		)
 		(property "Value" "150k"
-			(at 29.21 48.2599 90)
+			(at 31.75 50.7999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10003,7 +9612,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF1503T5E"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10014,7 +9623,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1503T5E_C22807.pdf"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10025,7 +9634,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 150kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10036,7 +9645,7 @@
 			)
 		)
 		(property "LCSC" "C22807"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10047,7 +9656,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10058,7 +9667,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF1503T5E"
-			(at 26.67 46.99 0)
+			(at 29.21 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10084,86 +9693,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 66.04 144.78 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7ed5712d-dbc7-4c46-888a-0ef0fb79d91c")
-		(property "Reference" "#PWR0411"
-			(at 66.04 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 66.04 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 66.04 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 66.04 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "159575e1-ee4e-4338-951a-0cd59a924af3")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0411")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:PTS1206M2B1K00P100")
-		(at 22.86 123.19 270)
+		(at 50.8 125.73 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10174,7 +9705,7 @@
 		(fields_autoplaced yes)
 		(uuid "8071c0d4-1156-42ed-8ffa-51f303d0d730")
 		(property "Reference" "U404"
-			(at 26.67 121.9199 90)
+			(at 54.61 124.4599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10185,7 +9716,7 @@
 			)
 		)
 		(property "Value" "PTS1206M2B1K00P100"
-			(at 26.67 124.4599 90)
+			(at 54.61 126.9999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10196,7 +9727,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:PTS1206M2B1K00P100"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10207,7 +9738,7 @@
 			)
 		)
 		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2311132315_Vishay-Intertech-PTS1206M2B1K00P100_C17211685.pdf"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10218,7 +9749,7 @@
 			)
 		)
 		(property "Description" "-55℃~+175℃ ±0.43℃ 1206 Temperature Sensors ROHS"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10229,7 +9760,7 @@
 			)
 		)
 		(property "LCSC" "C17211685"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10240,7 +9771,7 @@
 			)
 		)
 		(property "Manufacturer" "Vishay Intertech"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10251,7 +9782,7 @@
 			)
 		)
 		(property "Manufacturer Part" "PTS1206M2B1K00P100"
-			(at 22.86 123.19 0)
+			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10277,86 +9808,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 22.86 99.06 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "810a1041-2fd8-477d-a39d-36e195c32fcc")
-		(property "Reference" "#PWR0403"
-			(at 22.86 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 22.86 93.98 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 22.86 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 22.86 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 22.86 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8ae9785b-cec6-434d-b6b6-3015ae4ae602")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0403")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 63.5 160.02 0)
+		(at 91.44 162.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10367,7 +9820,7 @@
 		(fields_autoplaced yes)
 		(uuid "820b8408-7dd1-4134-80fb-2effeb421dc7")
 		(property "Reference" "#PWR0410"
-			(at 63.5 166.37 0)
+			(at 91.44 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10378,7 +9831,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 63.5 165.1 0)
+			(at 91.44 167.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10388,7 +9841,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 160.02 0)
+			(at 91.44 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10399,7 +9852,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 160.02 0)
+			(at 91.44 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10410,7 +9863,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 63.5 160.02 0)
+			(at 91.44 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10427,83 +9880,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
 					(reference "#PWR0410")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 92.71 135.89 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "880e8fde-722c-4d8f-87cf-a2f3f8c3a7e6")
-		(property "Reference" "#PWR0471"
-			(at 92.71 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 92.71 132.08 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 92.71 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9086cf2d-02aa-4e4d-8b0a-f0542d3927f4")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0471")
 					(unit 1)
 				)
 			)
@@ -10832,8 +10208,86 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 115.57 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a10a9f81-2c4a-4229-a864-03445abee490")
+		(property "Reference" "#PWR0421"
+			(at 115.57 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 115.57 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 115.57 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2637ef0e-17b3-4927-aec4-be911c61e90f")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0421")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 41.91 27.94 90)
+		(at 40.64 30.48 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10843,7 +10297,7 @@
 		(dnp no)
 		(uuid "a8d998fe-f9ca-4cf9-834a-86d9dd347bc6")
 		(property "Reference" "C406"
-			(at 44.958 26.67 90)
+			(at 43.688 29.21 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10854,7 +10308,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 44.958 29.21 90)
+			(at 43.688 31.75 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10865,7 +10319,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10876,7 +10330,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10887,7 +10341,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10898,7 +10352,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10909,7 +10363,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10920,7 +10374,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 41.91 27.94 0)
+			(at 40.64 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10946,202 +10400,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:BAT54S_215")
-		(at 146.05 171.45 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a9ab4e4a-7550-4c9d-b886-c3dc6d0c4438")
-		(property "Reference" "D404"
-			(at 149.86 167.64 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BAT54S"
-			(at 149.86 170.18 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:BAT54S_215"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Nexperia-BAT54S-215_C47546.pdf"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "1 Pair Series Connection 200mA 2uA@25V 30V 600mA 800mV@100mA SOT-23 Schottky Diodes ROHS"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C47546"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Nexperia"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BAT54S,215"
-			(at 146.05 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8bb8326d-97f2-4690-94ce-a0727c36ef70")
-		)
-		(pin "2"
-			(uuid "34d026dd-0a32-43a7-872d-c15420e20239")
-		)
-		(pin "3"
-			(uuid "4a686549-4e4a-4a7b-8fff-c3cb7db5d2ad")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D404")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 120.65 21.59 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ab2c17c9-ce8c-48c4-922a-3c96c434613f")
-		(property "Reference" "#PWR0475"
-			(at 120.65 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 120.65 17.78 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 120.65 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 120.65 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 120.65 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d1d17156-0013-4011-913c-926627148d09")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0475")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 92.71 100.33 0)
+		(at 120.65 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11151,7 +10411,7 @@
 		(dnp no)
 		(uuid "aba4cc85-331c-44de-bd51-0b5186887fc8")
 		(property "Reference" "#PWR0470"
-			(at 92.71 100.33 0)
+			(at 120.65 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11162,7 +10422,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 92.71 104.14 0)
+			(at 120.65 106.68 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11172,7 +10432,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 92.71 100.33 0)
+			(at 120.65 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11183,7 +10443,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 100.33 0)
+			(at 120.65 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11194,7 +10454,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 92.71 100.33 0)
+			(at 120.65 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11211,83 +10471,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
 					(reference "#PWR0470")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 151.13 179.07 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b220b2e2-1151-4fc8-9446-8c8362996a82")
-		(property "Reference" "#PWR0458"
-			(at 151.13 179.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 154.94 177.8 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 151.13 179.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 151.13 179.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 151.13 179.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "319bb96d-182c-4cfb-8ebb-d179e425af44")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0458")
 					(unit 1)
 				)
 			)
@@ -11373,7 +10556,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF1001T5E")
-		(at 130.81 132.08 0)
+		(at 123.19 115.57 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11383,7 +10566,7 @@
 		(dnp no)
 		(uuid "b3fc6f48-aea6-44b1-b5f2-6fa0306f6d1e")
 		(property "Reference" "R415"
-			(at 128.27 129.54 0)
+			(at 120.65 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11393,7 +10576,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 133.6 129.54 0)
+			(at 125.98 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11403,7 +10586,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF1001T5E"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11414,7 +10597,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11425,7 +10608,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11436,7 +10619,7 @@
 			)
 		)
 		(property "LCSC" "C21190"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11447,7 +10630,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11458,7 +10641,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF1001T5E"
-			(at 130.81 132.08 0)
+			(at 123.19 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11484,8 +10667,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 22.86 128.27 0)
+		(lib_id "power:+3V3")
+		(at 59.69 27.94 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11494,9 +10677,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b582f85d-9ef6-4d16-b82b-fbf0fdb75852")
-		(property "Reference" "#PWR0402"
-			(at 22.86 134.62 0)
+		(uuid "b422c400-8bd6-4963-9235-51fe10d2ee93")
+		(property "Reference" "#PWR0411"
+			(at 59.69 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11506,8 +10689,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 22.86 133.35 0)
+		(property "Value" "+3V3"
+			(at 59.69 22.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11517,7 +10700,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 22.86 128.27 0)
+			(at 59.69 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11528,7 +10711,85 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 22.86 128.27 0)
+			(at 59.69 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 59.69 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a5ac4e94-ee8b-413e-b2ea-7f2df07f1900")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "#PWR0411")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 50.8 130.81 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b582f85d-9ef6-4d16-b82b-fbf0fdb75852")
+		(property "Reference" "#PWR0402"
+			(at 50.8 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 50.8 135.89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 50.8 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11539,7 +10800,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 22.86 128.27 0)
+			(at 50.8 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11562,85 +10823,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GNDA")
-		(at 143.51 119.38 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b8d737b4-d3ad-4445-a21b-a3c535225c36")
-		(property "Reference" "#PWR0453"
-			(at 143.51 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GNDA"
-			(at 143.51 123.19 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 143.51 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c70b038e-933a-4371-9398-7c75b502e36e")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0453")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 66.04 97.79 0)
+		(lib_id "power:+3V3")
+		(at 118.11 22.86 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11649,9 +10833,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ba17b26f-043d-46aa-a9fe-cc240f723727")
-		(property "Reference" "#PWR0405"
-			(at 66.04 101.6 0)
+		(uuid "b5e9f02c-275a-41b9-b1f0-ef84b59e18fc")
+		(property "Reference" "#PWR0420"
+			(at 118.11 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11661,8 +10845,8 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
-			(at 66.04 92.71 0)
+		(property "Value" "+3V3"
+			(at 118.11 17.78 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11672,7 +10856,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 66.04 97.79 0)
+			(at 118.11 22.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11683,7 +10867,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 66.04 97.79 0)
+			(at 118.11 22.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11693,8 +10877,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 66.04 97.79 0)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 118.11 22.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11705,12 +10889,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a152647a-f7c1-4ae1-a011-e16c60e6fe30")
+			(uuid "0a2e0db9-0105-44bc-94a1-7a16a9107e01")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0405")
+					(reference "#PWR0420")
 					(unit 1)
 				)
 			)
@@ -12107,6 +11291,121 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
 					(reference "#PWR0484")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0603WAF1002T5E")
+		(at 50.8 153.67 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c568fddf-7a2b-425c-af7a-20e1d8b32020")
+		(property "Reference" "R404"
+			(at 53.34 152.3999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0603WAF1002T5E"
+			(at 53.34 154.9399 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:0603WAF1002T5E"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0603WAF1002T5E_C25804.pdf"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0603WAF1002T5E"
+			(at 50.8 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "be5f13e8-7cd3-435a-aebf-9cf3b76e66d7")
+		)
+		(pin "2"
+			(uuid "b505d3ec-0c5c-4631-9192-a9271beb1d5b")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "R404")
 					(unit 1)
 				)
 			)
@@ -12608,7 +11907,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 26.67 52.07 0)
+		(at 29.21 54.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12619,7 +11918,7 @@
 		(fields_autoplaced yes)
 		(uuid "d247bfef-b749-475a-8c70-a254cf33c1cd")
 		(property "Reference" "#PWR0401"
-			(at 26.67 58.42 0)
+			(at 29.21 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12630,7 +11929,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 26.67 57.15 0)
+			(at 29.21 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12640,7 +11939,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 26.67 52.07 0)
+			(at 29.21 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12651,7 +11950,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 26.67 52.07 0)
+			(at 29.21 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12662,7 +11961,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 26.67 52.07 0)
+			(at 29.21 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12956,242 +12255,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:BAT54S_215")
-		(at 146.05 111.76 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dedcec19-6d77-4bb2-875f-0ff7908285b1")
-		(property "Reference" "D402"
-			(at 149.86 107.95 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BAT54S"
-			(at 149.86 110.49 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:BAT54S_215"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Nexperia-BAT54S-215_C47546.pdf"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "1 Pair Series Connection 200mA 2uA@25V 30V 600mA 800mV@100mA SOT-23 Schottky Diodes ROHS"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C47546"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Nexperia"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BAT54S,215"
-			(at 146.05 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d5d68e01-fce9-49b8-9fe5-5af280c24d9c")
-		)
-		(pin "2"
-			(uuid "83b8e9ec-3b22-4ce0-bc42-9c7abd8fe8e7")
-		)
-		(pin "3"
-			(uuid "33bfe542-9ccf-4bbb-96e6-390ac089b9ab")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D402")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:BAT54S_215")
-		(at 146.05 85.09 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "df05aff7-b0a8-4f23-a6e4-70e47b43f9b3")
-		(property "Reference" "D401"
-			(at 149.86 81.28 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BAT54S"
-			(at 149.86 83.82 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:BAT54S_215"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Nexperia-BAT54S-215_C47546.pdf"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "1 Pair Series Connection 200mA 2uA@25V 30V 600mA 800mV@100mA SOT-23 Schottky Diodes ROHS"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C47546"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Nexperia"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BAT54S,215"
-			(at 146.05 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e34c9a16-c4b6-4811-b29d-e855eca72a1d")
-		)
-		(pin "2"
-			(uuid "698bcdab-9688-46b8-af91-96cb369e06bd")
-		)
-		(pin "3"
-			(uuid "fefc73e5-4e0c-4047-9b1c-6d232a2a9f83")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D401")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
-		(at 156.21 119.38 0)
+		(at 93.98 147.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13199,9 +12264,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e45b4e7b-8aca-460f-ab3f-f587796b185d")
-		(property "Reference" "#PWR0454"
-			(at 156.21 119.38 0)
+		(fields_autoplaced yes)
+		(uuid "dcad01c3-02bd-49c1-9b32-7c574b7b6be0")
+		(property "Reference" "#PWR0407"
+			(at 93.98 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13212,7 +12278,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 160.02 118.11 0)
+			(at 93.98 142.24 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13222,7 +12288,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 119.38 0)
+			(at 93.98 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13233,7 +12299,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 119.38 0)
+			(at 93.98 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13244,7 +12310,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 156.21 119.38 0)
+			(at 93.98 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13255,20 +12321,20 @@
 			)
 		)
 		(pin "1"
-			(uuid "61936d42-4b3f-4ba3-8e2b-d9439efebd21")
+			(uuid "c1b276e0-8915-4d54-b3d8-67355bbc8102")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0454")
+					(reference "#PWR0407")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GNDA")
-		(at 143.51 92.71 0)
+		(lib_id "JLCImport:0603WAF1001T5E")
+		(at 160.02 45.72 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13276,9 +12342,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e46248ee-2be1-4022-b143-a68b28717da6")
-		(property "Reference" "#PWR0451"
-			(at 143.51 92.71 0)
+		(uuid "e55cfa7d-6741-4b6f-aef3-9312a2e156c1")
+		(property "Reference" "R407"
+			(at 162.56 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 162.56 48.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:0603WAF1001T5E"
+			(at 160.02 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13288,18 +12374,8 @@
 				)
 			)
 		)
-		(property "Value" "GNDA"
-			(at 143.51 96.52 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 92.71 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf"
+			(at 160.02 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13309,8 +12385,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 143.51 92.71 0)
+		(property "Description" "-55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 160.02 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13320,8 +12396,30 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 143.51 92.71 0)
+		(property "LCSC" "C21190"
+			(at 160.02 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 160.02 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0603WAF1001T5E"
+			(at 160.02 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13332,12 +12430,129 @@
 			)
 		)
 		(pin "1"
-			(uuid "4707b305-a4f8-4b77-93c5-3738b1c932a3")
+			(uuid "edd2fc93-0653-4a4a-b0fb-99ce1f367317")
+		)
+		(pin "2"
+			(uuid "e6ca79f3-8858-406f-b06f-4673ed0474b3")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0451")
+					(reference "R407")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CC0603KRX7R9BB104")
+		(at 160.02 57.15 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e97d9cfb-552a-41dd-94be-931771dae383")
+		(property "Reference" "C404"
+			(at 156.972 57.15 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 156.972 59.69 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CC0603KRX7R9BB104"
+			(at 160.02 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4788fd4e-5b6e-4c5b-93c2-701894c95fd0")
+		)
+		(pin "2"
+			(uuid "1f6228f8-d0ef-45fd-a61c-f651d70d7f04")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
+					(reference "C404")
 					(unit 1)
 				)
 			)
@@ -13422,7 +12637,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF4021T5E_C23040")
-		(at 48.26 140.97 0)
+		(at 76.2 143.51 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13433,7 +12648,7 @@
 		(fields_autoplaced yes)
 		(uuid "efcafb99-bbe2-464a-9cc5-ad2ab66e658d")
 		(property "Reference" "R408"
-			(at 48.26 134.62 0)
+			(at 76.2 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13443,7 +12658,7 @@
 			)
 		)
 		(property "Value" "4.02k"
-			(at 48.26 137.16 0)
+			(at 76.2 139.7 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13453,7 +12668,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF4021T5E_C23040"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13464,7 +12679,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF4021T5E_C23040.pdf"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13475,7 +12690,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 4.02kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13486,7 +12701,7 @@
 			)
 		)
 		(property "LCSC" "C23040"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13497,7 +12712,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13508,7 +12723,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF4021T5E"
-			(at 48.26 140.97 0)
+			(at 76.2 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13528,195 +12743,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
 					(reference "R408")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:0603WAF1001T5E")
-		(at 130.81 104.14 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f1104bfb-09a8-4b0e-8dc6-7e35304c07a0")
-		(property "Reference" "R414"
-			(at 128.27 101.6 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 133.6 101.6 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:0603WAF1001T5E"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C21190"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0603WAF1001T5E"
-			(at 130.81 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6aad8a91-5f17-40f0-8f9b-519160429db9")
-		)
-		(pin "2"
-			(uuid "7d6ce2dc-ee5e-40c3-b070-1d713f3cacc2")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R414")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 41.91 22.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f28693a1-e43f-400e-a6ec-a144571b62c2")
-		(property "Reference" "#PWR0473"
-			(at 41.91 22.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 41.91 19.05 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 41.91 22.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 41.91 22.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 41.91 22.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "636e9cc9-9d7e-477a-b68e-269d7891dd07")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0473")
 					(unit 1)
 				)
 			)
@@ -13955,7 +12981,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:PTS1206M2B1K00P100")
-		(at 22.86 170.18 270)
+		(at 50.8 172.72 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13966,7 +12992,7 @@
 		(fields_autoplaced yes)
 		(uuid "fa877731-f541-40a9-af23-da3836f1c9bb")
 		(property "Reference" "U405"
-			(at 26.67 168.9099 90)
+			(at 54.61 171.4499 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13977,7 +13003,7 @@
 			)
 		)
 		(property "Value" "PTS1206M2B1K00P100"
-			(at 26.67 171.4499 90)
+			(at 54.61 173.9899 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13988,7 +13014,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:PTS1206M2B1K00P100"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13999,7 +13025,7 @@
 			)
 		)
 		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2311132315_Vishay-Intertech-PTS1206M2B1K00P100_C17211685.pdf"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14010,7 +13036,7 @@
 			)
 		)
 		(property "Description" "-55℃~+175℃ ±0.43℃ 1206 Temperature Sensors ROHS"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14021,7 +13047,7 @@
 			)
 		)
 		(property "LCSC" "C17211685"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14032,7 +13058,7 @@
 			)
 		)
 		(property "Manufacturer" "Vishay Intertech"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14043,7 +13069,7 @@
 			)
 		)
 		(property "Manufacturer Part" "PTS1206M2B1K00P100"
-			(at 22.86 170.18 0)
+			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14070,7 +13096,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:1206W4F7503T5E")
-		(at 26.67 31.75 90)
+		(at 29.21 34.29 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14081,7 +13107,7 @@
 		(fields_autoplaced yes)
 		(uuid "fe5ce499-c330-4f13-8aa2-0607916220d2")
 		(property "Reference" "R401"
-			(at 29.21 30.4799 90)
+			(at 31.75 33.0199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14092,7 +13118,7 @@
 			)
 		)
 		(property "Value" "750k"
-			(at 29.21 33.0199 90)
+			(at 31.75 35.5599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14103,7 +13129,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:1206W4F7503T5E"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14114,7 +13140,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-1206W4F7503T5E_C25835.pdf"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14125,7 +13151,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 200V 250mW 750kΩ Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14136,7 +13162,7 @@
 			)
 		)
 		(property "LCSC" "C25835"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14147,7 +13173,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14158,7 +13184,7 @@
 			)
 		)
 		(property "Manufacturer Part" "1206W4F7503T5E"
-			(at 26.67 31.75 0)
+			(at 29.21 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14185,7 +13211,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CC0603KRX7R9BB104")
-		(at 92.71 140.97 90)
+		(at 115.57 144.78 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14195,7 +13221,7 @@
 		(dnp no)
 		(uuid "fe9dcf5a-3da7-47f1-ac0d-83b3ab6d2dc6")
 		(property "Reference" "C403"
-			(at 95.758 139.7 90)
+			(at 118.618 143.51 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14206,7 +13232,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 95.758 142.24 90)
+			(at 118.618 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14217,7 +13243,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CC0603KRX7R9BB104"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14228,7 +13254,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14239,7 +13265,7 @@
 			)
 		)
 		(property "Description" "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14250,7 +13276,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14261,7 +13287,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14272,7 +13298,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CC0603KRX7R9BB104"
-			(at 92.71 140.97 0)
+			(at 115.57 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

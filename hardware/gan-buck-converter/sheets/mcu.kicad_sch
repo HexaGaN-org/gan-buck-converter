@@ -11,7 +11,6 @@
 		(comment 1 "Owner: [NAME]")
 	)
 	(lib_symbols
-
 		(symbol "Device:NetTie_2"
 			(pin_numbers
 				(hide yes)
@@ -6818,7 +6817,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "power:+3V3")
 		(at 48.26 71.12 0)
@@ -7518,7 +7516,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "JLCImport:0603WAF1001T5E")
 		(at 147.32 166.37 180)
@@ -8211,7 +8208,6 @@
 		)
 	)
 	(symbol
-
 		(lib_id "JLCImport:CL10C180JB8NNNC")
 		(at 147.32 118.11 180)
 		(unit 1)
