@@ -251,14 +251,18 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **How it works**
 1. `STAGE_EN` = enable switch on AND `WD_OK` AND `RESET_OK` AND `MCU_EN`.
-2. Each PWM signal is ANDed with `STAGE_EN` before it reaches the power stage. When `STAGE_EN` is low, both gates are held off.
+2. Each PWM signal is ANDed with `STAGE_EN` and with the **inverse of the other PWM** before it reaches the power stage:
+   - `HS_PWM` = `MCU_PWMH` AND `STAGE_EN` AND NOT `MCU_PWML`
+   - `LS_PWM` = `MCU_PWML` AND `STAGE_EN` AND NOT `MCU_PWMH`
+
+   When `STAGE_EN` is low, both gates are held off. If firmware ever drives both PWMs high, both gates are held off too (the shoot-through interlock: the LM5113-Q1 has independent inputs and no interlock of its own).
 3. During power-up and reset, `RESET_OK` is low, so the gates stay off until the MCU is running.
 
 **Contains**
 - Windowed watchdog supervisor (TPS3850-class): monitors `+3V3`, drives `XRSn` and the internal `RESET_OK` and `WD_OK`
 - J5 enable switch input, with pull-down so an open switch means *off*
 - AND logic producing `STAGE_EN`
-- Two AND gates: `MCU_PWMx` AND `STAGE_EN` → `HS_PWM` / `LS_PWM`
+- Shoot-through interlock and gating: a dual inverter (NOT `MCU_PWMH`, NOT `MCU_PWML`) and two 3-input AND gates → `HS_PWM` / `LS_PWM`
 - ENABLE LED, test points on `STAGE_EN` and `WD_OK`
 
 **Hierarchical labels**
