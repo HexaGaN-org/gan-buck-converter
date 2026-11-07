@@ -9925,9 +9925,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "017d2c5f-5155-4685-9e49-b5163cdf57a2")
 		(property "Reference" "TP202"
@@ -9953,7 +9953,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 45.72 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -10460,9 +10460,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "109ff988-1c1e-4c47-807c-55d3967ebedd")
 		(property "Reference" "TP205"
@@ -10476,7 +10476,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5V_AUX"
+		(property "Value" "GND"
 			(at 60.96 170.6879 0)
 			(hide yes)
 			(show_name no)
@@ -10488,7 +10488,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 63.5 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -11042,9 +11042,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "23e17c4e-816f-43a0-ad0f-2384187e7bd3")
 		(property "Reference" "TP203"
@@ -11070,7 +11070,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 26.67 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -12720,9 +12720,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "6d4cb4a0-cfd6-44d9-8753-c0288d986c45")
 		(property "Reference" "TP204"
@@ -12748,7 +12748,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 54.61 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -15394,9 +15394,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "dd45d5e5-f6fe-439a-aa43-9268f286e30c")
 		(property "Reference" "TP201"
@@ -15422,7 +15422,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 27.94 172.72 0)
 			(hide yes)
 			(show_name no)

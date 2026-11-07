@@ -162,7 +162,7 @@ Refs match the schematic as of commit `bba66e4`.
 | C208 | U202 input | Samsung CL10A105KB8NNNC | C15849 | 1 µF 50 V X5R 0603, Basic | |
 | C209 | U202 output | Samsung CL10A106MA8NRNC | C96446 | 10 µF 25 V X5R 0603, Basic | |
 | LED201, R207 | Power LED on `+3V3` | KENTO KT-0805G; UNI-ROYAL 0603WAF2201T5E | C2297; C4190 | Green 0805 LED ($V_F$ 2.6–3.1 V), 2.2 kΩ; Basic | |
-| TP201–TP205 | Test points: `5V_EXT`, `5V_AUX`, `+5V`, `+3V3`, GND | KiCad `Connector:TestPoint` | — | Footprint only, no part placed | |
+| TP201–TP205 | Test points: `5V_EXT`, `5V_AUX`, `+5V`, `+3V3`, GND | KiCad `Connector:TestPoint` | — | Footprint only (`TestPoint_Pad_D2.0mm`, as on power_stage), no part placed; excluded from BOM and position files | |
 
 ---
 
@@ -232,9 +232,8 @@ How bring-up confirms this sheet works.
 
 ## Open questions
 
-- **Schematic field fixes before layout** (checked against commit `bba66e4`):
-  - TP201–TP205 have the footprint `SOT-23-5`; they need a test-pad footprint (for example `TestPoint:TestPoint_Pad_D1.5mm`, or a loop for a scope probe). Also tick *Exclude from BOM* on all five, as power_stage does for its test pads. (NT201 and NT202's footprints were fixed on 2026-11-06.)
-  - TP205 is the GND test point but its Value reads `5V_AUX`.
+- **Schematic field fixes before layout** (checked against commit `938934d`):
+  - (Fixed 2026-11-06: NT201 / NT202 footprints; TP201–TP205 moved to `TestPoint:TestPoint_Pad_D2.0mm`, the same pad as power_stage, and excluded from the BOM and position files; TP205's Value corrected to `GND`.)
   - LED202's symbol and footprint were imported from Everlight 17-21SUYC/TR8, while its LCSC field is C2296 (KENTO KT-0805Y). Both are 0805, but confirm the footprint's pad numbering and polarity mark match the KENTO part, or re-import KT-0805Y.
 - **Power LED brightness.** KT-0805G's forward voltage is 2.6–3.1 V, so R207 (2.2 kΩ) on 3.3 V gives only 0.1–0.3 mA, and less on a high-$V_F$ part. Likely dim. Options: lower R207 to about 470 Ω (≈ 1 mA), or move the LED to `+5V`. Check one on the bench before changing.
 - **Root-sheet connection.** Add `I_SH_IN_P` / `I_SH_IN_N` sheet pins to this sheet's symbol on the root sheet, and matching inputs on sensing (owner: sensing), then wire them.
