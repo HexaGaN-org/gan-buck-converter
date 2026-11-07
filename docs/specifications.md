@@ -48,9 +48,9 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | Parameter | Value |
 |---|---|
 | Board size | [TBD] |
-| Layer count | [TBD] |
+| Layer count | 4, standard 1.6 mm stackup with the thinner L1–L2 prepreg (proposed, [design/power_stage.md](design/power_stage.md) decision #19). Stackup name: [TBD], record it here once chosen |
 | Input / output connectors | J201 and J301: Kefa KF635-6.35-2P 2-pin screw terminals (32 A, 10 AWG). Identical parts, so they go on opposite board edges with clear silkscreen |
-| Cooling | Natural convection through copper pours (no heatsink planned at 150 W) |
+| Cooling | Natural convection through copper pours (no heatsink planned at 150 W). The layout reserves a top-side heatsink zone over the GaN FETs, fitted only if bench testing calls for it (proposed, [design/power_stage.md](design/power_stage.md) decision #20) |
 | Debug and comms | JTAG header, USB-UART |
 
 ## Test equipment required
@@ -61,4 +61,4 @@ The power target must fit inside what the lab can test. Confirm these before com
 |---|---|---|
 | Bench supply | ≥ 51 V at ≥ 4 A, with adjustable current limit and, ideally, overvoltage protection (set ≈ 55 V). Floating output (no earth strap) | [TBD] |
 | Electronic load | ≥ 12.5 A at 12 V, 150 W continuous | [TBD] |
-| Oscilloscope | Bandwidth and probes suitable for GaN switch-node edges | [TBD] |
+| Oscilloscope | ≥ 1 GHz scope and passive probes, with a short-loop tip (MMCX adapter or spring clip, loop < 10 mm); the switch node rings near 300 MHz on Infineon's reference board (UG122052). High-side gate measurements need an optically isolated probe (Tektronix IsoVu or PMK FireFly), or are skipped | [TBD] |
