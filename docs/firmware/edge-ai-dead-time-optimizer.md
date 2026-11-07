@@ -47,9 +47,9 @@ Every sweep point is a training sample, labeled with its measured loss. A direct
 
 | Feature | Source | Why |
 |---|---|---|
-| $I_{out}$ | `ISENSE` | Sets the node transition time; strongest input |
-| $V_{in}$ | `VIN_SENSE` | Sets $Q_{oss}$ swing and ripple |
-| $T$ | `TEMP_SENSE` | $R_{DS(on)}$ and $V_{SD}$ shift with temperature |
+| $I_{out}$ | `I_OUT_SENSE` | Sets the node transition time; strongest input |
+| $V_{in}$ | `V_IN_SENSE` | Sets $Q_{oss}$ swing and ripple |
+| $T$ | `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | $R_{DS(on)}$ and $V_{SD}$ shift with temperature |
 | $f_{sw}$ | Firmware setting | Scales all switching losses |
 | $t_{dt,r}$, $t_{dt,f}$ | Candidate dead times | What is being optimized |
 | $Q_{node} / I_{peak}$ | Computed | Physics-informed: estimated node transition time |

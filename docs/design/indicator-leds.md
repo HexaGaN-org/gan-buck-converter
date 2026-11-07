@@ -4,7 +4,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 
 **Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
 
-**Status (2026-11-06):** plan agreed. Schematic changes pending on all four sheets (checklist below).
+**Status (2026-11-06):** plan agreed. Schematic changes are in PR #7 (open); the references below are the ones PR #7 assigns.
 
 ---
 
@@ -42,9 +42,9 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 | LED202 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R209 → LED → GND | white · KT-0805W (C34499) | R209 2.2 kΩ (C4190) | ≈ 0.95 mA (0.8–1.1) | Beside J202 |
 | LED301 | power_stage · Reza | `12V` | `V_OUT` live | `V_OUT` → R307 → LED → GND | green · KT-0805G (C2297) | R307 10 kΩ (C25804) | ≈ 0.9 mA | Beside J301 |
 | LED201 | input_supply · Reza | `POWER` | Logic rails up (`+3V3` is the last rail in the chain) | `+3V3` → R207 → LED → GND | green · KT-0805G (C2297) | R207 330 Ω (C23138) | ≈ 1.4 mA (0.6–2.1) | Status row, position 1 |
-| LED1 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R10 → LED → GND | green · KT-0805G (C2297) | R10 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
-| LED3 | enable · Connor | `ARMED` | `STAGE_EN` high: the hardware enable chain allows switching | U5 → R24 → LED → GND | yellow · KT-0805Y (C2296) | R24 1 kΩ (C21190) | ≈ 1.1 mA (0.8–1.4) | Status row, position 3, at the SW1 end |
-| LED2 | mcu · Yunxi | `FAULT` | Latched fault; blinks a code | GPIO40 → R11 → LED → GND | red · NCD0805R1 (C84256) | R11 1 kΩ (C21190, unchanged) | ≈ 1.1 mA (0.6–1.6) | Status row, position 4 |
+| LED501 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R501 → LED → GND | green · KT-0805G (C2297) | R501 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
+| LED601 | enable · Connor | `ARMED` | `STAGE_EN` high: the hardware enable chain allows switching | U5 → R601 → LED → GND | yellow · KT-0805Y (C2296) | R601 1 kΩ (C21190) | ≈ 1.1 mA (0.8–1.4) | Status row, position 3, at the SW1 end |
+| LED502 | mcu · Yunxi | `FAULT` | Latched fault; blinks a code | GPIO40 → R502 → LED → GND | red · NCD0805R1 (C84256) | R502 1 kΩ (C21190) | ≈ 1.1 mA (0.6–1.6) | Status row, position 4 |
 
 ---
 
@@ -106,11 +106,11 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 - [ ] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R307 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
 
 **mcu (Yunxi)**
-- [ ] LED1 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → 330 Ω** (C23138).
-- [ ] LED2 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 stays 1 kΩ.
+- [ ] LED1 → LED501 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R501 330 Ω** (C23138).
+- [ ] LED2 → LED502 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R502, still 1 kΩ.
 
 **enable (Connor)**
-- [ ] LED3 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → 1 kΩ** (C21190).
+- [ ] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R601 1 kΩ** (C21190).
 
 **Library cleanup (after the swaps, in its own commit)**
 - [ ] Remove the now-unused `17-21SUYC_TR8`, `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`.

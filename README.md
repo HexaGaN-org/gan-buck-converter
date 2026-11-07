@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, including the hardware enable with its shoot-through interlock and the USB-serial and JTAG debug interfaces. Remaining before layout: root-sheet wiring (only the mcu and comms_debug pins are on the root sheet so far), aligning the sensing sheet's label names with the MCU's, annotation, and each design note's open questions. Layout has not started.
+> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, and every sheet symbol on the root sheet has its pins. Remaining before layout: wiring the root sheet (no wires are drawn yet), the indicator-LED changes (PR #7), annotating each sheet into its own range, ERC on every sheet, and each design note's open questions. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -26,13 +26,13 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Sheet symbols placed; mcu ↔ comms_debug pins imported. Pins for the other four sheets pending |
-| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Root-sheet pins to sensing pending |
-| 3 | power_stage | Reza Rahimzadeh | Captured; root-sheet pins pending |
-| 4 | sensing | Connor Jin | Circuitry captured (six channels). Label names to align with the MCU sheet; root-sheet pins pending |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Sheet pins synced on all six sheet symbols; wiring pending |
+| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Root-sheet pins added |
+| 3 | power_stage | Reza Rahimzadeh | Captured; root-sheet pins added |
+| 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; root-sheet pins added |
 | 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels on the root sheet |
-| 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and the shoot-through interlock. Root-sheet pins pending |
-| 7 | comms_debug | Yunxi He | Captured: USB-C with CP2102N bridge and USBLC6 ESD protection, JTAG header; wired to mcu on the root sheet |
+| 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and the shoot-through interlock. Root-sheet pins added |
+| 7 | comms_debug | Yunxi He | Captured: USB-C with CP2102N bridge and USBLC6 ESD protection, JTAG header. Root-sheet pins added |
 
 Only a sheet's owner edits it. What each sheet contains and every signal that crosses between sheets are defined in [docs/schematic-hierarchy.md](docs/schematic-hierarchy.md).
 

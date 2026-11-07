@@ -51,11 +51,11 @@ It does this with two fast electronic switches (GaN transistors) that flip on an
 | `MCU_EN` | out | "I'd like to run." Goes to the hardware enable |
 | `STAGE_EN_FB` | in | "Running is actually allowed." Comes back from the hardware enable |
 | `WD_IN` | out | The regular check-in pulse to the watchdog |
-| `ISENSE` | in | Output current |
-| `VOUT_SENSE` | in | Output voltage |
-| `VIN_SENSE` | in | Input voltage |
+| `I_OUT_SENSE` | in | Output current |
+| `V_OUT_SENSE` | in | Output voltage |
+| `V_IN_SENSE` | in | Input voltage |
 | `I_IN_SENSE` | in | Input current (for input power, efficiency estimates and an input-current limit) |
-| `TEMP_SENSE` | in | Temperature near the switches |
+| `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | in | Temperature beside the high-side and low-side switches |
 | `SCI_TX`, `SCI_RX` | out / in | Serial link to the laptop over USB |
 | HEARTBEAT, FAULT LEDs | out | Status lights |
 

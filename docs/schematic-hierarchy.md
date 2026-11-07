@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
-**Current capture:** The MCU sheet is populated and exposes 16 matching parent-sheet pins with open wire stubs. The input-supply sheet is complete, but its sheet symbol has no pins yet (`I_SH_IN_P` / `I_SH_IN_N` to sensing pending). The power-stage and sensing circuits from main are retained; enable and comms_debug remain empty. The interfaces below remain the design contract; complete top-sheet signal paths are unfinished. `I_IN_SENSE` still needs an MCU pin assignment and corresponding sheet pins. The reset interface is named `XRSn`, matching the current MCU sheet.
+**Current capture (2026-11-06):** All six sheets are captured. On the root sheet, every sheet symbol carries pins matching its sub-sheet's hierarchical labels, but **no wires are drawn yet**, so no signal crosses a sheet boundary. Wiring the root sheet is the next step. The sense signals were renamed in #6 (`I_OUT_SENSE`, `V_IN_SENSE`, `V_OUT_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`, with the new `I_IN_SENSE`); the names below follow the schematic. The reset interface is named `XRSn`.
 
 ---
 
@@ -34,9 +34,9 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 |---|---|---|
 | J201 | input_supply | 48 V input |
 | J301 | power_stage | 12 V output |
-| J3 | comms_debug | USB-C to a host laptop |
-| J4 | comms_debug | JTAG debug header |
-| J5 | enable | Hardware enable switch (or E-stop) input |
+| USBC1 | comms_debug | USB-C to a host laptop (data only; never powers the board) |
+| H1 | comms_debug | JTAG debug header (2 × 10) |
+| SW1 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
 | J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
 
 ---
@@ -76,10 +76,10 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 
 | Signal | Meaning |
 |---|---|
-| `I_SENSE` | Inductor (output) current, scaled to 0–3 V. Feeds a CMPSS comparator for cycle-by-cycle overcurrent |
-| `VOUT_SENSE` | Output voltage, divided to 0–3 V. Feeds a CMPSS comparator for overvoltage |
-| `VIN_SENSE` | Input voltage, divided to 0–3 V. Feeds a CMPSS comparator for the fast input-overvoltage trip (≈ 55 V), and the ADC for undervoltage lockout and feedforward |
-| `TEMP_SENSE` | Thermistor voltage near the GaN stage |
+| `I_OUT_SENSE` | Inductor (output) current, scaled to 0–3 V. Feeds a CMPSS comparator for cycle-by-cycle overcurrent |
+| `V_OUT_SENSE` | Output voltage, divided to 0–3 V. Feeds a CMPSS comparator for overvoltage |
+| `V_IN_SENSE` | Input voltage, divided to 0–3 V. Feeds a CMPSS comparator for the fast input-overvoltage trip (≈ 55 V), and the ADC for undervoltage lockout and feedforward |
+| `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | RTD voltages beside the high-side and low-side GaN FETs |
 | `I_IN_SENSE` | Input current, scaled to 0–3 V. Telemetry, input power and an input-current limit in firmware; not a hardware trip |
 
 **PWM and enable**
@@ -88,7 +88,7 @@ Which library each power symbol comes from is in [CONTRIBUTING.md](../CONTRIBUTI
 |---|---|
 | `MCU_PWMH`, `MCU_PWML` | High-side and low-side PWM from the MCU, before gating |
 | `MCU_EN` | The MCU's request to switch. Necessary but not sufficient |
-| `HS_PWM`, `LS_PWM` | Gated PWM to the half-bridge driver: `MCU_PWMx` AND `STAGE_EN` |
+| `HS_PWM`, `LS_PWM` | Gated PWM to the half-bridge driver: `MCU_PWMx` AND `STAGE_EN`, and both held off if the MCU requests both at once |
 | `STAGE_EN_FB` | Copy of the internal `STAGE_EN` for the MCU to read |
 | `WD_IN` | Watchdog kick from the MCU. Too slow *or* too fast counts as a failure |
 | `XRSn` | MCU reset, active low, open-drain. Driven by the supervisor and the JTAG debugger |
@@ -190,7 +190,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Input-current amplifier across `I_SH_IN_P` / `I_SH_IN_N` (common mode at `V_IN`)
 - Output-voltage divider from `V_OUT`
 - Input-voltage divider from `V_IN`
-- Thermistor divider (the thermistor itself is placed beside the GaN stage in layout)
+- Two RTD channels, one per GaN FET (each RTD is placed beside its FET in layout)
 - Per channel: RC filter and clamp to `+3V3` / `GNDA`
 - Test points on each sense signal
 
@@ -200,11 +200,11 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 |---|---|---|
 | `I_SH_OUT_P`, `I_SH_OUT_N` | in | power_stage |
 | `I_SH_IN_P`, `I_SH_IN_N` | in | input_supply |
-| `I_SENSE` | out | mcu |
+| `I_OUT_SENSE` | out | mcu |
 | `I_IN_SENSE` | out | mcu |
-| `VOUT_SENSE` | out | mcu |
-| `VIN_SENSE` | out | mcu |
-| `TEMP_SENSE` | out | mcu |
+| `V_OUT_SENSE` | out | mcu |
+| `V_IN_SENSE` | out | mcu |
+| `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | out | mcu |
 
 **Notes**
 - Design guidance for this sheet is in [design/sensing.md](design/sensing.md).
@@ -222,7 +222,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - ADC reference and analog-supply capacitance
 - **The single net tie joining `GNDA` to `GND`**, at the ADC reference
 - Reset (`XRSn`) pull-up and capacitor
-- External 20 MHz crystal **ECS-200-8-30B-CKM**, two **12 pF** load capacitors and an X2 series resistor; populated, using footprint `hexagan:ECS-200-8-30B-CKM`
+- External 16 MHz crystal X1 (Monec **ESD16.0000F12M25F**), two **18 pF** load capacitors and a 0 Ω X2 series resistor (R4)
 - Boot-mode jumpers on the boot pins
 - `HEARTBEAT` and `FAULT` LEDs (see [design/indicator-leds.md](design/indicator-leds.md))
 
@@ -235,7 +235,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 | `WD_IN` | out | enable |
 | `STAGE_EN_FB` | in | enable |
 | `XRSn` | bidir | enable, comms_debug |
-| `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE`, `I_IN_SENSE` | in | sensing |
+| `I_OUT_SENSE`, `I_IN_SENSE`, `V_OUT_SENSE`, `V_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | in | sensing |
 | `SCI_TX` | out | comms_debug |
 | `SCI_RX` | in | comms_debug |
 | `TCK`, `TMS`, `TDI` | in | comms_debug |
@@ -251,20 +251,22 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 **Responsible for:** making sure the half-bridge can only switch when a person has enabled it, the watchdog is healthy, and the MCU is requesting it. Firmware can request switching but can never force it.
 
 **How it works**
-1. `STAGE_EN` = enable switch on AND `WD_OK` AND `RESET_OK` AND `MCU_EN`.
+1. `STAGE_EN` = enable switch on (`SW_EN`) AND `SUP_OK` AND `MCU_EN`. `SUP_OK` is the supervisor's one output: low while `+3V3` is low, for 25 ms after it recovers, and for 25 ms after any watchdog violation.
 2. Each PWM signal is ANDed with `STAGE_EN` and with the **inverse of the other PWM** before it reaches the power stage:
    - `HS_PWM` = `MCU_PWMH` AND `STAGE_EN` AND NOT `MCU_PWML`
    - `LS_PWM` = `MCU_PWML` AND `STAGE_EN` AND NOT `MCU_PWMH`
 
    When `STAGE_EN` is low, both gates are held off. If firmware ever drives both PWMs high, both gates are held off too (the shoot-through interlock: the LM5113-Q1 has independent inputs and no interlock of its own).
-3. During power-up and reset, `RESET_OK` is low, so the gates stay off until the MCU is running.
+3. During power-up and reset, `SUP_OK` is low, so the gates stay off until the MCU is running.
+
+   As drawn, the interlock is a NAND of the two PWM requests (`PWM_ILK_OK`, U8), ANDed with `STAGE_EN` into `PWM_EN` (U5), which then gates each PWM (U4). This is logically identical to the equations above. enable.md decision #8 records an inverter + 3-input-AND form of the same logic.
 
 **Contains**
-- Windowed watchdog supervisor (TPS3850-class): monitors `+3V3`, drives `XRSn` and the internal `RESET_OK` and `WD_OK`
-- J5 enable switch input, with pull-down so an open switch means *off*
-- AND logic producing `STAGE_EN`
-- Shoot-through interlock and gating: a dual inverter (NOT `MCU_PWMH`, NOT `MCU_PWML`) and two 3-input AND gates → `HS_PWM` / `LS_PWM`
-- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), test points on `STAGE_EN` and `WD_OK`
+- Supervisor with window watchdog, TI TPS3813K33 (U7): monitors `+3V3`, produces `SUP_OK`, and pulls `XRSn` low through D1 / R15
+- SW1 on-board enable switch, with pull-down so *off* is the default
+- AND logic producing `STAGE_EN` (U3)
+- Shoot-through interlock and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`
+- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), test points on `STAGE_EN` and `SUP_OK`
 
 **Hierarchical labels**
 
@@ -287,9 +289,9 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 **Responsible for:** connecting the MCU to a host laptop (serial over USB) and to a JTAG debugger.
 
 **Contains**
-- J3 USB-C receptacle, CC pull-down resistors, ESD protection on D+/D−
-- USB-to-UART bridge (CP2102N or equivalent) with its decoupling
-- J4 TI JTAG header
+- USBC1 USB-C receptacle, CC pull-down resistors, USBLC6-2SC6 ESD protection on D+/D− (D701)
+- CP2102N USB-to-UART bridge (U703) with its decoupling
+- H1 TI JTAG header
 
 **Hierarchical labels**
 

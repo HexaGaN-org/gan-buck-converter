@@ -41,7 +41,7 @@ It runs in under ten seconds. All parameters are at the top of the script, each 
 
 - **Averaged model.** The switch node is replaced by its average over each PWM cycle (duty × 48 V). This keeps everything the control loop sees and removes the switching ripple, which makes the simulation fast. Real ripple (≈ 27 mV p-p) comes on top of these results.
 - **Digital controller, run the way firmware will run it.** Sampled once per cycle, rounded to 12 ADC bits, a one-cycle delay before the new duty applies, duty clamped, and duty rounded to the PWM's resolution (with or without HRPWM).
-- **Input-voltage feedforward.** The duty is scaled by 48 V ÷ the measured input voltage. Without it, the loop gain rises and falls with the input voltage. `VIN_SENSE` is already planned for this in `schematic-hierarchy.md`.
+- **Input-voltage feedforward.** The duty is scaled by 48 V ÷ the measured input voltage. Without it, the loop gain rises and falls with the input voltage. `V_IN_SENSE` is already planned for this in `schematic-hierarchy.md`.
 - **Load** is an electronic load in constant-current mode, the hardest case for stability because it adds no damping.
 - **Worst case.** The same controller is re-checked with every combination of part tolerances (plot 5).
 
