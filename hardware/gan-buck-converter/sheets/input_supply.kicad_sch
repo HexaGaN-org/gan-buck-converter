@@ -1267,6 +1267,163 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:0603WAF2201T5E"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "0603WAF2201T5E"
+				(at 0 -3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:0603WAF2201T5E"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2201T5E_C4190.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 100mW 2.2kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C4190"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "0603WAF2201T5E"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "0603WAF2201T5E C4190 R0603 UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "0603WAF2201T5E_0_1"
+				(rectangle
+					(start -2.54 1.016)
+					(end 2.54 -1.016)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:0603WAF3002T5E"
 			(pin_names
 				(offset 1.016)
@@ -1561,163 +1718,6 @@
 					)
 				)
 				(pin input line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "JLCImport:0603WAF3301T5E"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 0 3.016 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "0603WAF3301T5E"
-				(at 0 -3.016 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:0603WAF3301T5E"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF3301T5E_C22978.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+155℃ 100mW 3.3kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C22978"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "0603WAF3301T5E"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "0603WAF3301T5E C22978 R0603 UNI-ROYAL(Uniroyal Elec)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "0603WAF3301T5E_0_1"
-				(rectangle
-					(start -2.54 1.016)
-					(end 2.54 -1.016)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
@@ -8230,12 +8230,6 @@
 		(uuid "ec63eda6-0171-4fe3-9698-8ec8866a1ba4")
 	)
 	(junction
-		(at 71.12 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "01089c95-2b75-4447-b3bb-1c69fca7b16c")
-	)
-	(junction
 		(at 203.2 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8266,7 +8260,7 @@
 		(uuid "1249cb41-78e6-45f8-9eb8-862471270420")
 	)
 	(junction
-		(at 100.33 58.42)
+		(at 77.47 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "169434a2-5277-4757-9c3d-751ccfe05471")
@@ -8282,6 +8276,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "17f9e617-38da-4b69-a58c-84937df30ece")
+	)
+	(junction
+		(at 91.44 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1fb5d7cb-8e83-4460-bd62-b5e0bc3f81df")
 	)
 	(junction
 		(at 71.12 146.05)
@@ -8314,7 +8314,7 @@
 		(uuid "2e4ddd55-fa5d-4d27-a46e-e9c23a60e185")
 	)
 	(junction
-		(at 100.33 33.02)
+		(at 77.47 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "37e2295a-6c27-43d2-9e1a-9ee1c886e7e8")
@@ -8356,13 +8356,7 @@
 		(uuid "48b232e6-7d2c-4877-8320-446a69c351ee")
 	)
 	(junction
-		(at 63.5 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4edf102f-9bf1-49d2-9c9c-fc744d5edaeb")
-	)
-	(junction
-		(at 115.57 58.42)
+		(at 114.3 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "54a14915-af62-48bc-8516-055030cc5096")
@@ -8374,7 +8368,7 @@
 		(uuid "5c89e388-93ca-40ae-8523-45b343b6bc11")
 	)
 	(junction
-		(at 113.03 33.02)
+		(at 111.76 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5e9286b7-082a-4db8-89a2-ba2cf1f3c47a")
@@ -8416,22 +8410,22 @@
 		(uuid "7d34a93c-4a6d-457b-948f-5131c4a2d60b")
 	)
 	(junction
+		(at 96.52 33.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "86e9cc47-0417-4356-84a3-cddea60fdf3e")
+	)
+	(junction
 		(at 39.37 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "90bcd0cf-1641-4090-9273-0610d5d6f9c3")
 	)
 	(junction
-		(at 100.33 45.72)
+		(at 77.47 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "90c5a5b4-e6f7-47a1-a6f9-07d66576b7de")
-	)
-	(junction
-		(at 63.5 33.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9204c076-417f-4ec7-a80a-22a09accd943")
 	)
 	(junction
 		(at 191.77 113.03)
@@ -8476,6 +8470,12 @@
 		(uuid "aceb6ed2-8764-496c-80e2-61c0db042a2b")
 	)
 	(junction
+		(at 86.36 33.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b46bb35d-c7b1-47a4-9546-873b8f8b49f4")
+	)
+	(junction
 		(at 148.59 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8488,7 +8488,7 @@
 		(uuid "c029f2cd-2f53-4db8-b410-936967661463")
 	)
 	(junction
-		(at 115.57 33.02)
+		(at 114.3 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c25817f3-68ad-4075-b038-4e555e3abe72")
@@ -8518,6 +8518,12 @@
 		(uuid "cae86717-f714-4cbf-8cf3-d375aab765bf")
 	)
 	(junction
+		(at 91.44 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cee8b8fc-f3d9-4938-b261-321406e85a2b")
+	)
+	(junction
 		(at 189.23 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8536,12 +8542,6 @@
 		(uuid "dc47c3d6-4efd-4c6f-92f7-accc8c3f89e8")
 	)
 	(junction
-		(at 71.12 33.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "def4c786-3699-4176-a420-b7bf49a403ad")
-	)
-	(junction
 		(at 109.22 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8554,7 +8554,7 @@
 		(uuid "ed53e50b-caf0-4cae-ba75-999b2541d400")
 	)
 	(junction
-		(at 102.87 33.02)
+		(at 101.6 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f0d120c1-4d89-4362-94a8-e1832c97e9ab")
@@ -8608,6 +8608,16 @@
 			(type default)
 		)
 		(uuid "0d236f99-74e1-4b1b-a3b0-41ad92965347")
+	)
+	(wire
+		(pts
+			(xy 96.52 33.02) (xy 101.6 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0de365bc-b4d4-4ec2-82b7-aa8892ef9dc7")
 	)
 	(wire
 		(pts
@@ -8731,7 +8741,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 45.72) (xy 85.09 50.8)
+			(xy 62.23 45.72) (xy 62.23 50.8)
 		)
 		(stroke
 			(width 0)
@@ -8771,7 +8781,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 50.8) (xy 115.57 58.42)
+			(xy 114.3 50.8) (xy 114.3 58.42)
 		)
 		(stroke
 			(width 0)
@@ -8781,7 +8791,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 33.02) (xy 102.87 33.02)
+			(xy 46.99 33.02) (xy 86.36 33.02)
 		)
 		(stroke
 			(width 0)
@@ -8808,6 +8818,16 @@
 			(type default)
 		)
 		(uuid "2714c5b9-f1d3-4e9e-a633-806bac46a165")
+	)
+	(wire
+		(pts
+			(xy 86.36 44.45) (xy 86.36 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27a82034-8e43-42a6-9d79-5e61d4649f0a")
 	)
 	(wire
 		(pts
@@ -8851,6 +8871,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 57.15) (xy 91.44 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d9359a1-52a8-4b1e-8603-639473cd3576")
+	)
+	(wire
+		(pts
 			(xy 50.8 85.09) (xy 62.23 85.09)
 		)
 		(stroke
@@ -8858,6 +8888,16 @@
 			(type default)
 		)
 		(uuid "36109f43-acc0-4293-9d71-998cf218a1f9")
+	)
+	(wire
+		(pts
+			(xy 96.52 45.72) (xy 96.52 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38eba69e-56d3-45a2-956a-8d85237dd945")
 	)
 	(wire
 		(pts
@@ -8911,7 +8951,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 33.02) (xy 127 33.02)
+			(xy 111.76 33.02) (xy 125.73 33.02)
 		)
 		(stroke
 			(width 0)
@@ -8948,16 +8988,6 @@
 			(type default)
 		)
 		(uuid "49b23a74-01cb-4a22-95de-786930448b6b")
-	)
-	(wire
-		(pts
-			(xy 71.12 33.02) (xy 71.12 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4be2fe99-8299-47a2-bbf3-c7c5c6ba9aeb")
 	)
 	(wire
 		(pts
@@ -9031,7 +9061,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 57.15) (xy 100.33 58.42)
+			(xy 77.47 57.15) (xy 77.47 58.42)
 		)
 		(stroke
 			(width 0)
@@ -9061,7 +9091,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 33.02) (xy 115.57 40.64)
+			(xy 114.3 33.02) (xy 114.3 40.64)
 		)
 		(stroke
 			(width 0)
@@ -9211,7 +9241,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 45.72) (xy 85.09 45.72)
+			(xy 77.47 45.72) (xy 62.23 45.72)
 		)
 		(stroke
 			(width 0)
@@ -9241,7 +9271,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 31.75) (xy 127 33.02)
+			(xy 125.73 31.75) (xy 125.73 33.02)
 		)
 		(stroke
 			(width 0)
@@ -9321,6 +9351,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 45.72) (xy 91.44 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e572616-fa52-4a88-929d-d8a849e78955")
+	)
+	(wire
+		(pts
 			(xy 234.95 53.34) (xy 255.27 53.34)
 		)
 		(stroke
@@ -9341,7 +9381,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 58.42) (xy 127 59.69)
+			(xy 125.73 58.42) (xy 125.73 59.69)
 		)
 		(stroke
 			(width 0)
@@ -9421,16 +9461,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 50.8) (xy 63.5 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8b6353d8-79c5-483c-bf10-e0ad2c92639c")
-	)
-	(wire
-		(pts
 			(xy 86.36 128.27) (xy 86.36 146.05)
 		)
 		(stroke
@@ -9491,16 +9521,6 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 57.15) (xy 71.12 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "940f1244-b3b8-474d-a140-f7e1130beb55")
-	)
-	(wire
-		(pts
 			(xy 50.8 82.55) (xy 50.8 85.09)
 		)
 		(stroke
@@ -9511,7 +9531,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 58.42) (xy 127 58.42)
+			(xy 67.31 58.42) (xy 91.44 58.42)
 		)
 		(stroke
 			(width 0)
@@ -9611,6 +9631,16 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 33.02) (xy 86.36 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9ceba48-cde6-4fe4-ba56-37131053d25d")
+	)
+	(wire
+		(pts
 			(xy 106.68 125.73) (xy 109.22 125.73)
 		)
 		(stroke
@@ -9628,6 +9658,16 @@
 			(type default)
 		)
 		(uuid "aaad9fa6-db0e-4c64-87e4-58528d54dd82")
+	)
+	(wire
+		(pts
+			(xy 91.44 58.42) (xy 125.73 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab8388ce-ada5-471c-a8fb-f9b46e45acd7")
 	)
 	(wire
 		(pts
@@ -9741,6 +9781,16 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 33.02) (xy 96.52 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcaf65cc-fe53-482c-aab0-69dbc7282bef")
+	)
+	(wire
+		(pts
 			(xy 33.02 33.02) (xy 33.02 44.45)
 		)
 		(stroke
@@ -9801,16 +9851,6 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 44.45) (xy 71.12 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca3aea3e-646c-471f-9cf0-06d1184ac2e2")
-	)
-	(wire
-		(pts
 			(xy 137.16 115.57) (xy 137.16 114.3)
 		)
 		(stroke
@@ -9831,7 +9871,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 45.72) (xy 100.33 46.99)
+			(xy 77.47 45.72) (xy 77.47 46.99)
 		)
 		(stroke
 			(width 0)
@@ -9871,7 +9911,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 44.45) (xy 100.33 45.72)
+			(xy 77.47 44.45) (xy 77.47 45.72)
 		)
 		(stroke
 			(width 0)
@@ -9931,7 +9971,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 33.02) (xy 100.33 34.29)
+			(xy 77.47 33.02) (xy 77.47 34.29)
 		)
 		(stroke
 			(width 0)
@@ -9971,6 +10011,26 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 33.02) (xy 96.52 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0293c67-b58a-4f29-b9d2-fcc75e4ea223")
+	)
+	(wire
+		(pts
+			(xy 86.36 45.72) (xy 91.44 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1d0e140-fc6a-4175-9c76-6bb2a3a9f050")
+	)
+	(wire
+		(pts
 			(xy 209.55 113.03) (xy 212.09 113.03)
 		)
 		(stroke
@@ -9988,16 +10048,6 @@
 			(type default)
 		)
 		(uuid "e28e99c0-888f-4480-998f-7e69e8806752")
-	)
-	(wire
-		(pts
-			(xy 63.5 33.02) (xy 63.5 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e291e8d7-af2d-4938-acf5-0eaa4fe82406")
 	)
 	(wire
 		(pts
@@ -10041,6 +10091,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 45.72) (xy 96.52 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb1920cf-64f1-4ae1-b73f-a3f5cdc35d54")
+	)
+	(wire
+		(pts
 			(xy 209.55 138.43) (xy 198.12 138.43)
 		)
 		(stroke
@@ -10051,7 +10111,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 58.42) (xy 80.01 58.42)
+			(xy 33.02 58.42) (xy 57.15 58.42)
 		)
 		(stroke
 			(width 0)
@@ -10191,7 +10251,7 @@
 	)
 	(hierarchical_label "I_SH_IN_N"
 		(shape output)
-		(at 113.03 27.94 0)
+		(at 111.76 27.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10202,7 +10262,7 @@
 	)
 	(hierarchical_label "I_SH_IN_P"
 		(shape output)
-		(at 102.87 27.94 180)
+		(at 101.6 27.94 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10222,7 +10282,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "00945b6b-7caf-4c56-b793-69f13144ce5e")
-		(property "Reference" "LED202"
+		(property "Reference" "LED203"
 			(at 41.91 136.906 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10329,7 +10389,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "LED202")
+					(reference "LED203")
 					(unit 1)
 				)
 			)
@@ -10539,7 +10599,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "054d41a2-5e50-45fa-9115-d5a74d5fda85")
-		(property "Reference" "R211"
+		(property "Reference" "R213"
 			(at 53.594 129.54 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10636,7 +10696,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R211")
+					(reference "R213")
 					(unit 1)
 				)
 			)
@@ -10767,7 +10827,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "109ff988-1c1e-4c47-807c-55d3967ebedd")
-		(property "Reference" "TP205"
+		(property "Reference" "TP203"
 			(at 55.626 166.878 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10829,7 +10889,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "TP205")
+					(reference "TP203")
 					(unit 1)
 				)
 			)
@@ -11158,7 +11218,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "22e2c91d-46a5-4f2f-bbae-3f26264176f8")
-		(property "Reference" "#PWR0212"
+		(property "Reference" "#PWR0213"
 			(at 55.88 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -11218,121 +11278,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "#PWR0212")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:0603WAF3301T5E")
-		(at 39.37 124.46 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "23449d79-242e-402a-a55e-0bd63e0f55f7")
-		(property "Reference" "R209"
-			(at 42.418 123.19 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "3.3k"
-			(at 42.418 125.73 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:0603WAF3301T5E"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF3301T5E_C22978.pdf"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100mW 3.3kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C22978"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0603WAF3301T5E"
-			(at 39.37 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "315ecdff-94f7-4243-9ffa-3dd966b7134a")
-		)
-		(pin "1"
-			(uuid "ae1c622f-7ab5-4051-9588-acd8456853de")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R209")
+					(reference "#PWR0213")
 					(unit 1)
 				)
 			)
@@ -11349,7 +11295,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "23e17c4e-816f-43a0-ad0f-2384187e7bd3")
-		(property "Reference" "TP203"
+		(property "Reference" "TP204"
 			(at 18.542 176.784 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11411,7 +11357,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "TP203")
+					(reference "TP204")
 					(unit 1)
 				)
 			)
@@ -11698,7 +11644,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2d22adf6-8a01-4156-93c9-9810d1c7229b")
-		(property "Reference" "R208"
+		(property "Reference" "R210"
 			(at 53.594 119.38 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11795,7 +11741,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R208")
+					(reference "R210")
 					(unit 1)
 				)
 			)
@@ -12347,7 +12293,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "469fc7a7-bf86-4491-bfbb-937a3e9ef5dd")
-		(property "Reference" "R207"
+		(property "Reference" "R209"
 			(at 211.328 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12444,7 +12390,121 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R207")
+					(reference "R209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0603WAF2201T5E")
+		(at 39.37 124.46 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4e4eb02c-0092-4b8c-ba96-0985581337ff")
+		(property "Reference" "R211"
+			(at 40.894 123.19 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2k"
+			(at 40.894 125.73 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:0603WAF2201T5E"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010230_UNI-ROYAL-Uniroyal-Elec-0603WAF2201T5E_C4190.pdf"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100mW 2.2kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C4190"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0603WAF2201T5E"
+			(at 39.37 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cb32833e-9a90-4fa0-bb24-c8d05733681e")
+		)
+		(pin "2"
+			(uuid "d38f534e-f3dd-48b3-8577-8365d32ed3fb")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "R211")
 					(unit 1)
 				)
 			)
@@ -12452,7 +12512,7 @@
 	)
 	(symbol
 		(lib_id "Device:NetTie_2")
-		(at 113.03 30.48 90)
+		(at 111.76 30.48 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12463,7 +12523,7 @@
 		(fields_autoplaced yes)
 		(uuid "569d397e-23f7-427a-955e-c80011fbf4bf")
 		(property "Reference" "NT202"
-			(at 114.3 29.2099 90)
+			(at 113.03 29.2099 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12475,7 +12535,7 @@
 			)
 		)
 		(property "Value" "NetTie_2"
-			(at 114.3 31.7499 90)
+			(at 113.03 31.7499 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12487,7 +12547,7 @@
 			)
 		)
 		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-			(at 113.03 30.48 0)
+			(at 111.76 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12498,7 +12558,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 30.48 0)
+			(at 111.76 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12509,7 +12569,7 @@
 			)
 		)
 		(property "Description" "Net tie, 2 pins"
-			(at 113.03 30.48 0)
+			(at 111.76 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12650,7 +12710,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:FPM253WFR001TML")
-		(at 107.95 33.02 0)
+		(at 106.68 33.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12660,7 +12720,7 @@
 		(dnp no)
 		(uuid "6226cb60-9bec-4ac8-9b83-d3cfadd3efaa")
 		(property "Reference" "R201"
-			(at 107.95 27.94 0)
+			(at 106.68 27.94 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12670,7 +12730,7 @@
 			)
 		)
 		(property "Value" "1m"
-			(at 107.95 30.48 0)
+			(at 106.68 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12680,7 +12740,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12691,7 +12751,7 @@
 			)
 		)
 		(property "Datasheet" "https://item.szlcsc.com/347967.html"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12702,7 +12762,7 @@
 			)
 		)
 		(property "Description" "1mΩ 3W Current Sense Resistor Surface-mount (SMD) ±1% ±50ppm/℃ 2512 Current Sense Resistors / Shunt Resistors ROHS"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12713,7 +12773,7 @@
 			)
 		)
 		(property "LCSC" "C7420016"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12724,7 +12784,7 @@
 			)
 		)
 		(property "Manufacturer" "FOJAN"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12735,7 +12795,7 @@
 			)
 		)
 		(property "Manufacturer Part" "FPM253WFR001TML"
-			(at 107.95 33.02 0)
+			(at 106.68 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12762,7 +12822,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:BSC070N10NS3G")
-		(at 85.09 58.42 90)
+		(at 62.23 58.42 90)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -12773,7 +12833,7 @@
 		(dnp no)
 		(uuid "636d9a54-994c-45e1-b54e-ca1cb88428f1")
 		(property "Reference" "Q201"
-			(at 85.09 62.23 90)
+			(at 62.23 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12783,7 +12843,7 @@
 			)
 		)
 		(property "Value" "BSC070N10NS3G"
-			(at 85.09 64.77 90)
+			(at 62.23 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12793,7 +12853,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:BSC070N10NS3G"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12804,7 +12864,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Infineon-Technologies-BSC070N10NS3G_C501502.pdf"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12815,7 +12875,7 @@
 			)
 		)
 		(property "Description" "-55℃~+150℃ 1 N-channel 100V 114W 21pF 3.5V 3nF 42nC@10V 520pF 7mΩ@10V 90A N-Channel TDSON-8(5x6) MOSFETs ROHS"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12826,7 +12886,7 @@
 			)
 		)
 		(property "LCSC" "C501502"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12837,7 +12897,7 @@
 			)
 		)
 		(property "Manufacturer" "Infineon Technologies"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12848,7 +12908,7 @@
 			)
 		)
 		(property "Manufacturer Part" "BSC070N10NS3G"
-			(at 85.09 58.42 0)
+			(at 62.23 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12902,7 +12962,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6918b91c-1e37-4a77-b6f8-138e0240ff23")
-		(property "Reference" "#PWR0211"
+		(property "Reference" "#PWR0212"
 			(at 27.94 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -12962,7 +13022,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "#PWR0211")
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -13048,7 +13108,7 @@
 	)
 	(symbol
 		(lib_id "Device:NetTie_2")
-		(at 102.87 30.48 90)
+		(at 101.6 30.48 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13059,7 +13119,7 @@
 		(fields_autoplaced yes)
 		(uuid "6c6f5a77-b708-4344-8271-69adad3ba152")
 		(property "Reference" "NT201"
-			(at 104.14 29.2099 90)
+			(at 102.87 29.2099 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13071,7 +13131,7 @@
 			)
 		)
 		(property "Value" "NetTie_2"
-			(at 104.14 31.7499 90)
+			(at 102.87 31.7499 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13083,7 +13143,7 @@
 			)
 		)
 		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-			(at 102.87 30.48 0)
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13094,7 +13154,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 30.48 0)
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13105,7 +13165,7 @@
 			)
 		)
 		(property "Description" "Net tie, 2 pins"
-			(at 102.87 30.48 0)
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13141,7 +13201,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "6d4cb4a0-cfd6-44d9-8753-c0288d986c45")
-		(property "Reference" "TP204"
+		(property "Reference" "TP205"
 			(at 46.482 176.784 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13203,7 +13263,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "TP204")
+					(reference "TP205")
 					(unit 1)
 				)
 			)
@@ -13220,7 +13280,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6dec05db-c51a-4832-b2fe-d3d435addb32")
-		(property "Reference" "#PWR0213"
+		(property "Reference" "#PWR0211"
 			(at 64.77 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -13280,7 +13340,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "#PWR0213")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
@@ -13297,7 +13357,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6f9cb3bc-e1b1-4a15-8b34-9877a93f6968")
-		(property "Reference" "R204"
+		(property "Reference" "R206"
 			(at 256.794 40.64 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13394,7 +13454,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R204")
+					(reference "R206")
 					(unit 1)
 				)
 			)
@@ -13411,7 +13471,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7281c9e0-b79b-4a8c-bbc0-c69b70fb1bfc")
-		(property "Reference" "R205"
+		(property "Reference" "R207"
 			(at 162.052 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13508,121 +13568,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R205")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:1206W4F1003T5E")
-		(at 71.12 39.37 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "73b78c4a-1637-4013-b9be-e8857bdf9f7d")
-		(property "Reference" "R215"
-			(at 64.516 38.1 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100k"
-			(at 64.516 40.64 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C17900"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "1206W4F1003T5E"
-			(at 71.12 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f296e2ee-1172-44d4-946b-0c29641e10d9")
-		)
-		(pin "1"
-			(uuid "bdf50a3b-333b-4559-849f-008207ffd5c3")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R215")
+					(reference "R207")
 					(unit 1)
 				)
 			)
@@ -13850,7 +13796,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:1206W4F1003T5E")
-		(at 100.33 39.37 270)
+		(at 77.47 39.37 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13860,7 +13806,7 @@
 		(dnp no)
 		(uuid "78071263-812c-4004-b1a6-9df1e7c34e29")
 		(property "Reference" "R202"
-			(at 93.472 38.1 90)
+			(at 70.612 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13871,7 +13817,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 93.472 40.64 90)
+			(at 70.612 40.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13882,7 +13828,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13893,7 +13839,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13904,7 +13850,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13915,7 +13861,7 @@
 			)
 		)
 		(property "LCSC" "C17900"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13926,7 +13872,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13937,7 +13883,7 @@
 			)
 		)
 		(property "Manufacturer Part" "1206W4F1003T5E"
-			(at 100.33 39.37 0)
+			(at 77.47 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13964,7 +13910,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:FZ2A101M1313")
-		(at 115.57 45.72 270)
+		(at 114.3 45.72 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13974,7 +13920,7 @@
 		(dnp no)
 		(uuid "7d332dbf-4220-42ee-a168-4ab585b9c51a")
 		(property "Reference" "C203"
-			(at 107.188 44.704 90)
+			(at 105.918 44.704 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13985,7 +13931,7 @@
 			)
 		)
 		(property "Value" "100uF"
-			(at 107.188 47.244 90)
+			(at 105.918 47.244 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13996,7 +13942,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:FZ2A101M1313"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14007,7 +13953,7 @@
 			)
 		)
 		(property "Datasheet" "https://item.szlcsc.com/245807.html"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14018,7 +13964,7 @@
 			)
 		)
 		(property "Description" "-55℃~+105℃ 100V 100uF 12.5mm 13.5mm 320mΩ 5000hrs@105℃ 500mA ±20% SMD,D12.5xL13.5mm Aluminum Electrolytic Capacitors - SMD ROHS"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14029,7 +13975,7 @@
 			)
 		)
 		(property "LCSC" "C5260780"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14040,7 +13986,7 @@
 			)
 		)
 		(property "Manufacturer" "JARSON"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14051,7 +13997,7 @@
 			)
 		)
 		(property "Manufacturer Part" "FZ2A101M1313"
-			(at 115.57 45.72 0)
+			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14071,120 +14017,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:1206W4F1003T5E")
-		(at 63.5 45.72 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8562de74-c2bd-444f-8e0d-7f34422c1486")
-		(property "Reference" "R216"
-			(at 56.896 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100k"
-			(at 56.896 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C17900"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "1206W4F1003T5E"
-			(at 63.5 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "e0c30115-d184-42a4-86fc-9f1cf1e46f6a")
-		)
-		(pin "1"
-			(uuid "31570670-d4b1-4ff5-909a-ebbe6fa60c8f")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R216")
 					(unit 1)
 				)
 			)
@@ -14654,7 +14486,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8e62ce52-65dc-4a83-947e-611d268ce499")
-		(property "Reference" "R203"
+		(property "Reference" "R205"
 			(at 226.06 35.814 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14745,6 +14577,120 @@
 		)
 		(pin "1"
 			(uuid "c6a93679-227b-46ac-918b-b6562df7b4c7")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "R205")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:1206W4F1003T5E")
+		(at 86.36 39.37 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9b7ab0a6-60e5-4b93-961d-8dc3bb38d51e")
+		(property "Reference" "R203"
+			(at 79.756 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100k"
+			(at 79.756 40.64 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17900"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "1206W4F1003T5E"
+			(at 86.36 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bfb97487-65a5-426b-96b3-1880a54f3395")
+		)
+		(pin "1"
+			(uuid "48780496-d934-45c0-8fb7-02b8d454148b")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -14994,7 +14940,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b3d6683f-8185-480a-a967-a6084e621be3")
-		(property "Reference" "R210"
+		(property "Reference" "R212"
 			(at 72.644 127 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15091,7 +15037,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R210")
+					(reference "R212")
 					(unit 1)
 				)
 			)
@@ -15263,7 +15209,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b8176113-d312-49e3-a782-4ff69119a753")
-		(property "Reference" "R206"
+		(property "Reference" "R208"
 			(at 256.794 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15360,7 +15306,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R206")
+					(reference "R208")
 					(unit 1)
 				)
 			)
@@ -15446,7 +15392,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:FC-2012HRK-620D")
-		(at 71.12 52.07 90)
+		(at 91.44 52.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15454,9 +15400,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c4c3ccf7-16b2-4f1c-8959-b69ffdf376b0")
-		(property "Reference" "LED203"
-			(at 73.914 51.054 90)
+		(uuid "b8ee97a0-4f3c-4e2b-b98f-cbcd4e511982")
+		(property "Reference" "LED201"
+			(at 94.234 51.054 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15467,7 +15413,7 @@
 			)
 		)
 		(property "Value" "48V"
-			(at 73.914 53.594 90)
+			(at 94.234 53.594 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15478,7 +15424,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:FC-2012HRK-620D"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15489,7 +15435,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2409272203_Foshan-NationStar-Optoelectronics-NCD0805R1_C84256.pdf"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15500,7 +15446,7 @@
 			)
 		)
 		(property "Description" "-30℃~+85℃ 1.6V~2.6V 130° 195mcd 25mA 615nm~630nm 630nm 65mW Discrete Diode Red 0805 LED Indication - Discrete ROHS"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15511,7 +15457,7 @@
 			)
 		)
 		(property "LCSC" "C84256"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15522,7 +15468,7 @@
 			)
 		)
 		(property "Manufacturer" "Foshan NationStar Optoelectronics"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15533,7 +15479,7 @@
 			)
 		)
 		(property "Manufacturer Part" "NCD0805R1"
-			(at 71.12 52.07 0)
+			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15544,7 +15490,7 @@
 			)
 		)
 		(property "Color" "RED"
-			(at 80.01 53.594 90)
+			(at 100.33 53.594 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15554,15 +15500,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "8d79a18d-19b0-4706-b5b4-d029989c33f2")
+			(uuid "e200f849-d824-4716-81b0-36d84f044bd4")
 		)
 		(pin "2"
-			(uuid "75bee6fe-004a-4639-8de9-a4a3294f7cd4")
+			(uuid "c57fe90c-413b-4e6d-8e70-aa5134c1c509")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "LED203")
+					(reference "LED201")
 					(unit 1)
 				)
 			)
@@ -15703,6 +15649,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:1206W4F1003T5E")
+		(at 96.52 39.37 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cfd5508b-59dc-4906-b7b2-cdbeaed5a340")
+		(property "Reference" "R204"
+			(at 89.916 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100k"
+			(at 89.916 40.64 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17900"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "1206W4F1003T5E"
+			(at 96.52 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9042bfb5-1007-423f-832c-89408536c637")
+		)
+		(pin "1"
+			(uuid "ef6c6bd7-e57d-40c3-a592-560e3d85666e")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "R204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL10B102KB8NNNC")
 		(at 242.57 40.64 180)
 		(unit 1)
@@ -15825,7 +15885,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d8f41854-5c1d-4e73-9790-a566a71f75e3")
-		(property "Reference" "R214"
+		(property "Reference" "R216"
 			(at 53.594 139.7 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15922,7 +15982,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R214")
+					(reference "R216")
 					(unit 1)
 				)
 			)
@@ -15930,7 +15990,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:BZT52C12_C19077410")
-		(at 100.33 52.07 270)
+		(at 77.47 52.07 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15940,7 +16000,7 @@
 		(dnp no)
 		(uuid "dd1c9ebd-14de-4f92-970c-ca275be04581")
 		(property "Reference" "D202"
-			(at 88.138 50.8 90)
+			(at 65.278 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15951,7 +16011,7 @@
 			)
 		)
 		(property "Value" "BZT52C12"
-			(at 88.138 53.34 90)
+			(at 65.278 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15962,7 +16022,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15973,7 +16033,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2501071555_hongjiacheng-BZT52C12_C19077410.pdf"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15984,7 +16044,7 @@
 			)
 		)
 		(property "Description" "-55℃~+150℃ 1 Independent 100nA@8V 11.4V~12.6V 12V 150Ω 25Ω 350mW SOD-123 Zener Diodes ROHS"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15995,7 +16055,7 @@
 			)
 		)
 		(property "LCSC" "C19077410"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16006,7 +16066,7 @@
 			)
 		)
 		(property "Manufacturer" "hongjiacheng"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16017,7 +16077,7 @@
 			)
 		)
 		(property "Manufacturer Part" "BZT52C12"
-			(at 100.33 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16237,7 +16297,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 127 59.69 0)
+		(at 125.73 59.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16248,7 +16308,7 @@
 		(fields_autoplaced yes)
 		(uuid "deb82c8e-50b5-4758-9e2d-a24346c6b18c")
 		(property "Reference" "#PWR0203"
-			(at 127 66.04 0)
+			(at 125.73 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16259,7 +16319,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 127 64.77 0)
+			(at 125.73 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16269,7 +16329,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 59.69 0)
+			(at 125.73 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16280,7 +16340,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 59.69 0)
+			(at 125.73 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16291,7 +16351,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 127 59.69 0)
+			(at 125.73 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16324,7 +16384,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "df967628-5c1f-458c-84b6-cc1da1aef54b")
-		(property "Reference" "R213"
+		(property "Reference" "R215"
 			(at 72.644 137.16 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16421,7 +16481,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R213")
+					(reference "R215")
 					(unit 1)
 				)
 			)
@@ -16438,7 +16498,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e304bf03-3fd8-4d98-af68-1320b6b3f666")
-		(property "Reference" "LED201"
+		(property "Reference" "LED202"
 			(at 212.344 131.064 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16545,7 +16605,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "LED201")
+					(reference "LED202")
 					(unit 1)
 				)
 			)
@@ -16553,7 +16613,7 @@
 	)
 	(symbol
 		(lib_id "hexagan:V_IN")
-		(at 127 31.75 0)
+		(at 125.73 31.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16564,7 +16624,7 @@
 		(fields_autoplaced yes)
 		(uuid "e3cd474c-2995-4779-b9a9-dbb29bd6ce2f")
 		(property "Reference" "#PWR0201"
-			(at 127 35.56 0)
+			(at 125.73 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16575,7 +16635,7 @@
 			)
 		)
 		(property "Value" "V_IN"
-			(at 127 26.67 0)
+			(at 125.73 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16585,7 +16645,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:FZ2A101M1313"
-			(at 127 31.75 0)
+			(at 125.73 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16596,7 +16656,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 31.75 0)
+			(at 125.73 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16607,7 +16667,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"V_IN\": protected 48 V input bus"
-			(at 127 31.75 0)
+			(at 125.73 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16718,7 +16778,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f8074c58-d02e-4dce-b2e4-62371ee9f362")
-		(property "Reference" "R212"
+		(property "Reference" "R214"
 			(at 126.238 132.08 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16815,7 +16875,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R212")
+					(reference "R214")
 					(unit 1)
 				)
 			)
