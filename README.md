@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, and every sheet symbol on the root sheet has its pins. Remaining before layout: wiring the root sheet (no wires are drawn yet), fixing the 48V LED's wiring (see design/indicator-leds.md), annotating each sheet into its own range, ERC on every sheet, and each design note's open questions. Layout has not started.
+> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, and every sheet symbol on the root sheet has its pins. Remaining before layout: wiring the root sheet (no wires are drawn yet), annotating each sheet into its own range, ERC on every sheet, and each design note's open questions. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 

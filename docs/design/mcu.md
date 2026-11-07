@@ -21,7 +21,7 @@ Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md).
 - Reset (`XRSn`, U1 pin 3) pull-up and capacitor
 - Selected external 16 MHz crystal **ESD16.0000F12M25F**, two **18 pF** load capacitors and a **0 Ohm** X2 series resistor
 - Boot-mode jumpers on the boot pins
-- HEARTBEAT and FAULT LEDs
+- `HEARTBEAT` (LED501) and `FAULT` (LED502) LEDs; see [indicator-leds.md](indicator-leds.md)
 
 **Hierarchical labels**
 
@@ -32,7 +32,7 @@ Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md).
 | `WD_IN` | out | enable |
 | `STAGE_EN_FB` | in | enable |
 | `XRSn` | bidir | enable, comms_debug |
-| `I_SENSE`, `VOUT_SENSE`, `VIN_SENSE`, `TEMP_SENSE` | in | sensing |
+| `I_OUT_SENSE`, `I_IN_SENSE`, `V_OUT_SENSE`, `V_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | in | sensing |
 | `SCI_TX` | out | comms_debug |
 | `SCI_RX` | in | comms_debug |
 | `TCK`, `TMS`, `TDI` | in | comms_debug |
@@ -41,7 +41,7 @@ Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md).
 **Notes**
 - Every U1 pin assignment must match `pinmux.syscfg`. Change the `.syscfg` first, then the schematic.
 - `MCU_PWMH` / `MCU_PWML` are one ePWM A/B pair on high-resolution-capable pins, with dead time generated in the ePWM.
-- `I_SENSE` and `VOUT_SENSE` go on ADC pins that also reach CMPSS comparators, routed through the ePWM X-BAR to the trip zone, so overcurrent and overvoltage shut the PWM down in hardware.
+- `I_OUT_SENSE`, `V_OUT_SENSE` and `V_IN_SENSE` go on ADC pins that also reach CMPSS comparators, routed through the ePWM X-BAR to the trip zone, so overcurrent, output overvoltage and the fast input overvoltage (input_supply decision #24) shut the PWM down in hardware.
 - Keep the boot pins free of any function that could be driven during boot.
 
 ---
@@ -280,14 +280,14 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 ##### GPIO39 - physical pin 46 - `HEARTBEAT`
 
 - **Function:** GPIO output driving the local green heartbeat/status LED.
-- **Connection:** `U1.46 -> R10.2`; `R10.1 -> LED1.2` (anode); `LED1.1` (cathode) `-> GND`. R10 is the series current-limiting resistor.
-- **Chosen parts for this pin:** `R10`, **1 kOhm**, **0603WAF1001T5E**, **LCSC C21190**; `LED1`, green **KT-0603G**, **LCSC C12624**.
+- **Connection:** `U1.46 -> R501`; `R501 -> LED501` anode; LED501 cathode `-> GND`. R501 is the series current-limiting resistor.
+- **Chosen parts for this pin:** `R501`, **330 Ohm**, **0603WAF3300T5E**, **LCSC C23138**; `LED501`, green **KT-0805G**, **LCSC C2297** (≈ 1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 green (C12624, an Extended part) and R10 1 kOhm.
 
 ##### GPIO40 - physical pin 53 - `FAULT`
 
 - **Function:** GPIO output driving the local red fault LED.
-- **Connection:** `U1.53 -> R11.2`; `R11.1 -> LED2.1` (anode); `LED2.2` (cathode) `-> GND`. R11 is the series current-limiting resistor.
-- **Chosen parts for this pin:** `R11`, **1 kOhm**, **0603WAF1001T5E**, **LCSC C21190**; `LED2`, red **KT-0603R**, **LCSC C2286**.
+- **Connection:** `U1.53 -> R502`; `R502 -> LED502` anode; LED502 cathode `-> GND`. R502 is the series current-limiting resistor.
+- **Chosen parts for this pin:** `R502`, **1 kOhm**, **0603WAF1001T5E**, **LCSC C21190**; `LED502`, red **NationStar NCD0805R1**, **LCSC C84256** (≈ 1.1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 red KT-0603R (C2286).
 
 ### Proposed signal-to-pin assignment
 
@@ -295,16 +295,18 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 |---|---|---|---|---|
 | `MCU_PWMH` | out | 52 | GPIO0 / EPWM1_A | enable; high-side PWM |
 | `MCU_PWML` | out | 51 | GPIO1 / EPWM1_B | enable; low-side PWM, paired dead time |
-| `I_SENSE` | in | 9 | A2/B6/C9; select ADCA channel 2 and CMPSS1 high positive input 0 (`CMP1_HP0`) | sensing; current feedback and cycle-by-cycle trip |
-| `VOUT_SENSE` | in | 23 | A4/B8/C14; select ADCB channel 8 and CMPSS2 high positive input 0 (`CMP2_HP0`) | sensing; output feedback and latched overvoltage trip |
-| `VIN_SENSE` | in | 6 | A6; ADCA channel 6 | sensing; input voltage |
-| `TEMP_SENSE` | in | 18 | A12/C1; ADCC channel 1 | sensing; temperature |
+| `I_OUT_SENSE` | in | 8 | A3/B3/C5 (as named on the U1 symbol); CMPSS3 high comparator, positive input 5 (`CMP3_HP5`) | sensing; current feedback and cycle-by-cycle trip |
+| `V_OUT_SENSE` | in | 14 | A1/B7; CMPSS1, positive input 4 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip. Convert on an ADC that converts nothing else (ADCB channel 7 suggested), per sensing's acquisition note |
+| `V_IN_SENSE` | in | 15 | A0/B15/C15; CMPSS3 low comparator, positive input 2 (`CMP3_LP2`) | sensing; feedforward, UVLO, and the fast input-overvoltage trip (input_supply #24). Shares CMPSS3 with `I_OUT_SENSE`, so it takes the low comparator |
+| `I_IN_SENSE` | in | 9 | A2/B6/C9; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
+| `HS_TEMP_SENSE` | in | 23 | A4/B8/C14; ADC only | sensing; high-side FET temperature |
+| `LS_TEMP_SENSE` | in | 13 | A5/B12/C2; ADC only | sensing; low-side FET temperature |
 | `MCU_EN` | out | 50 | GPIO2 | enable; request switching |
 | `WD_IN` | out | 49 | GPIO3 | enable; external watchdog check-in |
 | `STAGE_EN_FB` | in | 48 | GPIO4 | enable; hardware enable feedback |
 | `SCI_TX` | out | 1 | GPIO29 / SCIA_TX | comms_debug; MCU TX to bridge RX |
 | `SCI_RX` | in | 2 | GPIO28 / SCIA_RX | comms_debug; MCU RX from bridge TX |
-| HEARTBEAT LED | out | 46 | GPIO39 | local status LED (green)|
-| FAULT LED | out | 53 | GPIO40 | local fault LED (red)|
+| HEARTBEAT LED | out | 46 | GPIO39 | LED501 via R501 (green) |
+| FAULT LED | out | 53 | GPIO40 | LED502 via R502 (red) |
 
-Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local. Route the two CMPSS trip outputs through the ePWM X-BAR into the ePWM digital-compare/trip-zone logic: current limiting is cycle-by-cycle; overvoltage is latched. The comparator mux selections, trip polarity and PWM-off actions still need implementation and validation.
+Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local. Route the three CMPSS trips (CMPSS3 high for `I_OUT_SENSE`, CMPSS1 for `V_OUT_SENSE`, CMPSS3 low for `V_IN_SENSE`) through the ePWM X-BAR into the ePWM digital-compare/trip-zone logic: current limiting is cycle-by-cycle; both overvoltage trips are latched. CMPSS input mapping is from the F280039C datasheet's analog pin table (64-pin PM); pins 6 (A6) and 18 (A12/C1) are now unused analog inputs. The comparator mux selections, trip polarity and PWM-off actions still need implementation and validation.
