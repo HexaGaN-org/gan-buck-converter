@@ -48,6 +48,7 @@ One row per significant choice. Never delete a row: mark it *Superseded* and add
 | 15 | 2026-11-06 | `+5V` maximum stays 5.5 V in normal operation, with one accepted exception: a J202 bench supply mis-set above 5.5 V can reach the TPS2121's overvoltage cutoff (5.21–5.68 V), putting up to 5.68 V on the low-side gate | Requiring input_supply to guarantee ≤ 5.5 V (a cutoff that can trip on a correctly set 5.0 V supply) | See input_supply #23. The bench rule is 5.0 V on J202; the exceedance needs a mis-set supply and stays below the FET's ±6.5 V pulsed rating, though that rating isn't meant for continuous use | input_supply: none (cutoff unchanged) | Accepted |
 | 16 | 2026-11-06 | VDD bulk capacitor C322: 10 µF 25 V X5R 0603 (Samsung CL10A106MA8NRNC, C96446) in place of 1 µF (C15849); supersedes the VDD value in #5. C321 (100 nF at the pins) unchanged | 2.2 µF or 4.7 µF 0603 (a new part number) | The calculation row requires $C_{VDD} \ge 10\,C_{BST}$ ≈ 1 µF; the 1 µF part kept only 0.66 µF at 5 V, so the pair gave ≈ 0.76 µF. C96446 is already on the board (input_supply C209), so no new part or loading fee, and 10 µF is the top of the datasheet's 220 nF–10 µF range | none | Accepted |
 | 17 | 2026-11-06 | Input ceramics C303–C308 on the standard `C_1206_3216Metric` footprint instead of the HandSolder variant | Keep HandSolder pads (longer, easier to rework) | These sit in the power loop, where the longer pads add loop inductance for no benefit: JLCPCB places them by machine. C311–C318 and R301 stay on HandSolder pads for now (outside the loop) | Layout: power-loop placement unchanged | Accepted |
+| 18 | 2026-11-06 | `12V` output LED LED301 (KT-0805G green, C2297) on `V_OUT` through R307 10 kΩ (C25804), per [indicator-leds.md](indicator-leds.md) | No output LED (the e-load shows the output) | Output state visible at J301 without the e-load; ≈ 0.9 mA, 8 mW. Its current flows through R301, so it shows up as ≈ 1 mA of load in `I_OUT_SENSE`, inside the zero calibration | none | Accepted |
 
 ---
 
@@ -115,6 +116,7 @@ One row per calculation. Note where each input came from (specification, datashe
 | J301 | 12 V output connector | Kefa KF635-6.35-2P | C475102 | 2-pin screw terminal, 32 A, 10–22 AWG, M3, 6.35 mm pitch; through-hole | [LCSC](https://www.lcsc.com/product-detail/C475102.html) |
 | R302, C320 | Switch-node RC snubber (DNP) | — | — | 1206 resistor + 1206 100 V C0G footprints; values from the measured ringing | |
 | TP_VIN1, TP_SW1, TP_VOUT1, TP_GND1, TP_GND2 | Test pads | — | — | Footprint only. In layout, put one ground pad right beside `TP_SW` (near Q302's source) and the other beside `TP_VOUT` | |
+| LED301, R307 | `12V` output LED | KENTO KT-0805G; UNI-ROYAL 0603WAF1002T5E | C2297; C25804 | Green 0805 LED ($V_F$ 2.6–3.1 V), 10 kΩ: ≈ 0.9 mA at 12 V; Basic. Place beside J301 | |
 
 ---
 
