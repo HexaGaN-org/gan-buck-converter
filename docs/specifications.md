@@ -21,12 +21,14 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 
 | Protection | Threshold | Response | Implemented by |
 |---|---|---|---|
-| Cycle-by-cycle overcurrent | [TBD] A | Truncate PWM pulse | CMPSS → ePWM trip zone |
-| Output overvoltage | [TBD] V | Disable PWM, latch off | CMPSS / ADC |
-| Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC / comparator |
-| Input overvoltage, fast | ≈ 55 V | Trip PWM within ≈ 1 µs, latch off | CMPSS on `V_IN_SENSE` → ePWM trip zone. Decision #24 in [design/input_supply.md](design/input_supply.md) |
-| Overtemperature | [TBD] °C | Disable PWM | Thermistor + ADC |
+| Cycle-by-cycle overcurrent | ≈ 22 A | Truncate the PWM pulse, every cycle | CMPSS3 high comparator on `I_OUT_SENSE` → ePWM trip zone (cycle-by-cycle). Above the 18.9 A worst-case peak (200 W, 300 kHz); with ≈ 2.4 A of trip lag and offset, peaks stay near 24.4 A, below L301's 31 A $I_{sat}$ |
+| Output overvoltage | 13.2 V (+10 %) | Disable PWM, latch off | CMPSS1 on `V_OUT_SENSE` → ePWM trip zone (one-shot) |
+| Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC, in firmware. Proposed 38 V on / 36 V off ([design/input_supply.md](design/input_supply.md)) |
+| Input overvoltage, fast | ≈ 55 V | Trip PWM within ≈ 1 µs, latch off | CMPSS4 on `V_IN_SENSE` → ePWM trip zone (one-shot). Decision #24 in [design/input_supply.md](design/input_supply.md) |
+| Overtemperature | [TBD] °C | Disable PWM | RTDs + ADC, in firmware |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
+
+Each comparator threshold is a DAC code referenced to VDDA (`+3V3`); the pins, comparators and codes are in [firmware/firmware-requirements.md](firmware/firmware-requirements.md) §5.3 and [design/mcu.md](design/mcu.md). The pin plan behind them was set on 2026-11-06; the mcu schematic still has `V_IN_SENSE` and `I_IN_SENSE` on their old pins until it is updated.
 
 ## Components
 

@@ -221,7 +221,7 @@ Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 
 - **Description:** Analog-to-digital channels; 12-bit results range from 0 to 4095. The selected reference mode gives a 0-3.3 V measurement range.
 - **Pins:** 6-15, 18-20, 23-25; names such as `A0`, `B2` and `C6` identify internal ADC channels.
 - **Connection:** Scaled 0-3 V sensing signals; see the proposed channel assignments below.
-- **Input RC/clamps:** Owned by sensing; values **TBD**. Meet acquisition time, input protection limits and comparator-trip bandwidth.
+- **Input RC/clamps:** Owned by sensing; values in [sensing.md](sensing.md). Meet acquisition time, input protection limits and comparator-trip bandwidth.
 
 #### `DACA_OUT` / `DACB_OUT`
 
@@ -295,12 +295,12 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 |---|---|---|---|---|
 | `MCU_PWMH` | out | 52 | GPIO0 / EPWM1_A | enable; high-side PWM |
 | `MCU_PWML` | out | 51 | GPIO1 / EPWM1_B | enable; low-side PWM, paired dead time |
-| `I_OUT_SENSE` | in | 8 | A3/B3/C5 (as named on the U1 symbol); CMPSS3 high comparator, positive input 5 (`CMP3_HP5`) | sensing; current feedback and cycle-by-cycle trip |
-| `V_OUT_SENSE` | in | 14 | A1/B7; CMPSS1, positive input 4 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip. Convert on an ADC that converts nothing else (ADCB channel 7 suggested), per sensing's acquisition note |
-| `V_IN_SENSE` | in | 15 | A0/B15/C15; CMPSS3 low comparator, positive input 2 (`CMP3_LP2`) | sensing; feedforward, UVLO, and the fast input-overvoltage trip (input_supply #24). Shares CMPSS3 with `I_OUT_SENSE`, so it takes the low comparator |
-| `I_IN_SENSE` | in | 9 | A2/B6/C9; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
-| `HS_TEMP_SENSE` | in | 23 | A4/B8/C14; ADC only | sensing; high-side FET temperature |
-| `LS_TEMP_SENSE` | in | 13 | A5/B12/C2; ADC only | sensing; low-side FET temperature |
+| `I_OUT_SENSE` | in | 8 | A3 on **ADCA, alone**; CMPSS3 high comparator (`CMP3_HP5`). The low comparator (`CMP3_LP5`) is spare for a negative-current limit | sensing; current feedback and cycle-by-cycle overcurrent trip |
+| `V_OUT_SENSE` | in | 14 | B7 on **ADCB, alone**; CMPSS1 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip |
+| `V_IN_SENSE` | in | **18** (planned; on 15 in the schematic until moved) | C1 on ADCC; CMPSS4 (`CMP4_HP2`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
+| `I_IN_SENSE` | in | **15** (planned; on 9 in the schematic until moved) | C15 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
+| `HS_TEMP_SENSE` | in | 23 | C14 on ADCC; ADC only | sensing; high-side FET temperature |
+| `LS_TEMP_SENSE` | in | 13 | C2 on ADCC; ADC only | sensing; low-side FET temperature |
 | `MCU_EN` | out | 50 | GPIO2 | enable; request switching |
 | `WD_IN` | out | 49 | GPIO3 | enable; external watchdog check-in |
 | `STAGE_EN_FB` | in | 48 | GPIO4 | enable; hardware enable feedback |
@@ -309,4 +309,8 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 | HEARTBEAT LED | out | 46 | GPIO39 | LED501 via R501 (green) |
 | FAULT LED | out | 53 | GPIO40 | LED502 via R502 (red) |
 
-Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local. Route the three CMPSS trips (CMPSS3 high for `I_OUT_SENSE`, CMPSS1 for `V_OUT_SENSE`, CMPSS3 low for `V_IN_SENSE`) through the ePWM X-BAR into the ePWM digital-compare/trip-zone logic: current limiting is cycle-by-cycle; both overvoltage trips are latched. CMPSS input mapping is from the F280039C datasheet's analog pin table (64-pin PM); pins 6 (A6) and 18 (A12/C1) are now unused analog inputs. The comparator mux selections, trip polarity and PWM-off actions still need implementation and validation.
+Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local.
+
+**Protection and ADC plan (2026-11-06).** Each hardware trip has its own comparator module, all at their default polarity (trip above the DAC level): CMPSS3 high for overcurrent on `I_OUT_SENSE`, CMPSS1 for output overvoltage on `V_OUT_SENSE`, CMPSS4 for the fast input overvoltage on `V_IN_SENSE`. CMPSS2 and CMPSS3's low comparator are spare. The comparator DACs use VDDA (`+3V3`) as their reference; VDAC (pin 8) is taken by `I_OUT_SENSE`. Route the trips through the ePWM X-BAR into digital compare and the trip zone: overcurrent cycle-by-cycle, both overvoltages one-shot (latched). Thresholds, DAC codes and set-up order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves, so the loop samples them simultaneously; the four slow signals share ADCC.
+
+**Schematic change pending:** move `V_IN_SENSE` from pin 15 to pin 18 and `I_IN_SENSE` from pin 9 to pin 15, with their no-connect flags. Nothing changes on sensing or the root sheet. After the move, pins 6 (A6) and 9 (A2/B6/C9) are unused analog inputs. The comparator mapping is from the F280039C datasheet's analog subsystem diagram; SysConfig will confirm it when the pin-mux is set up.

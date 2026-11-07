@@ -100,11 +100,28 @@ The rules:
 Two kinds of protection, both required:
 
 **Instant hardware trips** (you configure them; the MCU's comparators then act on their own in nanoseconds):
-- **Overcurrent:** if the current goes above [TBD] A, cut the current switching pulse short. This repeats every cycle while the current is too high.
-- **Overvoltage:** if the output goes above [TBD] V, shut PWM off and keep it off.
+- **Overcurrent:** if the current goes above ≈ 22 A, cut the current switching pulse short. This repeats every cycle while the current is too high.
+- **Output overvoltage:** if the output goes above 13.2 V, shut PWM off and keep it off.
+- **Input overvoltage:** if the input goes above ≈ 55 V, shut PWM off and keep it off. This catches a surge before switching ringing can stack on top of it ([design/input_supply.md](../design/input_supply.md) decision #24).
+
+How to set them up. Each trip has a comparator of its own, and each comparator has its own built-in DAC that sets its threshold, so there is no reference chip to add:
+
+| Trip | Comparator | Signal, pin | Threshold → DAC code | PWM response |
+|---|---|---|---|---|
+| Overcurrent | CMPSS3, high comparator (`CMP3_HP5`) | `I_OUT_SENSE`, pin 8 | 2.75 V → 3413 | Cycle-by-cycle: the pulse ends, and the next period starts normally |
+| Output overvoltage | CMPSS1, high comparator (`CMP1_HP4`) | `V_OUT_SENSE`, pin 14 | 2.20 V → 2731 | One-shot: off until cleared |
+| Input overvoltage | CMPSS4, high comparator (`CMP4_HP2`) | `V_IN_SENSE`, pin 18 (pin 15 until the schematic is updated) | 1.43 V → 1773 | One-shot: off until cleared |
+
+- **DAC reference:** VDDA, which is `+3V3`. DAC code = volts ÷ 3.3 × 4096. Don't use the VDAC option: that pin carries `I_OUT_SENSE`. The current trip's DAC and the current sensor's zero both follow `+3V3`, so that error cancels; the two voltage trips inherit `+3V3`'s ±3 %, which is fine for protection.
+- **Path:** comparator → its digital filter (a few samples, to ignore switching noise) → ePWM X-BAR → digital compare → trip zone. Every trip forces **both** PWM outputs low.
+- **Polarity:** all three trip when the signal rises above the DAC level, the comparator's default.
+- **Order:** arm all three trips before raising `MCU_EN` and before enabling PWM. Clear the latched ones only from the **clear** command (5.2).
+- **Current threshold from amps:** volts = 1.65 + 0.05 × amps ([design/sensing.md](../design/sensing.md)). Measure the zero first (5.6) and add its offset.
+- **Plugging in 48 V** can briefly push the input past 55 V and latch the input trip while the stage is idle. Clear it before enabling.
+- **Spare:** CMPSS3's low comparator on `I_OUT_SENSE` is free for a negative-current limit if the output is ever back-fed. CMPSS2 is unused.
 
 **Software checks** (in your code, a little slower):
-- **Undervoltage:** don't start, or stop, if the input is below [TBD] V. Use two thresholds (on above one, off below a lower one) so it doesn't flicker at the edge.
+- **Undervoltage:** don't start, or stop, if the input is below [TBD] V (proposed: on above 38 V, off below 36 V). Use two thresholds (on above one, off below a lower one) so it doesn't flicker at the edge.
 - **Overtemperature:** stop if the temperature goes above [TBD] °C.
 - **Stuck in current limit:** if the overcurrent trip keeps firing for longer than a set time, treat it as a fault.
 
@@ -139,7 +156,8 @@ Requirements:
 - Put all controller tuning values (gains) in the configuration file, not scattered through the code.
 
 ### 5.6 Measure
-- Convert raw ADC numbers into real units (volts, amps, °C). The conversion factors will come from the hardware team.
+- Convert raw ADC numbers into real units (volts, amps, °C). The conversion factors are the published values in [design/sensing.md](../design/sensing.md).
+- ADC assignment: `I_OUT_SENSE` on ADC-A and `V_OUT_SENSE` on ADC-B, each **alone** on its ADC, so the control loop can sample both at the same instant without one disturbing the other. The four slow signals (`V_IN_SENSE`, `I_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`) share ADC-C; if `V_IN_SENSE`'s filter becomes 1 nF, give it a long acquisition window (about 4 µs).
 - At start-up, with switching off, measure the current sensor's zero reading and subtract it.
 
 ### 5.7 Talk to the laptop
@@ -203,7 +221,7 @@ Each step is finished before starting the next. Steps 1–5 use only the LaunchP
 
 ## 9. Still to be decided
 
-- Protection thresholds (the `[TBD]`s above): set by the hardware team in `specifications.md`.
+- Undervoltage and overtemperature thresholds (the `[TBD]`s above): set by the hardware team in `specifications.md`. The three hardware-trip thresholds are set.
 - Final switching frequency: chosen from the step 10 measurements.
 - Conversion factors for the measurements: from the hardware team once the sensing parts are chosen.
 - The exact command list: you define it in `firmware/PROTOCOL.md` during step 5.

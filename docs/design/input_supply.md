@@ -177,7 +177,7 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 |---|---|---|---|
 | `V_IN` operating range | 40–51 V (48 V nominal) | all sheets, firmware | UVLO thresholds still to be set (open questions) |
 | `V_IN` worst-case transient | 82.4 V (TVS clamp at rated surge) | power_stage, sensing, this sheet | Every part on `V_IN` must survive it: 100 V-class ICs and capacitors, and 1206 (200 V) resistors, not 0603 (≈ 75 V). Applies to the `V_IN_SENSE` divider on sensing |
-| Input overvoltage trip (fast) | ≈ 55 V, `V_IN_SENSE` on a CMPSS comparator to the ePWM trip zone, latched | sensing, mcu, firmware | Decision #24. Comparator path τ ≈ 1 µs. Can latch on a hot-plug while idle; firmware clears it before enabling |
+| Input overvoltage trip (fast) | ≈ 55 V (1.43 V on `V_IN_SENSE`), CMPSS4 (planned pin 18, mcu.md) to the ePWM trip zone, latched | sensing, mcu, firmware | Decision #24. Comparator path τ ≈ 1 µs. Can latch on a hot-plug while idle; firmware clears it before enabling |
 | `V_IN` hot-plug peak | ≈ 54–56 V | power_stage | Simulated with C203 fitted; below the TVS's 56.7 V minimum breakdown |
 | Board GND vs J201 negative | GND sits I × 10 mΩ (≈ 40 mV) above J201−, which is net `V_IN_RTN` | sensing, firmware, bench | Measure `V_IN` against board GND, never against J201−. Never connect `V_IN_RTN` to GND anywhere but through Q201 |
 | Input current, full load | 3.95 A at 40 V (150 W); 5.3 A at 200 W | power_stage, layout | Copper and connector sizing |
