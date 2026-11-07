@@ -4556,10 +4556,6 @@
 		(uuid "f7ace295-2922-46b5-aac3-764b2bc1cc55")
 	)
 	(no_connect
-		(at 73.66 124.46)
-		(uuid "0f8989eb-9246-499a-9422-93ef388c8b2b")
-	)
-	(no_connect
 		(at 132.08 105.41)
 		(uuid "23a8ef5a-c7c8-406d-a4ee-ac916a624b6b")
 	)
@@ -4604,10 +4600,6 @@
 		(uuid "88bc7ada-9881-49b8-a911-36ac865a360d")
 	)
 	(no_connect
-		(at 73.66 114.3)
-		(uuid "8aaaa155-4fbb-45b1-befe-8da83b71ffcd")
-	)
-	(no_connect
 		(at 132.08 113.03)
 		(uuid "8cbddd34-e79b-4b31-b7f9-4af8a6a34bb8")
 	)
@@ -4628,12 +4620,12 @@
 		(uuid "a43a4c3d-d762-4cca-b563-4586807c6a85")
 	)
 	(no_connect
-		(at 73.66 119.38)
-		(uuid "c715b96b-9ef2-4811-a63c-7e66f21ef9bf")
-	)
-	(no_connect
 		(at 73.66 139.7)
 		(uuid "d7f85e3a-271b-4091-a594-8717425b7b8c")
+	)
+	(no_connect
+		(at 73.66 142.24)
+		(uuid "e98938dc-ad20-4fe8-8012-2080b1d08540")
 	)
 	(no_connect
 		(at 132.08 100.33)
@@ -4660,8 +4652,8 @@
 		(uuid "f5830a44-1af8-4b80-9375-3bab4bdd9027")
 	)
 	(no_connect
-		(at 73.66 111.76)
-		(uuid "ff1ebef4-3b82-4967-9681-924d88bd0d93")
+		(at 73.66 127)
+		(uuid "f850a2a5-b96a-41d8-be8d-e08aef0f7d6c")
 	)
 	(wire
 		(pts
@@ -4682,6 +4674,16 @@
 			(type default)
 		)
 		(uuid "026a2134-f23f-400f-8c42-42809abab6c6")
+	)
+	(wire
+		(pts
+			(xy 63.5 121.92) (xy 73.66 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0377ed21-5e61-4bbe-9975-d1393be293aa")
 	)
 	(wire
 		(pts
@@ -4725,6 +4727,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 114.3) (xy 73.66 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15f01796-1cea-4523-a52c-93bae6a2c6a7")
+	)
+	(wire
+		(pts
 			(xy 135.89 91.44) (xy 135.89 118.11)
 		)
 		(stroke
@@ -4755,13 +4767,13 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 142.24) (xy 73.66 142.24)
+			(xy 63.5 119.38) (xy 73.66 119.38)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1ed1e93c-f544-474e-b8eb-d843246854e2")
+		(uuid "2695b8ca-8bbd-4857-b71b-a8c8ef6c4070")
 	)
 	(wire
 		(pts
@@ -4815,16 +4827,6 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 116.84) (xy 55.88 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44af85ce-e148-4837-9208-566399530985")
-	)
-	(wire
-		(pts
 			(xy 36.83 85.09) (xy 36.83 87.63)
 		)
 		(stroke
@@ -4852,6 +4854,16 @@
 			(type default)
 		)
 		(uuid "4d664358-5cb1-4c44-bf8b-07f8fa845f55")
+	)
+	(wire
+		(pts
+			(xy 63.5 111.76) (xy 73.66 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "525d5481-7739-4407-9ace-5922f634875c")
 	)
 	(wire
 		(pts
@@ -4922,6 +4934,16 @@
 			(type default)
 		)
 		(uuid "5e111c41-29a3-47c8-b346-3170422654bc")
+	)
+	(wire
+		(pts
+			(xy 63.5 116.84) (xy 73.66 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "609e52d6-2f48-4443-9e09-7c8a55e02eec")
 	)
 	(wire
 		(pts
@@ -5065,13 +5087,13 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 116.84) (xy 55.88 121.92)
+			(xy 63.5 124.46) (xy 73.66 124.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7ee457dd-29d2-466f-9965-e2ce943c9548")
+		(uuid "802cd46d-6875-41d7-b669-4598be82bbb5")
 	)
 	(wire
 		(pts
@@ -5132,16 +5154,6 @@
 			(type default)
 		)
 		(uuid "90fa056f-5903-4a78-82c0-98ffe99bbfc6")
-	)
-	(wire
-		(pts
-			(xy 71.12 127) (xy 73.66 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "929a4b50-eb7d-4c51-be27-e09b6efc1f27")
 	)
 	(wire
 		(pts
@@ -5282,16 +5294,6 @@
 			(type default)
 		)
 		(uuid "af663f6f-0afd-433c-9fc0-3d92c69bfb5c")
-	)
-	(wire
-		(pts
-			(xy 71.12 121.92) (xy 73.66 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b22e58fb-c61c-4ef2-acb1-0d4ee0dc0773")
 	)
 	(wire
 		(pts
@@ -5596,16 +5598,16 @@
 		)
 		(uuid "17bf2d41-b819-4071-a14b-06fe0eda632b")
 	)
-	(hierarchical_label "TEMP_SENSE"
+	(hierarchical_label "V_OUT_SENSE"
 		(shape input)
-		(at 71.12 142.24 180)
+		(at 63.5 114.3 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "3ba465ce-b615-4d43-857f-f235cc858965")
+		(uuid "247f8919-a792-4b5b-8319-fefa54c92787")
 	)
 	(hierarchical_label "TDI"
 		(shape input)
@@ -5629,28 +5631,6 @@
 		)
 		(uuid "4fe38fdf-94e7-4f93-8382-ff50184fecab")
 	)
-	(hierarchical_label "VOUT_SENSE"
-		(shape input)
-		(at 71.12 121.92 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "67be0345-40c1-4a31-ba1a-ff3a39a6c4a7")
-	)
-	(hierarchical_label "I_SENSE"
-		(shape input)
-		(at 55.88 121.92 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "6b7ccf4b-b278-401e-9484-8be054b5e5d7")
-	)
 	(hierarchical_label "TCK"
 		(shape input)
 		(at 62.23 81.28 180)
@@ -5672,6 +5652,17 @@
 			(justify right)
 		)
 		(uuid "81d20208-28a3-443a-9f7d-49e9884b06b4")
+	)
+	(hierarchical_label "V_IN_SENSE"
+		(shape input)
+		(at 63.5 111.76 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8f8a6296-9e42-4a3a-8aca-4a90189b7993")
 	)
 	(hierarchical_label "STAGE_EN_FB"
 		(shape input)
@@ -5717,16 +5708,38 @@
 		)
 		(uuid "bae87017-89d2-4be7-a5e6-3fec13706d7b")
 	)
-	(hierarchical_label "VIN_SENSE"
+	(hierarchical_label "HS_TEMP_SENSE"
 		(shape input)
-		(at 71.12 127 180)
+		(at 63.5 121.92 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "da4718e4-9969-42aa-b0bf-83ed32d30e0b")
+		(uuid "c2b86f82-9f69-435e-a79b-85509f54940f")
+	)
+	(hierarchical_label "I_OUT_SENSE"
+		(shape input)
+		(at 63.5 119.38 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c2c3c211-5c86-4c2e-b84e-0501c9e3aafd")
+	)
+	(hierarchical_label "LS_TEMP_SENSE"
+		(shape input)
+		(at 63.5 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d0e5606f-9013-4fa2-b2c2-d0534ad129b5")
 	)
 	(hierarchical_label "SCI_TX"
 		(shape output)
@@ -5738,6 +5751,17 @@
 			(justify left)
 		)
 		(uuid "e5fd17e6-1507-46c4-b926-901028061b4f")
+	)
+	(hierarchical_label "I_IN_SENSE"
+		(shape input)
+		(at 63.5 116.84 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ee4be854-5ddb-407e-8b4c-59eace0c5775")
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B475KQ8NQNC")
