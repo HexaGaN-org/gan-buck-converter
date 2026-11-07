@@ -235,7 +235,7 @@ How bring-up confirms this sheet works.
 - **Schematic field fixes before layout** (checked against commit `938934d`):
   - (Fixed 2026-11-06: NT201 / NT202 footprints; TP201–TP205 moved to `TestPoint:TestPoint_Pad_D2.0mm`, the same pad as power_stage, and excluded from the BOM and position files; TP205's Value corrected to `GND`.)
   - LED202's symbol and footprint were imported from Everlight 17-21SUYC/TR8, while its LCSC field is C2296 (KENTO KT-0805Y). Both are 0805, but confirm the footprint's pad numbering and polarity mark match the KENTO part, or re-import KT-0805Y.
-- **Power LED brightness.** KT-0805G's forward voltage is 2.6–3.1 V, so R207 (2.2 kΩ) on 3.3 V gives only 0.1–0.3 mA, and less on a high-$V_F$ part. Likely dim. Options: lower R207 to about 470 Ω (≈ 1 mA), or move the LED to `+5V`. Check one on the bench before changing.
+- **LEDs.** The board's LED plan (decided 2026-11-06) is in [indicator-leds.md](indicator-leds.md). On this sheet it means R207 → 330 Ω, LED202 → white KT-0805W with R209 → 2.2 kΩ, and a new `48V` LED (LED203, R215 ∥ R216). Decisions #20 and the LED part rows update when the schematic does.
 - **Root-sheet connection.** Add `I_SH_IN_P` / `I_SH_IN_N` sheet pins to this sheet's symbol on the root sheet, and matching inputs on sensing (owner: sensing), then wire them.
 - **MCU current.** The `+3V3` budget assumes ≈ 100 mA for the F280039C; confirm from its datasheet §6.5.1.
 - **C203 ripple current** (decision #9). Read the JARSON datasheet's ripple multiplier tables (ambient temperature and frequency) and record the derated rating; it should support 0.75 A at 45 °C. Verification test 6 confirms on the bench. Fallback: Ymin VKME1452A101MV (C487440).

@@ -132,9 +132,9 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Auxiliary step-down regulator (LM5164), 48 V → `5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
 - J202 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
 - Two-input power multiplexer (TPS2121): `5V_EXT` (priority) and `5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `5V_EXT`
-- SOURCE LED showing when the external input is active
+- `EXT 5V` LED (J202 live) and `48V` LED (`V_IN` live): see [design/indicator-leds.md](design/indicator-leds.md)
 - 3.3 V LDO (ST LDL1117S33R) from `+5V` → `+3V3`. No separate analog rail: MCU VDDA runs from `+3V3`
-- Power LED on `+3V3` and test points on every low-voltage rail (`V_IN` uses power_stage's `TP_VIN`)
+- `POWER` LED on `+3V3` and test points on every low-voltage rail (`V_IN` uses power_stage's `TP_VIN`)
 
 **Interface:** power nets (`V_IN`, `+5V`, `+3V3`, `GND`), plus the input-shunt Kelvin pair. `5V_AUX`, `5V_EXT` and `V_IN_RTN` (J201 negative, ahead of the reverse-polarity FET) stay local to this sheet.
 
@@ -165,6 +165,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Output capacitors
 - J301 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)
+- `12V` LED on `V_OUT` (see [design/indicator-leds.md](design/indicator-leds.md))
 - Test points `TP_SW`, `TP_VOUT`, `TP_VIN`, with ground points `TP_GND1` / `TP_GND2` beside them for short scope grounding
 
 **Hierarchical labels**
@@ -223,7 +224,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - Reset (`XRSn`) pull-up and capacitor
 - External 20 MHz crystal **ECS-200-8-30B-CKM**, two **12 pF** load capacitors and an X2 series resistor; populated, using footprint `hexagan:ECS-200-8-30B-CKM`
 - Boot-mode jumpers on the boot pins
-- HEARTBEAT and FAULT LEDs
+- `HEARTBEAT` and `FAULT` LEDs (see [design/indicator-leds.md](design/indicator-leds.md))
 
 **Hierarchical labels**
 
@@ -263,7 +264,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 - J5 enable switch input, with pull-down so an open switch means *off*
 - AND logic producing `STAGE_EN`
 - Shoot-through interlock and gating: a dual inverter (NOT `MCU_PWMH`, NOT `MCU_PWML`) and two 3-input AND gates → `HS_PWM` / `LS_PWM`
-- ENABLE LED, test points on `STAGE_EN` and `WD_OK`
+- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), test points on `STAGE_EN` and `WD_OK`
 
 **Hierarchical labels**
 

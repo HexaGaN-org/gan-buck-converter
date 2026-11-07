@@ -114,7 +114,7 @@ Two kinds of protection, both required:
 - Test every PWM change on the LaunchPad first, checking on a scope that the two outputs never overlap, and give new firmware its first run at low input voltage (for example 12 V, supply limited to 0.5 A).
 
 For every fault:
-- Record **why** it happened (a fault code), report it over serial, and light the FAULT LED.
+- Record **why** it happened (a fault code), report it over serial, and light the FAULT LED. The HEARTBEAT and FAULT blink patterns are in [design/indicator-leds.md](../design/indicator-leds.md).
 - Keep every threshold in **one configuration file**, with a comment saying where the number came from.
 
 ### 5.4 Keep the watchdog happy, but only when healthy

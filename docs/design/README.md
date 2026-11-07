@@ -10,6 +10,7 @@ One note per schematic sheet, recording why the sheet looks the way it does: dec
 | MCU | [mcu.md](mcu.md) |
 | Enable | [enable.md](enable.md) |
 | Comms and Debug | [comms_debug.md](comms_debug.md) |
+| Indicator LEDs (cross-sheet) | [indicator-leds.md](indicator-leds.md) |
 
 ## How to use
 
