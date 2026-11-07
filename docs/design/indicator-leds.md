@@ -4,7 +4,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 
 **Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
 
-**Status (2026-11-06):** plan agreed. Schematic changes are in PR #7 (open); the references below are the ones PR #7 assigns.
+**Status (2026-11-06):** implemented in PR #7 (merged), with two deviations from the plan: the 48V LED's wiring (open questions; needs fixing), and R209 left at 3.3 kΩ, so EXT 5V runs at ≈ 0.65 mA instead of ≈ 1 mA. The references below are the ones on the schematic.
 
 ---
 
@@ -39,7 +39,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 | Ref (planned) | Sheet · owner | Silkscreen | Shows | Driven by | Color · part | Resistor | Current | Location |
 |---|---|---|---|---|---|---|---|---|
 | LED203 | input_supply · Reza | `48V` | `V_IN` live, including charge left on the input capacitors | `V_IN` → R215 ∥ R216 → LED → GND | red · NCD0805R1 (C84256) | 2 × 100 kΩ 1206 (C17900) in parallel | 0.76 mA at 40 V · 0.92 at 48 V · 1.6 at the 82.4 V clamp | Beside J201 |
-| LED202 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R209 → LED → GND | white · KT-0805W (C34499) | R209 2.2 kΩ (C4190) | ≈ 0.95 mA (0.8–1.1) | Beside J202 |
+| LED202 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R209 → LED → GND | white · KT-0805W (C34499) | R209 3.3 kΩ as drawn (plan: 2.2 kΩ, C4190) | ≈ 0.65 mA as drawn (≈ 0.95 mA at 2.2 kΩ) | Beside J202 |
 | LED301 | power_stage · Reza | `12V` | `V_OUT` live | `V_OUT` → R307 → LED → GND | green · KT-0805G (C2297) | R307 10 kΩ (C25804) | ≈ 0.9 mA | Beside J301 |
 | LED201 | input_supply · Reza | `POWER` | Logic rails up (`+3V3` is the last rail in the chain) | `+3V3` → R207 → LED → GND | green · KT-0805G (C2297) | R207 330 Ω (C23138) | ≈ 1.4 mA (0.6–2.1) | Status row, position 1 |
 | LED501 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R501 → LED → GND | green · KT-0805G (C2297) | R501 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
@@ -98,22 +98,22 @@ The fault code is also reported over serial (firmware-requirements.md).
 Each owner makes these on their own sheet and updates that sheet's design note in the same commit.
 
 **input_supply (Reza)**
-- [ ] LED201 `POWER`: keep KT-0805G; **R207 2.2 kΩ → 330 Ω** (C23138).
-- [ ] LED202 `EXT 5V`: **replace the yellow with KT-0805W white (C34499)**, imported fresh from LCSC. This also clears the Everlight 17-21SUYC footprint mismatch. **R209 3.3 kΩ → 2.2 kΩ** (C4190).
-- [ ] **Add** LED203 `48V`: NCD0805R1 (C84256), anode through **R215 and R216, 100 kΩ 1206 each (C17900), in parallel**, to `V_IN`; cathode to GND.
+- [x] LED201 `POWER`: keep KT-0805G; **R207 2.2 kΩ → 330 Ω** (C23138).
+- [x] LED202 `EXT 5V`: **replace the yellow with KT-0805W white (C34499)**, imported fresh from LCSC. This also clears the Everlight 17-21SUYC footprint mismatch. **R209 3.3 kΩ → 2.2 kΩ** (C4190) — *not done: R209 is still 3.3 kΩ*.
+- [ ] **Add** LED203 `48V`: NCD0805R1 (C84256), anode through **R215 and R216, 100 kΩ 1206 each (C17900), in parallel**, to `V_IN`; cathode to GND. — *added, but wired differently: see open questions*
 
 **power_stage (Reza)**
-- [ ] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R307 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
+- [x] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R307 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
 
 **mcu (Yunxi)**
-- [ ] LED1 → LED501 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R501 330 Ω** (C23138).
-- [ ] LED2 → LED502 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R502, still 1 kΩ.
+- [x] LED1 → LED501 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R501 330 Ω** (C23138).
+- [x] LED2 → LED502 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R502, still 1 kΩ.
 
 **enable (Connor)**
-- [ ] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R601 1 kΩ** (C21190).
+- [x] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R601 1 kΩ** (C21190).
 
 **Library cleanup (after the swaps, in its own commit)**
-- [ ] Remove the now-unused `17-21SUYC_TR8`, `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`.
+- [ ] Remove the now-unused `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`. Keep `17-21SUYC_TR8`: LED601 uses it, and its footprint is identical to KENTO's own 0805 with KT-0805Y's pad numbering.
 
 ---
 
@@ -130,4 +130,5 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 
 ## Open questions
 
+- **48V LED wiring, as merged in #7 — needs fixing.** On the schematic, R215 alone feeds LED203 from the fuse node, R216 runs from the fuse node to `V_IN_RTN` (a 100 kΩ bleeder across the input, not half of a parallel pair), and LED203's cathode is on `V_IN_RTN`, not GND. It lights in normal use, at ≈ 0.46 mA (about half as bright as the others). With the input reversed, though, Q201 no longer protects the LED: it sees ≈ 48 V in reverse through 100 kΩ, against a reverse rating of only a few volts. Fix: move R216's lower end to LED203's anode so R215 ∥ R216 feed it, and move LED203's cathode to GND. Tapping from `V_IN` (after R201) as planned, or from the fuse node as drawn, both work; from `V_IN` the LED current is included in the input-current reading.
 - Status-row edge: choose during layout.
