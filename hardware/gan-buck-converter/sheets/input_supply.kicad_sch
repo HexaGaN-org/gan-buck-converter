@@ -10387,6 +10387,12 @@
 			(uuid "f7053552-925f-467b-a5b3-988a702ad0c5")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "LED203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "LED203")
@@ -10466,6 +10472,12 @@
 			(uuid "f2029daa-cb86-43c8-a8b6-ad6a3526b327")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "TP202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "TP202")
@@ -10580,6 +10592,12 @@
 			(uuid "d452910c-b2dd-43f6-96de-365ba1ea67d4")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C201")
@@ -10694,6 +10712,12 @@
 			(uuid "ff0e3ccb-8b2f-4983-81d1-76114eff8168")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R213")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R213")
@@ -10808,6 +10832,12 @@
 			(uuid "f1c94418-1da3-4b54-b6b2-77d2fc07665b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C206")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C206")
@@ -10887,6 +10917,12 @@
 			(uuid "590dcfb6-78a3-400f-8dab-844fce5115e2")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "TP203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "TP203")
@@ -11002,6 +11038,12 @@
 			(uuid "6a1b2d9c-3784-4ff0-bad6-23aabe0786b3")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "Q202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "Q202")
@@ -11121,6 +11163,12 @@
 			(uuid "3a35043b-b1e9-4efb-bb3b-5c199bd928c0")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "U202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "U202")
@@ -11199,6 +11247,12 @@
 			(uuid "168b918c-902d-4945-92f4-344b6d94482b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0208")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0208")
@@ -11276,6 +11330,12 @@
 			(uuid "f26e6430-da1d-468f-8e7a-e727971a388b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0213")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0213")
@@ -11355,6 +11415,12 @@
 			(uuid "6f4d0708-f1a7-4e74-a633-83ebc5738c9f")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "TP204")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "TP204")
@@ -11433,6 +11499,12 @@
 			(uuid "a1e20e26-a371-49b4-b3af-b6198f337c72")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0209")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0209")
@@ -11511,6 +11583,12 @@
 			(uuid "4df806c7-1fb1-4eef-95a7-a93f7eedd42a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0202")
@@ -11625,6 +11703,12 @@
 			(uuid "fe043c0c-4ed8-429a-ad57-63b0055e9ce9")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C205")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C205")
@@ -11739,6 +11823,12 @@
 			(uuid "a7838c6b-8c19-44f3-8faf-b2d2853fc4f7")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R210")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R210")
@@ -11817,6 +11907,12 @@
 			(uuid "594b5efa-5ca7-4e61-8444-77efa1d6b0ec")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0206")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0206")
@@ -11931,6 +12027,12 @@
 			(uuid "1266b3b9-a213-4d68-a1b9-e8158f352b5e")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C209")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C209")
@@ -12045,6 +12147,12 @@
 			(uuid "6f4d37ee-b43d-49c4-ab8e-d0f1b2079cf2")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C210")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C210")
@@ -12159,6 +12267,12 @@
 			(uuid "f2fa753e-c1af-4ed0-a0b3-9a3c7b7d2c3b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C208")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C208")
@@ -12274,6 +12388,12 @@
 			(uuid "4725725b-d4b7-45b0-8ec1-256ee294ef07")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "J201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "J201")
@@ -12388,6 +12508,12 @@
 			(uuid "b231802b-ccf3-4ec3-b7f4-76fec5849e88")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R209")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R209")
@@ -12502,6 +12628,12 @@
 			(uuid "d38f534e-f3dd-48b3-8577-8365d32ed3fb")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R211")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R211")
@@ -12586,6 +12718,12 @@
 			(uuid "3e4b334f-950a-40e8-8b6a-23c067ce0295")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "NT202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "NT202")
@@ -12700,6 +12838,12 @@
 			(uuid "28b121de-26ad-4c8a-a41e-f62524f7fb4e")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C211")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C211")
@@ -12812,6 +12956,12 @@
 			(uuid "b7c1a525-fe59-4ae4-8204-39ddde6afd3a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R201")
@@ -12943,6 +13093,12 @@
 			(uuid "db5386ce-5caf-49c8-86b5-e38ae32466fa")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "Q201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "Q201")
@@ -13020,6 +13176,12 @@
 			(uuid "1e9ebf01-eeaf-42c2-ba26-16d7ae3406c5")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0212")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0212")
@@ -13098,6 +13260,12 @@
 			(uuid "20a113ee-6caf-49a1-9d73-01e6c3777bd4")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0207")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0207")
@@ -13182,6 +13350,12 @@
 			(uuid "136191e8-8580-4fb8-b8fb-daf71182f553")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "NT201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "NT201")
@@ -13261,6 +13435,12 @@
 			(uuid "43a9f46c-5b42-4801-a681-08ce0d9e29ee")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "TP205")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "TP205")
@@ -13338,6 +13518,12 @@
 			(uuid "7251bbac-1434-40c3-afd4-4cfa86a5c269")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0211")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0211")
@@ -13452,6 +13638,12 @@
 			(uuid "dacc6033-dc38-44ec-99e4-555e561c5be8")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R206")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R206")
@@ -13566,6 +13758,12 @@
 			(uuid "a019447b-c7f6-44bf-82c2-758542bb9d0a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R207")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R207")
@@ -13643,6 +13841,12 @@
 			(uuid "d2240418-73a9-4494-897e-ce02b6906e20")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#FLG0201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#FLG0201")
@@ -13786,6 +13990,12 @@
 			(uuid "84c5f204-40f9-4fc8-a4e8-db69fa932b14")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "U203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "U203")
@@ -13900,6 +14110,12 @@
 			(uuid "4f432f75-e942-4354-9ebd-091df8dc17a2")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R202")
@@ -14014,6 +14230,12 @@
 			(uuid "cf042c3b-f3e3-40a0-aa78-9c88c5f39f3f")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C203")
@@ -14128,6 +14350,12 @@
 			(uuid "10ac338b-c16b-425c-a5ca-e2872edf9294")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C204")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C204")
@@ -14243,6 +14471,12 @@
 			(uuid "014ac26b-e9c9-44e5-b0f0-bbc6e11097db")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "J202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "J202")
@@ -14355,6 +14589,12 @@
 			(uuid "fac4ad8d-a402-4d44-abe1-71e87927be74")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "F201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "F201")
@@ -14467,6 +14707,12 @@
 			(uuid "a3e1543b-c32b-421c-8858-ebddc47935cc")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "L201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "L201")
@@ -14579,6 +14825,12 @@
 			(uuid "c6a93679-227b-46ac-918b-b6562df7b4c7")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R205")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R205")
@@ -14693,6 +14945,12 @@
 			(uuid "48780496-d934-45c0-8fb7-02b8d454148b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R203")
@@ -14807,6 +15065,12 @@
 			(uuid "24fa78fe-9bfd-4b62-a512-5baa2a93fb4a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "D201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "D201")
@@ -14921,6 +15185,12 @@
 			(uuid "08558767-cd2e-4217-923d-0c10f2bde2b2")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C207")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C207")
@@ -15035,6 +15305,12 @@
 			(uuid "0500c1ab-a2a2-470a-87ae-5ffe8bb6af1e")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R212")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R212")
@@ -15112,6 +15388,12 @@
 			(uuid "8f3ceeb6-3170-45b1-b4dd-eb92d178a291")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#FLG0202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#FLG0202")
@@ -15190,6 +15472,12 @@
 			(uuid "8bf48804-845f-4de2-a23a-035641a18e8a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0210")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0210")
@@ -15304,6 +15592,12 @@
 			(uuid "e5c064fd-aa93-4c6f-b198-8467b4f20efd")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R208")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R208")
@@ -15382,6 +15676,12 @@
 			(uuid "3583adad-1a4e-470f-91c8-b6285567b59a")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0205")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0205")
@@ -15506,6 +15806,12 @@
 			(uuid "c57fe90c-413b-4e6d-8e70-aa5134c1c509")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "LED201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "LED201")
@@ -15640,6 +15946,12 @@
 			(uuid "6ccd5e23-d4d9-4ffc-8094-623af2919db9")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "U201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "U201")
@@ -15754,6 +16066,12 @@
 			(uuid "ef6c6bd7-e57d-40c3-a592-560e3d85666e")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R204")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R204")
@@ -15866,6 +16184,12 @@
 			(uuid "d5e53262-4a3e-46c6-abd3-dfbe1b4d0ada")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C202")
@@ -15980,6 +16304,12 @@
 			(uuid "830b3109-da5a-413a-b5a3-f0776e694c26")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R216")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R216")
@@ -16094,6 +16424,12 @@
 			(uuid "8cab3448-b093-4522-9692-7c59042f7561")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "D202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "D202")
@@ -16173,6 +16509,12 @@
 			(uuid "81e44fbe-1dca-4dec-b25d-7b8bccd367a0")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "TP201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "TP201")
@@ -16287,6 +16629,12 @@
 			(uuid "834a0b55-fe18-4447-9d13-dfb99d9bc9e9")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "C212")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C212")
@@ -16365,6 +16713,12 @@
 			(uuid "1f23650e-cde3-44e4-bc9a-6f26c10db7ec")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0203")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0203")
@@ -16479,6 +16833,12 @@
 			(uuid "c3837416-91e8-4bc6-9746-41077de339c1")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R215")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R215")
@@ -16603,6 +16963,12 @@
 			(uuid "127dc0f4-92f9-468a-a427-0a7fe1f1cdc7")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "LED202")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "LED202")
@@ -16681,6 +17047,12 @@
 			(uuid "c6ce3810-0240-4746-930f-e3b7ce22b20b")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0201")
@@ -16759,6 +17131,12 @@
 			(uuid "929d4084-f8ac-4e56-a5d1-ab5ee21221a8")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "#PWR0204")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "#PWR0204")
@@ -16873,6 +17251,12 @@
 			(uuid "d9aea961-6b4a-4c3e-acc8-dc7ad10d50ee")
 		)
 		(instances
+			(project "input_supply"
+				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
+					(reference "R214")
+					(unit 1)
+				)
+			)
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R214")
@@ -16881,4 +17265,10 @@
 			)
 		)
 	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
