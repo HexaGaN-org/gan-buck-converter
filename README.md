@@ -26,7 +26,7 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four M3 mounting holes (H101–H104, pads on `GND`) and a main-specifications block added. Bring-up safety notes still to add |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four M3 mounting holes (H101–H104, pads on `GND`), a main-specifications block and a power tree added. Bring-up safety notes still to add |
 | 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
 | 3 | power_stage | Reza Rahimzadeh | Captured; wired on the root sheet |
 | 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; wired on the root sheet |
