@@ -113,7 +113,20 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Responsible for:** showing how the board fits together, and nothing else.
 
-**Contains:** the six sheet symbols wired together by their hierarchical pins; four M3 mounting holes H101–H104 (`Mechanical:MountingHole_Pad`, footprint `MountingHole_3.2mm_M3_Pad_Via`, pads tied to `GND`, excluded from the BOM); a *Main Specifications* text block; and the project title. References on this sheet use the 100 range.
+**Contains:** the six sheet symbols wired together by their hierarchical pins; four M3 mounting holes H101–H104 (`Mechanical:MountingHole_Pad`, footprint `MountingHole_3.2mm_M3_Pad_Via`, pads tied to `GND`, excluded from the BOM); a *Main Specifications* text block; a *Power Tree* diagram; and the project title. References on this sheet use the 100 range.
+
+**Power tree (2026-11-10).** A drawing only (text boxes and arrow graphics, nothing on the board or in the BOM). Rails are solid boxes, converters dashed. It shows each rail's voltage and maximum current; the values come from the design notes, which remain the reference if the two ever differ:
+
+| Rail | On the sheet | Set by |
+|---|---|---|
+| `V_IN` | 48 V, 3.95 A max | Full load at 40 V input ([design/input_supply.md](design/input_supply.md)) |
+| `V_OUT` | 12 V, 12.5 A max | Output current limit ([specifications.md](specifications.md)) |
+| `5V_AUX` | 5.0 V, 1 A max | LM5164 rating |
+| `5V_EXT` | 5.0 V, 1.24 A max | TPS2121 current limit |
+| `+5V` | 5.0 V, 1.24 A max | TPS2121 current limit when fed from J202; 1 A when fed from `5V_AUX` |
+| `+3V3` | 3.3 V, 1.2 A max | LDL1117 rating |
+
+Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → `5V_AUX`; `5V_AUX` or `5V_EXT` → power mux (TPS2121) → `+5V` → LDO (LDL1117) → `+3V3`. Expected load on the low-voltage rails is about 150 mA.
 
 **Still to add:** a notes block with the bring-up safety rules from the README. Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assembly.md](guides/jlcpcb-assembly.md)).
 
