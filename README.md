@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): pre-layout schematic review.** Circuitry on all six subsheets is captured and the root sheet is wired. A fresh hierarchy ERC has 0 errors and 130 reviewed warnings; the PCB still has no placed footprints or outline. The [latest review](docs/reviews/2026-11-11-pre-layout-rereview.md) lists the remaining PWM overlap decision, supply margins and validation work before layout freeze.
+> **Status (November 2026): pre-layout schematic review.** Circuitry on all six subsheets is captured and the root sheet is wired. A fresh hierarchy ERC reports zero violations under the project's configured checks; the PCB still has no placed footprints or outline. The [PWM overlap decision](docs/design/enable.md#open-questions) and [+5V handover margin](docs/design/input_supply.md#values-published-to-other-sheets) remain open before layout freeze.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -52,6 +52,7 @@ docs/
   firmware/
     firmware-requirements.md         Plain-language firmware guide for the firmware team
     edge-ai-dead-time-optimizer.md   Proposal: on-board model that picks the lowest-loss dead time and frequency
+    pinmux-hardware.md              Physical MCU pin allocation frozen for PCB routing
   datasheets/                Datasheets and reference images for key parts (MCU, crystal, JTAG pinout)
   gan-buck-converter-BOM.xlsx  Cost and notes per sheet, refreshed from KiCad BOM exports
 hardware/gan-buck-converter/
