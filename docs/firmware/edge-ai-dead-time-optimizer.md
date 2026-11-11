@@ -26,7 +26,7 @@ The best dead time depends on the operating point, and the two edges behave diff
 |---|---|---|---|
 | Valley current goes negative below | $I_{out} < \Delta I_L / 2$ | 3.3 A / 2 ≈ 1.65 A at 400 kHz (2.2 A at 300 kHz, 1.3 A at 500 kHz) | $\Delta I_L$ from power_stage.md. Below this, high-side ZVS is possible with the right dead time |
 | Charge to swing the switch node | $Q_{node} \approx 2 Q_{oss}$ | ≈ 86 nC | $Q_{oss}$ 43 nC typ at 50 V (datasheet), one FET charging and one discharging |
-| Node fall time, high-side off → low-side on | $t \approx Q_{node} / I_{peak}$, $I_{peak} = I_{out} + \Delta I_L/2$ | 14.2 A: ≈ 6 ns · 5 A: ≈ 13 ns · 2 A: ≈ 23 ns | Upper-bound estimate (ignores channel current during turn-off). Add the ≈ 6.5 ns input-filter mismatch from power_stage.md decision #5 |
+| Node fall time, high-side off → low-side on | $t \approx Q_{node} / I_{peak}$, $I_{peak} = I_{out} + \Delta I_L/2$ | 14.2 A: ≈ 6 ns · 5 A: ≈ 13 ns · 2 A: ≈ 23 ns | Upper-bound estimate (ignores channel current during turn-off). The ≈ 6.7 ns input-filter deadtime increase is nominal only and can reverse at component/threshold corners; use measured gate timing. See [PWM overlap and input-filter analysis](../reviews/2026-11-11-pwm-overlap-and-input-filter.md) |
 | Dead-time loss at fixed 10 ns per edge | $V_{SD} I_{out} \cdot 2 t_{dt} \cdot f_{sw}$ | ≈ 0.24 W at 12.5 A, 400 kHz | From power_stage.md |
 
 The optimum moves by a factor of four across the load range, and real behavior (C_oss nonlinearity, driver delays, layout parasitics, temperature) is hard to capture analytically. That makes it a good fit for a model learned from measurements.

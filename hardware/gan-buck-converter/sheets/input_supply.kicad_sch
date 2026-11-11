@@ -3237,112 +3237,37 @@
 			(embedded_fonts no)
 		)
 		(symbol "JLCImport:BSC070N10NS3G"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q201"
-				(at 6.35 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "BSC070N10NS3G"
-				(at 3.81 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:BSC070N10NS3G"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Infineon-Technologies-BSC070N10NS3G_C501502.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+150℃ 1 N-channel 100V 114W 21pF 3.5V 3nF 42nC@10V 520pF 7mΩ@10V 90A N-Channel TDSON-8(5x6) MOSFETs ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C501502"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Infineon Technologies"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "BSC070N10NS3G"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "BSC070N10NS3G C501502 Infineon Technologies PG-TDSON-8_L5.0-W6.0-P1.27-BL-EP"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "BSC070N10NS3G_0_1"
+    (pin_names (offset 1.016))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "Q" (at 0 9.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "BSC070N10NS3G" (at 0 -7.08 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "JLCImport:BSC070N10NS3G" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Infineon-Technologies-BSC070N10NS3G_C501502.pdf" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "-55℃~+150℃ 1 N-channel 100V 114W 21pF 3.5V 3nF 42nC@10V 520pF 7mΩ@10V 90A N-Channel TDSON-8(5x6) MOSFETs ROHS" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "ki_keywords" "BSC070N10NS3G C501502 Infineon Technologies PG-TDSON-8_L5.0-W6.0-P1.27-BL-EP" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C501502" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "Infineon Technologies" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer Part" "BSC070N10NS3G" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (symbol "BSC070N10NS3G_0_1"
 				(polyline
 					(pts
 						(xy -2.286 1.905) (xy -2.286 -1.905)
@@ -3658,8 +3583,7 @@
 					)
 				)
 			)
-			(embedded_fonts no)
-		)
+  )
 		(symbol "JLCImport:BZT52C12_C19077410"
 			(pin_names
 				(offset 1.016)
@@ -5391,7 +5315,7 @@
 						(type outline)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -5.08 0 0)
 					(length 3.81)
 					(name "-"
@@ -5409,7 +5333,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 0 180)
 					(length 3.81)
 					(name "+"
@@ -5431,112 +5355,37 @@
 			(embedded_fonts no)
 		)
 		(symbol "JLCImport:FNR8040S470MT"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "L"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "FNR8040S470MT"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:FNR8040S470MT"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_cjiang--Changjiang-Microelectronics-Tech-FNR8040S470MT_C168137.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "1.7A 177mΩ 2A 47uH Magnetic Shielded Inductor ±20% SMD,8x8mm Power Inductors ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C168137"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "cjiang (Changjiang Microelectronics Tech)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "FNR8040S470MT"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C168137 FNR8040S470MT IND-SMD_L8.0-W8.0_FNR80XXS cjiang (Changjiang Microelectronics Tech)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "FNR8040S470MT_0_1"
+    (pin_names (offset 1.016))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "L" (at 0 2 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "FNR8040S470MT" (at 0 -2 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "JLCImport:FNR8040S470MT" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_cjiang--Changjiang-Microelectronics-Tech-FNR8040S470MT_C168137.pdf" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "1.7A 177mΩ 2A 47uH Magnetic Shielded Inductor ±20% SMD,8x8mm Power Inductors ROHS" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "ki_keywords" "C168137 FNR8040S470MT IND-SMD_L8.0-W8.0_FNR80XXS cjiang (Changjiang Microelectronics Tech)" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C168137" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "cjiang (Changjiang Microelectronics Tech)" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer Part" "FNR8040S470MT" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (symbol "FNR8040S470MT_0_1"
 				(arc
 					(start -4.2883 0.0173)
 					(mid -3.2763 1.0283)
@@ -5622,8 +5471,7 @@
 					)
 				)
 			)
-			(embedded_fonts no)
-		)
+  )
 		(symbol "JLCImport:FPM253WFR001TML"
 			(pin_names
 				(offset 1.016)
@@ -6175,112 +6023,37 @@
 			(embedded_fonts no)
 		)
 		(symbol "JLCImport:LDL1117S33R"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U203"
-				(at -0.635 10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LDL1117S33R"
-				(at -0.635 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:LDL1117S33R"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_STMicroelectronics-LDL1117S33R_C435835.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-40℃~+125℃@(Tj) 1 1.2A 18V 3.3V 500uA 600mV@(1.2A) 60uVrms 87dB@(120Hz) Fixed Over Current Protection、Thermal Shutdown Positive SOT-223-4 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C435835"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "STMicroelectronics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "LDL1117S33R"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C435835 LDL1117S33R SOT-223-4_L6.5-W3.5-P2.30-LS7.0-BR STMicroelectronics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "LDL1117S33R_0_1"
+    (pin_names (offset 1.016))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 7.08 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "LDL1117S33R" (at 0 -7.08 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "JLCImport:LDL1117S33R" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_STMicroelectronics-LDL1117S33R_C435835.pdf" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "-40℃~+125℃@(Tj) 1 1.2A 18V 3.3V 500uA 600mV@(1.2A) 60uVrms 87dB@(120Hz) Fixed Over Current Protection、Thermal Shutdown Positive SOT-223-4 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "ki_keywords" "C435835 LDL1117S33R SOT-223-4_L6.5-W3.5-P2.30-LS7.0-BR STMicroelectronics" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C435835" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "STMicroelectronics" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer Part" "LDL1117S33R" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (symbol "LDL1117S33R_0_1"
 				(circle
 					(center -7.62 3.81)
 					(radius 0.381)
@@ -6383,115 +6156,39 @@
 					)
 				)
 			)
-			(embedded_fonts no)
-		)
+  )
 		(symbol "JLCImport:LM5164DDAR"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U201"
-				(at 0 12.7 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LM5164DDAR"
-				(at 0 10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:LM5164DDAR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Texas-Instruments-LM5164DDAR_C477928.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-40℃~+150℃@(TJ) 1 10.5uA 1A 1MHz 6V~100V Adjustable Buck Buck Built-in Yes SO-8-EP DC-DC Converters ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C477928"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "LM5164DDAR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C477928 LM5164DDAR SO-8_L4.9-W3.9-P1.27-LS6.0-BL-EP Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "LM5164DDAR_0_1"
+    (pin_names (offset 1.016))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 9.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "LM5164DDAR" (at 0 -9.62 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "JLCImport:LM5164DDAR" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121943_Texas-Instruments-LM5164DDAR_C477928.pdf" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "-40℃~+150℃@(TJ) 1 10.5uA 1A 1MHz 6V~100V Adjustable Buck Buck Built-in Yes SO-8-EP DC-DC Converters ROHS" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "ki_keywords" "C477928 LM5164DDAR SO-8_L4.9-W3.9-P1.27-LS6.0-BL-EP Texas Instruments" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C477928" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "Texas Instruments" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer Part" "LM5164DDAR" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (symbol "LM5164DDAR_0_1"
 				(circle
 					(center -10.16 6.35)
 					(radius 0.381)
@@ -6684,8 +6381,7 @@
 					)
 				)
 			)
-			(embedded_fonts no)
-		)
+  )
 		(symbol "JLCImport:SMBJ51CA_C41376101"
 			(pin_names
 				(offset 1.016)
@@ -6869,112 +6565,37 @@
 			(embedded_fonts no)
 		)
 		(symbol "JLCImport:TPS2121RUXR"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U3"
-				(at 0 13.97 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TPS2121RUXR"
-				(at 0 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_DFN_QFN:Texas_VQFN-HR-12_2x2.5mm_P0.5mm"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121944_Texas-Instruments-TPS2121RUXR_C485916.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-40℃~+125℃ 2.8V~22V 200uA 56mΩ VQFN-HR-12(2x2.5) ORing Controllers ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C485916"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "TPS2121RUXR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C485916 TPS2121RUXR Texas Instruments VQFN-HR-12_L2.5-W2.0-P0.50-BL"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TPS2121RUXR_0_1"
+    (pin_names (offset 1.016))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 10.89 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "TPS2121RUXR" (at 0 -10.89 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Package_DFN_QFN:Texas_VQFN-HR-12_2x2.5mm_P0.5mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121944_Texas-Instruments-TPS2121RUXR_C485916.pdf" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "-40℃~+125℃ 2.8V~22V 200uA 56mΩ VQFN-HR-12(2x2.5) ORing Controllers ROHS" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "ki_keywords" "C485916 TPS2121RUXR Texas Instruments VQFN-HR-12_L2.5-W2.0-P0.50-BL" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C485916" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "Texas Instruments" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer Part" "TPS2121RUXR" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (symbol "TPS2121RUXR_0_1"
 				(circle
 					(center -5.08 7.62)
 					(radius 0.381)
@@ -7221,8 +6842,7 @@
 					)
 				)
 			)
-			(embedded_fonts no)
-		)
+  )
 		(symbol "JLCImport:whiteLEDSMD"
 			(pin_names
 				(offset 1.016)
@@ -7402,7 +7022,7 @@
 						(type outline)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 -1.27 180)
 					(length 3.81)
 					(name "A"
@@ -7420,7 +7040,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -5.08 -1.27 0)
 					(length 3.81)
 					(name "K"
@@ -8115,7 +7735,7 @@
 	)
 	(rectangle
 		(start 138.43 16.51)
-		(end 281.94 78.74)
+		(end 281.94 93.98)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -8228,6 +7848,16 @@
 			)
 		)
 		(uuid "ec63eda6-0171-4fe3-9698-8ec8866a1ba4")
+	)
+	(text "U201 local input ceramics - place by VIN/GND\n"
+		(exclude_from_sim no)
+		(at 167.64 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "24d37a4f-fb68-463b-a576-1b1489ef3b16")
 	)
 	(junction
 		(at 203.2 68.58)
@@ -12650,7 +12280,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "569d397e-23f7-427a-955e-c80011fbf4bf")
@@ -13282,7 +12912,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6c6f5a77-b708-4344-8271-69adad3ba152")
@@ -17264,6 +16894,380 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL31B225KCHSNNE")
+		(at 153.67 83.82 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "91ff4e9c-a1ee-4b27-ada5-5c1dbcb15c65")
+		(property "Reference" "C213"
+			(at 145.796 82.55 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uF"
+			(at 145.796 85.09 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
+			(at 153.67 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
+			(at 153.67 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 153.67 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+    (property "LCSC" "C170101" (at 153.67 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer" "Samsung Electro-Mechanics" (at 153.67 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer Part" "CL31B225KCHSNNE" (at 153.67 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+		(pin "1"
+			(uuid "9c0b9a55-8415-46eb-8e5d-8bc1871ffb0a")
+		)
+		(pin "2"
+			(uuid "c6c230f8-990d-410d-884d-3e30b42fb2ea")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "C213")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL31B225KCHSNNE")
+		(at 167.64 83.82 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "34674da3-3e0b-4723-be45-354e0e378803")
+		(property "Reference" "C214"
+			(at 159.766 82.55 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uF"
+			(at 159.766 85.09 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
+			(at 167.64 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
+			(at 167.64 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 167.64 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+    (property "LCSC" "C170101" (at 167.64 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer" "Samsung Electro-Mechanics" (at 167.64 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer Part" "CL31B225KCHSNNE" (at 167.64 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+		(pin "1"
+			(uuid "4018443c-ec95-4c37-912d-a236641e7fa8")
+		)
+		(pin "2"
+			(uuid "a1ba2bb6-2ae6-4c5d-870a-d28f99a6885d")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "C214")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL31B225KCHSNNE")
+		(at 181.61 83.82 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7fcad063-b665-4693-b133-bf3e25bb4fb4")
+		(property "Reference" "C215"
+			(at 173.736 82.55 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uF"
+			(at 173.736 85.09 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
+			(at 181.61 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
+			(at 181.61 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 181.61 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+    (property "LCSC" "C170101" (at 181.61 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer" "Samsung Electro-Mechanics" (at 181.61 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Manufacturer Part" "CL31B225KCHSNNE" (at 181.61 83.82 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+		(pin "1"
+			(uuid "41b1bb68-e5c5-4b78-b934-4ea832b8d937")
+		)
+		(pin "2"
+			(uuid "a3d98599-9f73-4190-a44e-e15d7767b5b1")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "C215")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 148.59 78.74) (xy 153.67 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d1d62fc-1f12-42e8-80f3-49ee62c6345a")
+	)
+	(wire
+		(pts
+			(xy 153.67 78.74) (xy 167.64 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93600176-1197-41e4-afed-93052f37ae39")
+	)
+	(junction
+		(at 153.67 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d33915da-3750-4947-b8cd-96abaf81124b")
+	)
+	(wire
+		(pts
+			(xy 167.64 78.74) (xy 181.61 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aac513a3-4735-4423-896d-ce1ca4fa75f8")
+	)
+	(junction
+		(at 167.64 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7465ce95-1756-4265-b7a3-8e2a43ab7615")
+	)
+	(wire
+		(pts
+			(xy 148.59 88.90) (xy 153.67 88.90)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "936ffb65-aabd-401e-bed9-9ab0a1b330f2")
+	)
+	(wire
+		(pts
+			(xy 153.67 88.90) (xy 167.64 88.90)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad55dea6-1b2d-4caa-bc92-5ad3d9b978e1")
+	)
+	(junction
+		(at 153.67 88.90)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3995f4c9-65ab-4e92-ae6d-f7493609f7a4")
+	)
+	(wire
+		(pts
+			(xy 167.64 88.90) (xy 181.61 88.90)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d5d0be2-6cb3-4d52-87f6-3cb60f6f8567")
+	)
+	(junction
+		(at 167.64 88.90)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80d43d18-2b3a-4982-baea-83ada2341741")
+	)
+	(global_label "V_IN"
+		(at 148.59 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "035517d8-343a-49a8-9ebe-a2f8865ec7b2")
+	)
+	(global_label "GND"
+		(at 148.59 88.90 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a95f1551-e7d7-48eb-b406-a45b87ff1a44")
 	)
 	(sheet_instances
 		(path "/"
