@@ -5,10 +5,10 @@
 	(uuid "260913a6-4356-45fc-8879-77352def2f4e")
 	(paper "A4")
 	(title_block
-		(title "Hardware enable and watchdog")
+		(title "Enable and Watchdog")
 		(rev "0.1")
 		(company "HexaGaN")
-		(comment 1 "Owner: [NAME]")
+		(comment 1 "Owner: Connor Jin")
 	)
 	(lib_symbols
 		(symbol "JLCImport:0603WAF1001T5E"

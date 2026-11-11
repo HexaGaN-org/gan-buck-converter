@@ -2194,17 +2194,6 @@
 				)
 			)
 		)
-		(property "Sim.Enable" "0"
-			(at 53.34 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
@@ -2594,17 +2583,6 @@
 				)
 			)
 		)
-		(property "Sim.Enable" "0"
-			(at 53.34 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
@@ -2749,17 +2727,6 @@
 			)
 		)
 		(property "Description" "Filled arrow, 300mil"
-			(at 34.29 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 34.29 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -2925,17 +2892,6 @@
 				)
 			)
 		)
-		(property "Sim.Enable" "0"
-			(at 107.95 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
@@ -3002,17 +2958,6 @@
 			)
 		)
 		(property "Description" "Filled 45° arrow, 300mil"
-			(at 53.34 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 53.34 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -3099,17 +3044,6 @@
 				)
 			)
 		)
-		(property "Sim.Enable" "0"
-			(at 81.28 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
@@ -3176,17 +3110,6 @@
 			)
 		)
 		(property "Description" "Filled arrow, 300mil"
-			(at 134.62 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 134.62 176.53 0)
 			(hide yes)
 			(show_name no)
@@ -3431,17 +3354,6 @@
 				)
 			)
 		)
-		(property "Sim.Enable" "0"
-			(at 34.29 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
@@ -3508,17 +3420,6 @@
 			)
 		)
 		(property "Description" "Filled arrow, 300mil"
-			(at 87.63 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 87.63 130.81 0)
 			(hide yes)
 			(show_name no)

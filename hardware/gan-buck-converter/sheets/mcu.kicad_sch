@@ -8,7 +8,7 @@
 		(title "Microcontroller (U1)")
 		(rev "0.1")
 		(company "HexaGaN")
-		(comment 1 "Owner: [NAME]")
+		(comment 1 "Owner: Yunxi He")
 	)
 	(lib_symbols
 		(symbol "Device:NetTie_2"

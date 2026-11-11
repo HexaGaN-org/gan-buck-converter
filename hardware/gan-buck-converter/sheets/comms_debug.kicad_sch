@@ -5,10 +5,10 @@
 	(uuid "7893625c-2516-4e61-9b32-affdc94bc95d")
 	(paper "A4")
 	(title_block
-		(title "USB serial and JTAG")
+		(title "Communications and Debug")
 		(rev "0.1")
 		(company "HexaGaN")
-		(comment 1 "Owner: [NAME]")
+		(comment 1 "Owner: Yunxi He")
 	)
 	(lib_symbols
 		(symbol "JLCImport:0603WAF1000T5E"
