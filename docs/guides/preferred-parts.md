@@ -109,10 +109,11 @@ Other Basic C0G values in 0603: 12, 15, 18, 20, 30, 33 and 330 pF.
 
 ### 100 V ceramics for the 48 V bus (Extended)
 
-Basic ceramics stop at 50 V, apart from C28233 above. Choose from these and keep the count of unique parts low. "Kept" is the capacitance remaining at that DC voltage, from Samsung's published DC-bias data (measured at 0.5 Vrms).
+Basic ceramics stop at 50 V, apart from C28233 above. Choose from these and keep the count of unique parts low. "Kept" is the capacitance remaining at that DC voltage, recorded from Samsung's published DC-bias curves at their stated AC test levels. These are curve readbacks, not guaranteed minimum values. For CL10B104KC8NNNC, the [exact-part Samsung specification and DC-bias graph](https://datasheet.octopart.com/CL10B104KC8NNNC-Samsung-datasheet-42770383.pdf) uses 1 Vrms and reads about 40% at 50 V and 35% at 60 V; 42% at 48 V is interpolated. The 2026-11-11 review could confirm the [CL31B225KCHSNNE nominal, tolerance and X7R specification](https://evelta.com/content/datasheets/110-CL31B225KCHSNNE.pdf), but could not retrieve Samsung's interactive bias graph again; reconfirm its percentages before finalizing U201's local bank.
 
 | Part | Value | Size | LCSC | Kept at 48 V | Kept at 60 V |
 |---|---|---|---|---|---|
+| **Samsung CL10B104KC8NNNC** | 100 nF 100 V X7R | 0603 | **C15725** | ≈ 42 % | ≈ 35 % |
 | Samsung CL21B104KCFNNNE (Basic) | 100 nF 100 V X7R | 0805 | C28233 | 52 % | 42 % |
 | Samsung CL31B105KCHNNNE | 1 µF 100 V X7R | 1206 | C13832 | 46 % | 35 % |
 | **Samsung CL31B225KCHSNNE** | 2.2 µF 100 V X7R | 1206 | **C170101** | 37.5 % | 29 % |

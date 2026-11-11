@@ -24,11 +24,11 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Cycle-by-cycle overcurrent | ≈ 22 A | Truncate the PWM pulse, every cycle | CMPSS3 high comparator on `I_OUT_SENSE` → ePWM trip zone (cycle-by-cycle). Above the 18.9 A worst-case peak (200 W, 300 kHz); with ≈ 2.4 A of trip lag and offset, peaks stay near 24.4 A, below L301's 31 A $I_{sat}$ |
 | Output overvoltage | 13.2 V (+10 %) | Disable PWM, latch off | CMPSS1 on `V_OUT_SENSE` → ePWM trip zone (one-shot) |
 | Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC, in firmware. Proposed 38 V on / 36 V off ([design/input_supply.md](design/input_supply.md)) |
-| Input overvoltage, fast | ≈ 55 V | Trip PWM within ≈ 1 µs, latch off | CMPSS4 on `V_IN_SENSE` → ePWM trip zone (one-shot). Decision #24 in [design/input_supply.md](design/input_supply.md) |
+| Input overvoltage, fast | ≈ 55 V | Target ≈ 1 µs trip, latch off; verify on hardware | CMPSS3 low comparator on `V_IN_SENSE` (pin 15), inverted to trip above its DAC threshold → separate ePWM one-shot trip. Decision #24 in [design/input_supply.md](design/input_supply.md) |
 | Overtemperature | [TBD] °C | Disable PWM | RTDs + ADC, in firmware |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
 
-Each comparator threshold is a DAC code referenced to VDDA (`+3V3`); the pins, comparators and codes are in [firmware/firmware-requirements.md](firmware/firmware-requirements.md) §5.3 and [design/mcu.md](design/mcu.md). The pin plan behind them was set on 2026-11-06; the mcu schematic still has `V_IN_SENSE` and `I_IN_SENSE` on their old pins until it is updated.
+Each comparator threshold is a DAC code referenced to VDDA (`+3V3`); the pins, comparators and codes are in [firmware/firmware-requirements.md](firmware/firmware-requirements.md) §5.3 and [design/mcu.md](design/mcu.md). CMPSS3's high and low comparators use separate DACs and ePWM trip responses. The schematic's current `V_IN_SENSE` pin 15 and `I_IN_SENSE` pin 9 are retained.
 
 ## Components
 
@@ -40,7 +40,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
 | sensing | TI INA241A3 current-sense amplifiers on the output and input shunts; TLV9061 buffers on the voltage and temperature channels; two 1 kΩ platinum RTDs beside the GaN FETs | Captured | [design/sensing.md](design/sensing.md) |
 | input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J202; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
-| enable | TI TPS3813K33 supervisor with window watchdog; SN74LVC2G08 AND gates and an SN74LVC1G00 NAND forming `STAGE_EN` and the shoot-through interlock; SW1 enable switch | Captured | [design/enable.md](design/enable.md) |
+| enable | TI TPS3813K33 supervisor with window watchdog; SN74LVC2G08 AND gates and an SN74LVC1G00 NAND forming `STAGE_EN` and a static both-high inhibit; SW1 enable switch | Captured; dynamic PWM overlap protection open | [design/enable.md](design/enable.md) |
 | comms_debug | Silicon Labs CP2102N USB-UART bridge; USBLC6-2SC6 ESD protection; USB-C receptacle (data only); 2 × 10 JTAG header | Captured | [design/comms_debug.md](design/comms_debug.md) |
 
 ## Mechanical and other
@@ -48,7 +48,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | Parameter | Value |
 |---|---|
 | Board size | [TBD] |
-| Mounting | 4 × M3 holes (H101–H104 on the top sheet), 3.2 mm plated with a via-stitched pad tied to `GND`. Positions: [TBD] with the board outline. Use nylon standoffs: board `GND` is not the 48 V supply's negative ([design/input_supply.md](design/input_supply.md) decision #6) |
+| Mounting | 4 × isolated M3 NPTH holes (H101–H104 on the top sheet), 3.2 mm. Positions and copper clearance: [TBD] with the board outline. Board `GND` is separated from the 48 V supply negative by Q201 ([design/input_supply.md](design/input_supply.md) decision #6) |
 | Layer count | 4, standard 1.6 mm stackup with the thinner L1–L2 prepreg (proposed, [design/power_stage.md](design/power_stage.md) decision #19). Stackup name: [TBD], record it here once chosen |
 | Input / output connectors | J201 and J301: Kefa KF635-6.35-2P 2-pin screw terminals (32 A, 10 AWG). Identical parts, so they go on opposite board edges with clear silkscreen |
 | Cooling | Natural convection through copper pours (no heatsink planned at 150 W). The layout reserves a top-side heatsink zone over the GaN FETs, fitted only if bench testing calls for it (proposed, [design/power_stage.md](design/power_stage.md) decision #20) |

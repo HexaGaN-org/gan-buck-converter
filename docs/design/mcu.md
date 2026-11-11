@@ -2,7 +2,7 @@
 
 Sheet: `sheets/mcu.kicad_sch`
 
-**Owner:** Yunxi He · **Reviewer:** [NAME] · **Last updated:** 2026-11-05
+**Owner:** Yunxi He · **Reviewer:** [NAME] · **Last updated:** 2026-11-11
 
 ## MCU section
 
@@ -39,7 +39,7 @@ Based on the MCU section of [schematic-hierarchy.md](../schematic-hierarchy.md).
 | `TDO` | out | comms_debug |
 
 **Notes**
-- Every U1 pin assignment must match `pinmux.syscfg`. Change the `.syscfg` first, then the schematic.
+- The physical U1 pin allocation is frozen for PCB routing in [pinmux-hardware.md](../firmware/pinmux-hardware.md). The future firmware `pinmux.syscfg` must implement that allocation; update the hardware table and schematic together if a pin moves.
 - `MCU_PWMH` / `MCU_PWML` are one ePWM A/B pair on high-resolution-capable pins, with dead time generated in the ePWM.
 - `I_OUT_SENSE`, `V_OUT_SENSE` and `V_IN_SENSE` go on ADC pins that also reach CMPSS comparators, routed through the ePWM X-BAR to the trip zone, so overcurrent, output overvoltage and the fast input overvoltage (input_supply decision #24) shut the PWM down in hardware.
 - Keep the boot pins free of any function that could be driven during boot.
@@ -56,7 +56,7 @@ U1 controls the 48 V-to-12 V buck converter using the TMS320F280039C, 64-pin PM 
 
 See [specifications](../specifications.md) for converter targets.
 
-Input-current telemetry (`I_IN_SENSE`) is also required for input power and the input-current limit; MCU ADC pin TBD.
+Input-current telemetry (`I_IN_SENSE`) uses U1 physical pin 9 (ADCC C9) for input power and the firmware input-current limit.
 
 ---
 
@@ -68,7 +68,7 @@ Pins with internal pullup and pulldown:
 Connections for Unused Pins
 ![alt text](../datasheets/image.png)
 
-- **Unused pins:** Use no-connect markers on unused physical pins 7, 8, 10-15, 19, 20, 24, 25, 29-34, 47, 54-57 and 61-64 (27 pins total). These markers do not enable internal pull-ups.
+- **Unused pins:** The current schematic marks physical pins 6, 7, 10-12, 18-20, 24, 25, 29-34, 47, 54-57 and 61-64 no-connect (25 pins total). Pins 8, 13, 14 and 15 are active sense inputs. No-connect markers do not enable internal pull-ups.
 - **Firmware:** Configure unused GPIO5-13, GPIO16, GPIO17, GPIO22, GPIO23, GPIO33 and GPIO41 as GPIO inputs with internal pull-ups enabled. Keep unused analog/DAC functions disabled.
 
 ---
@@ -180,19 +180,21 @@ Supply limits: [TI datasheet, Section 6.12.1.5.1, p. 80](../datasheets/tms320f28
 
 #### Boot select `GPIO24` / `GPIO32`
 
-Both pins default high for the planned flash boot, assuming OTP boot settings are unchanged. Reserve them from functions driven during boot. The pull-ups are selected as 10 kOhm for now; boot jumper/header parts have not been chosen.
+Both pins default high for the planned flash boot, assuming OTP boot settings are unchanged. Reserve them from functions driven during boot. R5 and R6 provide 10 kOhm pull-ups. JP501 and JP502 are normally-open solder jumpers to GND; closing one overrides its pull-up during reset. With JP501 closed and JP502 open, the default boot table selects SCI/Wait boot. Verify the OTP boot configuration before using the recovery mode.
 
 ##### GPIO24 - physical pin 35
 
 - **Function:** Boot-mode select, used together with GPIO32.
-- **Connection:** `U1.35 -> R5.1`, `R5.2 -> +3V3`. Planned boot jumper connects the U1.35 signal to GND when fitted; jumper reference and terminal numbers remain TBD.
-- **Chosen part for this pin:** `R5`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**.
+- **Connection:** `U1.35 -> BOOT_GPIO24 -> R5.1` and `JP501.1`; `R5.2 -> +3V3`; `JP501.2 -> GND`.
+- **Chosen parts for this pin:** `R5`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**; `JP501`, normally-open copper solder jumper, `Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm`.
 
 ##### GPIO32 - physical pin 40
 
 - **Function:** Boot-mode select, used together with GPIO24.
-- **Connection:** `U1.40 -> R6.1`, `R6.2 -> +3V3`. Planned boot jumper connects the U1.40 signal to GND when fitted; jumper reference and terminal numbers remain TBD.
-- **Chosen part for this pin:** `R6`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**.
+- **Connection:** `U1.40 -> BOOT_GPIO32 -> R6.1` and `JP502.1`; `R6.2 -> +3V3`; `JP502.2 -> GND`.
+- **Chosen parts for this pin:** `R6`, **10 kOhm**, **RCT0310KJLF**, **LCSC C177337**; `JP502`, same normally-open copper solder jumper footprint. Both jumpers are excluded from BOM and placement files.
+
+**Layout:** Put JP501 and JP502 on an accessible board face near the MCU, with `BOOT24` and `BOOT32` silkscreen. Keep their traces short and away from switching nodes; leave both open for normal Flash boot. Do not hide them under a heatsink or the debug header.
 
 #### `GPIO18/X2` / `GPIO19/X1`
 
@@ -233,42 +235,42 @@ Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 
 
 Digital inputs/outputs with peripheral functions selected in firmware. Each used pin below lists its own purpose, associated parts and known endpoints. Destination-sheet connector pin numbers and unselected parts stay TBD. Unassigned GPIOs have no new assignments or parts implied here.
 
-Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off during startup and verify their current and package polarity.
+The former duplicate pull-downs R7-R9 were removed from this sheet on 2026-11-11. Enable-sheet R19/R20/R18 are now the single 10 kOhm default-off pull-downs on `MCU_PWMH`, `MCU_PWML` and `MCU_EN`, to be placed near their receiving logic. Each draws about 0.33 mA from a high 3.3 V MCU output. Keep the status LEDs off during startup and verify their current and package polarity.
 
 ##### GPIO0 - physical pin 52 - `MCU_PWMH`
 
 - **Function:** EPWM1_A output; high-side PWM in the high-resolution-capable A/B pair. Generate dead time in ePWM.
-- **Connection:** `U1.52 -> MCU_PWMH` -> enable sheet MCU_PWMH input. `R7.1 -> U1.52/MCU_PWMH`, `R7.2 -> GND`. Hardware enable gates this signal before the driver.
-- **Chosen parts for this pin:** `R7`, **10 kOhm pull-down**, **RCT0310KJLF**, **LCSC C177337**.
+- **Connection:** `U1.52 -> MCU_PWMH` -> enable sheet MCU_PWMH input, held low when undriven by R19 on enable. Hardware enable gates this signal before the driver.
+- **Chosen parts for this pin:** No local pull-down; R19 on enable is 10 kOhm.
 
 ##### GPIO1 - physical pin 51 - `MCU_PWML`
 
 - **Function:** EPWM1_B output; low-side PWM paired with EPWM1_A, with dead time generated in ePWM.
-- **Connection:** `U1.51 -> MCU_PWML` -> enable sheet MCU_PWML input. `R8.1 -> U1.51/MCU_PWML`, `R8.2 -> GND`. Hardware enable gates this signal before the driver.
-- **Chosen parts for this pin:** `R8`, **10 kOhm pull-down**, **RCT0310KJLF**, **LCSC C177337**.
+- **Connection:** `U1.51 -> MCU_PWML` -> enable sheet MCU_PWML input, held low when undriven by R20 on enable. Hardware enable gates this signal before the driver.
+- **Chosen parts for this pin:** No local pull-down; R20 on enable is 10 kOhm.
 
 ##### GPIO2 - physical pin 50 - `MCU_EN`
 
 - **Function:** GPIO output requesting switching; the request is only one condition of hardware enable.
-- **Connection:** `U1.50 -> MCU_EN` -> enable sheet MCU_EN input. `R9.1 -> U1.50/MCU_EN`, `R9.2 -> GND`.
-- **Chosen parts for this pin:** `R9`, **10 kOhm pull-down**, **RCT0310KJLF**, **LCSC C177337**.
+- **Connection:** `U1.50 -> MCU_EN` -> enable sheet MCU_EN input, held low when undriven by R18 on enable.
+- **Chosen parts for this pin:** No local pull-down; R18 on enable is 10 kOhm.
 
 ##### GPIO3 - physical pin 49 - `WD_IN`
 
 - **Function:** GPIO output providing the external windowed-watchdog check-in signal. Both too-fast and too-slow check-ins must count as failures.
-- **Connection:** `U1.49 -> WD_IN` -> enable sheet WD_IN input. Watchdog device/input-pin number and timing remain TBD.
+- **Connection:** `U1.49 -> WD_IN` -> enable sheet U7 (TPS3813K33) pin 1. The watchdog timing is documented in [enable.md](enable.md); firmware must implement the kick schedule.
 - **Chosen parts for this pin:** No local support part selected for this pin; the watchdog is owned by the enable sheet.
 
 ##### GPIO4 - physical pin 48 - `STAGE_EN_FB`
 
 - **Function:** GPIO input reading the hardware-enable state.
-- **Connection:** Enable sheet STAGE_EN_FB output -> `STAGE_EN_FB -> U1.48`. Exact source gate/device pin remains TBD.
+- **Connection:** Enable sheet U3 pin 3 (`STAGE_EN`) through R23 to `STAGE_EN_FB -> U1.48`.
 - **Chosen parts for this pin:** No local support part selected for this pin.
 
 ##### GPIO28 - physical pin 2 - `SCI_RX`
 
 - **Function:** SCIA_RX input receiving serial data from the USB-UART bridge.
-- **Connection:** Bridge TX -> comms_debug SCI_RX output -> `SCI_RX -> U1.2`. Bridge MPN and physical TX-pin number remain TBD.
+- **Connection:** CP2102N-A02-GQFN24R U703 pin 21 (TXD) -> comms_debug SCI_RX output -> `SCI_RX -> U1.2`.
 - **Chosen parts for this pin:** No local support part selected for this pin; UART bridge is on comms_debug.
 
 ##### GPIO29 - physical pin 1 - `SCI_TX`
@@ -289,16 +291,18 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 - **Connection:** `U1.53 -> R502`; `R502 -> LED502` anode; LED502 cathode `-> GND`. R502 is the series current-limiting resistor.
 - **Chosen parts for this pin:** `R502`, **1 kOhm**, **0603WAF1001T5E**, **LCSC C21190**; `LED502`, red **NationStar NCD0805R1**, **LCSC C84256** (≈ 1.1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 red KT-0603R (C2286).
 
-### Proposed signal-to-pin assignment
+### Frozen hardware signal-to-pin assignment
+
+This table is summarized in the [routing pin assignment](../firmware/pinmux-hardware.md), which records the saved schematic, TI package/function check, and the remaining SysConfig work. The hardware pin allocation is frozen; peripheral configuration and trip routing are not yet implemented.
 
 | Net | Direction | Physical pin | MCU function | Destination / purpose |
 |---|---|---|---|---|
 | `MCU_PWMH` | out | 52 | GPIO0 / EPWM1_A | enable; high-side PWM |
 | `MCU_PWML` | out | 51 | GPIO1 / EPWM1_B | enable; low-side PWM, paired dead time |
-| `I_OUT_SENSE` | in | 8 | A3 on **ADCA, alone**; CMPSS3 high comparator (`CMP3_HP5`). The low comparator (`CMP3_LP5`) is spare for a negative-current limit | sensing; current feedback and cycle-by-cycle overcurrent trip |
+| `I_OUT_SENSE` | in | 8 | A3 on **ADCA, alone**; CMPSS3 high comparator (`CMP3_HP5`) | sensing; current feedback and cycle-by-cycle overcurrent trip |
 | `V_OUT_SENSE` | in | 14 | B7 on **ADCB, alone**; CMPSS1 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip |
-| `V_IN_SENSE` | in | **18** (planned; on 15 in the schematic until moved) | C1 on ADCC; CMPSS4 (`CMP4_HP2`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
-| `I_IN_SENSE` | in | **15** (planned; on 9 in the schematic until moved) | C15 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
+| `V_IN_SENSE` | in | 15 (as wired) | C15 on ADCC; CMPSS3 low comparator (`CMP3_LP2`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
+| `I_IN_SENSE` | in | 9 (as wired) | C9 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
 | `HS_TEMP_SENSE` | in | 23 | C14 on ADCC; ADC only | sensing; high-side FET temperature |
 | `LS_TEMP_SENSE` | in | 13 | C2 on ADCC; ADC only | sensing; low-side FET temperature |
 | `MCU_EN` | out | 50 | GPIO2 | enable; request switching |
@@ -311,6 +315,6 @@ Place the 10 kOhm signal pull-downs on the MCU sheet. Keep the status LEDs off d
 
 Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local.
 
-**Protection and ADC plan (2026-11-06).** Each hardware trip has its own comparator module, all at their default polarity (trip above the DAC level): CMPSS3 high for overcurrent on `I_OUT_SENSE`, CMPSS1 for output overvoltage on `V_OUT_SENSE`, CMPSS4 for the fast input overvoltage on `V_IN_SENSE`. CMPSS2 and CMPSS3's low comparator are spare. The comparator DACs use VDDA (`+3V3`) as their reference; VDAC (pin 8) is taken by `I_OUT_SENSE`. Route the trips through the ePWM X-BAR into digital compare and the trip zone: overcurrent cycle-by-cycle, both overvoltages one-shot (latched). Thresholds, DAC codes and set-up order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves, so the loop samples them simultaneously; the four slow signals share ADCC.
+**Protection and ADC plan (updated 2026-11-11).** CMPSS3 is shared: its high comparator reads `I_OUT_SENSE` on pin 8 for cycle-by-cycle overcurrent, and its low comparator reads `V_IN_SENSE` on pin 15 for latched input overvoltage. Set the low comparator's DAC to about 1.43 V and invert its output so a voltage **above** the limit trips. CMPSS1 high handles output overvoltage on `V_OUT_SENSE`; CMPSS2 is unused. The high and low comparators in CMPSS3 have separate threshold DACs and filters, but their ePWM X-BAR trip routes and fault responses must remain distinct. The DAC reference is VDDA (`+3V3`); VDAC is taken by `I_OUT_SENSE` on pin 8. Route overcurrent as cycle-by-cycle and both overvoltages as one-shot (latched). Thresholds, DAC codes and setup order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves; `V_IN_SENSE`, `I_IN_SENSE` and both temperature signals share ADCC.
 
-**Schematic change pending:** move `V_IN_SENSE` from pin 15 to pin 18 and `I_IN_SENSE` from pin 9 to pin 15, with their no-connect flags. Nothing changes on sensing or the root sheet. After the move, pins 6 (A6) and 9 (A2/B6/C9) are unused analog inputs. The comparator mapping is from the F280039C datasheet's analog subsystem diagram; SysConfig will confirm it when the pin-mux is set up.
+**Pin mapping:** keep the schematic's existing `V_IN_SENSE` pin 15 and `I_IN_SENSE` pin 9. Pin 15 supports `CMP3_LP2`; pin 18 supports `CMP4_HP2` but is no longer needed for this trip ([TI F28003x datasheet](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf), analog pin table). Confirm the CMPSS3 input mux and separate trip routes in SysConfig when firmware is implemented.

@@ -233,13 +233,9 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:MountingHole_Pad"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Mechanical:MountingHole"
 			(pin_names
 				(offset 1.016)
-				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
@@ -247,7 +243,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "H"
-				(at 0 6.35 0)
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -256,8 +252,8 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole_Pad"
-				(at 0 4.445 0)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -288,7 +284,7 @@
 					)
 				)
 			)
-			(property "Description" "Mounting Hole with connection"
+			(property "Description" "Mounting Hole without connection"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -310,7 +306,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "MountingHole*Pad*"
+			(property "ki_fp_filters" "MountingHole*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -321,9 +317,9 @@
 					)
 				)
 			)
-			(symbol "MountingHole_Pad_0_1"
+			(symbol "MountingHole_0_1"
 				(circle
-					(center 0 1.27)
+					(center 0 0)
 					(radius 1.27)
 					(stroke
 						(width 1.27)
@@ -331,26 +327,6 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-			)
-			(symbol "MountingHole_Pad_1_1"
-				(pin input line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
 					)
 				)
 			)
@@ -1168,7 +1144,7 @@
 		)
 		(uuid "0b51f53e-05b1-4d35-bec1-d12df5ed1874")
 	)
-	(text_box "- 150 W output (12 V, 12.5 A) from a 40 - 51 V input\n\n- Discrete GaN half-bridge switching at 400 kHz, adjustable 300 - 500 kHz in firmware\n\n- Fully digital control on a TI C2000 microcontroller: open loop, voltage mode and average current mode\n\n- Hardware protection independent of the CPU: cycle-by-cycle overcurrent, output and input overvoltage\n\n- Hardware enable chain with window watchdog and shoot-through interlock\n\n- Input and output current, voltage and FET temperature sensing\n\n- Runs from the 48 V bus or an external 5 V bench supply for safe low-voltage bring-up\n\n- USB serial telemetry and JTAG debug\n\n- Reverse-polarity, fuse and TVS protection on the input"
+	(text_box "- 150 W output (12 V, 12.5 A) from a 40 - 51 V input\n\n- Discrete GaN half-bridge switching at 400 kHz, adjustable 300 - 500 kHz in firmware\n\n- Fully digital control on a TI C2000 microcontroller: open loop, voltage mode and average current mode\n\n- Hardware protection independent of the CPU: cycle-by-cycle overcurrent, output and input overvoltage\n\n- Watchdog/enable gating; PWM overlap protection TBD\n\n- Input and output current, voltage and FET temperature sensing\n\n- Runs from the 48 V bus or an external 5 V bench supply for safe low-voltage bring-up\n\n- USB serial telemetry and JTAG debug\n\n- Reverse-polarity, fuse and TVS protection on the input"
 		(exclude_from_sim no)
 		(at 18.415 22.6313 0)
 		(size 67.945 66.9037)
@@ -2204,170 +2180,14 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 223.52 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "06c6782d-acaf-482a-932f-fd7edc43464e")
-		(property "Reference" "#PWR0103"
-			(at 223.52 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 223.52 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 223.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 223.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 223.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d9c93131-6568-4cb9-8306-a7bd81e897a0")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(reference "#PWR0103")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 247.65 135.89 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0d80ab2f-7f22-4d4a-b3c7-1ac2a52ec507")
-		(property "Reference" "#PWR0102"
-			(at 247.65 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 247.65 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 247.65 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 247.65 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 247.65 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "59fd67fb-aa7b-4dff-964f-b107b898fd29")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(reference "#PWR0102")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
+		(lib_id "Mechanical:MountingHole")
 		(at 247.65 133.35 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "18b3f8c9-2819-4c59-afcc-eebcf878337a")
@@ -2382,7 +2202,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "MountingHole"
 			(at 250.19 133.3499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2393,7 +2213,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 247.65 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2415,7 +2235,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole with connection"
+		(property "Description" "Mounting Hole without connection"
 			(at 247.65 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2425,92 +2245,11 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "1"
-			(uuid "7699d5da-5afb-4f09-a8f4-72e1b17b0f9e")
 		)
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
 					(reference "H102")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 223.52 135.89 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4d491f8a-79f0-4744-b241-8de47ddb1d55")
-		(property "Reference" "#PWR0101"
-			(at 223.52 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 223.52 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 223.52 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 223.52 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 223.52 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5b3c273b-cb8e-4d85-806f-31cf486c7e03")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -2593,84 +2332,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 247.65 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8353418e-5d3a-4183-9101-891fe25b4169")
-		(property "Reference" "#PWR0104"
-			(at 247.65 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 247.65 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 247.65 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 247.65 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 247.65 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b7bef1af-d9a6-4ce5-afc9-fe06d2507328")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
-					(reference "#PWR0104")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Graphic:SYM_Arrow_Large")
 		(at 34.29 161.29 270)
 		(unit 1)
@@ -2747,14 +2408,14 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
+		(lib_id "Mechanical:MountingHole")
 		(at 223.52 133.35 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9abfb7de-8861-437c-b3ec-76902a582162")
@@ -2769,7 +2430,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "MountingHole"
 			(at 226.06 133.3499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2780,7 +2441,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 223.52 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2802,7 +2463,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole with connection"
+		(property "Description" "Mounting Hole without connection"
 			(at 223.52 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2812,9 +2473,6 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "1"
-			(uuid "324bc40a-a935-4770-bf33-b9ec81b4d213")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -3130,14 +2788,14 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
+		(lib_id "Mechanical:MountingHole")
 		(at 247.65 147.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d176f521-c488-4f49-944f-a4b2a862d618")
@@ -3152,7 +2810,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "MountingHole"
 			(at 250.19 147.3199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3163,7 +2821,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 247.65 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -3185,7 +2843,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole with connection"
+		(property "Description" "Mounting Hole without connection"
 			(at 247.65 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -3195,9 +2853,6 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "1"
-			(uuid "76bf4637-4275-40f0-b2b4-2f77aaccf1a3")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -3209,14 +2864,14 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
+		(lib_id "Mechanical:MountingHole")
 		(at 223.52 147.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e475fe11-5601-4c02-9cf5-516029c557c2")
@@ -3231,7 +2886,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "MountingHole"
 			(at 226.06 147.3199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3242,7 +2897,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 223.52 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -3264,7 +2919,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole with connection"
+		(property "Description" "Mounting Hole without connection"
 			(at 223.52 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -3274,9 +2929,6 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "1"
-			(uuid "e3a6c824-464a-4d7d-b033-2735f50c8bd9")
 		)
 		(instances
 			(project "gan-buck-converter"

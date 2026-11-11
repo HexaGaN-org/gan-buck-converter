@@ -2,7 +2,7 @@
 
 Sheet: `sheets/sensing.kicad_sch`
 
-**Owner:** Connor Jin · **Reviewer:** [NAME] · **Last updated:** 2026-11-05
+**Owner:** Connor Jin · **Reviewer:** [NAME] · **Last updated:** 2026-11-11
 
 ---
 
@@ -18,12 +18,12 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - `V_OUT_SENSE`: place the overvoltage threshold inside 0–3 V; this signal feeds a CMPSS comparator.
 - `V_IN_SENSE`: cover the full input range, including the undervoltage-lockout thresholds.
 - `HS_TEMP_SENSE`, `LS_TEMP_SENSE`: one temperature sensor beside each GaN FET, covering the overtemperature threshold (decision #5).
-- `I_IN_SENSE`: amplify the input shunt (1 mΩ R201, Kelvin pair `I_SH_IN_P` / `I_SH_IN_N`, input_supply #17) with an amplifier whose common mode covers 40–51 V and **survives the 82.4 V clamped surge**. Telemetry and a firmware input-current limit only, so filter it heavily.
+- `I_IN_SENSE`: amplify the input shunt (1 mΩ R201, Kelvin pair `I_SH_IN_P` / `I_SH_IN_N`, input_supply #17) with an amplifier whose common mode covers 40–51 V and **covers at least the 82.4 V TVS rated-pulse clamp reference**; validate the actual surge waveform against the amplifier rating. Telemetry and a firmware input-current limit only, so filter it heavily.
 - Meet the measurement accuracy the control loop and protections need (target to be set in the specifications).
 - Size every RC for the ADC's acquisition time, not only for noise, and keep every signal inside `+3V3` / `GNDA`: by a clamp on the channels driven from `+5V` (decision #11) (there is no separate `+3V3A` rail: input_supply #19).
-- `I_OUT_SENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter the temperature channels more heavily. `V_IN_SENSE` also feeds the fast input-overvoltage comparator (input_supply #24), which needs τ ≈ 1 µs (open questions).
+- `I_OUT_SENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter the temperature channels more heavily. `V_IN_SENSE` also feeds the fast input-overvoltage comparator (input_supply #24), so its filter is now τ ≈ 1 µs (decision #12).
 
-**Status (2026-11-06):** circuit captured: six channels, labels matching the contract and the MCU sheet (decision #8), wired to mcu, power_stage and input_supply on the root sheet (2026-11-10). The amplifiers and RTD bias changed since rows 2–7 were written (decisions #9–#11); the calculations and published values below follow the sheet as drawn. Remaining before layout: test points and the open questions.
+**Status (2026-11-11):** circuit captured: six channels, labels matching the contract and the MCU sheet (decision #8), wired to mcu, power_stage and input_supply on the root sheet (2026-11-10). The amplifiers and RTD bias changed since rows 2–7 were written (decisions #9–#11); the calculations and published values below follow the sheet as drawn. Six filtered-output test pads and a `GNDA` pad are now in the schematic. The remaining open questions and PCB placement still need review.
 
 ---
 
@@ -46,6 +46,7 @@ Rows 2–7 were written on 2026-11-05 from the schematic as drawn. The rationale
 | 9 | 2026-11-06 | The four op-amps (U401, U403, U406, U408) are **TI TLV9061** (C398358) on **`+3V3`**, replacing the OPA192s on `+5V`. Supersedes the op-amp part in #3 and #4, and #7 for the op-amps (the INA241s stay on `+5V`) | OPA192 on `+5V` (#3, #4, #7) | Recorded from the schematic. What the change gives, from the parts' data: an op-amp on `+3V3` can't drive its output past the ADC's range, so those channels need no clamp (#11); it rides through the `+5V` hand-over dip; it costs less. What it costs: 1.6 mV max offset against the OPA192's 25 µV (≈ 2 counts on the voltage channels, ≈ 1.5 °C on the temperature channels before calibration) | input_supply: `+5V` load down to ≈ 5 mA, ≈ 2.8 mA on `+3V3` | Recorded from the schematic — owner to confirm |
 | 10 | 2026-11-06 | RTD bias **10 kΩ from `+3V3`** (R403, R404, C25804), replacing 20 kΩ from `+5V`. Supersedes the bias in #4; gain stays 5.98 | 20 kΩ from `+5V` (#4); 20 kΩ from `+3V3` (0.16 mA) | Recorded from the schematic. `+3V3` doesn't step when the 5 V source changes between J202 and `5V_AUX` (the open question this answers). Larger signal (≈ 6 mV/°C) than 20 kΩ would give; 0.30 mA measuring current, a little above Vishay's 0.1–0.25 mA (open questions) | none | Recorded from the schematic — owner to confirm |
 | 11 | 2026-11-06 | BAT54S clamps only on the two INA241 outputs (D405 `I_OUT_SENSE`, D406 `I_IN_SENSE`). Supersedes #6's clamps on the four op-amp channels | Clamps on all six (#6) | Recorded from the schematic. The INA241s run from `+5V` and can drive past 3.3 V; the TLV9061s run from `+3V3` and can't. The 1 kΩ series resistors and filter capacitors are unchanged | none | Recorded from the schematic — owner to confirm |
+| 12 | 2026-11-11 | Change C404 on `V_IN_SENSE` from 100 nF to 1 nF, using the same part as C411. With R407 = 1 kΩ, the nominal RC time constant falls from 100 µs to 1 µs | Separate fast comparator tap | One sense path now serves the ADC and the fast input-overvoltage comparator. Firmware must allow about 4 µs ADC acquisition and can average feedforward and UVLO readings. The RC time constant alone does not prove a 1 µs trip under every surge waveform; verify the full response on hardware | mcu/firmware: CMPSS3 low comparator on physical pin 15; input_supply: decision #24 | Implemented in schematic; bench timing pending |
 
 ---
 
@@ -62,12 +63,12 @@ One row per calculation. Note where each input came from (specification, datashe
 | Zero error before calibration | $\pm 3\,\% \cdot 1.65\,V$ | ±50 mV = **±1 A** | `+3V3` is ±3 % over temperature (input_supply #18) and the ADC uses its internal reference, so the REF midpoint is not ratiometric. The INA241's own offset is only 10 mA. Calibrate the zero at start-up with PWM off |
 | Amplifier response at the switching frequency | $1/\sqrt{1 + (f_{sw}/1.1\,MHz)^2}$; $\tau = 1/(2\pi \cdot 1.1\,MHz)$ | Ripple amplitude reads 96 % (300 kHz), 94 % (400 kHz), 91 % (500 kHz); ≈ 145 ns lag | First-order estimate. A sample timed at the middle of the on-time reads the current from ≈ 145 ns earlier: ≈ 0.8 A low at 48 V. Delay the SOC by ≈ 150 ns, or sample mid off-time (≈ 0.25 A error) |
 | Output RC (R417, C415) | $R C$ | 22 ns (7.2 MHz) | Isolation for the ADC and CMPSS; the amplifier sets the bandwidth |
-| Cycle-by-cycle trip lag | $\tau_{INA} + R_{417}(C_{415} + C_p) + t_{CMPSS} + t_{driver} + t_{filter}$ | 145 + 29 + 60 + 28 + 15 ≈ 280 ns | CMPSS 60 ns max (F280039C datasheet §6.13.5.3); LM5113 28 ns and its input filter ≈ 15 ns (power_stage). ePWM trip-zone logic not included |
-| Peak current above the trip setting | $\frac{di}{dt} \cdot t_{lag}$, $\frac{di}{dt} = (V_{in} - V_{out})/L$ | ≈ 1.5 A at 48 V; ≈ 2.0 A at 51 V with L at −20 % | Plus ±0.4 A from the CMPSS's ±20 mV offset. A trip at ≈ 22 A peaks near 24 A, still well below the 31 A $I_{sat}$ |
+| Cycle-by-cycle trip lag | $\tau_{INA} + R_{417}(C_{415} + C_p) + t_{CMPSS} + t_{driver} + t_{filter}$ | 145 + 29 + 60 + 28 + 15 ≈ 280 ns, illustrative | This mixes an amplifier first-order time constant, a CMPSS maximum, nominal RC timing and a typical driver delay; it omits ePWM trip-zone logic and FET gate discharge. It is not a guaranteed fault-response limit. |
+| Peak current above the trip setting | $\frac{di}{dt} \cdot t_{lag}$, $\frac{di}{dt} = (V_{in} - V_{out})/L$ | ≈ 1.5 A at 48 V; ≈ 2.0 A at 51 V with L at −20 %, if the illustrative 280 ns applies | Add CMPSS threshold error and establish a measured or bounded end-to-end delay before using this result to claim margin to the 31 A $I_{sat}$. |
 | **Input current (`I_IN_SENSE`, U407)** | | | Same amplifier and transfer function |
 | Readings over the load range | $1.65\,V + 50\,mV/A \cdot I_{in}$ | 0.66 A (20 %) → 1.68 V · 3.29 A (48 V, 150 W) → 1.81 V · 3.95 A (40 V) → 1.85 V · 5.3 A (200 W) → 1.92 V | Input currents from input_supply. 16 mA per count: ≈ 0.5 % of the 48 V full-load reading |
 | Filter (R418, C416) | $R C$ | 100 µs (1.6 kHz) | Telemetry and firmware limit only |
-| Common-mode margin | INA241 range vs input_supply | 40–51 V operating and 82.4 V clamp vs 110 V operating, 120 V survival | No protection needed between R201 and U407 |
+| Common-mode margin | INA241 range vs input_supply | 40–51 V operating and 82.4 V clamp vs 110 V operating, 120 V survival | Adequate at the rated-pulse reference; confirm actual surge stays within the amplifier rating |
 | **Output voltage (`V_OUT_SENSE`, U401)** | | | |
 | Divider ratio | $R_{402} / (R_{401} + R_{402})$ | $150 / 900 = 1/6$ | |
 | Readings | $V_{OUT} / 6$ | 12 V → 2.00 V · 13.2 V (+10 %) → 2.20 V · 18 V → 3.00 V · 19.8 V → 3.30 V | 4.8 mV of `V_OUT` per count |
@@ -80,7 +81,7 @@ One row per calculation. Note where each input came from (specification, datashe
 | Ratio tolerance | 1 % resistors, worst case | ±2.0 % (≈ ±1 V at 48 V) | Calibrate against a meter; matters for UVLO accuracy |
 | R411 stress | $V_{IN}^2 / R$; $V_{IN} \cdot R_{411}/(R_{411}+R_{412})$ | 3.4 mW at 51 V, 8.8 mW and 80 V across it at the 82.4 V clamp | 1206: 250 mW, 200 V |
 | Divider load | $V_{IN} / 770\,k\Omega$ | 66 µA at 51 V | |
-| Filter (R407, C404) | $R C$ | 100 µs (1.6 kHz) | Too slow for the fast input-overvoltage comparator (input_supply #24): open questions |
+| Filter (R407, C404) | $R C$ | 1 µs (159 kHz) | Nominal RC value for the fast input-overvoltage comparator; verify complete trip timing on hardware |
 | **Temperature (U404 / U405 with U403 / U406)** | | | PT1000: $R_T = 1000\,\Omega\,(1 + A T + B T^2)$, A = 3.9083 × 10⁻³, B = −5.775 × 10⁻⁷ (IEC 60751) |
 | Amplifier gain | $1 + R_{405}/R_{406}$ | $1 + 20/4.02 = 5.98$ | Same for R409 / R408. ±1.7 % worst case from 1 % resistors |
 | Transfer function | $V = 5.98 \cdot V_{3V3} \cdot R_T / (10\,k\Omega + R_T)$ | −40 °C → 1.53 V · 0 °C → 1.79 V · 25 °C → 1.95 V · 85 °C → 2.31 V · 100 °C → 2.40 V · 125 °C → 2.54 V · 150 °C → 2.68 V | At `+3V3` = 3.3 V (decision #10) |
@@ -111,7 +112,7 @@ Refs match the schematic as of commit `808357c`.
 | U407 | Input current-sense amplifier (`I_SH_IN_P` / `I_SH_IN_N` → `I_IN_SENSE`) | TI INA241A3IDDFR | C6051860 | Same part; 110 V operating common mode covers 40–51 V and the 82.4 V clamp | [TI](https://www.ti.com/product/INA241A) |
 | U401, U408 | `V_OUT` and `V_IN` buffers (unity gain) | TI TLV9061IDBVR | C398358 | Rail-to-rail in and out; 1.8–5.5 V, run from `+3V3`; 1.6 mV max offset; 0.5 pA bias current; 10 MHz; SOT-23-5 (decision #9) | [TI](https://www.ti.com/product/TLV9061) |
 | U403, U406 | HS and LS RTD amplifiers (gain 5.98) | TI TLV9061IDBVR | C398358 | Same part as the buffers; rail-to-rail input handles the 0.27–0.4 V divider signal with V− at GND | [TI](https://www.ti.com/product/TLV9061) |
-| U404, U405 | HS and LS temperature sensors | Vishay PTS1206M2B1K00P100 | C17211685 | Platinum RTD, 1000 Ω at 0 °C, 3850 ppm/K (IEC 60751); 1206; −55 to +155 °C (Vishay datasheet; LCSC lists 175 °C). Tolerance class to confirm (open questions) | [DigiKey](https://www.digikey.ie/en/products/detail/vishay/PTS1206M2B1K00P100/8537261) |
+| U404, U405 | HS and LS temperature sensors | Vishay PTS1206M2B1K00P100 | C17211685 | PTS AT automotive platinum RTD, 1000 Ω at 0 °C, 3850 ppm/K (IEC 60751), class F0.6 (`2B`), 1206, rated to +175 °C; the exact part-number code `M` denotes AT | [Vishay PTS AT](https://www.vishay.com/docs/28899/ptsat.pdf) |
 | R401, R411 | Divider top resistors, `V_OUT` and `V_IN` | UNI-ROYAL 1206W4F7503T5E | C25835 | 750 kΩ 1 % **1206** (200 V, 250 mW); one part for both | |
 | R402 | `V_OUT` divider bottom | UNI-ROYAL 0603WAF1503T5E | C22807 | 150 kΩ 1 %, Basic | |
 | R412 | `V_IN` divider bottom | UNI-ROYAL 0603WAF2002T5E | C4184 | 20 kΩ 1 %, Basic | |
@@ -120,12 +121,13 @@ Refs match the schematic as of commit `808357c`.
 | R406, R408 | RTD amplifier gain-set (to GND) | UNI-ROYAL 0603WAF4021T5E | C23040 | 4.02 kΩ 1 %, Basic | |
 | R413, R407, R415, R416, R417, R418 | Output series resistors (`V_OUT`, `V_IN`, HS, LS, `I_OUT`, `I_IN`) | UNI-ROYAL 0603WAF1001T5E | C21190 | 1 kΩ 1 %, Basic; same part as power_stage R305 / R306 | |
 | C415 | `I_OUT_SENSE` filter | Samsung CL10C220JB8NNNC | C1653 | 22 pF 50 V **C0G** 0603, Basic | |
-| C411 | `V_OUT_SENSE` filter | Samsung CL10B102KB8NNNC | C1588 | 1 nF 50 V X7R 0603, Basic | |
-| C404, C413, C414, C416 | `V_IN`, HS, LS and `I_IN` filters | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF 50 V X7R 0603, Basic | |
+| C404, C411 | `V_IN_SENSE` and `V_OUT_SENSE` filters | Samsung CL10B102KB8NNNC | C1588 | 1 nF 50 V X7R 0603, Basic | |
+| C413, C414, C416 | HS, LS and `I_IN` filters | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF 50 V X7R 0603, Basic | |
 | D405, D406 | Clamps to `GNDA` / `+3V3` on `I_OUT_SENSE` and `I_IN_SENSE` | Nexperia BAT54S,215 | C47546 | Schottky series pair, 30 V, SOT-23: pin 1 (A) to `GNDA`, pin 2 (K) to `+3V3`, pin 3 to the signal (decision #11) | [LCSC](https://www.lcsc.com/product-detail/C47546.html) |
 | C402, C407 | INA241 supply bypass on `+5V` | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF, one at each INA241's VS pin | |
 | C401, C403, C406, C408 | TLV9061 supply bypass on `+3V3` | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF, one at each op-amp's V+ pin | |
 | C409, C410 | INA241 REF1 bypass on `+3V3` | YAGEO CC0603KRX7R9BB104 | C14663 | 100 nF; C409 at U407, C410 at U402 | |
+| TP401–TP406, TP407 | Six filtered sense outputs; `GNDA` reference | Copper test pads | — | `TestPoint_Pad_D2.0mm`; footprint only, excluded from BOM and placement files | |
 
 ---
 
@@ -138,13 +140,14 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 | `I_OUT_SENSE` | $V = 1.65\,V + 50\,mV/A \cdot I_L$; ±33 A full scale; 16 mA per count | mcu, firmware | CMPSS threshold in volts = 1.65 + 0.05 × (trip current in A). Zero varies ±50 mV board to board: calibrate at start-up with PWM off |
 | `I_IN_SENSE` | Same transfer; 1.68–1.92 V over 20–200 % load; τ = 100 µs | mcu, firmware | Any ADC pin; no CMPSS |
 | `V_OUT_SENSE` | $V_{OUT} / 6$; 2.00 V at 12 V; τ = 1 µs | mcu, firmware | CMPSS overvoltage comparator |
-| `V_IN_SENSE` | $V_{IN} / 38.5$; 1.25 V at 48 V; 2.14 V at the 82.4 V clamp; τ = 100 µs | mcu, firmware | UVLO, OVLO and feedforward |
+| `V_IN_SENSE` | $V_{IN} / 38.5$; 1.25 V at 48 V; 2.14 V at the 82.4 V clamp; nominal τ = 1 µs | mcu, firmware | CMPSS3 low comparator for fast input OV, plus ADC for UVLO and feedforward |
 | `HS_TEMP_SENSE`, `LS_TEMP_SENSE` | 1.95 V at 25 °C, 2.40 V at 100 °C, ≈ 6 mV/°C; τ = 100 µs | mcu, firmware | Convert with $R_T = 10\,k\Omega \cdot v / (V_{3V3} - v)$, $v = V_{ADC} / 5.98$, then IEC 60751. Two pins (mcu.md: 23 and 13) |
 | ADC acquisition window, `I_OUT_SENSE` | ≥ 290 ns (ACQPS ≥ 35 at 120 MHz) | firmware | Worst case from a 3.3 V difference on the sample capacitor |
 | ADC acquisition, `V_OUT_SENSE` | Convert `V_OUT_SENSE` on an ADC that converts nothing else (ADCB channel 7, as suggested in mcu.md), or allow ≈ 4.2 µs | mcu, firmware | Otherwise up to 24 mV (≈ 145 mV of `V_OUT`) of error. Don't add the second temperature channel or `I_IN_SENSE` to ADCB |
+| ADC acquisition, `V_IN_SENSE` | Allow about 4 µs on ADCC after a very different channel | firmware | C404 is now 1 nF; confirm the acquisition setting against the MCU sample capacitor and source impedance |
 | ADC acquisition, 100 nF channels | Datasheet minimum (75 ns) | firmware | |
 | `iout` SOC timing | Delay the SOC ≈ 150 ns after the on-time (or off-time) midpoint | firmware | Compensates the INA241's lag when sampling average current |
-| Cycle-by-cycle trip lag | ≈ 280 ns; peak overshoot ≈ 1.5–2 A above the trip | power_stage, firmware | Set the trip so trip + 2 A + 0.4 A (CMPSS offset) stays below 31 A $I_{sat}$ |
+| Cycle-by-cycle trip lag | ≈ 280 ns and 1.5–2 A peak overshoot are illustrative estimates, not bounds | power_stage, firmware | Measure or bound amplifier-to-FET-turn-off delay, including the ePWM trip route, then set the trip with margin to 31 A $I_{sat}$ and temperature variation. |
 | Load on `+5V` | ≈ 5 mA | input_supply | The two INA241s |
 | Load on `+3V3` | ≈ 2.8 mA | input_supply | Four TLV9061s and two RTD dividers |
 | Load on `V_IN` / `V_OUT` | 66 µA / 13 µA | input_supply, power_stage | Divider currents |
@@ -175,7 +178,7 @@ How bring-up confirms this sheet works.
 | 1 | Current zeros | PWM off, 48 V applied; read `I_OUT_SENSE` and `I_IN_SENSE` codes at 25 °C and warm | Within 1.65 V ± 50 mV; record the zero calibration | | |
 | 2 | Output-current gain | DC load at 0, 5, 10, 12.5 A; compare with a bench meter in series | Within ±1 % of reading above 5 A after zero calibration | | |
 | 3 | `iout` dynamics | Current probe on L301 and scope on `I_OUT_SENSE` at 400 kHz, 50 % load | Ripple ≈ 94 % of the probe's; lag ≈ 150 ns; no ringing from the switch node | | |
-| 4 | Cycle-by-cycle trip | Set the CMPSS threshold, then step the load past it | Peak inductor current within ≈ 2.5 A above the trip and below 31 A | | |
+| 4 | Cycle-by-cycle trip | First inject a safe sense signal with the power bus off to prove CMPSS polarity and ePWM trip routing. Then switch at reduced bus voltage with a controlled load/current step; capture the sense threshold crossing, trip signal, both FET gate-to-source voltages and inductor current | Record the complete threshold-to-gate-off delay. Peak current must stay below the inductor's validated hot saturation-current limit with margin; the ≈ 2.5 A overshoot estimate is not a pass limit | | |
 | 5 | Voltage gains | Sweep `V_IN` 36–53 V and `V_OUT` 0–13 V; compare with a DMM | Within ±2 % before calibration, ±0.3 % after | | |
 | 6 | Overvoltage trip | Converter running at 12 V, no load: step the CMPSS threshold down toward 2.00 V. Don't back-drive J301 from a bench supply: the high-side GaN FET reverse-conducts and powers `V_IN` from the output | Trips as the threshold crosses the measured `V_OUT_SENSE` voltage, ± 20 mV | | |
 | 7 | Temperature at ambient | Both channels against a thermocouple, board unpowered for an hour then switched on | Within ±2 °C after one-point calibration | | |
@@ -191,12 +194,13 @@ How bring-up confirms this sheet works.
 
 - **Schematic field fixes before layout** (checked against commit `808357c`):
   - (Fixed 2026-11-10: `LS_TEMP_SENSE` is now an output label, like `HS_TEMP_SENSE`.)
-  - The contract lists test points on each sense signal; the sheet has none. Add one per output (after the RC) and a `GNDA` pad.
+  - (Added 2026-11-11: TP401 `V_OUT_SENSE`, TP402 `V_IN_SENSE`, TP403 `HS_TEMP_SENSE`, TP404 `LS_TEMP_SENSE`, TP405 `I_OUT_SENSE`, TP406 `I_IN_SENSE`, all after their RC filters, and TP407 `GNDA`.) Place the pads where they can be reached after assembly; keep the probe ground short, especially for fast trip measurements.
   - Gaps in the annotation: C405, C412, R410, R414 and D401–D404 are unused. Harmless; leave them rather than re-annotating.
+  - (Fixed 2026-11-11: a duplicate hidden power-symbol reference `#PWR0305` on sensing was changed to `#PWR0485`; this cleared the remaining KiCad netlist annotation warning after enable C10 was renumbered.)
   - (Resolved: labels renamed, #8; the hierarchy doc uses `I_SH_OUT_P` / `I_SH_OUT_N`; root-sheet pins added and wired (2026-11-10); the second temperature channel and `I_IN_SENSE` have MCU pins, mcu.md.)
-- **`V_IN_SENSE` filter vs the fast input-overvoltage trip.** input_supply decision #24 puts `V_IN_SENSE` on a CMPSS comparator (CMPSS4, planned pin 18: mcu.md) and needs τ ≈ 1 µs on that path; R407 / C404 give 100 µs. Options: C404 → 1 nF like `V_OUT_SENSE` (feedforward and UVLO then oversample in firmware), or a second, lightly filtered tap for the comparator.
-- **RTD measuring current.** 10 kΩ from `+3V3` gives 0.30 mA, a little above Vishay's 0.1–0.25 mA. Self-heating is only ≈ 0.07 K, so it is probably fine; 15 kΩ would bring it to 0.21 mA at ≈ 4.3 mV/°C.
+- (Resolved 2026-11-11: C404 is 1 nF, giving R407 / C404 a nominal 1 µs time constant. This is not a 1 µs trip guarantee: for an ideal 51 V to 56 V input step and a 55 V threshold, the RC alone takes about 1.61 µs to cross. Verify the complete comparator-to-gate-off response; decision #12.)
+- **RTD measuring current, accepted for prototype review.** 10 kΩ from `+3V3` gives 0.30 mA, a little above the [exact Vishay PTS AT family](https://www.vishay.com/docs/28899/ptsat.pdf) range of 0.1–0.25 mA for a 1000 Ω RTD. Estimated self-heating is ≈ 0.07 K. Keep the fitted 10 kΩ parts for now; confirm temperature accuracy during bring-up. A 15 kΩ option would bring current to 0.21 mA but changes the conversion slope.
 - **Protection thresholds.** Set (specifications.md): overcurrent ≈ 22 A → 2.75 V; output overvoltage 13.2 V → 2.20 V; fast input overvoltage ≈ 55 V → 1.43 V. Still [TBD]: input UVLO (proposed 38 V on / 36 V off → 0.987 / 0.935 V), slow input OVLO (proposed 53 V → 1.38 V) and overtemperature.
 - **INA241 REF on `+3V3`.** The zero tracks `+3V3`, not the ADC reference. Start-up calibration covers it; a reference voltage on REF1 would remove it if the zero drifts with temperature on the bench.
-- **RTD part number.** "PTS1206M2B1K00P100" doesn't decode cleanly against Vishay's PTS datasheet. Confirm the tolerance class (F0.3 or F0.6) from the LCSC listing or Vishay.
+- **RTD part number resolved 2026-11-11.** The exact PTS AT datasheet decodes `M` as automotive and `2B` as class F0.6 for `PTS1206M2B1K00P100`.
 - (Resolved by #9 and #10: RTD excitation no longer depends on `+5V`; the op-amps no longer see the `+5V` hand-over dip; the OPA192 cost question.)

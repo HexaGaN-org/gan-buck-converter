@@ -104,21 +104,21 @@ Two kinds of protection, both required:
 - **Output overvoltage:** if the output goes above 13.2 V, shut PWM off and keep it off.
 - **Input overvoltage:** if the input goes above ≈ 55 V, shut PWM off and keep it off. This catches a surge before switching ringing can stack on top of it ([design/input_supply.md](../design/input_supply.md) decision #24).
 
-How to set them up. Each trip has a comparator of its own, and each comparator has its own built-in DAC that sets its threshold, so there is no reference chip to add:
+How to set them up. Each trip uses a comparator with its own threshold DAC. Output current and input voltage share the CMPSS3 module but use its high and low comparators separately:
 
 | Trip | Comparator | Signal, pin | Threshold → DAC code | PWM response |
 |---|---|---|---|---|
 | Overcurrent | CMPSS3, high comparator (`CMP3_HP5`) | `I_OUT_SENSE`, pin 8 | 2.75 V → 3413 | Cycle-by-cycle: the pulse ends, and the next period starts normally |
 | Output overvoltage | CMPSS1, high comparator (`CMP1_HP4`) | `V_OUT_SENSE`, pin 14 | 2.20 V → 2731 | One-shot: off until cleared |
-| Input overvoltage | CMPSS4, high comparator (`CMP4_HP2`) | `V_IN_SENSE`, pin 18 (pin 15 until the schematic is updated) | 1.43 V → 1773 | One-shot: off until cleared |
+| Input overvoltage | CMPSS3, low comparator (`CMP3_LP2`), output inverted | `V_IN_SENSE`, pin 15 | 1.43 V → 1773 | One-shot: off until cleared |
 
 - **DAC reference:** VDDA, which is `+3V3`. DAC code = volts ÷ 3.3 × 4096. Don't use the VDAC option: that pin carries `I_OUT_SENSE`. The current trip's DAC and the current sensor's zero both follow `+3V3`, so that error cancels; the two voltage trips inherit `+3V3`'s ±3 %, which is fine for protection.
-- **Path:** comparator → its digital filter (a few samples, to ignore switching noise) → ePWM X-BAR → digital compare → trip zone. Every trip forces **both** PWM outputs low.
-- **Polarity:** all three trip when the signal rises above the DAC level, the comparator's default.
+- **Path:** comparator → its digital filter (a few samples, to ignore switching noise) → ePWM X-BAR → digital compare → trip zone. Route CMPSS3 `CTRIPH` and `CTRIPL` to distinct ePWM X-BAR trip inputs: high goes to the cycle-by-cycle response, low to the one-shot response. Every trip forces **both** PWM outputs low. Do not use the OR-combined CMPSS3 output for these two different fault responses.
+- **Polarity:** CMPSS3 high and CMPSS1 high trip above their DAC levels. The CMPSS3 low comparator normally asserts for an input below its DAC level; configure its output **inverted** so `V_IN_SENSE` above 1.43 V asserts the input-overvoltage trip. [TI's F28003x CMPSS API](https://software-dl.ti.com/C2000/docs/C2000_driverlib_api_guide/f28003x/build/html/modules/cmpss.html) provides `CMPSS_configLowComparator` with `CMPSS_INV_INVERTED` and separate high/low DAC functions. Confirm the polarity with a threshold-sweep test before power-stage bring-up.
 - **Order:** arm all three trips before raising `MCU_EN` and before enabling PWM. Clear the latched ones only from the **clear** command (5.2).
 - **Current threshold from amps:** volts = 1.65 + 0.05 × amps ([design/sensing.md](../design/sensing.md)). Measure the zero first (5.6) and add its offset.
 - **Plugging in 48 V** can briefly push the input past 55 V and latch the input trip while the stage is idle. Clear it before enabling.
-- **Spare:** CMPSS3's low comparator on `I_OUT_SENSE` is free for a negative-current limit if the output is ever back-fed. CMPSS2 is unused.
+- **Spare:** CMPSS2 is unused. CMPSS3's low comparator is committed to input overvoltage, so it is unavailable for a negative-current limit.
 
 **Software checks** (in your code, a little slower):
 - **Undervoltage:** don't start, or stop, if the input is below [TBD] V (proposed: on above 38 V, off below 36 V). Use two thresholds (on above one, off below a lower one) so it doesn't flicker at the edge.
@@ -157,7 +157,7 @@ Requirements:
 
 ### 5.6 Measure
 - Convert raw ADC numbers into real units (volts, amps, °C). The conversion factors are the published values in [design/sensing.md](../design/sensing.md).
-- ADC assignment: `I_OUT_SENSE` on ADC-A and `V_OUT_SENSE` on ADC-B, each **alone** on its ADC, so the control loop can sample both at the same instant without one disturbing the other. The four slow signals (`V_IN_SENSE`, `I_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`) share ADC-C; if `V_IN_SENSE`'s filter becomes 1 nF, give it a long acquisition window (about 4 µs).
+- ADC assignment: `I_OUT_SENSE` on ADC-A and `V_OUT_SENSE` on ADC-B, each **alone** on its ADC, so the control loop can sample both at the same instant without one disturbing the other. The four slower ADC readings (`V_IN_SENSE`, `I_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`) share ADC-C. With C404 now 1 nF, give `V_IN_SENSE` a long acquisition window (about 4 µs) and average its feedforward and UVLO readings in firmware.
 - At start-up, with switching off, measure the current sensor's zero reading and subtract it.
 
 ### 5.7 Talk to the laptop

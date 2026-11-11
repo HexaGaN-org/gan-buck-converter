@@ -2,9 +2,9 @@
 
 This document is the contract between sheets: what each sheet is responsible for, what it contains, and every signal that crosses between sheets. How each sheet is designed inside (decisions, calculations, parts) lives in its design note in [design/](design/). For what the board is and does, see the [README](../README.md); for the design targets, see [specifications.md](specifications.md).
 
-> **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
+> **Status:** The physical MCU pin allocation is frozen for PCB routing in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). A TI `pinmux.syscfg` and generated firmware are still pending. Update this document, the hardware pin table, and the schematic together if a sheet interface or physical pin changes.
 
-**Current capture (2026-11-10):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below now cross their sheet boundaries. Next: annotation into per-sheet ranges and ERC across the hierarchy. The sense signals were renamed in #6 (`I_OUT_SENSE`, `V_IN_SENSE`, `V_OUT_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`, with the new `I_IN_SENSE`); the names below follow the schematic. The reset interface is named `XRSn`.
+**Current capture (2026-11-11):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below cross their sheet boundaries. The exported hierarchy has 229 annotated components and 156 nets; ERC reports zero violations under the project's configured checks after imported-symbol pin typing was corrected. The physical MCU pin allocation is recorded in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is named `XRSn`.
 
 ---
 
@@ -40,7 +40,7 @@ This document names each sheet by its file. The sheet symbols on the top sheet c
 | H1 | comms_debug | JTAG debug header (2 × 10) |
 | SW1 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
 | J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
-| H101–H104 | top | M3 mounting holes with plated pads tied to `GND` (not connectors; listed here because they are the board's other mechanical interface) |
+| H101–H104 | top | Isolated 3.2 mm M3 non-plated mounting holes (not connectors; listed here because they are the board's other mechanical interface) |
 
 ---
 
@@ -113,7 +113,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Responsible for:** showing how the board fits together, and nothing else.
 
-**Contains:** the six sheet symbols wired together by their hierarchical pins; four M3 mounting holes H101–H104 (`Mechanical:MountingHole_Pad`, footprint `MountingHole_3.2mm_M3_Pad_Via`, pads tied to `GND`, excluded from the BOM); a *Main Specifications* text block; a *Power Tree* diagram; and the project title. References on this sheet use the 100 range.
+**Contains:** the six sheet symbols wired together by their hierarchical pins; four isolated M3 NPTH mounting holes H101–H104 (`Mechanical:MountingHole`, footprint `MountingHole_3.2mm_M3`, excluded from the BOM); a *Main Specifications* text block; a *Power Tree* diagram; and the project title. References on this sheet use the 100 range.
 
 **Power tree (2026-11-10).** A drawing only (text boxes and arrow graphics, nothing on the board or in the BOM). Rails are solid boxes, converters dashed. It shows each rail's voltage and maximum current; the values come from the design notes, which remain the reference if the two ever differ:
 
@@ -132,7 +132,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 
 **As wired (2026-11-10):** the enable sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its symbol carries two pins for each; both are wired to the MCU's single pin. `XRSn` joins mcu, enable and comms_debug on one net.
 
-**Grounding note:** the mounting-hole pads are on board `GND`, which sits above J201− by the drop across Q201 ([design/input_supply.md](design/input_supply.md) decision #6). An earthed standoff plus an earthed supply negative bypasses the reverse-polarity FET; use nylon standoffs or keep the supply floating.
+**Grounding note:** the holes have no electrical pad; keep copper clear around mounting hardware. Board `GND` is separated from J201− by Q201 ([design/input_supply.md](design/input_supply.md) decision #6). With normal lead polarity, an earthed supply negative plus earthed USB/JTAG/scope ground provides a parallel return path around Q201. That path can carry input current through external equipment; it does not by itself imply that a simple reversed-lead hookup energizes the board. Use a floating 48 V supply for the standalone prototype and review shared-ground installations separately.
 
 **Does not contain:** circuit components (the mounting holes are footprint-only).
 
@@ -214,7 +214,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 - Input-voltage divider from `V_IN`
 - Two RTD channels, one per GaN FET (each RTD is placed beside its FET in layout)
 - Per channel: RC filter and clamp to `+3V3` / `GNDA`
-- Test points on each sense signal
+- TP401–TP406 on the six filtered sense outputs and TP407 on `GNDA`; place accessible pads near their measurement circuits
 
 **Hierarchical labels**
 
@@ -264,7 +264,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 | `TDO` | out | comms_debug |
 
 **Notes**
-- Every U1 pin assignment must match `pinmux.syscfg`. Design guidance is in [design/mcu.md](design/mcu.md).
+- Every U1 pin assignment must match [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). The future TI `pinmux.syscfg` must implement that allocation. Design guidance is in [design/mcu.md](design/mcu.md).
 
 ---
 
@@ -278,17 +278,17 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
    - `HS_PWM` = `MCU_PWMH` AND `STAGE_EN` AND NOT `MCU_PWML`
    - `LS_PWM` = `MCU_PWML` AND `STAGE_EN` AND NOT `MCU_PWMH`
 
-   When `STAGE_EN` is low, both gates are held off. If firmware ever drives both PWMs high, both gates are held off too (the shoot-through interlock: the LM5113-Q1 has independent inputs and no interlock of its own).
+   When `STAGE_EN` is low, both gates are held off. Sustained both-high PWM requests also make both outputs low. Simultaneous rising edges can pass briefly before the common inhibit path responds; this circuit has no proven dynamic break-before-make guarantee (enable.md finding #12). The LM5113-Q1 has independent inputs.
 3. During power-up and reset, `SUP_OK` is low, so the gates stay off until the MCU is running.
 
-   As drawn, the interlock is a NAND of the two PWM requests (`PWM_ILK_OK`, U8), ANDed with `STAGE_EN` into `PWM_EN` (U5), which then gates each PWM (U4). This is logically identical to the equations above. enable.md decision #8 records an inverter + 3-input-AND form of the same logic.
+   As drawn, the static both-high inhibit is a NAND of the two PWM requests (`PWM_ILK_OK`, U8), ANDed with `STAGE_EN` into `PWM_EN` (U5), which then gates each PWM (U4). This is Boolean-equivalent to the equations above only after propagation settles. enable.md decision #8 records an inverter + 3-input-AND form of the same logic.
 
 **Contains**
 - Supervisor with window watchdog, TI TPS3813K33 (U7): monitors `+3V3`, produces `SUP_OK`, and pulls `XRSn` low through D1 / R15
 - SW1 on-board enable switch, with pull-down so *off* is the default
 - AND logic producing `STAGE_EN` (U3)
-- Shoot-through interlock and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`
-- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), test points on `STAGE_EN` and `SUP_OK`
+- Static both-high inhibit and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`; dynamic overlap protection remains open
+- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), TP601 on `STAGE_EN`, TP602 on `SUP_OK`, and TP603 on GND
 
 **Hierarchical labels**
 
