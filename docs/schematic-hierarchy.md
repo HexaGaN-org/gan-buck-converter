@@ -4,14 +4,14 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** Draft for schematic capture. Signal names are final once the MCU pin-mux is frozen in `firmware/pinmux.syscfg`. Update this document in the same commit as any change to a sheet boundary or interface signal.
 
-**Current capture (2026-11-06):** All six sheets are captured. On the root sheet, every sheet symbol carries pins matching its sub-sheet's hierarchical labels, but **no wires are drawn yet**, so no signal crosses a sheet boundary. Wiring the root sheet is the next step. The sense signals were renamed in #6 (`I_OUT_SENSE`, `V_IN_SENSE`, `V_OUT_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`, with the new `I_IN_SENSE`); the names below follow the schematic. The reset interface is named `XRSn`.
+**Current capture (2026-11-10):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below now cross their sheet boundaries. Next: annotation into per-sheet ranges and ERC across the hierarchy. The sense signals were renamed in #6 (`I_OUT_SENSE`, `V_IN_SENSE`, `V_OUT_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`, with the new `I_IN_SENSE`); the names below follow the schematic. The reset interface is named `XRSn`.
 
 ---
 
 ## Sheet tree
 
 ```
-gan-buck-converter.kicad_sch      1  Top sheet (sheet symbols only)
+gan-buck-converter.kicad_sch      1  Top sheet (sheet symbols, mounting holes, notes)
 ├── input_supply.kicad_sch        2  48 V input, protection, auxiliary rails
 ├── power_stage.kicad_sch         3  GaN FETs, gate driver, inductor, output
 ├── sensing.kicad_sch             4  Current, voltage and temperature sensing
@@ -21,6 +21,8 @@ gan-buck-converter.kicad_sch      1  Top sheet (sheet symbols only)
 ```
 
 The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`. All sub-sheets live in its `sheets/` subfolder.
+
+This document names each sheet by its file. The sheet symbols on the top sheet carry display names instead: Input Supply, Power Stage, Sensing, Microcontroller, Enable, and Comms and Debug. KiCad builds hierarchical paths from the display names (for example `/Enable/STAGE_EN`).
 
 ## How the sheets connect
 
@@ -38,6 +40,7 @@ The top sheet lives in the KiCad project folder, `hardware/gan-buck-converter/`.
 | H1 | comms_debug | JTAG debug header (2 × 10) |
 | SW1 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
 | J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
+| H101–H104 | top | M3 mounting holes with plated pads tied to `GND` (not connectors; listed here because they are the board's other mechanical interface) |
 
 ---
 
@@ -110,9 +113,15 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Responsible for:** showing how the board fits together, and nothing else.
 
-**Contains:** the six sheet symbols wired together by their hierarchical pins, mounting holes, fiducials, and a notes block with the bring-up safety rules from the README.
+**Contains:** the six sheet symbols wired together by their hierarchical pins; four M3 mounting holes H101–H104 (`Mechanical:MountingHole_Pad`, footprint `MountingHole_3.2mm_M3_Pad_Via`, pads tied to `GND`, excluded from the BOM); a *Main Specifications* text block; and the project title. References on this sheet use the 100 range.
 
-**Does not contain:** circuit components.
+**Still to add:** a notes block with the bring-up safety rules from the README. Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assembly.md](guides/jlcpcb-assembly.md)).
+
+**As wired (2026-11-10):** the enable sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its symbol carries two pins for each; both are wired to the MCU's single pin. `XRSn` joins mcu, enable and comms_debug on one net.
+
+**Grounding note:** the mounting-hole pads are on board `GND`, which sits above J201− by the drop across Q201 ([design/input_supply.md](design/input_supply.md) decision #6). An earthed standoff plus an earthed supply negative bypasses the reverse-polarity FET; use nylon standoffs or keep the supply floating.
+
+**Does not contain:** circuit components (the mounting holes are footprint-only).
 
 **Owner duty:** when a sub-sheet owner adds or renames a hierarchical label, the top-sheet owner syncs the sheet pins and wires them.
 

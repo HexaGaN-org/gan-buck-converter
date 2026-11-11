@@ -692,7 +692,7 @@
         "uuid": "81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
       }
     ],
-    "used_designators": "J201-202,J301,R1-19,R201-216,R301-307,R401-412,R501-502,R601,#FLG1-3,#FLG201-202,#FLG301-304,D1,D201-202,D301,#PWR1-37,#PWR201-213,#PWR301-305,#PWR307-308,#PWR401-422,#PWR508,Cvcc2-4,C1-7,C201-212,C301-325,C401,C404,Cvdd2-5,Cvddio2-4,L201,L301,LED1-3,LED201-203,LED301,LED501-502,LED601,NT1,NT201-202,NT301-302,Q2,Q201-202,Q301-302,TP201-205,TP301,TP_SW301,TP_VOUT301,U1-7,U201-203,U301-302,U401-408,F201,TP_5V_EXT201-202,TP_5V_AUX201,TP_5V201,TP_3V3_201,TP_5V_201",
+    "used_designators": "J201-202,J301,R1-19,R201-216,R301-307,R401-412,R501-502,R601,#FLG1-3,#FLG201-202,#FLG301-304,D1,D201-202,D301,#PWR1-37,#PWR101-104,#PWR201-213,#PWR301-305,#PWR307-308,#PWR401-422,#PWR508,Cvcc2-4,C1-7,C201-212,C301-325,C401,C404,Cvdd2-5,Cvddio2-4,L201,L301,LED1-3,LED201-203,LED301,LED501-502,LED601,NT1,NT201-202,NT301-302,Q2,Q201-202,Q301-302,TP201-205,TP301,TP_SW301,TP_VOUT301,U1-7,U201-203,U301-302,U401-408,F201,TP_5V_EXT201-202,TP_5V_AUX201,TP_5V201,TP_3V3_201,TP_5V_201,H101-104",
     "variants": []
   },
   "sheets": [
@@ -702,27 +702,27 @@
     ],
     [
       "4b8aa320-60ae-4662-bdb4-bbf72b4f9843",
-      "input_supply"
+      "Input Supply"
     ],
     [
       "0444207b-857e-41da-9181-e6569e333c47",
-      "power_stage"
+      "Power Stage"
     ],
     [
       "fa2b1562-2d1a-4504-8d39-68003209b21b",
-      "sensing"
+      "Sensing"
     ],
     [
       "2a1cd5f1-1c22-4eaf-ad03-c666fb71ff74",
-      "mcu"
+      "Microcontroller"
     ],
     [
       "c329dfb0-29d8-4836-983b-5f6026af9994",
-      "enable"
+      "Enable"
     ],
     [
       "ed5213cc-44bb-4299-9159-8eb52a6c8543",
-      "comms_debug"
+      "Comms and Debug"
     ]
   ],
   "text_variables": {},

@@ -35,7 +35,7 @@ How we work on this board. Read it once before your first commit; the checklist 
 - A net has the same name on every sheet it appears on, exactly as listed in the signal glossary in [docs/schematic-hierarchy.md](docs/schematic-hierarchy.md).
 
 **Reference designators**
-- Annotate with *"Use first free number after sheet number × 100"*, so each sheet owns a range (input_supply: R201…, power_stage: R301…). Two people annotating in parallel never collide.
+- Annotate with *"Use first free number after sheet number × 100"*, so each sheet owns a range (top sheet: H101…, input_supply: R201…, power_stage: R301…). Two people annotating in parallel never collide.
 - Every reference ends in a number: `TP_SW1` works, while a bare `TP_SW` is flagged as unannotated.
 - Connectors use the designators in the Connectors table of the hierarchy doc. The MCU is U1.
 - Annotate only new parts on your own sheet. Never re-annotate the whole schematic.

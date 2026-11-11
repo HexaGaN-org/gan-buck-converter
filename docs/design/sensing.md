@@ -23,7 +23,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Size every RC for the ADC's acquisition time, not only for noise, and keep every signal inside `+3V3` / `GNDA`: by a clamp on the channels driven from `+5V` (decision #11) (there is no separate `+3V3A` rail: input_supply #19).
 - `I_OUT_SENSE` bandwidth sets how fast cycle-by-cycle current limiting can act: keep its filter light. Filter the temperature channels more heavily. `V_IN_SENSE` also feeds the fast input-overvoltage comparator (input_supply #24), which needs τ ≈ 1 µs (open questions).
 
-**Status (2026-11-06):** circuit captured: six channels, labels matching the contract and the MCU sheet (decision #8), root-sheet pins added. The amplifiers and RTD bias changed since rows 2–7 were written (decisions #9–#11); the calculations and published values below follow the sheet as drawn. Remaining before layout: root-sheet wiring, test points, and the open questions.
+**Status (2026-11-06):** circuit captured: six channels, labels matching the contract and the MCU sheet (decision #8), wired to mcu, power_stage and input_supply on the root sheet (2026-11-10). The amplifiers and RTD bias changed since rows 2–7 were written (decisions #9–#11); the calculations and published values below follow the sheet as drawn. Remaining before layout: test points and the open questions.
 
 ---
 
@@ -190,10 +190,10 @@ How bring-up confirms this sheet works.
 ## Open questions
 
 - **Schematic field fixes before layout** (checked against commit `808357c`):
-  - `LS_TEMP_SENSE` is set as an **input**; it is an output, like `HS_TEMP_SENSE`.
+  - (Fixed 2026-11-10: `LS_TEMP_SENSE` is now an output label, like `HS_TEMP_SENSE`.)
   - The contract lists test points on each sense signal; the sheet has none. Add one per output (after the RC) and a `GNDA` pad.
   - Gaps in the annotation: C405, C412, R410, R414 and D401–D404 are unused. Harmless; leave them rather than re-annotating.
-  - (Resolved: labels renamed, #8; the hierarchy doc uses `I_SH_OUT_P` / `I_SH_OUT_N`; root-sheet pins added, wiring pending; the second temperature channel and `I_IN_SENSE` have MCU pins, mcu.md.)
+  - (Resolved: labels renamed, #8; the hierarchy doc uses `I_SH_OUT_P` / `I_SH_OUT_N`; root-sheet pins added and wired (2026-11-10); the second temperature channel and `I_IN_SENSE` have MCU pins, mcu.md.)
 - **`V_IN_SENSE` filter vs the fast input-overvoltage trip.** input_supply decision #24 puts `V_IN_SENSE` on a CMPSS comparator (CMPSS4, planned pin 18: mcu.md) and needs τ ≈ 1 µs on that path; R407 / C404 give 100 µs. Options: C404 → 1 nF like `V_OUT_SENSE` (feedforward and UVLO then oversample in firmware), or a second, lightly filtered tap for the comparator.
 - **RTD measuring current.** 10 kΩ from `+3V3` gives 0.30 mA, a little above Vishay's 0.1–0.25 mA. Self-heating is only ≈ 0.07 K, so it is probably fine; 15 kΩ would bring it to 0.21 mA at ≈ 4.3 mV/°C.
 - **Protection thresholds.** Set (specifications.md): overcurrent ≈ 22 A → 2.75 V; output overvoltage 13.2 V → 2.20 V; fast input overvoltage ≈ 55 V → 1.43 V. Still [TBD]: input UVLO (proposed 38 V on / 36 V off → 0.987 / 0.935 V), slow input OVLO (proposed 53 V → 1.38 V) and overtemperature.
