@@ -4868,7 +4868,7 @@
 		(uuid "1331ceb4-92e1-4bc5-a7e1-cd50e9db7746")
 	)
 	(hierarchical_label "LS_TEMP_SENSE"
-		(shape input)
+		(shape output)
 		(at 139.7 162.56 0)
 		(effects
 			(font
