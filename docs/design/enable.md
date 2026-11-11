@@ -21,7 +21,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `HS_PWM` and `LS_PWM`, and on the enable-switch input (SW1), so every undriven or floating state means *off*.
 - Provide `STAGE_EN_FB` so firmware can read whether the stage is enabled.
 
-**Status (2026-11-06):** captured: supervisor and watchdog, SW1 enable switch, `STAGE_EN` gating, the shoot-through interlock as drawn (decision #9) and the `ARMED` LED (#11). Root-sheet pins added. Remaining before layout: wiring on the root sheet, test points, annotation, and the field fixes in the open questions.
+**Status (2026-11-06):** captured: supervisor and watchdog, SW1 enable switch, `STAGE_EN` gating, the shoot-through interlock as drawn (decision #9) and the `ARMED` LED (#11). Wired to mcu, power_stage and comms_debug on the root sheet (2026-11-10). Remaining before layout: test points, annotation, and the field fixes in the open questions.
 
 **How the sheet implements it**
 
@@ -170,7 +170,7 @@ How bring-up confirms this sheet works.
   - Reference designators continue the MCU sheet's numbering (C5–C10, D1, R13–R23, U3–U5, U7, U8) instead of the 600 range CONTRIBUTING asks for (sheet 6: R601, C601, U601…); only LED601 / R601 are in range so far. **C10 now clashes with comms_debug's C10**, so updating the PCB will fail until one of the two sheets is re-annotated. U6 is unused.
   - The title block's owner field reads `[NAME]`.
   - No test points: the contract asks for them on `STAGE_EN` and `WD_OK` (here `SUP_OK`). Add both and a GND pad.
-  - Root-sheet pins are in place (2026-11-06); the wiring to mcu and power_stage is still to draw.
+  - (Resolved 2026-11-10: the root sheet is wired to mcu, power_stage and comms_debug.) This sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its root-sheet symbol has two pins for each; both are wired. Remove the duplicate labels when the sheet is next edited.
   - `JLCImport` still holds the TPS3850G33DRCR footprint and 3D model, which nothing uses.
 - (Resolved 2026-11-06: schematic-hierarchy.md now describes the TPS3813, the single `SUP_OK` and the interlock as drawn.)
 - (Resolved: the interlock is drawn with U8 and U5's spare gate, decision #9. The `SN74LVC2G04` / `74LVC1G11` parts from #8 aren't used.)

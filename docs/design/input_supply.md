@@ -2,7 +2,7 @@
 
 Sheet: `sheets/input_supply.kicad_sch`
 
-**Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
+**Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-10
 
 ---
 
@@ -27,7 +27,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Allow full low-voltage bring-up from J202 with no 48 V connected.
 - Measure the board's input current with a high-side shunt (decision #17), so firmware can report input power, estimate efficiency and limit input current.
 
-**Status (2026-11-06):** schematic complete, including the indicator LEDs. Remaining: wire `I_SH_IN_P` / `I_SH_IN_N` to sensing on the root sheet (the sheet pins are in place). The sheet was re-annotated on 2026-11-06 (commit `e85a5c7`); references throughout this note follow the new annotation.
+**Status (2026-11-10):** schematic complete, including the indicator LEDs, and `I_SH_IN_P` / `I_SH_IN_N` are wired to sensing on the root sheet. The sheet was re-annotated on 2026-11-06 (commit `e85a5c7`); references throughout this note follow the new annotation.
 
 ---
 
@@ -240,7 +240,8 @@ How bring-up confirms this sheet works.
   - (Fixed 2026-11-06: NT201 / NT202 footprints; TP201–TP205 moved to `TestPoint:TestPoint_Pad_D2.0mm`, the same pad as power_stage, and excluded from the BOM and position files; TP203's Value corrected to `GND`.)
   - (Resolved 2026-11-06: LED203 is now the white KT-0805W, imported from its own LCSC listing. The Everlight 17-21SUYC import, still used by LED601 on the enable sheet, has the same footprint and pad numbering as KT-0805Y, so it needs no change.)
 - (Resolved 2026-11-06, commit `e85a5c7`: LED201's 48V wiring fixed, R203 ∥ R204 with the cathode on GND, and R211 set to 2.2 kΩ.)
-- **Root-sheet connection.** `I_SH_IN_P` / `I_SH_IN_N` sheet pins are on both this sheet's symbol and sensing's (2026-11-06); draw the wires between them.
+- (Resolved 2026-11-10: `I_SH_IN_P` / `I_SH_IN_N` are wired from this sheet's symbol to sensing's on the root sheet.)
+- **Mounting holes and the reverse-polarity FET.** The top sheet's mounting holes H101–H104 have pads on board `GND` (2026-11-10). Decision #6's caution applies to them: an earthed standoff plus an earthed supply negative puts a path around Q201. Bench rule added to the README: nylon standoffs, or keep the board off earthed metal.
 - **MCU current.** The `+3V3` budget assumes ≈ 100 mA for the F280039C; confirm from its datasheet §6.5.1.
 - **C203 ripple current** (decision #9). Read the JARSON datasheet's ripple multiplier tables (ambient temperature and frequency) and record the derated rating; it should support 0.75 A at 45 °C. Verification test 6 confirms on the bench. Fallback: Ymin VKME1452A101MV (C487440).
 - **Input UVLO and OVLO.** Proposed: UVLO on at 38 V, off at 36 V (hysteresis); input overvoltage lockout at 53 V, between the 51 V maximum and the TVS's 56.7 V breakdown. This is the slow, ADC-based layer; the fast ≈ 55 V CMPSS trip is decided (#24). Decide with sensing (`V_IN_SENSE`) and firmware, then fill in specifications.md. U201's EN is tied to `V_IN` (decision #11), so input UVLO is firmware's job; a 2-resistor EN divider could add a hardware UVLO later.

@@ -2,7 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, and every sheet symbol on the root sheet has its pins. Remaining before layout: wiring the root sheet (no wires are drawn yet), annotating each sheet into its own range, ERC on every sheet, and each design note's open questions. Layout has not started.
+> **Status (November 2026): schematic capture.** Circuitry on all six sheets is captured, and the root sheet is wired: every signal that crosses a sheet boundary is connected (2026-11-10). Remaining before layout: annotating each sheet into its own range, ERC across the hierarchy, and each design note's open questions. Layout has not started.
 
 ![Block diagram](docs/gan-buck-converter-block-diagram.png)
 
@@ -26,13 +26,15 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Sheet pins synced on all six sheet symbols; wiring pending |
-| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Root-sheet pins added |
-| 3 | power_stage | Reza Rahimzadeh | Captured; root-sheet pins added |
-| 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; root-sheet pins added |
-| 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels on the root sheet |
-| 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and the shoot-through interlock. Root-sheet pins added |
-| 7 | comms_debug | Yunxi He | Captured: USB-C with CP2102N bridge and USBLC6 ESD protection, JTAG header. Root-sheet pins added |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four M3 mounting holes (H101–H104, pads on `GND`) and a main-specifications block added. Bring-up safety notes still to add |
+| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
+| 3 | power_stage | Reza Rahimzadeh | Captured; wired on the root sheet |
+| 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; wired on the root sheet |
+| 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels wired on the root sheet |
+| 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and the shoot-through interlock. Wired on the root sheet |
+| 7 | comms_debug | Yunxi He | Captured: USB-C with CP2102N bridge and USBLC6 ESD protection, JTAG header. Wired on the root sheet |
+
+The table uses each sheet's file name. On the root sheet the symbols carry display names (Input Supply, Power Stage, Sensing, Microcontroller, Enable, Comms and Debug).
 
 Only a sheet's owner edits it. What each sheet contains and every signal that crosses between sheets are defined in [docs/schematic-hierarchy.md](docs/schematic-hierarchy.md).
 
@@ -77,4 +79,5 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 - Bring up the 5 V supply (through J202, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J202 cuts off above about 5.2–5.7 V.
 - Check polarity before connecting any electronic load or source. J201 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
 - Keep the 48 V supply's output floating (no earth strap), and set its overvoltage protection at about 55 V if it has one. Above about 57 V the input TVS conducts continuously.
+- The mounting holes (H101–H104) are tied to board `GND`, which is not the 48 V supply's negative terminal (the reverse-polarity FET sits between them). Use nylon standoffs, or keep the board off any earthed metal plate: an earthed standoff together with an earthed supply negative bypasses the reverse-polarity protection.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.
