@@ -1623,6 +1623,224 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:APXJ160ARA271MF80J"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 78.2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "APXJ160ARA271MF80J"
+				(at 0 74.2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:APXJ160ARA271MF80J"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201131730_NCC-Nippon-Chemi-Con-APXJ160ARA271MF80J_C2944013.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+105℃ 10mΩ 15000hrs@105℃ 16V 254mA@120Hz 270uF 6.3mm 7.7mm Polarized Polymer ±20% SMD,D6.3xL7.7mm Polymer Aluminum Capacitors ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C2944013"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "NCC(Nippon Chemi-Con)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "APXJ160ARA271MF80J"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "APXJ160ARA271MF80J C2944013 CAP-SMD_BD6.3-L6.6-W6.6-LS7.3 NCC(Nippon Chemi-Con)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "APXJ160ARA271MF80J_0_1"
+				(polyline
+					(pts
+						(xy -100.33 76.2) (xy -98.298 76.2)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -100.076 77.47) (xy -99.06 77.47)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -99.568 77.978) (xy -99.568 76.962)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -98.298 77.978) (xy -98.298 74.422)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -97.282 76.2) (xy -95.25 76.2)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -96.6622 74.4474)
+					(mid -97.3684 76.2211)
+					(end -96.6394 77.9856)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -102.87 76.2 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -92.71 76.2 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:BAT46W_C7420332"
 			(pin_names
 				(offset 1.016)
@@ -4352,224 +4570,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:MA25V470M8X10"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "MA25V470M8X10"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:MA25V470M8X10"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://item.szlcsc.com/datasheet/HV1J476M0810PZ/5957461.html?spm=sc.gb.xds.a&lcsc_vid=T1JaVFcDQlRdUVQCQlhfU1JfQldbVVAFFFBeUVRRQAMxVlNSRVleVlVST1heXzsOAxUeFF5JWA0NAgAHWQIASA%3D%3D"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+105℃ 10mm 2000hrs@105℃ 25V 25mΩ@100kHz 4.1A@100kHz 470uF 8mm Polarized Polymer ±20% SMD,D8xL10mm Polymer Aluminum Capacitors ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C46550466"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "jieerrui"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "MA25V470M8x10"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C46550466 CAP-SMD_BD8.0-L8.3-W8.3-LS9.0-FD_H10.5 MA25V470M8x10 jieerrui"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "MA25V470M8X10_0_1"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -0.508 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.286 1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 1.778) (xy -1.778 0.762)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 1.778) (xy -0.508 -1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.1278 -1.7526)
-					(mid 0.4216 0.0211)
-					(end 1.1506 1.7856)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "JLCImport:SLB2212P6R8MTT"
 			(pin_names
 				(offset 1.016)
@@ -5414,7 +5414,7 @@
 	)
 	(rectangle
 		(start 13.97 16.51)
-		(end 283.21 90.17)
+		(end 226.06 90.17)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -5467,12 +5467,6 @@
 		(uuid "00846e2d-ffbd-479e-8d03-0acb663414cf")
 	)
 	(junction
-		(at 269.24 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "03f2a666-acbf-4a0b-9477-0b5f2768ff49")
-	)
-	(junction
 		(at 88.9 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5485,19 +5479,13 @@
 		(uuid "0aaf7ca4-1258-45e4-9b7c-d8e4983189d7")
 	)
 	(junction
-		(at 264.16 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ed9e0fc-3c3a-4800-b6d8-4ceec85d5eba")
-	)
-	(junction
 		(at 62.23 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1895f1a6-a8a7-4c93-b0a1-421446c79183")
 	)
 	(junction
-		(at 156.21 59.69)
+		(at 128.27 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1ca1ae20-914b-4cd8-9eaf-a8b5ee9be466")
@@ -5509,49 +5497,37 @@
 		(uuid "1cf961a5-da55-449f-98d1-b74b7415bf8b")
 	)
 	(junction
-		(at 248.92 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2089a324-14d7-48e5-8b63-9488f4a693d3")
-	)
-	(junction
-		(at 187.96 82.55)
+		(at 160.02 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "21bf09a7-1fa4-4a57-ad74-6b70e2735407")
 	)
 	(junction
-		(at 254 59.69)
+		(at 182.88 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2be240eb-8562-485c-9ab8-413b18a12759")
 	)
 	(junction
-		(at 156.21 82.55)
+		(at 128.27 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2c6214a5-6864-4f9d-98e8-13c501182c60")
 	)
 	(junction
-		(at 135.89 82.55)
+		(at 107.95 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2c6c691f-e017-4d51-a590-b22d957e7de5")
 	)
 	(junction
-		(at 259.08 59.69)
+		(at 181.61 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "33880b50-f03d-4f56-8696-855a3bf467bf")
+		(uuid "2fb7cf50-92c3-492a-861c-aeb98c1b4be6")
 	)
 	(junction
-		(at 248.92 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3697d4bc-b66c-4022-a9af-5281698b0efc")
-	)
-	(junction
-		(at 175.26 59.69)
+		(at 147.32 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "39c6e9ef-0a53-4ef3-a91c-c2a3abd77ed7")
@@ -5563,19 +5539,25 @@
 		(uuid "3f3a2af7-7ca8-4f83-9c4f-ad1fb97d67f1")
 	)
 	(junction
-		(at 269.24 82.55)
+		(at 198.12 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4171c5e0-2abc-47ac-8e00-db45e42e6f0c")
 	)
 	(junction
-		(at 260.35 82.55)
+		(at 189.23 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "42de6029-1bbb-4a9f-bc78-94ecaa4e08b9")
 	)
 	(junction
-		(at 81.28 36.83)
+		(at 193.04 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4efd17cf-e780-4725-9ac5-8c369699e116")
+	)
+	(junction
+		(at 53.34 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "544228f4-d577-4cdc-9c89-81c4e9208db4")
@@ -5587,88 +5569,58 @@
 		(uuid "57a6dda0-39fc-4960-af26-e0a00f33c249")
 	)
 	(junction
-		(at 24.13 82.55)
+		(at 20.32 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "58c7679d-313a-4542-bdd1-a4377b95e259")
 	)
 	(junction
-		(at 58.42 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5bda7570-26b1-45ee-b076-34c3572e20f6")
-	)
-	(junction
-		(at 81.28 82.55)
+		(at 53.34 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6128670c-0945-4368-add0-70760235100d")
 	)
 	(junction
-		(at 31.75 82.55)
+		(at 27.94 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "61b82590-ab25-413a-a0a5-7b729da50629")
 	)
 	(junction
-		(at 218.44 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "63d120d1-b323-4fb2-8280-3011db6ded9d")
-	)
-	(junction
-		(at 185.42 59.69)
+		(at 157.48 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6873c39a-08dc-4050-b823-fcff8a134494")
 	)
 	(junction
-		(at 123.19 36.83)
+		(at 95.25 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "70e78dae-f03a-4a4c-9281-9ed26efab329")
 	)
 	(junction
-		(at 238.76 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "710a80d2-4e16-45bf-b0ae-d20e7e6bd246")
-	)
-	(junction
-		(at 198.12 59.69)
+		(at 170.18 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "780d8331-3493-4e0f-a2fc-d15e846fe23d")
 	)
 	(junction
-		(at 135.89 59.69)
+		(at 107.95 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "83b4b057-d36b-4a49-a5f4-180d8ee0bdba")
 	)
 	(junction
-		(at 69.85 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8647abee-5b1b-47fc-b874-906cbd0cfe4b")
-	)
-	(junction
-		(at 46.99 36.83)
+		(at 43.18 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8a847773-32d3-419c-8a55-8ae630b6b638")
 	)
 	(junction
-		(at 101.6 36.83)
+		(at 73.66 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8de9e45b-fddd-4436-909e-a5a89a91240c")
-	)
-	(junction
-		(at 208.28 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8fcd0ac5-2718-43ce-a229-854a943d40c9")
 	)
 	(junction
 		(at 91.44 105.41)
@@ -5677,13 +5629,13 @@
 		(uuid "91518d39-ea52-4485-876c-64f69c673c79")
 	)
 	(junction
-		(at 138.43 82.55)
+		(at 110.49 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "94300bf5-f2e4-43b2-b2c8-397efef881b1")
 	)
 	(junction
-		(at 24.13 36.83)
+		(at 20.32 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9a34db78-9d44-4a02-8380-ad4ab5d688e6")
@@ -5695,25 +5647,25 @@
 		(uuid "9b4a19ab-2e39-41fb-900c-fb69cb1c5023")
 	)
 	(junction
-		(at 187.96 59.69)
+		(at 160.02 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9d8305c2-2185-4e75-b6d6-65d9dda0cfdc")
 	)
 	(junction
-		(at 46.99 82.55)
+		(at 43.18 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a098d080-d34c-4667-8f89-3c43fe5ea840")
 	)
 	(junction
-		(at 218.44 82.55)
+		(at 204.47 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a199bda4-e6ca-4218-81c8-0ba93989f826")
+		(uuid "a1c396de-ab8c-4323-b003-461f203c3af2")
 	)
 	(junction
-		(at 273.05 59.69)
+		(at 213.36 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ac19b6ec-a7a2-41d5-b1fc-ff0e56c61ae6")
@@ -5731,103 +5683,79 @@
 		(uuid "aea06b15-e8bf-4e6d-84e8-637945a8f726")
 	)
 	(junction
-		(at 208.28 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "aff9601a-c9c7-41e6-b6eb-9d9be3a301b0")
-	)
-	(junction
 		(at 104.14 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b27c0557-aecd-4326-a30c-b10b23bdf953")
 	)
 	(junction
-		(at 31.75 36.83)
+		(at 27.94 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b997e898-998f-4fe2-820a-1ebab52dbf54")
 	)
 	(junction
-		(at 259.08 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ba590b24-ba31-40bf-a528-5d49d8656298")
-	)
-	(junction
-		(at 91.44 36.83)
+		(at 63.5 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bbcabd65-6862-4817-a1a1-3586fdc70657")
 	)
 	(junction
-		(at 35.56 82.55)
+		(at 193.04 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bcf122b4-ef8a-440c-8bf4-b3313e90093e")
+	)
+	(junction
+		(at 31.75 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c0e48ec1-e287-4bd8-84a8-afe388bd3051")
 	)
 	(junction
-		(at 35.56 36.83)
+		(at 31.75 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c8ed3815-cb7f-455a-a81f-e57e7904becc")
 	)
 	(junction
-		(at 228.6 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "cbc0e685-629c-498e-995d-6c5b06383a47")
-	)
-	(junction
-		(at 135.89 62.23)
+		(at 107.95 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ce795422-84d1-49df-bf5c-9aa68f92aeee")
 	)
 	(junction
-		(at 91.44 82.55)
+		(at 63.5 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cf6987c2-d7e5-45b4-a018-8e9e326368fe")
 	)
 	(junction
-		(at 238.76 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d7866457-47a8-45ae-abf3-d4ed6813497f")
-	)
-	(junction
-		(at 133.35 82.55)
+		(at 105.41 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "da0ea016-a133-4b3e-84dc-a7055548327b")
 	)
 	(junction
-		(at 228.6 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dd72cd95-e349-41f9-81e9-198945b14f26")
-	)
-	(junction
-		(at 101.6 82.55)
+		(at 73.66 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e132cd5c-32d0-40a0-aec3-c09ee9fbdd39")
 	)
 	(junction
-		(at 69.85 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e1e2912f-a73b-4712-b160-8b24c4fa4df4")
-	)
-	(junction
-		(at 113.03 82.55)
+		(at 85.09 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e316a055-e88e-4faf-b348-c0bed2502b0e")
 	)
 	(junction
-		(at 133.35 36.83)
+		(at 204.47 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5b7fa92-5d4c-48b7-b758-d8f4f96bfd10")
+	)
+	(junction
+		(at 105.41 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e915201c-32ad-4595-b2ec-c5aa1028303c")
@@ -5845,38 +5773,28 @@
 		(uuid "eaabb8b4-181a-4c65-9e1b-751d7c43edfb")
 	)
 	(junction
-		(at 113.03 36.83)
+		(at 85.09 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "eab8b845-fc68-4ef2-9c6a-e9129c610a5f")
 	)
 	(junction
-		(at 135.89 57.15)
+		(at 107.95 54.61)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ef14fb7f-a612-4e64-b16c-1cf856b2d8fd")
 	)
 	(junction
-		(at 58.42 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f0ad64d3-a1db-4825-ad18-e8a906dfd161")
-	)
-	(junction
-		(at 198.12 82.55)
+		(at 170.18 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f4e132ca-ba69-401e-bd14-19eb2e8aa85e")
 	)
-	(wire
-		(pts
-			(xy 259.08 59.69) (xy 259.08 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "018ee849-e54e-433d-8da3-425eaa26e9e3")
+	(junction
+		(at 181.61 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fe40829d-4611-4c09-b066-023baff096b9")
 	)
 	(wire
 		(pts
@@ -5900,17 +5818,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 59.69) (xy 248.92 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "054fad88-126f-401f-9ab1-bab1eec87daa")
-	)
-	(wire
-		(pts
-			(xy 24.13 82.55) (xy 24.13 66.04)
+			(xy 20.32 80.01) (xy 20.32 63.5)
 		)
 		(stroke
 			(width 0)
@@ -5920,7 +5828,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 49.53) (xy 185.42 52.07)
+			(xy 157.48 46.99) (xy 157.48 49.53)
 		)
 		(stroke
 			(width 0)
@@ -5950,7 +5858,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 59.69) (xy 187.96 67.31)
+			(xy 160.02 57.15) (xy 160.02 64.77)
 		)
 		(stroke
 			(width 0)
@@ -5970,7 +5878,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 82.55) (xy 91.44 82.55)
+			(xy 53.34 80.01) (xy 63.5 80.01)
 		)
 		(stroke
 			(width 0)
@@ -5980,17 +5888,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 59.69) (xy 208.28 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f4ce8fa-fedf-40aa-b0b9-b86d5598c56b")
-	)
-	(wire
-		(pts
-			(xy 91.44 82.55) (xy 101.6 82.55)
+			(xy 63.5 80.01) (xy 73.66 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6007,26 +5905,6 @@
 			(type default)
 		)
 		(uuid "1060a43d-68cd-4c4b-9d27-eefe27eefe95")
-	)
-	(wire
-		(pts
-			(xy 218.44 74.93) (xy 218.44 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11cef885-39e9-4de9-b878-bd3d4f834485")
-	)
-	(wire
-		(pts
-			(xy 238.76 59.69) (xy 238.76 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1258d35f-62bb-49a1-b674-c5a7db927642")
 	)
 	(wire
 		(pts
@@ -6060,7 +5938,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 36.83) (xy 135.89 36.83)
+			(xy 105.41 34.29) (xy 107.95 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6080,7 +5958,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 59.69) (xy 161.29 59.69)
+			(xy 128.27 57.15) (xy 133.35 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6090,17 +5968,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 67.31) (xy 228.6 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f33be13-13f2-4bd6-b73b-9f650e05a64b")
-	)
-	(wire
-		(pts
-			(xy 35.56 66.04) (xy 35.56 82.55)
+			(xy 31.75 63.5) (xy 31.75 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6130,17 +5998,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 74.93) (xy 228.6 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "384d7aca-63f1-4dc8-b49e-8fbc33757823")
-	)
-	(wire
-		(pts
-			(xy 273.05 59.69) (xy 273.05 71.12)
+			(xy 213.36 57.15) (xy 213.36 68.58)
 		)
 		(stroke
 			(width 0)
@@ -6150,23 +6008,13 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 82.55) (xy 24.13 83.82)
+			(xy 20.32 80.01) (xy 20.32 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3aa3e7d1-21f3-497e-8ea2-89e1aab39ff2")
-	)
-	(wire
-		(pts
-			(xy 248.92 74.93) (xy 248.92 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c4203e9-d04f-4d45-a0e9-84387ca7ad45")
 	)
 	(wire
 		(pts
@@ -6200,7 +6048,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 36.83) (xy 101.6 57.15)
+			(xy 73.66 34.29) (xy 73.66 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6220,7 +6068,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 82.55) (xy 135.89 82.55)
+			(xy 105.41 80.01) (xy 107.95 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6230,17 +6078,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 59.69) (xy 228.6 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46ef66dd-2f1a-4c56-b845-2e5187f07aa2")
-	)
-	(wire
-		(pts
-			(xy 31.75 82.55) (xy 81.28 82.55)
+			(xy 27.94 80.01) (xy 53.34 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6260,7 +6098,7 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 36.83) (xy 24.13 55.88)
+			(xy 20.32 34.29) (xy 20.32 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6280,7 +6118,7 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 36.83) (xy 35.56 55.88)
+			(xy 31.75 34.29) (xy 31.75 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6300,7 +6138,7 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 35.56) (xy 24.13 36.83)
+			(xy 20.32 33.02) (xy 20.32 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6310,17 +6148,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 36.83) (xy 69.85 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "59cb2112-55da-41f4-b3d5-0f8e27158fd2")
-	)
-	(wire
-		(pts
-			(xy 171.45 59.69) (xy 175.26 59.69)
+			(xy 143.51 57.15) (xy 147.32 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6330,7 +6158,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 67.31) (xy 198.12 59.69)
+			(xy 170.18 64.77) (xy 170.18 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6350,7 +6178,7 @@
 	)
 	(wire
 		(pts
-			(xy 259.08 59.69) (xy 264.16 59.69)
+			(xy 182.88 57.15) (xy 193.04 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6370,17 +6198,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 34.29) (xy 248.92 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63cc5b0d-c2da-42b4-ba30-165de24abc0e")
-	)
-	(wire
-		(pts
-			(xy 133.35 57.15) (xy 135.89 57.15)
+			(xy 105.41 54.61) (xy 107.95 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6400,7 +6218,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 59.69) (xy 156.21 62.23)
+			(xy 128.27 57.15) (xy 128.27 59.69)
 		)
 		(stroke
 			(width 0)
@@ -6410,7 +6228,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 36.83) (xy 113.03 57.15)
+			(xy 85.09 34.29) (xy 85.09 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6420,7 +6238,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 82.55) (xy 138.43 82.55)
+			(xy 107.95 80.01) (xy 110.49 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6430,7 +6248,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 36.83) (xy 91.44 57.15)
+			(xy 63.5 34.29) (xy 63.5 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6440,7 +6258,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 82.55) (xy 273.05 82.55)
+			(xy 128.27 80.01) (xy 204.47 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6450,17 +6268,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 59.69) (xy 208.28 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eb96554-9834-4f01-9a86-778b3c239688")
-	)
-	(wire
-		(pts
-			(xy 138.43 82.55) (xy 156.21 82.55)
+			(xy 110.49 80.01) (xy 128.27 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6480,7 +6288,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 59.69) (xy 187.96 59.69)
+			(xy 157.48 57.15) (xy 160.02 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6500,7 +6308,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 36.83) (xy 133.35 36.83)
+			(xy 95.25 34.29) (xy 105.41 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6510,23 +6318,13 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 58.42) (xy 273.05 59.69)
+			(xy 213.36 55.88) (xy 213.36 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7af60c42-86f7-4f60-9ce4-fce32bcd5949")
-	)
-	(wire
-		(pts
-			(xy 250.19 35.56) (xy 248.92 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bb445c2-486a-4ec0-acd7-cc09dbf6f72f")
 	)
 	(wire
 		(pts
@@ -6550,7 +6348,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 64.77) (xy 101.6 82.55)
+			(xy 73.66 62.23) (xy 73.66 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6560,27 +6358,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 59.69) (xy 218.44 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7f85c10c-809a-4041-8738-2aabed627120")
-	)
-	(wire
-		(pts
-			(xy 254 59.69) (xy 259.08 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "80bda3a7-4bbe-40a2-9428-a772a3cfdcc1")
-	)
-	(wire
-		(pts
-			(xy 156.21 80.01) (xy 156.21 82.55)
+			(xy 128.27 77.47) (xy 128.27 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6590,7 +6368,7 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 82.55) (xy 31.75 82.55)
+			(xy 20.32 80.01) (xy 27.94 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6600,7 +6378,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 57.15) (xy 185.42 59.69)
+			(xy 157.48 54.61) (xy 157.48 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6610,17 +6388,7 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 66.04) (xy 58.42 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "88ca5838-d04e-450a-85bc-fa73ba69398b")
-	)
-	(wire
-		(pts
-			(xy 81.28 36.83) (xy 81.28 57.15)
+			(xy 53.34 34.29) (xy 53.34 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6630,7 +6398,7 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 36.83) (xy 31.75 36.83)
+			(xy 20.32 34.29) (xy 27.94 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6640,7 +6408,7 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 57.15) (xy 175.26 59.69)
+			(xy 147.32 54.61) (xy 147.32 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6650,7 +6418,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 59.69) (xy 198.12 59.69)
+			(xy 160.02 57.15) (xy 170.18 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6670,37 +6438,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 74.93) (xy 238.76 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "978c8ef7-6e68-4043-aea2-1eec323b3030")
-	)
-	(wire
-		(pts
-			(xy 259.08 74.93) (xy 259.08 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9c915ee9-f25d-4193-96f5-7ee4c56339cd")
-	)
-	(wire
-		(pts
-			(xy 208.28 74.93) (xy 208.28 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ec8bee3-aa82-474c-8ba1-6b102dba40b7")
-	)
-	(wire
-		(pts
-			(xy 133.35 82.55) (xy 113.03 82.55)
+			(xy 105.41 80.01) (xy 85.09 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6710,7 +6448,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 69.85) (xy 156.21 72.39)
+			(xy 128.27 67.31) (xy 128.27 69.85)
 		)
 		(stroke
 			(width 0)
@@ -6720,7 +6458,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 64.77) (xy 81.28 82.55)
+			(xy 53.34 62.23) (xy 53.34 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6730,7 +6468,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 59.69) (xy 218.44 59.69)
+			(xy 170.18 57.15) (xy 182.88 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6740,23 +6478,13 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 49.53) (xy 175.26 52.07)
+			(xy 147.32 46.99) (xy 147.32 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a7f5a4ec-c545-49f3-9f91-2fd2b2b75933")
-	)
-	(wire
-		(pts
-			(xy 273.05 35.56) (xy 273.05 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac362efa-7e53-4cb9-aaff-9d30cd5c09a9")
 	)
 	(wire
 		(pts
@@ -6770,23 +6498,13 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 59.69) (xy 248.92 67.31)
+			(xy 204.47 57.15) (xy 213.36 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b6fdd3c3-415c-4023-8377-91d8f8c0a8f8")
-	)
-	(wire
-		(pts
-			(xy 69.85 66.04) (xy 69.85 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7594549-397a-44ae-bd23-e3765693551d")
+		(uuid "b889c494-1a7b-48a4-8f88-1cc2e045bab5")
 	)
 	(wire
 		(pts
@@ -6810,6 +6528,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 80.01) (xy 213.36 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd4033b7-4ef1-4220-95ca-21325f7330fe")
+	)
+	(wire
+		(pts
 			(xy 85.09 130.81) (xy 88.9 130.81)
 		)
 		(stroke
@@ -6830,7 +6558,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 55.88) (xy 46.99 36.83)
+			(xy 43.18 53.34) (xy 43.18 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6840,7 +6568,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 59.69) (xy 273.05 59.69)
+			(xy 193.04 57.15) (xy 204.47 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6850,7 +6578,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 74.93) (xy 187.96 82.55)
+			(xy 160.02 72.39) (xy 160.02 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6870,7 +6598,7 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 73.66) (xy 273.05 82.55)
+			(xy 213.36 71.12) (xy 213.36 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6880,7 +6608,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 57.15) (xy 138.43 57.15)
+			(xy 107.95 54.61) (xy 110.49 54.61)
 		)
 		(stroke
 			(width 0)
@@ -6890,33 +6618,13 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 36.83) (xy 58.42 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4cc1d88-8621-45e4-843a-1e3a31019aed")
-	)
-	(wire
-		(pts
-			(xy 113.03 82.55) (xy 101.6 82.55)
+			(xy 85.09 80.01) (xy 73.66 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c57363a3-84ca-4d25-9d86-a83a69a90774")
-	)
-	(wire
-		(pts
-			(xy 269.24 76.2) (xy 269.24 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6e91afe-080b-420f-a88a-c45f213789e3")
 	)
 	(wire
 		(pts
@@ -6950,7 +6658,17 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 36.83) (xy 101.6 36.83)
+			(xy 193.04 57.15) (xy 193.04 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c978d315-9f65-483d-91fc-93ef7ffbe73c")
+	)
+	(wire
+		(pts
+			(xy 63.5 34.29) (xy 73.66 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6960,7 +6678,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 36.83) (xy 91.44 36.83)
+			(xy 53.34 34.29) (xy 63.5 34.29)
 		)
 		(stroke
 			(width 0)
@@ -6970,17 +6688,7 @@
 	)
 	(wire
 		(pts
-			(xy 264.16 59.69) (xy 269.24 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ccde5766-bb85-4080-8136-b49a8de88be6")
-	)
-	(wire
-		(pts
-			(xy 198.12 74.93) (xy 198.12 82.55)
+			(xy 170.18 72.39) (xy 170.18 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6990,17 +6698,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 59.69) (xy 254 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cec8781f-a0ce-4759-bddc-7dde80c2ef7e")
-	)
-	(wire
-		(pts
-			(xy 271.78 35.56) (xy 273.05 35.56)
+			(xy 204.47 78.74) (xy 204.47 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7010,7 +6708,17 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 64.77) (xy 113.03 82.55)
+			(xy 181.61 57.15) (xy 181.61 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0104772-bd44-4e11-ad5d-8a5f02bbd8ec")
+	)
+	(wire
+		(pts
+			(xy 85.09 62.23) (xy 85.09 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7020,7 +6728,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 36.83) (xy 81.28 36.83)
+			(xy 27.94 34.29) (xy 53.34 34.29)
 		)
 		(stroke
 			(width 0)
@@ -7040,6 +6748,16 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 73.66) (xy 193.04 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d607d072-260e-4340-84cc-11fd6e712a90")
+	)
+	(wire
+		(pts
 			(xy 92.71 123.19) (xy 92.71 125.73)
 		)
 		(stroke
@@ -7050,17 +6768,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 59.69) (xy 238.76 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d806cf7c-7dfa-4eb6-80e8-3a624750790c")
-	)
-	(wire
-		(pts
-			(xy 135.89 59.69) (xy 156.21 59.69)
+			(xy 107.95 57.15) (xy 128.27 57.15)
 		)
 		(stroke
 			(width 0)
@@ -7120,7 +6828,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 66.04) (xy 46.99 82.55)
+			(xy 43.18 63.5) (xy 43.18 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7130,7 +6838,7 @@
 	)
 	(wire
 		(pts
-			(xy 260.35 35.56) (xy 261.62 35.56)
+			(xy 204.47 67.31) (xy 204.47 68.58)
 		)
 		(stroke
 			(width 0)
@@ -7140,7 +6848,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 64.77) (xy 91.44 82.55)
+			(xy 63.5 62.23) (xy 63.5 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7150,7 +6858,17 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 36.83) (xy 113.03 36.83)
+			(xy 181.61 73.66) (xy 181.61 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea01efa1-1444-4f8b-afa5-25788457210d")
+	)
+	(wire
+		(pts
+			(xy 73.66 34.29) (xy 85.09 34.29)
 		)
 		(stroke
 			(width 0)
@@ -7170,7 +6888,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 36.83) (xy 123.19 36.83)
+			(xy 85.09 34.29) (xy 95.25 34.29)
 		)
 		(stroke
 			(width 0)
@@ -7190,7 +6908,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 62.23) (xy 135.89 62.23)
+			(xy 105.41 59.69) (xy 107.95 59.69)
 		)
 		(stroke
 			(width 0)
@@ -7200,7 +6918,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 57.15) (xy 135.89 59.69)
+			(xy 107.95 54.61) (xy 107.95 57.15)
 		)
 		(stroke
 			(width 0)
@@ -7220,23 +6938,13 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 59.69) (xy 135.89 62.23)
+			(xy 107.95 57.15) (xy 107.95 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "fb984b21-ed0c-4ee3-b0bb-2d75cb4066f1")
-	)
-	(wire
-		(pts
-			(xy 269.24 59.69) (xy 269.24 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fba08031-93c4-4ecc-9235-53bbf715a463")
 	)
 	(label "SW_NODE"
 		(at 16.51 129.54 0)
@@ -7249,7 +6957,7 @@
 		(uuid "12c528c1-450d-47ac-a19b-a7501dfcdede")
 	)
 	(label "LS_DRIVE"
-		(at 149.86 29.21 0)
+		(at 121.92 26.67 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7269,7 +6977,7 @@
 		(uuid "55aad971-2a12-4c80-a5ea-030459520dbd")
 	)
 	(label "SW_NODE"
-		(at 139.7 59.69 0)
+		(at 111.76 57.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7289,7 +6997,7 @@
 		(uuid "c9ec9989-07b3-4f83-aaec-f5b3ffe4e032")
 	)
 	(label "HS_DRIVE"
-		(at 125.73 46.99 180)
+		(at 97.79 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7299,7 +7007,7 @@
 		(uuid "cd1bad66-906d-4c31-9762-ae1406d32400")
 	)
 	(label "LS_DRIVE"
-		(at 125.73 72.39 180)
+		(at 97.79 69.85 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7323,7 +7031,7 @@
 	)
 	(hierarchical_label "I_SH_OUT_P"
 		(shape output)
-		(at 175.26 49.53 180)
+		(at 147.32 46.99 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7336,7 +7044,7 @@
 	)
 	(hierarchical_label "I_SH_OUT_N"
 		(shape output)
-		(at 185.42 49.53 0)
+		(at 157.48 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7362,7 +7070,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL32Y106KCV6PNE")
-		(at 111.76 -40.64 90)
+		(at 107.95 -43.18 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7372,7 +7080,7 @@
 		(dnp no)
 		(uuid "01ffbaf6-4f23-4b94-9580-59872f195b05")
 		(property "Reference" "C302"
-			(at 38.1 59.69 90)
+			(at 34.29 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7383,7 +7091,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 38.1 62.23 90)
+			(at 34.29 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7394,7 +7102,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7405,7 +7113,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7416,7 +7124,7 @@
 			)
 		)
 		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7427,7 +7135,7 @@
 			)
 		)
 		(property "LCSC" "C22380050"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7438,7 +7146,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7449,7 +7157,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL32Y106KCV6PNE"
-			(at 111.76 -40.64 0)
+			(at 107.95 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7492,7 +7200,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "02468982-8725-4ece-81ee-c98d6076c618")
-		(property "Reference" "#PWR0302"
+		(property "Reference" "#PWR0305"
 			(at 64.77 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7552,7 +7260,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0302")
+					(reference "#PWR0305")
 					(unit 1)
 				)
 			)
@@ -7566,7 +7274,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:SLB2212P6R8MTT")
-		(at 166.37 59.69 0)
+		(at 138.43 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7576,7 +7284,7 @@
 		(dnp no)
 		(uuid "0ff35cff-e447-4226-a9be-8cfb8fd25b6a")
 		(property "Reference" "L301"
-			(at 166.37 54.356 0)
+			(at 138.43 51.816 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7586,7 +7294,7 @@
 			)
 		)
 		(property "Value" "6.8uH"
-			(at 166.37 56.896 0)
+			(at 138.43 54.356 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7596,7 +7304,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:SLB2212P6R8MTT"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7607,7 +7315,7 @@
 			)
 		)
 		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2108141930_Sunltech-Tech-SLB2212P6R8MTT_C2842794.pdf"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7618,7 +7326,7 @@
 			)
 		)
 		(property "Description" "2.1mΩ 28.5A 31A 6.8uH ±20% SMD,22.5x22mm Power Inductors ROHS"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7629,7 +7337,7 @@
 			)
 		)
 		(property "LCSC" "C2842794"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7640,7 +7348,7 @@
 			)
 		)
 		(property "Manufacturer" "Sunltech Tech"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7651,7 +7359,7 @@
 			)
 		)
 		(property "Manufacturer Part" "SLB2212P6R8MTT"
-			(at 166.37 59.69 0)
+			(at 138.43 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7684,7 +7392,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 149.86 29.21 0)
+		(at 121.92 26.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7693,8 +7401,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "10d02f43-a6aa-4d66-8ed7-b2cb9aae59dd")
-		(property "Reference" "TP_LSG1"
-			(at 149.86 36.068 0)
+		(property "Reference" "TP_LSG301"
+			(at 121.92 33.528 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7704,7 +7412,7 @@
 			)
 		)
 		(property "Value" "LS_GATE"
-			(at 149.86 34.29 0)
+			(at 121.92 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7714,7 +7422,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 154.94 29.21 0)
+			(at 127 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7725,7 +7433,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 154.94 29.21 0)
+			(at 127 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7736,7 +7444,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 149.86 29.21 0)
+			(at 121.92 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7752,7 +7460,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_LSG1")
+					(reference "TP_LSG301")
 					(unit 1)
 				)
 			)
@@ -7760,7 +7468,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:IGC033S10S1_C41381300")
-		(at 133.35 72.39 0)
+		(at 105.41 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7771,7 +7479,7 @@
 		(fields_autoplaced yes)
 		(uuid "12d7c348-5251-4342-9361-3c2fdc32009b")
 		(property "Reference" "Q302"
-			(at 139.7 71.1199 0)
+			(at 111.76 68.5799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7782,7 +7490,7 @@
 			)
 		)
 		(property "Value" "IGC033S10S1"
-			(at 139.7 73.6599 0)
+			(at 111.76 71.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7793,7 +7501,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:IGC033S10S1_C41381300"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7804,7 +7512,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.infineon.com/assets/row/public/documents/24/49/infineon-igc033s10s1-datasheet-en.pdf"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7815,7 +7523,7 @@
 			)
 		)
 		(property "Description" "-40℃~+150℃ 1.9V 100V 11nC 1200pF 2.4mΩ 45W 540pF 6.1pF 76A PG-TSON-6 GaN Transistors(GaN HEMT) ROHS"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7826,7 +7534,7 @@
 			)
 		)
 		(property "LCSC" "C41381300"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7837,7 +7545,7 @@
 			)
 		)
 		(property "Manufacturer" "Infineon Technologies"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7848,7 +7556,7 @@
 			)
 		)
 		(property "Manufacturer Part" "IGC033S10S1"
-			(at 133.35 72.39 0)
+			(at 105.41 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7902,7 +7610,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1ed33ef8-84b7-4fef-b894-e7c510892efc")
-		(property "Reference" "R303"
+		(property "Reference" "R304"
 			(at 43.18 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7997,7 +7705,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R303")
+					(reference "R304")
 					(unit 1)
 				)
 			)
@@ -8020,7 +7728,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "20b512ad-5250-426f-bcea-47588a89cc1a")
-		(property "Reference" "C324"
+		(property "Reference" "C314"
 			(at 91.948 137.16 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8117,133 +7825,13 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C324")
+					(reference "C314")
 					(unit 1)
 				)
 			)
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C324")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL32Y106KCV6PNE")
-		(at 146.05 -40.64 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "25a21f60-2d21-4e8d-9c7d-8e75c4047ee6")
-		(property "Reference" "C307"
-			(at 72.136 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10uF"
-			(at 72.136 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C22380050"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL32Y106KCV6PNE"
-			(at 146.05 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5b0ac0a7-1d77-4c2a-94b3-b1dc81f2ffbb")
-		)
-		(pin "2"
-			(uuid "bb063da6-7690-415e-85c3-ae45bc1a4714")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C307")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C307")
 					(unit 1)
 				)
 			)
@@ -8251,7 +7839,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B104KC8NNNC")
-		(at 101.6 60.96 90)
+		(at 73.66 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8260,8 +7848,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "26765944-9e7d-4d89-a0a1-d8c9148916ab")
-		(property "Reference" "C309"
-			(at 104.14 59.69 90)
+		(property "Reference" "C306"
+			(at 76.2 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8272,7 +7860,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 104.14 62.23 90)
+			(at 76.2 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8283,7 +7871,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8294,7 +7882,7 @@
 			)
 		)
 		(property "Datasheet" "https://product.samsungsem.com/mlcc/CL10B104KC8NNN.do"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8305,7 +7893,7 @@
 			)
 		)
 		(property "Description" "100 nF 100 V X7R ±10% 0603 MLCC"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8316,7 +7904,7 @@
 			)
 		)
 		(property "LCSC" "C15725"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8327,7 +7915,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8338,7 +7926,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10B104KC8NNNC"
-			(at 101.6 60.96 0)
+			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8357,7 +7945,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C309")
+					(reference "C306")
 					(unit 1)
 				)
 			)
@@ -8365,7 +7953,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 167.64 29.21 0)
+		(at 139.7 26.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8374,8 +7962,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "2b93b2f3-ded2-49d5-aca5-ca9a8e2dd262")
-		(property "Reference" "TP_LSS1"
-			(at 167.64 36.068 0)
+		(property "Reference" "TP_LSS301"
+			(at 139.7 33.528 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8385,7 +7973,7 @@
 			)
 		)
 		(property "Value" "LS_SOURCE"
-			(at 167.64 34.29 0)
+			(at 139.7 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8395,7 +7983,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 172.72 29.21 0)
+			(at 144.78 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8406,7 +7994,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 172.72 29.21 0)
+			(at 144.78 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8417,7 +8005,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 167.64 29.21 0)
+			(at 139.7 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8433,7 +8021,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_LSS1")
+					(reference "TP_LSS301")
 					(unit 1)
 				)
 			)
@@ -8441,7 +8029,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL32Y106KCV6PNE")
-		(at 123.19 -40.64 90)
+		(at 119.38 -43.18 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8451,7 +8039,7 @@
 		(dnp no)
 		(uuid "330eff3f-369d-4b80-adf3-2a230d45e06a")
 		(property "Reference" "C303"
-			(at 49.276 59.69 90)
+			(at 45.466 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8462,7 +8050,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 49.276 62.23 90)
+			(at 45.466 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8473,7 +8061,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8484,7 +8072,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8495,7 +8083,7 @@
 			)
 		)
 		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8506,7 +8094,7 @@
 			)
 		)
 		(property "LCSC" "C22380050"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8517,7 +8105,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8528,7 +8116,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL32Y106KCV6PNE"
-			(at 123.19 -40.64 0)
+			(at 119.38 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8561,7 +8149,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:FPM253WFR001TML")
-		(at 180.34 59.69 0)
+		(at 152.4 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8571,7 +8159,7 @@
 		(dnp no)
 		(uuid "3a91d6e8-7d4c-4864-904a-9d5692ffec25")
 		(property "Reference" "R301"
-			(at 180.34 54.102 0)
+			(at 152.4 51.562 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8581,7 +8169,7 @@
 			)
 		)
 		(property "Value" "1m"
-			(at 180.34 56.642 0)
+			(at 152.4 54.102 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8591,7 +8179,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8602,7 +8190,7 @@
 			)
 		)
 		(property "Datasheet" "https://item.szlcsc.com/347967.html"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8613,7 +8201,7 @@
 			)
 		)
 		(property "Description" "1mΩ 3W Current Sense Resistor Surface-mount (SMD) ±1% ±50ppm/℃ 2512 Current Sense Resistors / Shunt Resistors ROHS"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8624,7 +8212,7 @@
 			)
 		)
 		(property "LCSC" "C7420016"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8635,7 +8223,7 @@
 			)
 		)
 		(property "Manufacturer" "FOJAN"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8646,7 +8234,7 @@
 			)
 		)
 		(property "Manufacturer Part" "FPM253WFR001TML"
-			(at 180.34 59.69 0)
+			(at 152.4 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8679,7 +8267,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 260.35 82.55 180)
+		(at 189.23 80.01 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8688,8 +8276,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "3d26ae20-25d7-433e-82e6-eca9ba3803c6")
-		(property "Reference" "TP_GND1"
-			(at 264.16 88.138 0)
+		(property "Reference" "TP_GND301"
+			(at 193.04 85.598 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8700,7 +8288,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 257.81 84.5821 0)
+			(at 186.69 82.0421 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8712,7 +8300,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 255.27 82.55 0)
+			(at 184.15 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8723,7 +8311,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 255.27 82.55 0)
+			(at 184.15 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8734,7 +8322,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 260.35 82.55 0)
+			(at 189.23 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8750,7 +8338,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_GND1")
+					(reference "TP_GND301")
 					(unit 1)
 				)
 			)
@@ -8764,7 +8352,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0603WAF1002T5E")
-		(at 255.27 35.56 0)
+		(at 204.47 62.23 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8773,8 +8361,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3e7b9552-e434-4314-863e-d9f7390f31b2")
-		(property "Reference" "R307"
-			(at 252.476 29.718 0)
+		(property "Reference" "R302"
+			(at 197.866 60.96 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8785,7 +8373,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 252.476 32.258 0)
+			(at 197.866 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8796,7 +8384,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0603WAF1002T5E"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8807,7 +8395,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0603WAF1002T5E_C25804.pdf"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8818,7 +8406,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8829,7 +8417,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8840,7 +8428,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8851,7 +8439,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0603WAF1002T5E"
-			(at 255.27 35.56 0)
+			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8870,127 +8458,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R307")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 248.92 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3f3c8edd-24c5-49bb-94b8-e9989b5415e3")
-		(property "Reference" "C317"
-			(at 240.792 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 240.792 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 248.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "52b4537f-13e2-4f8c-b95e-34473f919418")
-		)
-		(pin "2"
-			(uuid "b9868dee-7d44-410c-b23d-c8526f5f51b2")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C317")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C317")
+					(reference "R302")
 					(unit 1)
 				)
 			)
@@ -8998,7 +8466,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B104KC8NNNC")
-		(at 91.44 60.96 90)
+		(at 63.5 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9007,8 +8475,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4d04f9f0-df4b-448a-8dac-6e2ccf66f3b5")
-		(property "Reference" "C306"
-			(at 93.98 59.69 90)
+		(property "Reference" "C305"
+			(at 66.04 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9019,7 +8487,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 93.98 62.23 90)
+			(at 66.04 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9030,7 +8498,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9041,7 +8509,7 @@
 			)
 		)
 		(property "Datasheet" "https://product.samsungsem.com/mlcc/CL10B104KC8NNN.do"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9052,7 +8520,7 @@
 			)
 		)
 		(property "Description" "100V 100nF X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9063,7 +8531,7 @@
 			)
 		)
 		(property "LCSC" "C15725"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9074,7 +8542,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9085,7 +8553,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10B104KC8NNNC"
-			(at 91.44 60.96 0)
+			(at 63.5 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9104,247 +8572,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C306")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 259.08 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "4d2897bc-f957-4009-9e4d-3538abfd6be3")
-		(property "Reference" "C318"
-			(at 250.952 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 250.952 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 259.08 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "631d133a-2ccd-4e38-a3b3-35dbd0349886")
-		)
-		(pin "2"
-			(uuid "9fc10d7b-2f2b-4a58-ae45-d0b0942f8eb4")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C318")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C318")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 228.6 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "4da09286-3e77-48f6-9e8e-c65838398b12")
-		(property "Reference" "C315"
-			(at 220.472 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 220.472 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 228.6 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aa4e1e60-058f-4cf6-aed5-d3b8cd8b6c58")
-		)
-		(pin "2"
-			(uuid "aad6e0e1-bf5b-4e8a-a534-7b9765d3b04b")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C315")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C315")
+					(reference "C305")
 					(unit 1)
 				)
 			)
@@ -9497,7 +8725,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 24.13 83.82 0)
+		(at 20.32 81.28 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9507,7 +8735,7 @@
 		(dnp no)
 		(uuid "516195f4-2d2d-4481-8ff3-2c13ff19c338")
 		(property "Reference" "#PWR0304"
-			(at 24.13 90.17 0)
+			(at 20.32 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9518,7 +8746,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 24.13 87.884 0)
+			(at 20.32 85.344 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9528,7 +8756,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 24.13 83.82 0)
+			(at 20.32 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9539,7 +8767,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 24.13 83.82 0)
+			(at 20.32 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9550,7 +8778,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 24.13 83.82 0)
+			(at 20.32 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9589,7 +8817,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "58870a16-ccf1-40d6-975f-084f17b908cc")
-		(property "Reference" "C322"
+		(property "Reference" "C312"
 			(at 107.188 111.76 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9686,253 +8914,13 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C322")
+					(reference "C312")
 					(unit 1)
 				)
 			)
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C322")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:MA25V470M8X10")
-		(at 269.24 71.12 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5a4f213c-5024-467b-b7b1-f1a7b6ccb50a")
-		(property "Reference" "C319"
-			(at 261.366 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "470uF"
-			(at 261.366 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:MA25V470M8X10"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://item.szlcsc.com/datasheet/HV1J476M0810PZ/5957461.html?spm=sc.gb.xds.a&lcsc_vid=T1JaVFcDQlRdUVQCQlhfU1JfQldbVVAFFFBeUVRRQAMxVlNSRVleVlVST1heXzsOAxUeFF5JWA0NAgAHWQIASA%3D%3D"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+105℃ 10mm 2000hrs@105℃ 25V 25mΩ@100kHz 4.1A@100kHz 470uF 8mm Polarized Polymer ±20% SMD,D8xL10mm Polymer Aluminum Capacitors ROHS"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C46550466"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "jieerrui"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "MA25V470M8x10"
-			(at 269.24 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "12985bb3-3f0b-477f-a73d-6dea7605e2d1")
-		)
-		(pin "1"
-			(uuid "0fb187cc-a3b5-41f1-99b0-59d1e4907e43")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C319")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C319")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 218.44 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5bb69d5d-35e4-48b8-b88e-841e019e6a5b")
-		(property "Reference" "C314"
-			(at 210.312 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 210.312 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 218.44 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c1222d48-d3b0-4e20-b63f-a3ee6941d4e3")
-		)
-		(pin "2"
-			(uuid "b569d78e-d5eb-4fa1-828a-8926ddc45ebf")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C314")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C314")
 					(unit 1)
 				)
 			)
@@ -9940,7 +8928,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 31.75 82.55 180)
+		(at 27.94 80.01 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9950,8 +8938,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "664c905a-c42c-48f8-99bf-d0decae7730e")
-		(property "Reference" "#FLG0302"
-			(at 31.75 84.455 0)
+		(property "Reference" "#FLG0303"
+			(at 27.94 81.915 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9962,7 +8950,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 31.75 87.63 0)
+			(at 27.94 85.09 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9972,7 +8960,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 31.75 82.55 0)
+			(at 27.94 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9983,7 +8971,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 31.75 82.55 0)
+			(at 27.94 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9994,7 +8982,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 31.75 82.55 0)
+			(at 27.94 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10010,7 +8998,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#FLG0302")
+					(reference "#FLG0303")
 					(unit 1)
 				)
 			)
@@ -10023,8 +9011,122 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:APXJ160ARA271MF80J")
+		(at 116.84 166.37 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6c97f196-1ba2-4f65-82c7-f255ca730d3e")
+		(property "Reference" "C317"
+			(at 184.912 67.564 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "270uF"
+			(at 184.912 70.104 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:APXJ160ARA271MF80J"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201131730_NCC-Nippon-Chemi-Con-APXJ160ARA271MF80J_C2944013.pdf"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+105℃ 10mΩ 15000hrs@105℃ 16V 254mA@120Hz 270uF 6.3mm 7.7mm Polarized Polymer ±20% SMD,D6.3xL7.7mm Polymer Aluminum Capacitors ROHS"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2944013"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "NCC(Nippon Chemi-Con)"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "APXJ160ARA271MF80J"
+			(at 116.84 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f240d14b-5369-489a-ba79-b88bbcdddc60")
+		)
+		(pin "1"
+			(uuid "b75fedfe-792d-43c9-b6da-c3eb01bc4d04")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C317")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:IGC033S10S1_C41381300")
-		(at 133.35 46.99 0)
+		(at 105.41 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10035,7 +9137,7 @@
 		(fields_autoplaced yes)
 		(uuid "704ac8d7-7b3e-430b-8642-9003b9466121")
 		(property "Reference" "Q301"
-			(at 139.7 45.7199 0)
+			(at 111.76 43.1799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10046,7 +9148,7 @@
 			)
 		)
 		(property "Value" "IGC033S10S1"
-			(at 139.7 48.2599 0)
+			(at 111.76 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10057,7 +9159,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:IGC033S10S1_C41381300"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10068,7 +9170,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.infineon.com/assets/row/public/documents/24/49/infineon-igc033s10s1-datasheet-en.pdf"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10079,7 +9181,7 @@
 			)
 		)
 		(property "Description" "-40℃~+150℃ 1.9V 100V 11nC 1200pF 2.4mΩ 45W 540pF 6.1pF 76A PG-TSON-6 GaN Transistors(GaN HEMT) ROHS"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10090,7 +9192,7 @@
 			)
 		)
 		(property "LCSC" "C41381300"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10101,7 +9203,7 @@
 			)
 		)
 		(property "Manufacturer" "Infineon Technologies"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10112,7 +9214,7 @@
 			)
 		)
 		(property "Manufacturer Part" "IGC033S10S1"
-			(at 133.35 46.99 0)
+			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10157,7 +9259,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 31.75 36.83 0)
+		(at 27.94 34.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10168,7 +9270,7 @@
 		(fields_autoplaced yes)
 		(uuid "7777b0bd-e790-4ea5-b485-002dfae0bc3f")
 		(property "Reference" "#FLG0301"
-			(at 31.75 34.925 0)
+			(at 27.94 32.385 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10179,7 +9281,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 31.75 31.75 0)
+			(at 27.94 29.21 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10189,7 +9291,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 31.75 36.83 0)
+			(at 27.94 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10200,7 +9302,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 31.75 36.83 0)
+			(at 27.94 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10211,7 +9313,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 31.75 36.83 0)
+			(at 27.94 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10241,84 +9343,7 @@
 	)
 	(symbol
 		(lib_id "hexagan:V_OUT")
-		(at 248.92 34.29 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7df5b3a1-4786-43b5-b4e0-1bc8fe9d91e1")
-		(property "Reference" "#PWR0307"
-			(at 248.92 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "V_OUT"
-			(at 248.92 29.718 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 248.92 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
-			(at 248.92 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "925a6ffe-855f-4136-bc0f-293a959fbdf5")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0307")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hexagan:V_OUT")
-		(at 273.05 58.42 0)
+		(at 213.36 55.88 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10327,8 +9352,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7ea589fe-835b-4010-97d0-a3f73e6e61ae")
-		(property "Reference" "#PWR0305"
-			(at 273.05 62.23 0)
+		(property "Reference" "#PWR0303"
+			(at 213.36 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10339,7 +9364,7 @@
 			)
 		)
 		(property "Value" "V_OUT"
-			(at 273.05 53.848 0)
+			(at 213.36 51.308 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10349,7 +9374,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 273.05 58.42 0)
+			(at 213.36 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10360,7 +9385,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 273.05 58.42 0)
+			(at 213.36 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10371,7 +9396,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"V_OUT\": 12 V converter output"
-			(at 273.05 58.42 0)
+			(at 213.36 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10387,7 +9412,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0305")
+					(reference "#PWR0303")
 					(unit 1)
 				)
 			)
@@ -10410,7 +9435,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7f8f72c0-cb52-44d8-baa9-084fb8596ce3")
-		(property "Reference" "C325"
+		(property "Reference" "C315"
 			(at 65.278 138.43 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10507,133 +9532,13 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C325")
+					(reference "C315")
 					(unit 1)
 				)
 			)
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C325")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL32Y106KCV6PNE")
-		(at 134.62 -40.64 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "811ef947-e84b-437c-b2f6-54c14084e370")
-		(property "Reference" "C305"
-			(at 60.706 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10uF"
-			(at 60.706 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C22380050"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL32Y106KCV6PNE"
-			(at 134.62 -40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a4729536-7b6c-49bd-aa3a-c10bc32e85f5")
-		)
-		(pin "2"
-			(uuid "508fc15f-cafd-4f89-b061-7c15ad3aaa92")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C305")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C305")
 					(unit 1)
 				)
 			)
@@ -10760,7 +9665,7 @@
 	)
 	(symbol
 		(lib_id "Device:NetTie_2")
-		(at 185.42 54.61 90)
+		(at 157.48 52.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10770,8 +9675,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ef78281-adb6-4abe-8569-d8740614f9e2")
-		(property "Reference" "NT301"
-			(at 186.69 53.3399 90)
+		(property "Reference" "NT302"
+			(at 158.75 50.7999 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10783,7 +9688,7 @@
 			)
 		)
 		(property "Value" "NetTie_2"
-			(at 186.69 55.8799 90)
+			(at 158.75 53.3399 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10795,7 +9700,7 @@
 			)
 		)
 		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-			(at 185.42 54.61 0)
+			(at 157.48 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10806,7 +9711,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 54.61 0)
+			(at 157.48 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10817,7 +9722,7 @@
 			)
 		)
 		(property "Description" "Net tie, 2 pins"
-			(at 185.42 54.61 0)
+			(at 157.48 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10836,7 +9741,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "NT301")
+					(reference "NT302")
 					(unit 1)
 				)
 			)
@@ -10853,7 +9758,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "954404bd-d646-47e2-8f60-5af0aad992b5")
-		(property "Reference" "C321"
+		(property "Reference" "C311"
 			(at 94.488 111.76 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10950,7 +9855,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C321")
+					(reference "C311")
 					(unit 1)
 				)
 			)
@@ -10964,7 +9869,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B104KC8NNNC")
-		(at 113.03 60.96 90)
+		(at 85.09 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10973,8 +9878,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "960f50f1-9403-45ac-acad-b2cc5a00df57")
-		(property "Reference" "C310"
-			(at 115.57 59.69 90)
+		(property "Reference" "C307"
+			(at 87.63 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10985,7 +9890,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 115.57 62.23 90)
+			(at 87.63 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10996,7 +9901,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11007,7 +9912,7 @@
 			)
 		)
 		(property "Datasheet" "https://product.samsungsem.com/mlcc/CL10B104KC8NNN.do"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11018,7 +9923,7 @@
 			)
 		)
 		(property "Description" "100 nF 100 V X7R ±10% 0603 MLCC"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11029,7 +9934,7 @@
 			)
 		)
 		(property "LCSC" "C15725"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11040,7 +9945,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11051,7 +9956,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10B104KC8NNNC"
-			(at 113.03 60.96 0)
+			(at 85.09 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11070,7 +9975,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C310")
+					(reference "C307")
 					(unit 1)
 				)
 			)
@@ -11078,7 +9983,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 264.16 59.69 0)
+		(at 193.04 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11087,8 +9992,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "9ad8a30c-b012-4eca-a18b-4de265077c7c")
-		(property "Reference" "TP_VOUT1"
-			(at 259.842 53.848 0)
+		(property "Reference" "TP_VOUT301"
+			(at 188.722 51.308 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11099,7 +10004,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 266.7 57.6579 0)
+			(at 195.58 55.1179 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11111,7 +10016,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 269.24 59.69 0)
+			(at 198.12 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11122,7 +10027,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 269.24 59.69 0)
+			(at 198.12 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11133,7 +10038,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 264.16 59.69 0)
+			(at 193.04 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11149,7 +10054,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_VOUT1")
+					(reference "TP_VOUT301")
 					(unit 1)
 				)
 			)
@@ -11163,7 +10068,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 254 59.69 0)
+		(at 182.88 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11173,8 +10078,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9cbffb39-94e7-4d68-912a-56fd99527363")
-		(property "Reference" "#FLG0303"
-			(at 254 57.785 0)
+		(property "Reference" "#FLG0302"
+			(at 182.88 55.245 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11185,7 +10090,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 254 54.61 0)
+			(at 182.88 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11195,7 +10100,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 254 59.69 0)
+			(at 182.88 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11206,7 +10111,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 254 59.69 0)
+			(at 182.88 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11217,7 +10122,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 254 59.69 0)
+			(at 182.88 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11233,7 +10138,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#FLG0303")
+					(reference "#FLG0302")
 					(unit 1)
 				)
 			)
@@ -11247,7 +10152,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL32Y106KCV6PNE")
-		(at 100.33 -40.64 90)
+		(at 96.52 -43.18 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11257,7 +10162,7 @@
 		(dnp no)
 		(uuid "a07865ab-11ec-48b3-a8aa-6e04e299d08f")
 		(property "Reference" "C301"
-			(at 26.67 59.69 90)
+			(at 22.86 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11268,7 +10173,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 26.67 62.23 90)
+			(at 22.86 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11279,7 +10184,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11290,7 +10195,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11301,7 +10206,7 @@
 			)
 		)
 		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11312,7 +10217,7 @@
 			)
 		)
 		(property "LCSC" "C22380050"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11323,7 +10228,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11334,7 +10239,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL32Y106KCV6PNE"
-			(at 100.33 -40.64 0)
+			(at 96.52 -43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11367,7 +10272,7 @@
 	)
 	(symbol
 		(lib_id "Device:NetTie_2")
-		(at 175.26 54.61 90)
+		(at 147.32 52.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11377,8 +10282,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4d9237f-6393-4beb-b9af-a4ee76c2194f")
-		(property "Reference" "NT302"
-			(at 176.53 53.3399 90)
+		(property "Reference" "NT301"
+			(at 148.59 50.7999 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11390,7 +10295,7 @@
 			)
 		)
 		(property "Value" "NetTie_2"
-			(at 176.53 55.8799 90)
+			(at 148.59 53.3399 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11402,7 +10307,7 @@
 			)
 		)
 		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-			(at 175.26 54.61 0)
+			(at 147.32 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11413,7 +10318,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 175.26 54.61 0)
+			(at 147.32 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11424,7 +10329,7 @@
 			)
 		)
 		(property "Description" "Net tie, 2 pins"
-			(at 175.26 54.61 0)
+			(at 147.32 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11443,7 +10348,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "NT302")
+					(reference "NT301")
 					(unit 1)
 				)
 			)
@@ -11461,7 +10366,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ad0cb01a-566f-477f-af20-b2410f324c11")
-		(property "Reference" "#PWR0303"
+		(property "Reference" "#PWR0307"
 			(at 76.2 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -11521,7 +10426,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0303")
+					(reference "#PWR0307")
 					(unit 1)
 				)
 			)
@@ -11544,7 +10449,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "ae587f8f-7f99-42a9-b230-0fa5d121be5c")
-		(property "Reference" "R305"
+		(property "Reference" "R306"
 			(at 95.25 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11639,7 +10544,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R305")
+					(reference "R306")
 					(unit 1)
 				)
 			)
@@ -11653,7 +10558,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0805G_Green")
-		(at 266.7 35.56 180)
+		(at 204.47 73.66 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11663,7 +10568,7 @@
 		(dnp no)
 		(uuid "ae620c9f-3609-4a7a-b618-45b6629ffd3e")
 		(property "Reference" "LED301"
-			(at 261.874 29.718 0)
+			(at 193.802 72.898 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11674,7 +10579,7 @@
 			)
 		)
 		(property "Value" "12V"
-			(at 261.874 32.258 0)
+			(at 193.802 75.438 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11685,7 +10590,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:0805G_Green"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11696,7 +10601,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1806151820_Hubei-KENTO-Elec-KT-0805G_C2297.pdf"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11707,7 +10612,7 @@
 			)
 		)
 		(property "Description" "-40℃~+85℃ 100mW 120° 2.6V~3.1V 430mcd 513nm~528nm 525nm 5mA Discrete Diode Emerald Green Water Clear 0805 LED Indication - Discrete ROHS"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11718,7 +10623,7 @@
 			)
 		)
 		(property "LCSC" "C2297"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11729,7 +10634,7 @@
 			)
 		)
 		(property "Manufacturer" "Hubei KENTO Elec"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11740,7 +10645,7 @@
 			)
 		)
 		(property "Manufacturer Part" "KT-0805G"
-			(at 266.7 35.56 0)
+			(at 204.47 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11751,7 +10656,7 @@
 			)
 		)
 		(property "Color" "GREEN"
-			(at 269.24 32.258 0)
+			(at 196.85 77.978 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11761,7 +10666,7 @@
 			)
 		)
 		(property "Field9" ""
-			(at 266.7 35.56 90)
+			(at 204.47 73.66 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11798,7 +10703,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "b6b9402b-2483-44f6-b6d9-7926f56733ba")
-		(property "Reference" "R306"
+		(property "Reference" "R307"
 			(at 51.816 134.366 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11893,133 +10798,13 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R306")
+					(reference "R307")
 					(unit 1)
 				)
 			)
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "R306")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 208.28 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b946e23a-c8c5-4a6c-b86c-36138dea7561")
-		(property "Reference" "C313"
-			(at 200.152 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 200.152 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d3d89b03-ddc5-462b-8d69-e279ae84b002")
-		)
-		(pin "2"
-			(uuid "b3b65080-0c19-49f9-bfcb-64d07b373c59")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C313")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C313")
 					(unit 1)
 				)
 			)
@@ -12027,7 +10812,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 156.21 66.04 0)
+		(at 128.27 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12036,8 +10821,8 @@
 		(in_pos_files no)
 		(dnp yes)
 		(uuid "bb40d7db-122d-4f56-8801-24b9cb772269")
-		(property "Reference" "R302"
-			(at 160.02 64.77 0)
+		(property "Reference" "R303"
+			(at 132.08 62.23 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12048,7 +10833,7 @@
 			)
 		)
 		(property "Value" "Snubber"
-			(at 160.02 67.31 0)
+			(at 132.08 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12059,7 +10844,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 157.226 66.294 90)
+			(at 129.286 63.754 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12070,7 +10855,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 66.04 0)
+			(at 128.27 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12081,7 +10866,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 156.21 66.04 0)
+			(at 128.27 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12100,7 +10885,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R302")
+					(reference "R303")
 					(unit 1)
 				)
 			)
@@ -12123,7 +10908,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "becb3adf-5299-42df-8764-d2b52ae8229a")
-		(property "Reference" "R304"
+		(property "Reference" "R305"
 			(at 51.816 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12218,7 +11003,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "R304")
+					(reference "R305")
 					(unit 1)
 				)
 			)
@@ -12232,7 +11017,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 187.96 71.12 90)
+		(at 160.02 68.58 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12241,8 +11026,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c58bd738-2bc7-4314-84a2-fdea58c64796")
-		(property "Reference" "C311"
-			(at 179.832 69.85 90)
+		(property "Reference" "C308"
+			(at 151.892 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12253,7 +11038,7 @@
 			)
 		)
 		(property "Value" "22uF"
-			(at 179.832 72.39 90)
+			(at 151.892 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12264,7 +11049,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12275,7 +11060,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12286,7 +11071,7 @@
 			)
 		)
 		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12297,7 +11082,7 @@
 			)
 		)
 		(property "LCSC" "C12891"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12308,7 +11093,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12319,7 +11104,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 187.96 71.12 0)
+			(at 160.02 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12338,7 +11123,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C311")
+					(reference "C308")
 					(unit 1)
 				)
 			)
@@ -12352,7 +11137,7 @@
 	)
 	(symbol
 		(lib_id "hexagan:V_IN")
-		(at 24.13 35.56 0)
+		(at 20.32 33.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12361,8 +11146,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ceb1570f-e629-4047-b1d2-db7b1bd570ca")
-		(property "Reference" "#PWR0301"
-			(at 24.13 39.37 0)
+		(property "Reference" "#PWR0302"
+			(at 20.32 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12373,7 +11158,7 @@
 			)
 		)
 		(property "Value" "V_IN"
-			(at 24.13 31.496 0)
+			(at 20.32 28.956 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12383,7 +11168,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 24.13 35.56 0)
+			(at 20.32 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12394,7 +11179,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 24.13 35.56 0)
+			(at 20.32 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12405,7 +11190,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"V_IN\": protected 48 V input bus"
-			(at 24.13 35.56 0)
+			(at 20.32 33.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12421,7 +11206,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0301")
+					(reference "#PWR0302")
 					(unit 1)
 				)
 			)
@@ -12435,127 +11220,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 238.76 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d712cc38-ae3d-45ec-88ae-ccab9fb533e0")
-		(property "Reference" "C316"
-			(at 230.632 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF"
-			(at 230.632 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C12891"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 238.76 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ad88da8c-27a2-4cc2-9e7b-1309dbaa4d4b")
-		)
-		(pin "2"
-			(uuid "34da0026-a130-4284-889d-1f4f502624a7")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C316")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C316")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL31A226KAHNNNE")
-		(at 198.12 71.12 90)
+		(at 170.18 68.58 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12564,8 +11229,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dbe99a8c-c811-4e37-ad39-3b45a702b3fb")
-		(property "Reference" "C312"
-			(at 189.992 69.85 90)
+		(property "Reference" "C309"
+			(at 162.052 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12576,7 +11241,7 @@
 			)
 		)
 		(property "Value" "22uF"
-			(at 189.992 72.39 90)
+			(at 162.052 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12587,7 +11252,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12598,7 +11263,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12609,7 +11274,7 @@
 			)
 		)
 		(property "Description" "22uF 25V X5R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12620,7 +11285,7 @@
 			)
 		)
 		(property "LCSC" "C12891"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12631,7 +11296,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12642,7 +11307,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL31A226KAHNNNE"
-			(at 198.12 71.12 0)
+			(at 170.18 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12661,7 +11326,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C312")
+					(reference "C309")
 					(unit 1)
 				)
 			)
@@ -12675,7 +11340,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10B104KC8NNNC")
-		(at 81.28 60.96 90)
+		(at 53.34 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12685,7 +11350,7 @@
 		(dnp no)
 		(uuid "e26cf0b4-0075-4842-9198-9b6a2bf52135")
 		(property "Reference" "C304"
-			(at 83.82 59.69 90)
+			(at 55.88 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12696,7 +11361,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 83.82 62.23 90)
+			(at 55.88 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12707,7 +11372,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12718,7 +11383,7 @@
 			)
 		)
 		(property "Datasheet" "https://product.samsungsem.com/mlcc/CL10B104KC8NNN.do"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12729,7 +11394,7 @@
 			)
 		)
 		(property "Description" "100V 100nF X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12740,7 +11405,7 @@
 			)
 		)
 		(property "LCSC" "C15725"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12751,7 +11416,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12762,7 +11427,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL10B104KC8NNNC"
-			(at 81.28 60.96 0)
+			(at 53.34 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12789,7 +11454,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 167.64 29.21 0)
+		(at 139.7 26.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12798,8 +11463,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e32d2a97-2259-4478-bc75-448d66185f77")
-		(property "Reference" "#PWR0390"
-			(at 167.64 22.86 0)
+		(property "Reference" "#PWR0301"
+			(at 139.7 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12810,7 +11475,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 167.64 25.4 0)
+			(at 139.7 22.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12821,7 +11486,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 29.21 0)
+			(at 139.7 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12832,7 +11497,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 29.21 0)
+			(at 139.7 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12843,7 +11508,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 167.64 29.21 0)
+			(at 139.7 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12859,7 +11524,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0390")
+					(reference "#PWR0301")
 					(unit 1)
 				)
 			)
@@ -12876,7 +11541,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e482cbb1-9283-4a06-8343-1f61d4e1e9d8")
-		(property "Reference" "C323"
+		(property "Reference" "C313"
 			(at 20.828 123.19 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12973,7 +11638,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C323")
+					(reference "C313")
 					(unit 1)
 				)
 			)
@@ -12987,7 +11652,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 156.21 76.2 0)
+		(at 128.27 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12997,8 +11662,8 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e68c7e03-84d0-4f94-827a-227abfe5e972")
-		(property "Reference" "C320"
-			(at 160.02 74.9299 0)
+		(property "Reference" "C310"
+			(at 132.08 72.3899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13009,7 +11674,7 @@
 			)
 		)
 		(property "Value" "Snubber"
-			(at 160.02 77.4699 0)
+			(at 132.08 74.9299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13020,7 +11685,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 157.1752 80.01 0)
+			(at 129.2352 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13031,7 +11696,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 76.2 0)
+			(at 128.27 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13042,7 +11707,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 156.21 76.2 0)
+			(at 128.27 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13061,7 +11726,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C320")
+					(reference "C310")
 					(unit 1)
 				)
 			)
@@ -13074,85 +11739,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 273.05 36.83 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e94fd2c7-4263-426d-bbf5-7214faea26d1")
-		(property "Reference" "#PWR0308"
-			(at 273.05 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 273.05 40.894 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 273.05 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 273.05 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 273.05 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f63c2e3c-b2cb-4616-b171-d95154ef5e6f")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "#PWR0308")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 156.21 59.69 0)
+		(at 128.27 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13161,8 +11749,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "e9564028-6db9-46eb-a0b7-e47ce9109513")
-		(property "Reference" "TP_SW1"
-			(at 153.416 54.102 0)
+		(property "Reference" "TP_SW301"
+			(at 125.476 51.562 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13173,7 +11761,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 158.75 57.6579 0)
+			(at 130.81 55.1179 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13185,7 +11773,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 161.29 59.69 0)
+			(at 133.35 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13196,7 +11784,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 161.29 59.69 0)
+			(at 133.35 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13207,7 +11795,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 156.21 59.69 0)
+			(at 128.27 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13223,7 +11811,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_SW1")
+					(reference "TP_SW301")
 					(unit 1)
 				)
 			)
@@ -13237,7 +11825,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 269.24 82.55 180)
+		(at 198.12 80.01 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13246,8 +11834,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "e9dd0f70-2a3f-43f9-85ce-b8194d503b38")
-		(property "Reference" "TP_GND2"
-			(at 273.05 88.138 0)
+		(property "Reference" "TP_GND302"
+			(at 201.93 85.598 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13258,7 +11846,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 266.7 84.5821 0)
+			(at 195.58 82.0421 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13270,7 +11858,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 264.16 82.55 0)
+			(at 193.04 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13281,7 +11869,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 264.16 82.55 0)
+			(at 193.04 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13292,7 +11880,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 269.24 82.55 0)
+			(at 198.12 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13308,7 +11896,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_GND2")
+					(reference "TP_GND302")
 					(unit 1)
 				)
 			)
@@ -13322,7 +11910,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:KF635-6_35-2P")
-		(at 278.13 72.39 0)
+		(at 218.44 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13332,7 +11920,7 @@
 		(dnp no)
 		(uuid "eeb52a12-ed9c-4c88-8b2e-5f8e0cb1d91a")
 		(property "Reference" "J301"
-			(at 275.59 77.724 0)
+			(at 215.9 75.184 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13343,7 +11931,7 @@
 			)
 		)
 		(property "Value" "KF635-6_35-2P"
-			(at 281.94 73.6599 0)
+			(at 222.25 71.1199 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13355,7 +11943,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:KF635-6_35-2P"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13366,7 +11954,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2303171000_Cixi-Kefa-Elec-KF635-6-35-2P_C475102.pdf"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13377,7 +11965,7 @@
 			)
 		)
 		(property "Description" "-40℃~+105℃ 1 10~22 1x2P 2 2P 32A 4 450V 6.35mm Green Through Hole 插件,P=6.35mm Screw Terminal Blocks ROHS"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13388,7 +11976,7 @@
 			)
 		)
 		(property "LCSC" "C475102"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13399,7 +11987,7 @@
 			)
 		)
 		(property "Manufacturer" "Cixi Kefa Elec"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13410,7 +11998,7 @@
 			)
 		)
 		(property "Manufacturer Part" "KF635-6.35-2P"
-			(at 278.13 72.39 0)
+			(at 218.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13442,8 +12030,122 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:APXJ160ARA271MF80J")
+		(at 105.41 166.37 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f2dc01e3-b437-49a8-9f63-0bb0296a1cce")
+		(property "Reference" "C316"
+			(at 173.482 67.564 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "270uF"
+			(at 173.482 70.104 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:APXJ160ARA271MF80J"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201131730_NCC-Nippon-Chemi-Con-APXJ160ARA271MF80J_C2944013.pdf"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+105℃ 10mΩ 15000hrs@105℃ 16V 254mA@120Hz 270uF 6.3mm 7.7mm Polarized Polymer ±20% SMD,D6.3xL7.7mm Polymer Aluminum Capacitors ROHS"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2944013"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "NCC(Nippon Chemi-Con)"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "APXJ160ARA271MF80J"
+			(at 105.41 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "4c6113bf-80ff-403d-82cd-4a25c229ef61")
+		)
+		(pin "1"
+			(uuid "98d1678c-6123-4000-9726-851471a0ed73")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "C316")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 123.19 36.83 0)
+		(at 95.25 34.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13452,8 +12154,8 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "f97fd35e-df67-434d-bf5f-75789e054d69")
-		(property "Reference" "TP_VIN1"
-			(at 120.396 31.242 0)
+		(property "Reference" "TP_VIN301"
+			(at 92.456 28.702 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13464,7 +12166,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 125.73 34.7979 0)
+			(at 97.79 32.2579 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13476,7 +12178,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 128.27 36.83 0)
+			(at 100.33 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13487,7 +12189,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 128.27 36.83 0)
+			(at 100.33 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13498,7 +12200,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 123.19 36.83 0)
+			(at 95.25 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13514,7 +12216,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "TP_VIN1")
+					(reference "TP_VIN301")
 					(unit 1)
 				)
 			)
