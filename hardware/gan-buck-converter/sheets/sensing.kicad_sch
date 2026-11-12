@@ -5228,7 +5228,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "01cbc5f7-9034-46f1-9ae3-29a7f47be233")
-		(property "Reference" "#PWR0462"
+		(property "Reference" "#PWR0423"
 			(at 257.81 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5288,7 +5288,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0462")
+					(reference "#PWR0423")
 					(unit 1)
 				)
 			)
@@ -5305,7 +5305,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "03949a61-5db2-4479-a935-3dabd15879d6")
-		(property "Reference" "C413"
+		(property "Reference" "C411"
 			(at 127.762 120.65 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5402,7 +5402,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C413")
+					(reference "C411")
 					(unit 1)
 				)
 			)
@@ -5420,7 +5420,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "09229a3b-19a1-46c2-a8c2-8e73468b44f2")
-		(property "Reference" "#PWR0412"
+		(property "Reference" "#PWR0429"
 			(at 50.8 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -5480,7 +5480,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0412")
+					(reference "#PWR0429")
 					(unit 1)
 				)
 			)
@@ -5498,7 +5498,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "10ed8823-6a09-40a3-a774-b5e9293aa9ac")
-		(property "Reference" "R412"
+		(property "Reference" "R406"
 			(at 106.68 52.0699 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5595,7 +5595,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R412")
+					(reference "R406")
 					(unit 1)
 				)
 			)
@@ -5612,7 +5612,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "13655d15-133a-405b-8e88-664c7669d187")
-		(property "Reference" "#PWR0463"
+		(property "Reference" "#PWR0424"
 			(at 269.24 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5672,7 +5672,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0463")
+					(reference "#PWR0424")
 					(unit 1)
 				)
 			)
@@ -5689,7 +5689,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "14d78c51-6eba-4382-adff-2475cd96bf3c")
-		(property "Reference" "C415"
+		(property "Reference" "C406"
 			(at 250.952 66.04 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5786,7 +5786,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C415")
+					(reference "C406")
 					(unit 1)
 				)
 			)
@@ -5803,7 +5803,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "157f1f1e-7a43-4d8d-b269-bcefcea9449e")
-		(property "Reference" "C402"
+		(property "Reference" "C410"
 			(at 204.978 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5900,7 +5900,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C402")
+					(reference "C410")
 					(unit 1)
 				)
 			)
@@ -5918,7 +5918,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16c162a2-2a3e-475c-86bc-ea782a4680bc")
-		(property "Reference" "#PWR0413"
+		(property "Reference" "#PWR0405"
 			(at 137.16 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -5978,7 +5978,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0413")
+					(reference "#PWR0405")
 					(unit 1)
 				)
 			)
@@ -6109,7 +6109,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1d4ba320-7abb-4619-82e6-99f7a41b3611")
-		(property "Reference" "#PWR0414"
+		(property "Reference" "#PWR0420"
 			(at 69.85 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -6169,7 +6169,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0414")
+					(reference "#PWR0420")
 					(unit 1)
 				)
 			)
@@ -6186,7 +6186,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1f1cf340-5401-4b52-b655-1e2b0e7e874b")
-		(property "Reference" "#PWR0457"
+		(property "Reference" "#PWR0449"
 			(at 132.08 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -6246,7 +6246,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0457")
+					(reference "#PWR0449")
 					(unit 1)
 				)
 			)
@@ -6264,7 +6264,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "218f14d2-2d7a-4ead-92dd-32bdd021affc")
-		(property "Reference" "R405"
+		(property "Reference" "R408"
 			(at 96.52 85.09 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6359,7 +6359,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R405")
+					(reference "R408")
 					(unit 1)
 				)
 			)
@@ -6377,7 +6377,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "22de9b20-9da6-4e8e-97f5-7703f0e95926")
-		(property "Reference" "#PWR0404"
+		(property "Reference" "#PWR0435"
 			(at 91.44 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -6437,7 +6437,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0404")
+					(reference "#PWR0435")
 					(unit 1)
 				)
 			)
@@ -6454,7 +6454,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "238fc3d4-4f9e-4222-bfec-3b3ae891dbc6")
-		(property "Reference" "C401"
+		(property "Reference" "C408"
 			(at 123.698 96.52 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6551,7 +6551,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C401")
+					(reference "C408")
 					(unit 1)
 				)
 			)
@@ -6568,7 +6568,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "26ac8dd9-73f1-4a99-a45b-86a8aed316c3")
-		(property "Reference" "#PWR0474"
+		(property "Reference" "#PWR0409"
 			(at 40.64 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -6628,7 +6628,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0474")
+					(reference "#PWR0409")
 					(unit 1)
 				)
 			)
@@ -6646,7 +6646,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "27c4a4d6-031f-4c8d-867d-2c413afdc6d9")
-		(property "Reference" "U406"
+		(property "Reference" "U407"
 			(at 97.79 156.2101 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6752,7 +6752,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U406")
+					(reference "U407")
 					(unit 1)
 				)
 			)
@@ -6769,7 +6769,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "297a7f64-93a8-484e-9d29-0057979e1acc")
-		(property "Reference" "#PWR0419"
+		(property "Reference" "#PWR0421"
 			(at 151.13 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -6829,7 +6829,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0419")
+					(reference "#PWR0421")
 					(unit 1)
 				)
 			)
@@ -6847,7 +6847,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2c0f4e4b-cf9e-41d1-8d41-9d74960aae4e")
-		(property "Reference" "#PWR0422"
+		(property "Reference" "#PWR0425"
 			(at 120.65 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6907,7 +6907,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0422")
+					(reference "#PWR0425")
 					(unit 1)
 				)
 			)
@@ -6924,7 +6924,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "303e36cd-d065-4cb9-a2d0-a7a237c0bb13")
-		(property "Reference" "#PWR0467"
+		(property "Reference" "#PWR0440"
 			(at 256.54 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -6984,7 +6984,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0467")
+					(reference "#PWR0440")
 					(unit 1)
 				)
 			)
@@ -7001,7 +7001,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "30fd789a-130c-4a46-a11d-fd67ef58d478")
-		(property "Reference" "#PWR0476"
+		(property "Reference" "#PWR0410"
 			(at 116.84 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -7061,7 +7061,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0476")
+					(reference "#PWR0410")
 					(unit 1)
 				)
 			)
@@ -7079,7 +7079,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "321250c1-1a35-4618-bd0c-715a97f575b5")
-		(property "Reference" "#PWR0409"
+		(property "Reference" "#PWR0443"
 			(at 68.58 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -7139,7 +7139,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0409")
+					(reference "#PWR0443")
 					(unit 1)
 				)
 			)
@@ -7156,7 +7156,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "350bf6b7-d15a-4519-a086-a9510e3ae27f")
-		(property "Reference" "#PWR0455"
+		(property "Reference" "#PWR0439"
 			(at 130.81 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -7216,7 +7216,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0455")
+					(reference "#PWR0439")
 					(unit 1)
 				)
 			)
@@ -7234,7 +7234,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35da7a29-ceab-4481-8f27-7cb5844bbe1e")
-		(property "Reference" "#PWR0403"
+		(property "Reference" "#PWR0445"
 			(at 50.8 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -7294,7 +7294,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0403")
+					(reference "#PWR0445")
 					(unit 1)
 				)
 			)
@@ -7311,7 +7311,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "36617a68-bf1e-4ce5-a2d7-53ead60d0ad7")
-		(property "Reference" "R413"
+		(property "Reference" "R403"
 			(at 73.918 50.546 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7406,7 +7406,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R413")
+					(reference "R403")
 					(unit 1)
 				)
 			)
@@ -7423,7 +7423,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3b257cb6-788c-4638-b456-f8216cb87d5f")
-		(property "Reference" "C408"
+		(property "Reference" "C403"
 			(at 119.888 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7520,7 +7520,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C408")
+					(reference "C403")
 					(unit 1)
 				)
 			)
@@ -7538,7 +7538,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c9ed5aa-ea8a-4e82-abeb-f9d3dd7aab48")
-		(property "Reference" "R406"
+		(property "Reference" "R409"
 			(at 76.2 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7633,7 +7633,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R406")
+					(reference "R409")
 					(unit 1)
 				)
 			)
@@ -7651,7 +7651,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3cc9d59c-3167-4992-af05-6d6527fd605f")
-		(property "Reference" "U403"
+		(property "Reference" "U404"
 			(at 97.79 109.2201 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7757,7 +7757,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U403")
+					(reference "U404")
 					(unit 1)
 				)
 			)
@@ -7774,7 +7774,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "422f463a-d2d3-4f44-8b09-058c841b5832")
-		(property "Reference" "#PWR0482"
+		(property "Reference" "#PWR0431"
 			(at 267.97 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -7834,7 +7834,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0482")
+					(reference "#PWR0431")
 					(unit 1)
 				)
 			)
@@ -7852,7 +7852,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "44e1a7c5-c878-4bbd-b92f-cb21eac31680")
-		(property "Reference" "#PWR0406"
+		(property "Reference" "#PWR0427"
 			(at 68.58 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -7912,7 +7912,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0406")
+					(reference "#PWR0427")
 					(unit 1)
 				)
 			)
@@ -8041,7 +8041,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4601391d-6200-41ba-86c3-0466737afecf")
-		(property "Reference" "#PWR0485"
+		(property "Reference" "#PWR0406"
 			(at 29.21 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -8101,7 +8101,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0485")
+					(reference "#PWR0406")
 					(unit 1)
 				)
 			)
@@ -8125,7 +8125,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "490d115a-0aa9-4a4d-9eb4-8d6f45164b3e")
-		(property "Reference" "#PWR0416"
+		(property "Reference" "#PWR0407"
 			(at 104.14 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -8185,7 +8185,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0416")
+					(reference "#PWR0407")
 					(unit 1)
 				)
 			)
@@ -8202,7 +8202,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4b960099-5044-4346-9d15-41c5d9bc9aad")
-		(property "Reference" "#PWR0477"
+		(property "Reference" "#PWR0434"
 			(at 201.93 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -8262,7 +8262,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0477")
+					(reference "#PWR0434")
 					(unit 1)
 				)
 			)
@@ -8279,7 +8279,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "4d20de77-798c-4068-8c9e-021b8d9f3986")
-		(property "Reference" "TP404"
+		(property "Reference" "TP407"
 			(at 147.32 167.64 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8339,7 +8339,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP404")
+					(reference "TP407")
 					(unit 1)
 				)
 			)
@@ -8357,7 +8357,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "57abb0f6-4c45-47fd-b379-17461b797e1f")
-		(property "Reference" "#PWR0405"
+		(property "Reference" "#PWR0428"
 			(at 93.98 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8417,7 +8417,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0405")
+					(reference "#PWR0428")
 					(unit 1)
 				)
 			)
@@ -8435,7 +8435,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "585a95ee-7bed-4b83-8f3a-ea6cd167c8b7")
-		(property "Reference" "#PWR0415"
+		(property "Reference" "#PWR0402"
 			(at 40.64 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8495,7 +8495,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0415")
+					(reference "#PWR0402")
 					(unit 1)
 				)
 			)
@@ -8513,7 +8513,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "587dda4a-8556-4dd5-86b6-2bb5a2b8bb53")
-		(property "Reference" "#PWR0418"
+		(property "Reference" "#PWR0412"
 			(at 134.62 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -8573,7 +8573,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0418")
+					(reference "#PWR0412")
 					(unit 1)
 				)
 			)
@@ -8590,7 +8590,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "5af7868e-32b0-474b-ac4c-613a84385a11")
-		(property "Reference" "TP405"
+		(property "Reference" "TP404"
 			(at 274.32 66.04 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8650,7 +8650,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP405")
+					(reference "TP404")
 					(unit 1)
 				)
 			)
@@ -8668,7 +8668,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5fbc4f23-cbaf-4699-bada-6a24b17368b8")
-		(property "Reference" "#PWR0408"
+		(property "Reference" "#PWR0448"
 			(at 50.8 184.15 0)
 			(hide yes)
 			(show_name no)
@@ -8728,7 +8728,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0408")
+					(reference "#PWR0448")
 					(unit 1)
 				)
 			)
@@ -8745,7 +8745,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "6130d326-e839-4d4a-b2c5-6ca6c2886bec")
-		(property "Reference" "TP403"
+		(property "Reference" "TP405"
 			(at 146.05 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8805,7 +8805,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP403")
+					(reference "TP405")
 					(unit 1)
 				)
 			)
@@ -8822,7 +8822,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "63e41295-2dd6-4607-b9f0-be7062039507")
-		(property "Reference" "#PWR0472"
+		(property "Reference" "#PWR0446"
 			(at 115.57 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -8882,7 +8882,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0472")
+					(reference "#PWR0446")
 					(unit 1)
 				)
 			)
@@ -8899,7 +8899,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "66157b3e-8ca4-4512-9007-c66a0a2a15aa")
-		(property "Reference" "#PWR0461"
+		(property "Reference" "#PWR0415"
 			(at 255.27 53.34 90)
 			(hide yes)
 			(show_name no)
@@ -8959,7 +8959,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0461")
+					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -8977,7 +8977,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6b13a950-24bb-4173-8608-85adab2dd234")
-		(property "Reference" "U408"
+		(property "Reference" "U402"
 			(at 140.97 40.6401 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9083,7 +9083,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U408")
+					(reference "U402")
 					(unit 1)
 				)
 			)
@@ -9101,7 +9101,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6bdfc5db-28c5-46a0-b30c-df430a10638d")
-		(property "Reference" "R409"
+		(property "Reference" "R413"
 			(at 96.52 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9196,7 +9196,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R409")
+					(reference "R413")
 					(unit 1)
 				)
 			)
@@ -9214,7 +9214,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e14eacd-3465-4fb1-b59c-a78197fe8126")
-		(property "Reference" "#PWR0306"
+		(property "Reference" "#PWR0411"
 			(at 57.15 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -9274,7 +9274,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0306")
+					(reference "#PWR0411")
 					(unit 1)
 				)
 			)
@@ -9297,7 +9297,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6ec96c52-c599-4709-8e26-0a62398811d4")
-		(property "Reference" "D406"
+		(property "Reference" "D402"
 			(at 262.89 121.92 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9397,7 +9397,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D406")
+					(reference "D402")
 					(unit 1)
 				)
 			)
@@ -9414,7 +9414,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "70fbc629-2b92-4fb5-9f78-471fc34541b9")
-		(property "Reference" "C410"
+		(property "Reference" "C401"
 			(at 271.018 31.75 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9511,7 +9511,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C410")
+					(reference "C401")
 					(unit 1)
 				)
 			)
@@ -9529,7 +9529,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "741cda4a-3239-4331-9aea-480b8c09e549")
-		(property "Reference" "R403"
+		(property "Reference" "R410"
 			(at 53.34 105.4099 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9626,7 +9626,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R403")
+					(reference "R410")
 					(unit 1)
 				)
 			)
@@ -9643,7 +9643,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "76571f94-403f-4f77-af5f-d02901376673")
-		(property "Reference" "#PWR0468"
+		(property "Reference" "#PWR0441"
 			(at 264.16 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -9703,7 +9703,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0468")
+					(reference "#PWR0441")
 					(unit 1)
 				)
 			)
@@ -9958,7 +9958,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b6d5504-d44f-40cb-a0e1-aeb251669d44")
-		(property "Reference" "C411"
+		(property "Reference" "C404"
 			(at 66.802 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10055,7 +10055,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C411")
+					(reference "C404")
 					(unit 1)
 				)
 			)
@@ -10073,7 +10073,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7b73ed8f-f865-4b7e-9294-f33eb28c11ee")
-		(property "Reference" "R402"
+		(property "Reference" "R405"
 			(at 31.75 52.0699 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10170,7 +10170,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R402")
+					(reference "R405")
 					(unit 1)
 				)
 			)
@@ -10188,7 +10188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8071c0d4-1156-42ed-8ffa-51f303d0d730")
-		(property "Reference" "U404"
+		(property "Reference" "U406"
 			(at 54.61 124.4599 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10285,7 +10285,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U404")
+					(reference "U406")
 					(unit 1)
 				)
 			)
@@ -10303,7 +10303,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "820b8408-7dd1-4134-80fb-2effeb421dc7")
-		(property "Reference" "#PWR0410"
+		(property "Reference" "#PWR0447"
 			(at 91.44 168.91 0)
 			(hide yes)
 			(show_name no)
@@ -10363,7 +10363,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0410")
+					(reference "#PWR0447")
 					(unit 1)
 				)
 			)
@@ -10380,7 +10380,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8c59b008-7097-4e53-9ff4-aed465646c15")
-		(property "Reference" "U402"
+		(property "Reference" "U403"
 			(at 231.14 45.72 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10493,7 +10493,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U402")
+					(reference "U403")
 					(unit 1)
 				)
 			)
@@ -10511,7 +10511,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "90fcc59d-967f-4e4b-832b-4aff0f184a84")
-		(property "Reference" "R411"
+		(property "Reference" "R402"
 			(at 106.68 36.8299 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10608,7 +10608,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R411")
+					(reference "R402")
 					(unit 1)
 				)
 			)
@@ -10625,7 +10625,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9a4bb458-7884-4a1b-8910-132ddcebd537")
-		(property "Reference" "#PWR0459"
+		(property "Reference" "#PWR0419"
 			(at 217.17 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -10685,7 +10685,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0459")
+					(reference "#PWR0419")
 					(unit 1)
 				)
 			)
@@ -10703,7 +10703,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a10a9f81-2c4a-4229-a864-03445abee490")
-		(property "Reference" "#PWR0421"
+		(property "Reference" "#PWR0442"
 			(at 115.57 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10763,7 +10763,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0421")
+					(reference "#PWR0442")
 					(unit 1)
 				)
 			)
@@ -10780,7 +10780,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a8d998fe-f9ca-4cf9-834a-86d9dd347bc6")
-		(property "Reference" "C406"
+		(property "Reference" "C402"
 			(at 43.688 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10877,7 +10877,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C406")
+					(reference "C402")
 					(unit 1)
 				)
 			)
@@ -10894,7 +10894,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aba4cc85-331c-44de-bd51-0b5186887fc8")
-		(property "Reference" "#PWR0470"
+		(property "Reference" "#PWR0430"
 			(at 120.65 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -10954,7 +10954,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0470")
+					(reference "#PWR0430")
 					(unit 1)
 				)
 			)
@@ -11049,7 +11049,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b3fc6f48-aea6-44b1-b5f2-6fa0306f6d1e")
-		(property "Reference" "R415"
+		(property "Reference" "R411"
 			(at 120.65 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11144,7 +11144,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R415")
+					(reference "R411")
 					(unit 1)
 				)
 			)
@@ -11162,7 +11162,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b422c400-8bd6-4963-9235-51fe10d2ee93")
-		(property "Reference" "#PWR0411"
+		(property "Reference" "#PWR0404"
 			(at 59.69 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -11222,7 +11222,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0411")
+					(reference "#PWR0404")
 					(unit 1)
 				)
 			)
@@ -11240,7 +11240,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b582f85d-9ef6-4d16-b82b-fbf0fdb75852")
-		(property "Reference" "#PWR0402"
+		(property "Reference" "#PWR0438"
 			(at 50.8 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -11300,7 +11300,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0402")
+					(reference "#PWR0438")
 					(unit 1)
 				)
 			)
@@ -11318,7 +11318,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b5e9f02c-275a-41b9-b1f0-ef84b59e18fc")
-		(property "Reference" "#PWR0420"
+		(property "Reference" "#PWR0403"
 			(at 116.84 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -11378,7 +11378,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0420")
+					(reference "#PWR0403")
 					(unit 1)
 				)
 			)
@@ -11395,7 +11395,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bce73302-f6c1-46b0-ad5c-9a47a5f1b94e")
-		(property "Reference" "#PWR0483"
+		(property "Reference" "#PWR0401"
 			(at 267.97 27.94 0)
 			(hide yes)
 			(show_name no)
@@ -11455,7 +11455,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0483")
+					(reference "#PWR0401")
 					(unit 1)
 				)
 			)
@@ -11472,7 +11472,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c0e0be35-70b1-4b25-bc1e-c74a2f46a99f")
-		(property "Reference" "R418"
+		(property "Reference" "R412"
 			(at 243.84 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11567,7 +11567,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R418")
+					(reference "R412")
 					(unit 1)
 				)
 			)
@@ -11584,7 +11584,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c10c90d8-c3d7-49bf-9b73-dc1b47b4de7b")
-		(property "Reference" "U407"
+		(property "Reference" "U405"
 			(at 229.87 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11697,7 +11697,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U407")
+					(reference "U405")
 					(unit 1)
 				)
 			)
@@ -11714,7 +11714,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "c45c561d-3c0d-4a8e-b8c9-185337e1c912")
-		(property "Reference" "TP407"
+		(property "Reference" "TP401"
 			(at 170.18 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11774,7 +11774,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP407")
+					(reference "TP401")
 					(unit 1)
 				)
 			)
@@ -11791,7 +11791,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c4b68022-cd0f-4946-b1c9-a7a3930b85ab")
-		(property "Reference" "#PWR0484"
+		(property "Reference" "#PWR0408"
 			(at 267.97 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -11851,7 +11851,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0484")
+					(reference "#PWR0408")
 					(unit 1)
 				)
 			)
@@ -11869,7 +11869,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c568fddf-7a2b-425c-af7a-20e1d8b32020")
-		(property "Reference" "R404"
+		(property "Reference" "R415"
 			(at 53.34 152.3999 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11966,7 +11966,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R404")
+					(reference "R415")
 					(unit 1)
 				)
 			)
@@ -11983,7 +11983,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c5732857-c09d-4c31-8745-b0207eca4ebf")
-		(property "Reference" "#PWR0466"
+		(property "Reference" "#PWR0433"
 			(at 252.73 109.22 90)
 			(hide yes)
 			(show_name no)
@@ -12043,7 +12043,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0466")
+					(reference "#PWR0433")
 					(unit 1)
 				)
 			)
@@ -12060,7 +12060,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c8c01e34-0253-4889-a848-64009d75a7ff")
-		(property "Reference" "C416"
+		(property "Reference" "C412"
 			(at 250.952 123.19 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12157,7 +12157,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C416")
+					(reference "C412")
 					(unit 1)
 				)
 			)
@@ -12174,7 +12174,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c96c48ee-38b1-41a9-acec-58f5d10ed9bb")
-		(property "Reference" "R417"
+		(property "Reference" "R407"
 			(at 245.11 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12269,7 +12269,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R417")
+					(reference "R407")
 					(unit 1)
 				)
 			)
@@ -12400,7 +12400,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf8927eb-fc6f-41fd-814a-7a2726b33ae3")
-		(property "Reference" "#PWR0465"
+		(property "Reference" "#PWR0432"
 			(at 248.92 105.41 90)
 			(hide yes)
 			(show_name no)
@@ -12460,7 +12460,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0465")
+					(reference "#PWR0432")
 					(unit 1)
 				)
 			)
@@ -12478,7 +12478,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d247bfef-b749-475a-8c70-a254cf33c1cd")
-		(property "Reference" "#PWR0401"
+		(property "Reference" "#PWR0416"
 			(at 29.21 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -12538,7 +12538,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0401")
+					(reference "#PWR0416")
 					(unit 1)
 				)
 			)
@@ -12555,7 +12555,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d4924e4e-2080-4176-a124-d9547de9d919")
-		(property "Reference" "#PWR0464"
+		(property "Reference" "#PWR0436"
 			(at 215.9 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -12615,7 +12615,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0464")
+					(reference "#PWR0436")
 					(unit 1)
 				)
 			)
@@ -12632,7 +12632,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d82b6152-06b2-4326-9ab3-7fe6827223e5")
-		(property "Reference" "#PWR0480"
+		(property "Reference" "#PWR0422"
 			(at 200.66 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -12692,7 +12692,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0480")
+					(reference "#PWR0422")
 					(unit 1)
 				)
 			)
@@ -12709,7 +12709,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "db364ba3-e152-45fb-b5ee-38c0da7a29ff")
-		(property "Reference" "D405"
+		(property "Reference" "D401"
 			(at 264.16 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12809,7 +12809,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "D405")
+					(reference "D401")
 					(unit 1)
 				)
 			)
@@ -12827,7 +12827,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dcad01c3-02bd-49c1-9b32-7c574b7b6be0")
-		(property "Reference" "#PWR0407"
+		(property "Reference" "#PWR0444"
 			(at 93.98 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -12887,7 +12887,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0407")
+					(reference "#PWR0444")
 					(unit 1)
 				)
 			)
@@ -12904,7 +12904,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "e551bc89-b7fd-4ba6-af3e-6df69f8652cf")
-		(property "Reference" "TP402"
+		(property "Reference" "TP403"
 			(at 162.56 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12964,7 +12964,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP402")
+					(reference "TP403")
 					(unit 1)
 				)
 			)
@@ -12981,7 +12981,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e55cfa7d-6741-4b6f-aef3-9312a2e156c1")
-		(property "Reference" "R407"
+		(property "Reference" "R404"
 			(at 153.67 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13076,7 +13076,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R407")
+					(reference "R404")
 					(unit 1)
 				)
 			)
@@ -13093,7 +13093,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e97d9cfb-552a-41dd-94be-931771dae383")
-		(property "Reference" "C404"
+		(property "Reference" "C405"
 			(at 148.082 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13190,7 +13190,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C404")
+					(reference "C405")
 					(unit 1)
 				)
 			)
@@ -13207,7 +13207,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ed1c9f32-5970-4958-9bbf-7b4d642e6e60")
-		(property "Reference" "#PWR0460"
+		(property "Reference" "#PWR0413"
 			(at 248.92 49.53 90)
 			(hide yes)
 			(show_name no)
@@ -13267,7 +13267,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0460")
+					(reference "#PWR0413")
 					(unit 1)
 				)
 			)
@@ -13285,7 +13285,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "efcafb99-bbe2-464a-9cc5-ad2ab66e658d")
-		(property "Reference" "R408"
+		(property "Reference" "R414"
 			(at 76.2 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13380,7 +13380,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "R408")
+					(reference "R414")
 					(unit 1)
 				)
 			)
@@ -13474,7 +13474,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "f6b23ecf-f77e-4a5b-bb94-83ed0d05af78")
-		(property "Reference" "TP401"
+		(property "Reference" "TP402"
 			(at 78.74 62.23 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13534,7 +13534,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "TP401")
+					(reference "TP402")
 					(unit 1)
 				)
 			)
@@ -13551,7 +13551,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f6dc533b-16fd-47b4-80c3-80d7d72f0e36")
-		(property "Reference" "#PWR0479"
+		(property "Reference" "#PWR0418"
 			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -13611,7 +13611,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0479")
+					(reference "#PWR0418")
 					(unit 1)
 				)
 			)
@@ -13628,7 +13628,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f6e6c744-b5f0-4d2c-b7bf-c8fde4483f71")
-		(property "Reference" "#PWR0486"
+		(property "Reference" "#PWR0414"
 			(at 170.18 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -13688,7 +13688,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0486")
+					(reference "#PWR0414")
 					(unit 1)
 				)
 			)
@@ -13705,7 +13705,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f8070e91-320e-468f-a5cf-8f9be545e6b7")
-		(property "Reference" "#PWR0478"
+		(property "Reference" "#PWR0437"
 			(at 201.93 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -13765,7 +13765,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0478")
+					(reference "#PWR0437")
 					(unit 1)
 				)
 			)
@@ -13782,7 +13782,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f898b9bb-9255-4b59-b404-71da1e2c99c8")
-		(property "Reference" "#PWR0481"
+		(property "Reference" "#PWR0426"
 			(at 267.97 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -13842,7 +13842,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "#PWR0481")
+					(reference "#PWR0426")
 					(unit 1)
 				)
 			)
@@ -13860,7 +13860,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fa877731-f541-40a9-af23-da3836f1c9bb")
-		(property "Reference" "U405"
+		(property "Reference" "U408"
 			(at 54.61 171.4499 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13957,7 +13957,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "U405")
+					(reference "U408")
 					(unit 1)
 				)
 			)
@@ -14089,7 +14089,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fe9dcf5a-3da7-47f1-ac0d-83b3ab6d2dc6")
-		(property "Reference" "C403"
+		(property "Reference" "C413"
 			(at 118.618 143.51 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14186,7 +14186,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/fa2b1562-2d1a-4504-8d39-68003209b21b"
-					(reference "C403")
+					(reference "C413")
 					(unit 1)
 				)
 			)

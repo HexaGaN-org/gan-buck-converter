@@ -40,7 +40,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
 | sensing | TI INA241A3 current-sense amplifiers on the output and input shunts; TLV9061 buffers on the voltage and temperature channels; two 1 kΩ platinum RTDs beside the GaN FETs | Captured | [design/sensing.md](design/sensing.md) |
 | input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J202; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
-| enable | TI TPS3813K33 supervisor with window watchdog; SN74LVC2G08 AND gates and an SN74LVC1G00 NAND forming `STAGE_EN` and a static both-high inhibit; SW1 enable switch | Captured; dynamic PWM overlap protection open | [design/enable.md](design/enable.md) |
+| enable | TI TPS3813K33 supervisor with window watchdog; SN74LVC2G08 AND gates and an SN74LVC1G00 NAND forming `STAGE_EN` and a static both-high inhibit; SW601 enable switch | Captured; dynamic PWM overlap protection open | [design/enable.md](design/enable.md) |
 | comms_debug | Silicon Labs CP2102N USB-UART bridge; USBLC6-2SC6 ESD protection; USB-C receptacle (data only); 2 × 10 JTAG header | Captured | [design/comms_debug.md](design/comms_debug.md) |
 
 ## Mechanical and other

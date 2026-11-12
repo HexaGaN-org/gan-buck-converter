@@ -54,19 +54,19 @@ VOUT = 12.0            # V
 IOUT = 12.5            # A, full load (150 W)
 P_IN = 150.0 / 0.95    # W, input power at full load, ~95 % efficiency
 
-# --- Bench leads (supply to J1) ---
+# --- Bench leads (supply to J201) ---
 L_LEAD = 1.0e-6        # H, ASSUMED: about 1 m of paired bench leads
 L_LEAD_SWEEP = (0.5e-6, 1.0e-6, 2.0e-6)  # H, range checked
 R_LEAD = 0.05          # ohm, ASSUMED round trip: leads, terminals, fuse, Q201.
                        # Low on purpose; more resistance only adds damping
 
-# --- Input ceramics (power_stage.md #23, input_supply.md #26) ---
-# Power stage: 5 x 10 uF X7S plus 4 x 100 nF X7R, estimated at 13.418 uF
-# at 48 V and 10.14 uF at 60 V from recorded bias-curve readbacks. Interpolate
+# --- Input ceramics (power_stage.md #24, input_supply.md #26) ---
+# Power stage: 3 x 10 uF X7S plus 4 x 100 nF X7R, estimated at 8.12 uF
+# at 48 V and 6.14 uF at 60 V from recorded bias-curve readbacks. Interpolate
 # each type to 51 V. Samsung's current exact-part library does not supply bias
 # graphs for the 10 uF part, so this is an unverified typical estimate.
 # U201: 5 x 2.2 uF X7R with 35.375% retained at 51 V from its recorded curve.
-C_POWER_BULK_51 = 5 * (2.65 + (2.0 - 2.65) * (51 - 48) / (60 - 48)) * 1e-6
+C_POWER_BULK_51 = 3 * (2.65 + (2.0 - 2.65) * (51 - 48) / (60 - 48)) * 1e-6
 C_POWER_HF_51 = 4 * (0.042 + (0.035 - 0.042) * (51 - 48) / (60 - 48)) * 1e-6
 C_POWER_51 = C_POWER_BULK_51 + C_POWER_HF_51
 C_U201_51 = 5 * 2.2e-6 * (0.375 + (0.29 - 0.375) * (51 - 48) / (60 - 48))

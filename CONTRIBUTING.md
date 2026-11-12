@@ -36,8 +36,8 @@ How we work on this board. Read it once before your first commit; the checklist 
 
 **Reference designators**
 - Annotate with *"Use first free number after sheet number × 100"*, so each sheet owns a range (top sheet: H101…, input_supply: R201…, power_stage: R301…). Two people annotating in parallel never collide.
-- Every reference ends in a number: `TP_SW1` works, while a bare `TP_SW` is flagged as unannotated.
-- Connectors use the designators in the Connectors table of the hierarchy doc. The MCU is U1.
+- Every reference ends in a number: `TP_SW301` works, while a bare `TP_SW` is flagged as unannotated.
+- Connectors use the designators in the Connectors table of the hierarchy doc. The MCU is U501.
 - Annotate only new parts on your own sheet. Never re-annotate the whole schematic.
 
 **Other**
@@ -68,7 +68,7 @@ Fill in an `LCSC` field on every assembled part when you place it. Choose parts 
 
 - [ ] ERC passes with zero errors, and every warning is understood
 - [ ] Every hierarchical label matches the hierarchy doc, in name and direction
-- [ ] Every U1 pin used matches `pinmux.syscfg`
+- [ ] Every U501 pin used matches `pinmux.syscfg`
 - [ ] Every part comes from a project library or KiCad's standard libraries, with a footprint and an `LCSC` field
 - [ ] DNP and footprint-only parts are excluded from the BOM and position files
 - [ ] Title block updated (revision, owner, date)

@@ -11,7 +11,7 @@ Library and 3D model paths are relative to `${KIPRJMOD}`.
 ## MCU: F280039CSPM
 
 In KiCad's symbol chooser, select **`hexagan:F280039CSPM`**.
-Place both units under the same reference, U1:
+Place both units under the same reference, U501:
 
 - **U1A:** core/I/O/analog power, ADC reference, and reset (17 pins).
 - **U1B:** GPIO, analog signals, and JTAG (47 pins).

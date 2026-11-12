@@ -63,18 +63,20 @@ R_FET = 4.8e-3         # ohm, hot R_DS(on): 3.3 mOhm max x 1.45 at ~80 degC
                        # (IGC033S10S1 datasheet Rev 1.1, Diagram 11)
 R_PCB = 1e-3           # ohm, copper traces — ASSUMED
 
-# --- Output capacitors (power_stage.md decision #10) ---
-C_CER = 39e-6          # F, 8 x 22 uF ceramics after DC-bias derating (effective)
-ESR_CER = 0.5e-3       # ohm, whole ceramic bank — ASSUMED (~4 mOhm each, 8 in parallel)
-C_POLY = 470e-6        # F, polymer bulk capacitor C319
+# --- Output capacitors (power_stage.md decision #24) ---
+C_CER = 9.7e-6         # F, 2 x 22 uF ceramics (C308, C309) after DC-bias and small-signal
+                       # derating: 2 x 22 uF x 0.26 x 0.85 (effective)
+ESR_CER = 2e-3         # ohm, whole ceramic bank — ASSUMED (~4 mOhm each, 2 in parallel)
+C_POLY = 540e-6        # F, polymer bulk capacitors C316 and C317 in parallel (2 x 270 uF)
 C_POLY_TOL = 0.20      # +/-20 % (datasheet)
-ESR_POLY = 25e-3       # ohm, C319's LCSC listing (jieerrui MA25V470M8x10, 25 mOhm @ 100 kHz)
-# ESR range for the worst-case check. Datasheets give only a maximum:
-#   Honorcap HV1E477M0810PZ (the 470 uF / 25 V / 8x10.5 datasheet supplied): 30 mOhm max at
-#   100 kHz, 20 degC; impedance at 105 degC up to 1.25x; end of life up to 1.5x.
-ESR_POLY_MIN = 15e-3   # ohm — ASSUMED (a good part, warm); no minimum is published
-ESR_POLY_MAX = 37.5e-3 # ohm, 30 mOhm x 1.25 (new part, hot)
-ESR_POLY_EOL = 45e-3   # ohm, 30 mOhm x 1.5 (end of life)
+ESR_POLY = 5e-3        # ohm, C316 || C317: 2 x NCC APXJ160ARA271MF80J at the datasheet
+                       # maximum, 10 mOhm each at 20 degC, 100-300 kHz
+# ESR range for the worst-case check. The datasheet gives only a maximum:
+#   NCC PXJ series catalog (CAT. No. E1001): 10 mOhm max at 20 degC, 100-300 kHz;
+#   impedance at -55 degC up to 1.25x; end of life (15,000 h at 105 degC) up to 1.5x.
+ESR_POLY_MIN = 2.5e-3  # ohm — ASSUMED (half the maximum; a good part, warm); no minimum is published
+ESR_POLY_MAX = 6.25e-3 # ohm, 5 mOhm x 1.25 (new part, cold)
+ESR_POLY_EOL = 7.5e-3  # ohm, 5 mOhm x 1.5 (end of life)
 
 # --- Load ---
 # None = electronic load in constant-current mode (the least damping, so the
@@ -100,15 +102,18 @@ VOUT_DIVIDER = 0.2          # VOUT_SENSE = 0.2 x VOUT -> 16.5 V full scale — A
 # --- Controller design targets ---
 F_CROSSOVER = 10e3          # Hz, target loop speed with nominal parts. Chosen so the loop
                             # stays stable at the worst part-tolerance corner (see the
-                            # WORST CASE section of the summary): a high-ESR polymer and a
-                            # low inductance roughly double the crossover. 20 kHz looks fine
-                            # with nominal parts but drops to ~7 deg phase margin there.
+                            # WORST CASE section of the summary): a low inductance and a
+                            # low polymer capacitance raise the crossover by about 70 %.
+                            # 20 kHz looks fine with nominal parts but drops to ~18 deg phase
+                            # margin and 2.7 dB gain margin there.
 # Type III placement. None = choose automatically from the plant:
 #   both zeros below the LC resonance (0.4 x f_LC), first pole above crossover
 #   (1.6 x F_CROSSOVER), second pole at 0.45 x the control rate.
 FZ1 = None
 FZ2 = None
-FP1 = None
+FP1 = 59e3                  # Hz, on the polymer pair's ESR zero (1 / (2 pi x 5 mOhm x 540 uF)).
+                            # With the automatic 16 kHz pole the loop loses the phase this
+                            # low-ESR bank no longer gives back: 41 deg nominal, 21 deg worst case
 FP2 = None
 
 # --- Time simulation scenario ---
@@ -929,7 +934,7 @@ def print_summary(ctrl, m, alt_ctrl, alt_m, met, met_plain, wc, met_worst):
           f"settles in {met_worst['settle_up']*1e6:.0f} µs")
     print(f"  Input-voltage feedforward         : {'on' if USE_VIN_FEEDFORWARD else 'OFF'}")
     print(f"\nPlots saved in {OUT_DIR}")
-    print("Remember: this is an averaged model. Real switching ripple (~27 mV p-p at 400 kHz)")
+    print("Remember: this is an averaged model. Real switching ripple (~19 mV p-p at 400 kHz)")
     print("comes on top of these numbers, and every ASSUMED parameter should be updated.\n")
 
 
