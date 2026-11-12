@@ -3,25 +3,30 @@
 Input hot-plug and damping simulation for the HexaGaN 48 V -> 12 V GaN buck.
 
 Plugging the board into a live 48 V supply connects the supply's lead
-inductance to the power stage's low-loss input ceramics: an LC circuit that
+inductance to the power stage's and U201's low-loss input ceramics: an LC circuit that
 rings, and can overshoot to almost twice the input voltage. The bulk
-electrolytic on input_supply (C201) is there to damp that ring with its ESR.
+electrolytic on input_supply (C203) is there to damp that ring with its ESR.
 
 What this script does, in order:
 
   1. HOT-PLUG   Steps the maximum input voltage onto the board through the
-                bench-lead inductance and resistance, with and without C201,
+                bench-lead inductance and resistance, with and without C203,
                 for a range of lead inductances. Prints the peak voltage, peak
-                current and the I²t the fuse sees, and plots V_IN against time.
+                current and the I²t the fuse sees. A separate illustrative
+                TVS sweep reports pulse current and energy.
   2. RIPPLE     Splits the converter's pulsed input current between the
-                supply leads, the ceramics and C201, harmonic by harmonic, and
-                prints the RMS ripple current C201 carries at full load.
+                supply leads, the ceramics and C203, harmonic by harmonic, and
+                prints the RMS ripple current C203 carries at full load.
   3. IMPEDANCE  Plots the output impedance of the input filter (leads +
-                ceramics + C201) against the converter's negative input
+                ceramics + C203) against the converter's negative input
                 impedance, the Middlebrook check for input-filter stability.
 
-No TVS is modeled: the point is to show that, with C201 fitted, an ordinary
-plug-in never reaches the TVS's breakdown voltage.
+This is a lumped screening model, not a surge qualification. D201 is upstream
+of Q201, while C203 and the ceramics are downstream. Their trace/return
+inductances and Q201's startup behavior are not modeled. The TVS piecewise
+linear I-V approximation is anchored only to datasheet endpoints and cannot
+predict an exact pulse or prove the TVS's 10/1000-us power rating for a short
+hot-plug event. Measure the actual board before declaring margin.
 
 Run:   python input_hotplug_sim.py            (plots saved to ./output)
        python input_hotplug_sim.py --show     (also open plot windows)
@@ -55,19 +60,42 @@ L_LEAD_SWEEP = (0.5e-6, 1.0e-6, 2.0e-6)  # H, range checked
 R_LEAD = 0.05          # ohm, ASSUMED round trip: leads, terminals, fuse, Q201.
                        # Low on purpose; more resistance only adds damping
 
-# --- Power-stage input ceramics (power_stage.md, decision #9) ---
-C_CER = 10.4e-6        # F, effective at 48 V after DC-bias derating
+# --- Input ceramics (power_stage.md #22, input_supply.md #26) ---
+# Power stage: 10.45 uF at 48 V and about 8.0 uF at 60 V from its design
+# note; interpolate to 51 V. U201: 5 x 2.2 uF with 35.375% retained at 51 V
+# from its recorded bias-curve readback. These are typical estimates only.
+C_POWER_51 = (10.45 + (8.0 - 10.45) * (51 - 48) / (60 - 48)) * 1e-6
+C_U201_51 = 5 * 2.2e-6 * (0.375 + (0.29 - 0.375) * (51 - 48) / (60 - 48))
+C_CER = C_POWER_51 + C_U201_51  # F, 51 V screening estimate
+C_CER_LOW = C_CER * 0.9 * 0.85  # F, illustrative tolerance and temperature corner
+C_CER_HIGH = C_CER * 1.1 * 1.15  # F, illustrative positive corner
 ESR_CER = 0.005        # ohm, ASSUMED for the whole bank
 ESL_CER = 0.5e-9       # H, ASSUMED for the whole bank
 
-# --- C201 bulk electrolytic (input_supply.md part selection) ---
+# --- C203 bulk electrolytic (input_supply.md part selection) ---
 C_BULK = 100e-6        # F, JARSON FZ2A101M1313 (C5260780), 100 µF 100 V
-ESR_BULK = 0.32        # ohm, LCSC listing for C5260780
+C_BULK_LOW = 80e-6     # F, -20% nameplate tolerance
+C_BULK_HIGH = 120e-6   # F, +20% nameplate tolerance
+ESR_BULK = 0.32        # ohm, ASSUMED ESR from 0.32-ohm impedance at 100 kHz/20 C
+                       # in JARSON's FZ datasheet; actual ESR/temperature are unknown
+# https://atta.szlcsc.com/upload/public/pdf/source/20240702/CB724D03555E79E98CBC22F7BB5AFDA6.pdf
 ESL_BULK = 20e-9       # H, ASSUMED: can ESL plus the trace to the power stage
-RIPPLE_RATING = 0.50   # A rms, LCSC listing for C5260780
+RIPPLE_RATING = 0.45   # A rms, exact JARSON FZ2A101M1313 at 100 kHz/105 C
+                       # LCSC lists 0.50 A; use manufacturer value pending clarification
 
 # --- Limits to compare against ---
-V_TVS_BR_MIN = 56.7    # V, SMBJ51CA minimum breakdown (datasheet)
+# Hongjiacheng SMBJ51CA datasheet Rev 1.1, 25 C: breakdown 56.7-62.7 V
+# at 1 mA, maximum clamp 82.4 V at 7.28 A for a 10/1000 us pulse.
+# https://xonstorage.z8.web.core.windows.net/pdf/hongjiacheng_smbj170a__xonlink.pdf
+# Endpoint slopes are *illustrative*, not a guaranteed I-V characteristic.
+V_TVS_BR_MIN = 56.7    # V
+V_TVS_BR_MAX = 62.7    # V
+V_TVS_CLAMP = 82.4     # V at I_TVS_RATED
+I_TVS_RATED = 7.28     # A, 10/1000 us waveform
+TVS_CASES = (
+    (V_TVS_BR_MIN, (V_TVS_CLAMP - V_TVS_BR_MIN) / I_TVS_RATED),
+    (V_TVS_BR_MAX, (V_TVS_CLAMP - V_TVS_BR_MAX) / I_TVS_RATED),
+)
 V_HS_LIMIT = 90.0      # V, LM5113-Q1 HS recommended max (power_stage.md)
 FUSE_I2T = 10.32       # A²s, Littelfuse 0451007.MRL melting I²t (LCSC listing)
 
@@ -79,27 +107,43 @@ OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
 # =============================================================================
 
 
-def hotplug(v_in, l_lead, with_bulk):
-    """Step v_in onto the board at t = 0. Returns time, V_IN, lead current."""
+def hotplug(v_in, l_lead, with_bulk, c_cer=C_CER, c_bulk=C_BULK,
+            esr_bulk=ESR_BULK, tvs=None):
+    """Step the input onto a lumped node; return time, voltage, lead and TVS current.
+
+    tvs is (breakdown_voltage, illustrative_dynamic_resistance), or None.
+    """
 
     def node_voltage(i_lead, v_cer, v_bulk):
-        # Node at V_IN: the lead current splits into the ceramic and bulk branches
+        # Solve ceramic, bulk and optional piecewise-linear TVS branch currents.
         if with_bulk:
-            return (i_lead + v_cer / ESR_CER + v_bulk / ESR_BULK) / (1 / ESR_CER + 1 / ESR_BULK)
-        return i_lead * ESR_CER + v_cer
+            numerator = i_lead + v_cer / ESR_CER + v_bulk / esr_bulk
+            conductance = 1 / ESR_CER + 1 / esr_bulk
+        else:
+            numerator = i_lead + v_cer / ESR_CER
+            conductance = 1 / ESR_CER
+        v_n = numerator / conductance
+        if tvs is not None:
+            v_br, r_dyn = tvs
+            conducting_voltage = (numerator + v_br / r_dyn) / (conductance + 1 / r_dyn)
+            v_n = np.where(v_n > v_br, conducting_voltage, v_n)
+        return v_n
 
     def f(t, x):
         i_lead, v_cer, v_bulk = x
         v_n = node_voltage(i_lead, v_cer, v_bulk)
         i_cer = (v_n - v_cer) / ESR_CER
-        i_bulk = (v_n - v_bulk) / ESR_BULK if with_bulk else 0.0
-        return [(v_in - R_LEAD * i_lead - v_n) / l_lead, i_cer / C_CER,
-                i_bulk / C_BULK if with_bulk else 0.0]
+        i_bulk = (v_n - v_bulk) / esr_bulk if with_bulk else 0.0
+        return [(v_in - R_LEAD * i_lead - v_n) / l_lead, i_cer / c_cer,
+                i_bulk / c_bulk if with_bulk else 0.0]
 
     sol = solve_ivp(f, [0, T_END], [0.0, 0.0, 0.0], max_step=2e-8)
+    if not sol.success:
+        raise RuntimeError(f"Hot-plug integration failed: {sol.message}")
     i_lead, v_cer, v_bulk = sol.y
     v_n = node_voltage(i_lead, v_cer, v_bulk)
-    return sol.t, v_n, i_lead
+    i_tvs = np.maximum((v_n - tvs[0]) / tvs[1], 0) if tvs is not None else np.zeros_like(v_n)
+    return sol.t, v_n, i_lead, i_tvs
 
 
 def damping_check():
@@ -107,7 +151,7 @@ def damping_check():
     return dict(z0=z0, n=C_BULK / C_CER)
 
 # =============================================================================
-# 2. RIPPLE CURRENT IN C201
+# 2. RIPPLE CURRENT IN C203
 # =============================================================================
 
 
@@ -119,7 +163,7 @@ def branch_impedances(w, l_lead=L_LEAD):
 
 
 def bulk_ripple_rms(v_in, fsw, n_harmonics=200):
-    """RMS ripple current in C201. The buck draws a rectangular current pulse
+    """RMS ripple current in C203. The buck draws a rectangular current pulse
     (IOUT for D of each period); each harmonic splits between the branches in
     proportion to their admittances."""
     d = VOUT / v_in
@@ -161,23 +205,27 @@ def plot_hotplug(plt, results):
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
     fig.suptitle(f"Hot-plug: {VIN_MAX:.0f} V stepped onto the board through "
                  f"{L_LEAD*1e6:.1f} µH of bench leads")
-    t, v, i = results[(L_LEAD, False)]
-    ax1.plot(t * 1e6, v, color="tab:red", lw=1.6, label="Power-stage ceramics only")
+    t, v, i, _ = results[(L_LEAD, False)]
+    ax1.plot(t * 1e6, v, color="tab:red", lw=1.6, label="All input ceramics, no C203")
     ax2.plot(t * 1e6, i, color="tab:red", lw=1.6)
-    t, v, i = results[(L_LEAD, True)]
-    ax1.plot(t * 1e6, v, color="tab:blue", lw=2.2, label="With C201 (100 µF, 0.32 Ω ESR)")
+    t, v, i, _ = results[(L_LEAD, True)]
+    ax1.plot(t * 1e6, v, color="tab:blue", lw=2.2, label="Full ceramic bank + C203, no TVS")
     ax2.plot(t * 1e6, i, color="tab:blue", lw=2.2)
+    t, v, i, _ = results[(L_LEAD, "TVS minimum breakdown")]
+    ax1.plot(t * 1e6, v, color="tab:green", lw=1.5, ls="--",
+             label="Illustrative TVS: 56.7 V breakdown")
+    ax2.plot(t * 1e6, i, color="tab:green", lw=1.5, ls="--")
     ax1.axhline(V_HS_LIMIT, color="k", lw=1, ls="--")
     ax1.text(T_END * 1e6 * 0.99, V_HS_LIMIT + 1.5, "90 V: gate driver HS limit",
              ha="right", fontsize=8)
     ax1.axhline(V_TVS_BR_MIN, color="tab:orange", lw=1, ls=":")
     ax1.text(T_END * 1e6 * 0.99, V_TVS_BR_MIN + 1.5,
-             "56.7 V: TVS starts to conduct (minimum breakdown)", ha="right", fontsize=8,
+             "56.7 V: TVS minimum breakdown at 1 mA", ha="right", fontsize=8,
              color="tab:orange")
     ax1.axhline(VIN_MAX, color="0.6", lw=0.8)
     ax1.set_ylabel("V_IN (V)")
     ax1.set_ylim(0, 100)
-    ax1.legend(loc="lower right")
+    ax1.legend(loc="lower right", fontsize=8)
     ax2.set_ylabel("Lead current (A)")
     ax2.set_xlabel("Time after plug-in (µs)")
     ax2.axhline(0, color="k", lw=0.8)
@@ -190,9 +238,9 @@ def plot_hotplug(plt, results):
 
 def plot_impedance(plt, freqs):
     fig, ax = plt.subplots(figsize=(10, 5))
-    fig.suptitle("Input filter output impedance vs the converter's input impedance")
+    fig.suptitle("Lumped input filter output impedance vs converter input impedance")
     for with_bulk, color, label in ((False, "tab:red", "Ceramics only"),
-                                    (True, "tab:blue", "With C201")):
+                                    (True, "tab:blue", "With C203")):
         z = filter_output_impedance(freqs, with_bulk)
         ax.loglog(freqs, abs(z), color=color, lw=2, label=label)
     z_in = converter_input_impedance(min(VIN_POINTS))
@@ -221,42 +269,81 @@ def main():
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    print("HOT-PLUG (no TVS modeled)")
-    print(f"  {VIN_MAX:.0f} V step, lead resistance {R_LEAD*1e3:.0f} mΩ")
+    print("HOT-PLUG (lumped screening model; D201 and C203 are physically separated)")
+    print(f"  {VIN_MAX:.0f} V step, lead resistance {R_LEAD*1e3:.0f} mΩ assumed")
+    print(f"  ceramics {C_CER*1e6:.2f} µF (power stage + all five U201 parts),"
+          f" C203 {C_BULK*1e6:.0f} µF / {ESR_BULK:.2f} Ω assumed ESR")
     results = {}
     for l_lead in L_LEAD_SWEEP:
         row = []
         for with_bulk in (False, True):
-            t, v, i = hotplug(VIN_MAX, l_lead, with_bulk)
-            results[(l_lead, with_bulk)] = (t, v, i)
+            t, v, i, i_tvs = hotplug(VIN_MAX, l_lead, with_bulk)
+            results[(l_lead, with_bulk)] = (t, v, i, i_tvs)
             row.append((v.max(), i.max(), np.trapezoid(i ** 2, t)))
         (v0, i0, _), (v1, i1, i2t) = row
         print(f"  Leads {l_lead*1e6:3.1f} µH : ceramics only {v0:5.1f} V peak, {i0:4.0f} A"
-              f"   |  with C201 {v1:5.1f} V peak, {i1:4.0f} A, I²t {i2t:.2f} A²s")
+              f"   |  with C203 {v1:5.1f} V peak, {i1:4.0f} A, I²t {i2t:.2f} A²s")
     worst_damped = max(results[(l, True)][1].max() for l in L_LEAD_SWEEP)
     worst_i2t = max(np.trapezoid(results[(l, True)][2] ** 2, results[(l, True)][0])
                     for l in L_LEAD_SWEEP)
-    print(f"  Worst damped peak {worst_damped:.1f} V vs TVS minimum breakdown "
-          f"{V_TVS_BR_MIN} V: {'TVS stays off' if worst_damped < V_TVS_BR_MIN else 'TVS CONDUCTS'}")
-    print(f"  Fuse melting I²t {FUSE_I2T} A²s is {FUSE_I2T / worst_i2t:.0f}× the worst hot-plug I²t")
+    print(f"  Worst no-TVS C203 peak {worst_damped:.1f} V vs {V_TVS_BR_MIN:.1f} V minimum"
+          " breakdown at 1 mA")
+    print(f"  Fuse melting I²t reference {FUSE_I2T} A²s vs modeled {worst_i2t:.2f} A²s;"
+          " this is not a fuse coordination check")
+
+    print("\nILLUSTRATIVE TVS BRANCH (same-node endpoint approximation, not a rating pass)")
+    for (v_br, r_dyn), label in zip(TVS_CASES, ("TVS minimum breakdown", "TVS maximum breakdown")):
+        print(f"  {label}: Vbr={v_br:.1f} V, slope={r_dyn:.2f} Ω")
+        for l_lead in L_LEAD_SWEEP:
+            t, v, i, i_tvs = hotplug(VIN_MAX, l_lead, True, tvs=(v_br, r_dyn))
+            results[(l_lead, label)] = (t, v, i, i_tvs)
+            p_tvs = v * i_tvs
+            print(f"    {l_lead*1e6:3.1f} µH: Vpk={v.max():.2f} V,"
+                  f" I_TVS,pk={i_tvs.max():.3f} A, Ppk={p_tvs.max():.1f} W,"
+                  f" E={np.trapezoid(p_tvs, t)*1e3:.3f} mJ")
+
+    print("\nHOT-PLUG SENSITIVITY (assumed capacitance and ESR corners; no TVS / low-Vbr TVS)")
+    largest_no_tvs = (0.0, "")
+    largest_tvs_energy = (0.0, "")
+    largest_tvs_current = (0.0, "")
+    for c_cer in (C_CER_LOW, C_CER, C_CER_HIGH):
+        for c_bulk in (C_BULK_LOW, C_BULK, C_BULK_HIGH):
+            for esr_bulk in (ESR_BULK / 2, ESR_BULK, ESR_BULK * 2):
+                for l_lead in L_LEAD_SWEEP:
+                    case = (f"Ccer={c_cer*1e6:.2f} µF, C203={c_bulk*1e6:.0f} µF,"
+                            f" ESR={esr_bulk:.2f} Ω, L={l_lead*1e6:.1f} µH")
+                    t, v, _, _ = hotplug(VIN_MAX, l_lead, True, c_cer, c_bulk,
+                                         esr_bulk)
+                    largest_no_tvs = max(largest_no_tvs, (float(v.max()), case))
+                    t, v, _, i_tvs = hotplug(VIN_MAX, l_lead, True, c_cer, c_bulk,
+                                             esr_bulk, tvs=TVS_CASES[0])
+                    largest_tvs_current = max(largest_tvs_current,
+                                              (float(i_tvs.max()), case))
+                    largest_tvs_energy = max(largest_tvs_energy,
+                                             (float(np.trapezoid(v * i_tvs, t)), case))
+    print(f"  Highest no-TVS node peak: {largest_no_tvs[0]:.2f} V ({largest_no_tvs[1]})")
+    print(f"  Highest TVS peak current: {largest_tvs_current[0]:.3f} A"
+          f" ({largest_tvs_current[1]})")
+    print(f"  Highest TVS pulse energy: {largest_tvs_energy[0]*1e3:.3f} mJ"
+          f" ({largest_tvs_energy[1]})")
 
     dc = damping_check()
     print("\nDAMPING RULES OF THUMB")
-    print(f"  Characteristic impedance √(L/C)   : {dc['z0']:.2f} Ω  (C201 ESR {ESR_BULK} Ω: close match)")
-    print(f"  C201 / ceramics                   : {dc['n']:.1f}×   (aim for ≥ 4×)")
+    print(f"  Characteristic impedance √(L/C)   : {dc['z0']:.2f} Ω  (C203 ESR {ESR_BULK} Ω)")
+    print(f"  C203 / ceramics                   : {dc['n']:.1f}×   (aim for ≥ 4×)")
 
-    print("\nRIPPLE CURRENT IN C201 (full load, harmonic split)")
+    print("\nRIPPLE CURRENT IN C203 (full load, harmonic split; 51 V capacitor estimate used throughout)")
     for fsw in (300e3, 400e3):
         cells = ", ".join(f"{bulk_ripple_rms(v, fsw):.2f} A at {v:.0f} V" for v in VIN_POINTS)
         print(f"  {fsw/1e3:.0f} kHz : {cells}")
     worst_ripple = max(bulk_ripple_rms(v, f) for v in VIN_POINTS for f in (300e3, 400e3))
-    print(f"  Rating {RIPPLE_RATING} A rms (LCSC listing): "
+    print(f"  JARSON rating {RIPPLE_RATING} A rms (100 kHz/105 C): "
           f"{'within rating' if worst_ripple <= RIPPLE_RATING else 'ABOVE rating, see input_supply.md'}")
 
     freqs = np.logspace(3, 7, 2000)
     print("\nINPUT-FILTER STABILITY (Middlebrook)")
     z_in = converter_input_impedance(min(VIN_POINTS))
-    for with_bulk, name in ((False, "ceramics only"), (True, "with C201   ")):
+    for with_bulk, name in ((False, "ceramics only"), (True, "with C203   ")):
         z = abs(filter_output_impedance(freqs, with_bulk))
         k = np.argmax(z)
         print(f"  Filter output impedance peak, {name}: {z[k]:.2f} Ω at {freqs[k]/1e3:.0f} kHz"
@@ -265,8 +352,10 @@ def main():
     plot_hotplug(plt, results)
     plot_impedance(plt, freqs)
     print(f"\nPlots saved in {OUT_DIR}")
-    print("Remember: the lead inductance and resistance are ASSUMED. Measure a real hot-plug "
-          "on the bench (input_supply.md, verification).")
+    print("Remember: lead/trace parasitics and the TVS I-V between endpoints are ASSUMED."
+          " D201 is upstream of Q201; this same-node model cannot establish part"
+          " voltage or TVS safety. Measure real hot-plug waveforms and use the"
+          " manufacturer pulse-width/temperature curves before approval.")
     if args.show:
         plt.show()
 

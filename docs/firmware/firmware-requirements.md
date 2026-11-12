@@ -179,7 +179,7 @@ Requirements:
 
 If you remember nothing else:
 
-1. **Never let both switches be on at the same time.** Always keep dead time between them. The board has a hardware interlock as a last line of defence, but it does not create dead time: that's your job.
+1. **Never let both switches be on at the same time.** Configure and verify the MCU ePWM dead-band before enabling the stage. The board's existing gates inhibit a sustained both-high request after propagation settles; they do not guarantee protection from simultaneous PWM edges.
 2. **Protections are armed before PWM ever starts,** and nothing can turn them off.
 3. **No host command can bypass a protection or the state machine.**
 4. **After a fault, never restart automatically.** A person must clear it.

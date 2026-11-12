@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1030" viewBox="0 0 1500 1030" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Distributed eddy currents in a continuous copper shield plane</title>
+<desc id="desc">Top view of an unbroken copper plane underneath a power loop. A growing magnetic field into the board induces broad counterclockwise sheet-current streamlines. Several nested illustrative paths show the current is spread over the plane, strongest near the changing-flux footprint and weaker farther out. A cross-section shows the power loop above the plane separated by dielectric.</desc>
+<defs><marker id="arr" markerUnits="userSpaceOnUse" markerWidth="19" markerHeight="19" refX="15" refY="9.5" orient="auto"><path d="M2 2 L15 9.5 L2 17" fill="none" stroke="#087aaf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="flux" markerUnits="userSpaceOnUse" markerWidth="19" markerHeight="19" refX="15" refY="9.5" orient="auto"><path d="M2 2 L15 9.5 L2 17" fill="none" stroke="#7746a5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#193241}.title{font-size:48px;font-weight:700}.sub{font-size:25px;fill:#526b78}.head{font-size:30px;font-weight:700}.label{font-size:23px}.small{font-size:21px;fill:#4c6571}.bold{font-size:23px;font-weight:700}.panel{fill:#fff;stroke:#d7e3ea;stroke-width:2}.plane{fill:#d6edf7;stroke:#7bb6d3;stroke-width:3}.stream{fill:none;stroke:#087aaf;stroke-width:7;stroke-linecap:round}.weak{opacity:.4}.mid{opacity:.7}.bmark{fill:#fff;stroke:#7746a5;stroke-width:5}</style></defs>
+<rect width="1500" height="1030" fill="#f6f9fb"/>
+
+<text x="55" y="68" class="title" text-anchor="start">What an eddy current looks like in a solid copper plane</text>
+<text x="56" y="109" class="sub" text-anchor="start">Illustrative top view at one instant: the power loop’s into-board magnetic flux is increasing.</text>
+<rect x="45" y="145" width="1410" height="670" rx="22" class="panel"/>
+<text x="80" y="197" class="head" text-anchor="start">The blue area is one continuous sheet of copper</text>
+<rect x="160" y="235" width="1160" height="515" rx="20" class="plane"/>
+<rect x="480" y="344" width="520" height="285" rx="35" fill="#fff" fill-opacity="0.22" stroke="#c95748" stroke-width="6" stroke-dasharray="16 11"/>
+
+<rect x="260" y="272" width="960" height="445" rx="82" fill="none" stroke="#087aaf" stroke-width="5" opacity="0.35"/>
+<path d="M805.0 272 H675.0" class="stream weak" marker-end="url(#arr)"/>
+<path d="M260 446.5 V542.5" class="stream weak" marker-end="url(#arr)"/>
+<path d="M675.0 717 H805.0" class="stream weak" marker-end="url(#arr)"/>
+<path d="M1220 542.5 V446.5" class="stream weak" marker-end="url(#arr)"/>
+<rect x="362" y="310" width="756" height="370" rx="82" fill="none" stroke="#087aaf" stroke-width="5" opacity="0.65"/>
+<path d="M805.0 310 H675.0" class="stream mid" marker-end="url(#arr)"/>
+<path d="M362 447.0 V543.0" class="stream mid" marker-end="url(#arr)"/>
+<path d="M675.0 680 H805.0" class="stream mid" marker-end="url(#arr)"/>
+<path d="M1118 543.0 V447.0" class="stream mid" marker-end="url(#arr)"/>
+<rect x="447" y="336" width="586" height="316" rx="79.0" fill="none" stroke="#087aaf" stroke-width="5" opacity="0.95"/>
+<path d="M805.0 336 H675.0" class="stream" marker-end="url(#arr)"/>
+<path d="M447 446.0 V542.0" class="stream" marker-end="url(#arr)"/>
+<path d="M675.0 652 H805.0" class="stream" marker-end="url(#arr)"/>
+<path d="M1033 542.0 V446.0" class="stream" marker-end="url(#arr)"/>
+<!-- Eddy-current streamlines continue inside the projected power-loop footprint. -->
+<rect x="520" y="370" width="440" height="238" rx="58" fill="none" stroke="#087aaf" stroke-width="4.5" opacity="0.8"/>
+<path d="M790 370 H670 M520 452 V526 M670 608 H790 M960 526 V452" fill="none" stroke="#087aaf" stroke-width="5" marker-end="url(#arr)"/>
+<rect x="600" y="410" width="280" height="155" rx="48" fill="none" stroke="#087aaf" stroke-width="4" opacity="0.65"/>
+<path d="M785 410 H695 M600 452 V520 M695 565 H785 M880 520 V452" fill="none" stroke="#087aaf" stroke-width="4.5" marker-end="url(#arr)"/>
+<circle cx="700" cy="451" r="20" class="bmark"/><path d="M691 442 L709 460 M709 442 L691 460" stroke="#7746a5" stroke-width="4" stroke-linecap="round"/>
+<circle cx="785" cy="451" r="20" class="bmark"/><path d="M776 442 L794 460 M794 442 L776 460" stroke="#7746a5" stroke-width="4" stroke-linecap="round"/>
+<circle cx="700" cy="535" r="20" class="bmark"/><path d="M691 526 L709 544 M709 526 L691 544" stroke="#7746a5" stroke-width="4" stroke-linecap="round"/>
+<circle cx="785" cy="535" r="20" class="bmark"/><path d="M776 526 L794 544 M794 526 L776 544" stroke="#7746a5" stroke-width="4" stroke-linecap="round"/>
+
+<text x="80" y="790" class="small" text-anchor="start">Purple ⊗ = increasing B into the plane. Blue sheet currents run inside and outside the red footprint.</text>
+<rect x="45" y="835" width="1410" height="150" rx="20" class="panel"/>
+<text x="80" y="880" class="head" text-anchor="start">Side view</text>
+<rect x="340" y="866" width="820" height="18" rx="4" fill="#d88a72"/>
+<text x="1177" y="884" class="small" text-anchor="start">power loop</text>
+<rect x="340" y="948" width="820" height="18" rx="4" fill="#6db5d5"/>
+<text x="1177" y="966" class="small" text-anchor="start">continuous shield plane</text>
+<path d="M745 893 V935" stroke="#7746a5" stroke-width="6" fill="none" marker-end="url(#flux)"/>
+<text x="787" y="928" class="small" text-anchor="start">changing magnetic flux induces the sheet current</text>
+<text x="80" y="1014" class="small" text-anchor="start">Real current density is continuous and shaped by plane edges, slots, distance, copper resistance, and switching speed.</text>
+</svg>

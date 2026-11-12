@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1530" viewBox="0 0 1600 1530" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Source bounce and eddy-current shielding in a GaN buck converter</title>
+<desc id="desc">The first panel shows a two-volt source-path voltage between power ground and the FET source while a Kelvin-referenced driver maintains five volts gate-to-source. The second panel shows a growing clockwise power-loop current producing magnetic flux into the board and a counterclockwise eddy current in the nearby shield plane producing opposing flux. A cross-section shows the shield plane beneath the power loop and notes resistive heating.</desc>
+<defs>
+<marker id="red" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="17" refY="11" orient="auto"><path d="M2 2 L17 11 L2 20" fill="none" stroke="#c94b3e" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></marker>
+<marker id="blue" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="17" refY="11" orient="auto"><path d="M2 2 L17 11 L2 20" fill="none" stroke="#1976ae" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></marker>
+<marker id="purple" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="16" refY="10" orient="auto"><path d="M2 2 L16 10 L2 18" fill="none" stroke="#66419a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></marker>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#182e3b}.title{font-size:46px;font-weight:700}.sub{font-size:24px;fill:#4e6571}.head{font-size:31px;font-weight:700}.label{font-size:24px}.small{font-size:21px;fill:#4d6270}.bold{font-size:24px;font-weight:700}.panel{fill:#fff;stroke:#d8e2e8;stroke-width:2}.box{fill:#f5f8fa;stroke:#91a8b4;stroke-width:3}.redbox{fill:#fff0ea;stroke:#c94b3e;stroke-width:3}.bluebox{fill:#eaf6fc;stroke:#1976ae;stroke-width:3}.redline{stroke:#c94b3e;stroke-width:10;fill:none;stroke-linejoin:round}.blueline{stroke:#1976ae;stroke-width:10;fill:none;stroke-linejoin:round}.purpleline{stroke:#66419a;stroke-width:6;fill:none}.bmark{fill:#fff;stroke:#66419a;stroke-width:5}
+</style></defs>
+<rect width="1600" height="1530" fill="#f6f9fb"/>
+
+<text x="54" y="70" class="title" text-anchor="start">Where source bounce goes — and how a shield plane responds</text>
+<text x="55" y="110" class="sub" text-anchor="start">Two different effects: a voltage in the power return path, and induced current in nearby copper.</text>
+<rect x="45" y="150" width="1510" height="450" rx="21" class="panel"/>
+<text x="80" y="205" class="head" text-anchor="start">1  Kelvin return: the 2 V stays in the power path</text>
+<text x="80" y="242" class="small" text-anchor="start">Turn-on example: the driver commands 5 V while rising power current creates 2 V across the source connection.</text>
+<rect x="85" y="301" width="205" height="104" rx="15" class="box"/>
+<text x="187" y="343" class="bold" text-anchor="middle">Power ground</text>
+<text x="187" y="381" class="bold" text-anchor="middle">0 V</text>
+<rect x="387" y="301" width="258" height="104" rx="15" class="redbox"/>
+<text x="516" y="340" class="bold" text-anchor="middle">Power-source path</text>
+<text x="516" y="377" class="bold" text-anchor="middle">+2 V across it</text>
+<rect x="741" y="301" width="204" height="104" rx="15" class="box"/>
+<text x="843" y="343" class="bold" text-anchor="middle">FET source</text>
+<text x="843" y="381" class="bold" text-anchor="middle">+2 V</text>
+<rect x="1041" y="301" width="234" height="104" rx="15" class="bluebox"/>
+<text x="1158" y="340" class="bold" text-anchor="middle">Gate driver</text>
+<text x="1158" y="377" class="bold" text-anchor="middle">adds +5 V</text>
+<rect x="1371" y="301" width="140" height="104" rx="15" class="box"/>
+<text x="1441" y="343" class="bold" text-anchor="middle">Gate</text>
+<text x="1441" y="381" class="bold" text-anchor="middle">+7 V</text>
+<path d="M290 353 H376" class="redline" marker-end="url(#red)"/>
+<path d="M645 353 H730" class="redline" marker-end="url(#red)"/>
+<path d="M945 353 H1030" class="blueline" marker-end="url(#blue)"/>
+<path d="M1275 353 H1360" class="blueline" marker-end="url(#blue)"/>
+<text x="80" y="464" class="bold" text-anchor="start">Actual gate drive: VGS = gate − source = 7 V − 2 V = 5 V.</text>
+<text x="80" y="505" class="small" text-anchor="start">If the drain is momentarily at 12 V: VDS = 12 V − 2 V = 10 V; the 2 V is across the source path.</text>
+<text x="80" y="540" class="small" text-anchor="start">When power current falls, the inductive voltage reverses polarity; it can contribute to overshoot and ringing.</text>
+<rect x="45" y="630" width="1510" height="710" rx="21" class="panel"/>
+<text x="80" y="685" class="head" text-anchor="start">2  Eddy-current shield: changing flux induces an opposing current</text>
+<text x="80" y="721" class="small" text-anchor="start">These are top views of two copper layers at the same board location. Arrows show one instant as power current rises.</text>
+<rect x="80" y="765" width="660" height="405" rx="18" fill="#fffaf7" stroke="#e9cfc4" stroke-width="2"/>
+<text x="410" y="810" class="bold" text-anchor="middle">TOP LAYER: power loop</text>
+<text x="410" y="841" class="small" text-anchor="middle">Clockwise current is increasing</text>
+<rect x="207" y="890" width="392" height="200" rx="9" fill="none" stroke="#c94b3e" stroke-width="16"/>
+<path d="M329 890 H468" class="redline" marker-end="url(#red)"/>
+<path d="M599 934 V1035" class="redline" marker-end="url(#red)"/>
+<path d="M485 1090 H344" class="redline" marker-end="url(#red)"/>
+<path d="M207 1033 V930" class="redline" marker-end="url(#red)"/>
+<circle cx="401" cy="988" r="32" class="bmark"/><path d="M388 975 L414 1001 M414 975 L388 1001" stroke="#66419a" stroke-width="5" stroke-linecap="round"/>
+<text x="401" y="1051" class="small" text-anchor="middle">B from power loop: into board (⊗)</text>
+<path d="M756 969 H831" class="purpleline" marker-end="url(#purple)"/>
+<text x="794" y="932" class="small" text-anchor="middle">induces</text>
+<rect x="855" y="765" width="660" height="405" rx="18" fill="#edf6fa" stroke="#bdd9e7" stroke-width="2"/>
+<text x="1185" y="810" class="bold" text-anchor="middle">INNER LAYER: solid copper shield</text>
+<text x="1185" y="841" class="small" text-anchor="middle">Induced current circulates counterclockwise</text>
+<rect x="982" y="890" width="392" height="200" rx="9" fill="none" stroke="#1976ae" stroke-width="12" stroke-dasharray="0"/>
+<path d="M1258 890 H1117" class="blueline" marker-end="url(#blue)"/>
+<path d="M982 934 V1035" class="blueline" marker-end="url(#blue)"/>
+<path d="M1098 1090 H1239" class="blueline" marker-end="url(#blue)"/>
+<path d="M1374 1033 V930" class="blueline" marker-end="url(#blue)"/>
+<circle cx="1178" cy="988" r="32" class="bmark"/><circle cx="1178" cy="988" r="9" fill="#66419a"/>
+<text x="1178" y="1051" class="small" text-anchor="middle">B from shield: out of board (⊙)</text>
+<text x="80" y="1218" class="small" text-anchor="start">The shield’s opposing field reduces changing flux outside the loop, so apparent high-frequency loop inductance falls.</text>
+<text x="80" y="1254" class="small" text-anchor="start">But induced current flows through resistive copper: it dissipates heat (eddy-current loss).</text>
+<text x="80" y="1290" class="small" text-anchor="start">If the power current decreases, both the induced current and its field reverse.</text>
+<rect x="45" y="1370" width="1510" height="125" rx="19" class="panel"/>
+<text x="78" y="1412" class="bold" text-anchor="start">Board cross-section</text>
+<rect x="365" y="1390" width="970" height="17" rx="4" fill="#e2876f"/>
+<text x="1355" y="1406" class="small" text-anchor="start">power loop</text>
+<rect x="365" y="1465" width="970" height="17" rx="4" fill="#78b5d5"/>
+<text x="1355" y="1481" class="small" text-anchor="start">shield plane</text>
+<path d="M790 1417 V1451" class="purpleline" marker-end="url(#purple)"/>
+<text x="830" y="1448" class="small" text-anchor="start">changing magnetic flux crosses the gap</text>
+</svg>
