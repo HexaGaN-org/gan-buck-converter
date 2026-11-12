@@ -48,7 +48,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | Parameter | Value |
 |---|---|
 | Board size | [TBD] |
-| Mounting | 4 × isolated M3 NPTH holes (H101–H104 on the top sheet), 3.2 mm. Positions and copper clearance: [TBD] with the board outline. Board `GND` is separated from the 48 V supply negative by Q201 ([design/input_supply.md](design/input_supply.md) decision #6) |
+| Mounting | 4 × plated 3.2 mm M3 holes (H101–H104 on the top sheet), pads on no net. Positions and copper clearance: [TBD] with the board outline. Board `GND` is separated from the 48 V supply negative by Q201 ([design/input_supply.md](design/input_supply.md) decision #6) |
 | Layer count | 4, standard 1.6 mm stackup with the thinner L1–L2 prepreg (proposed, [design/power_stage.md](design/power_stage.md) decision #19). Stackup name: [TBD], record it here once chosen |
 | Input / output connectors | J201 and J301: Kefa KF635-6.35-2P 2-pin screw terminals (32 A, 10 AWG). Identical parts, so they go on opposite board edges with clear silkscreen |
 | Cooling | Natural convection through copper pours (no heatsink planned at 150 W). The layout reserves a top-side heatsink zone over the GaN FETs, fitted only if bench testing calls for it (proposed, [design/power_stage.md](design/power_stage.md) decision #20) |
