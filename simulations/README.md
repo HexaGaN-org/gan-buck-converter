@@ -5,7 +5,7 @@ Computer models of the converter, used to design the control loop before the har
 | Script | What it models | Status |
 |---|---|---|
 | [voltage_mode_sim.py](voltage_mode_sim.py) | Voltage-mode control (firmware stage 2): plant, Type III controller, digital delay, soft-start, load step, worst-case part tolerances | Parameters from the inductor, polymer-capacitor and GaN FET datasheets |
-| [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing with and without the bulk electrolytic C201, ripple current in C201, input-filter stability | Lead inductance and resistance ASSUMED; part values from input_supply.md |
+| [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing, illustrative TVS pulse, C203 ripple current and input-filter stability | Lumped screening model; lead/trace parasitics and C203 ESR are ASSUMED |
 
 Planned next: average current mode (stage 3), and an LTspice switching simulation to check ripple and the current limit.
 
@@ -109,25 +109,27 @@ The crossover moves between **7 and 20 kHz** across these combinations. The wors
 
 ## The input: hot-plug and damping (`input_hotplug_sim.py`)
 
-Plugging the board into a live supply connects the bench leads' inductance (about 1 µH) to the power stage's 10.4 µF of input ceramics. Ceramics have almost no resistance, so the pair rings like a struck bell and can overshoot to nearly twice the input voltage. The bulk electrolytic C201 on input_supply damps the ring: its ESR (0.32 Ω) almost equals the ring's characteristic impedance √(L/C) ≈ 0.31 Ω, which is the condition for soaking up the energy as heat.
+Plugging the board into a live supply connects the bench leads' inductance to the power stage **and U201** input ceramics. Their combined 51 V capacitance is estimated at 13.73 µF: 9.84 µF for the power stage, interpolated from its recorded 48 V and 60 V values, plus 3.89 µF for U201's five 2.2 µF parts. These bias-curve readbacks are typical estimates, not guaranteed minima. C203 is the 100 µF bulk capacitor. The [exact JARSON FZ datasheet](https://atta.szlcsc.com/upload/public/pdf/source/20240702/CB724D03555E79E98CBC22F7BB5AFDA6.pdf) specifies 0.32 Ω **impedance** at 100 kHz and 20 °C; the script uses 0.32 Ω as an assumed ESR, then sweeps half and twice that value to expose sensitivity.
 
 ![Hot-plug](output/input_01_hotplug.png)
 
-| Bench leads | Ceramics only | With C201 | I²t the fuse sees |
+| Assumed bench-lead inductance | Ceramics only, no TVS | With C203, no TVS | Modeled lead I²t with C203 |
 |---|---|---|---|
-| 0.5 µH | 85 V | 56 V | 0.51 A²s |
-| 1 µH | **90 V** | **54 V** | 0.49 A²s |
-| 2 µH | 93 V | 54 V | 0.47 A²s |
+| 0.5 µH | 83.3 V | 57.3 V | 0.57 A²s |
+| 1 µH | 88.0 V | 56.1 V | 0.54 A²s |
+| 2 µH | 91.6 V | 55.6 V | 0.52 A²s |
 
-Without C201, an ordinary plug-in at 51 V reaches the gate driver's 90 V limit. With it, the peak stays below the TVS's 56.7 V minimum breakdown, so the TVS stays off and is saved for real faults. The fuse's 10.3 A²s melting I²t is 20× the hot-plug I²t, so plugging in won't age it.
+At 0.5 µH the nominal no-TVS result exceeds the fitted SMBJ51CA's **56.7 V minimum breakdown at 1 mA**. The illustrative same-node TVS branch, anchored to the [Hongjiacheng datasheet endpoints](https://xonstorage.z8.web.core.windows.net/pdf/hongjiacheng_smbj170a__xonlink.pdf), gives about 0.16 A peak and 0.010 mJ for that case. Sweeping ceramic capacitance (0.765–1.265×), C203 (80–120 µF), an **assumed** ESR range (0.16–0.64 Ω), and leads (0.5–2 µH) gives up to 67.4 V without the TVS, or about 2.9 A peak and 1.46 mJ in the low-breakdown TVS model. These are sensitivity results, **not** manufacturer-guaranteed I–V, pulse-energy or thermal ratings. The manufacturer's 600 W rating applies to a 10/1000 µs pulse with temperature derating.
+
+D201 is upstream of the low-side Q201; C203 and the ceramics are downstream. The model collapses them into one node, omits Q201's initial body-diode behavior and layout parasitics, and drives the leads with an ideal 51 V step. Its nominal inrush reaches about 243 A; a real bench supply and cables will differ. Neither the modeled TVS pulse nor the fuse's 10.3 A²s melting I²t qualifies the hardware. Do not assume live hot-plug is safe until the first board is measured with the intended supply and leads.
 
 ![Input filter impedance](output/input_02_filter_impedance.png)
 
-The same leads and capacitors form an input filter in front of a converter whose input impedance is *negative* (draw more current as the voltage falls). The filter stays stable if its output impedance stays well below the converter's input impedance, about 10 Ω at 40 V and full load (Middlebrook's criterion). C201 lowers the filter's peak from 1.8 Ω to 0.27 Ω.
+The same leads and capacitors form an input filter in front of a converter whose input impedance is *negative* (draw more current as the voltage falls). Its modeled output-impedance peak is 1.35 Ω without C203 and 0.26 Ω with C203, versus about 10 Ω converter input impedance at 40 V and full load. Layout parasitics can change this estimate.
 
-**One open problem:** because C201 sits in parallel with the ceramics, it also carries part of the converter's pulsed input current. The script splits that current harmonic by harmonic: about 0.49 A rms at 48 V and 400 kHz, but 0.75 A at 40 V and 300 kHz, against the part's 0.5 A listed rating. See the open questions in `docs/design/input_supply.md`.
+**C203 remains an open part choice.** The harmonic model gives about 0.37 A rms at 48 V/400 kHz and 0.56 A rms at 40 V/300 kHz, using the 51 V ceramic estimate at every input voltage. JARSON's exact-part rating is **0.45 A rms at 100 kHz/105 °C**; its frequency factor is 1.0 above 10 kHz and it provides no ambient-temperature multiplier. The JLC listing's 0.50 A figure disagrees. Ask JARSON for current and impedance data across temperature or choose a higher-ripple part before freezing the BOM; then rerun the model with that part's data.
 
-The lead inductance and resistance are ASSUMED. More lead resistance only adds damping. Verification test 3 in `input_supply.md` measures a real hot-plug.
+Verification test 3 in `input_supply.md` measures the actual hot-plug with PWM disabled. A surge while switching also needs the fast input-trip response and switch-node overshoot checked against the driver's HS limit.
 
 ---
 

@@ -77,6 +77,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 48 V is below the 60 V DC SELV limit, but a shorted output or a failed switch can still deliver large currents and burn hardware.
 
 - Always bring up from a **current-limited bench supply**, starting at reduced input voltage with no load.
+- Connect J201 with the 48 V supply output **off**, then enable the supply. Do not routinely live-plug at 51 V until the revised input protection is measured; the controlled hot-plug test is in [input_supply.md](docs/design/input_supply.md#verification).
 - Bring up the 5 V supply (through J202, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J202 cuts off above about 5.2–5.7 V.
 - Check polarity before connecting any electronic load or source. J201 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
 - Use a 48 V supply whose **DC output floats from earth**; keep the supply's chassis protective earth connected. Set supply OVP near 55 V if available. Above about 57 V the input TVS conducts continuously.

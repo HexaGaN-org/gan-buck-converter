@@ -153,7 +153,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 - Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_SH_IN_P` / `I_SH_IN_N` through a net tie at each shunt pad
 - Auxiliary step-down regulator (LM5164), 48 V → `5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
 - J202 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
-- Two-input power multiplexer (TPS2121): `5V_EXT` (priority) and `5V_AUX` → `+5V`, with reverse-current blocking on both inputs, fast switchover and an overvoltage cutoff on `5V_EXT`
+- Two-input power multiplexer (TPS2121): `5V_EXT` and `5V_AUX` feed `+5V`, with reverse-current blocking, fast switchover and an overvoltage cutoff on `5V_EXT`. R212 = 26.1 kΩ lets healthy aux take over before J202 is removed in the nominal case; the actual source near two equal 5 V supplies is tolerance dependent.
 - `EXT 5V` LED (J202 live) and `48V` LED (`V_IN` live): see [design/indicator-leds.md](design/indicator-leds.md)
 - 3.3 V LDO (ST LDL1117S33R) from `+5V` → `+3V3`. No separate analog rail: MCU VDDA runs from `+3V3`
 - `POWER` LED on `+3V3` and test points on every low-voltage rail (`V_IN` uses power_stage's `TP_VIN`)
@@ -287,7 +287,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 - Supervisor with window watchdog, TI TPS3813K33 (U7): monitors `+3V3`, produces `SUP_OK`, and pulls `XRSn` low through D1 / R15
 - SW1 on-board enable switch, with pull-down so *off* is the default
 - AND logic producing `STAGE_EN` (U3)
-- Static both-high inhibit and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`; dynamic overlap protection remains open
+- Static both-high inhibit and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`; the MCU ePWM dead-band provides dynamic non-overlap (enable decision #13), which still requires firmware and bench validation
 - `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), TP601 on `STAGE_EN`, TP602 on `SUP_OK`, and TP603 on GND
 
 **Hierarchical labels**
