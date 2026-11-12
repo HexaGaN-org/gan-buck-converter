@@ -16,7 +16,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 
 - 48 V in, 12 V out at up to 12.5 A (150 W), with parts and copper rated for 16.7 A (200 W).
 - Switch at 400 kHz nominal, with every part sized to run anywhere in 300–500 kHz.
-- Meet the efficiency target in the specifications (about 95–96 % expected, roughly 6 W total loss at 150 W) with natural-convection cooling.
+- Meet the efficiency target in the specifications with natural-convection cooling. The component-level estimate is 97.9 % for this stage at 150 W, 48 V, 400 kHz (about 3.2 W of loss), before layout losses.
 - Keep the GaN gate voltage within the FETs' limits under all conditions, including ringing.
 - Support the shortest safe dead time, set in the MCU's ePWM.
 - Meet the output ripple and load-transient targets in the specifications.
@@ -98,6 +98,7 @@ One row per calculation. Note where each input came from (specification, datashe
 | Inductor DCR loss | $I_{out}^2 \cdot DCR$ | $12.5^2 \cdot 2.1\,m\Omega \approx 0.33$ W | 0.59 W at 16.7 A; core loss not included (no data at 400 kHz) |
 | Shunt loss and signal | $I^2 R$; $I R$ | 0.16 W and 12.5 mV at 12.5 A; 18.9 mV at the 18.9 A peak | 1 mΩ, 3 W rated |
 | Frequency-dependent loss | $Q_{oss}$ + dead time + overlap + gate drive | 1.15 W (300 kHz) · 1.54 W (400 kHz) · 1.91 W (500 kHz) | Same assumptions as the rows above; basis for decision #4 |
+| Efficiency estimate | Sum of the loss rows above, with RMS currents including ripple, plus inductor core loss, output-shunt and capacitor ESR loss | 97.9 % power stage, 97.2 % whole board (J201 → J301) at 150 W, 48 V, 400 kHz; 3.2 W stage loss, 4.35 W board loss | [simulations/efficiency_estimate.py](../../simulations/efficiency_estimate.py). Layout parasitics excluded. Inductor core loss (0.3 W, range 0.15–0.6 W) and the aux-buck efficiency (80 %) are ASSUMED: no core-loss data is published for L301. 300 kHz is about 0.2 points better at full load and 500 kHz about 0.2 points worse |
 | PWM resolution without HRPWM | $V_{in} \cdot f_{sw} / f_{EPWM}$ | $48 \cdot 400\,kHz / 120\,MHz \approx 160$ mV per count | 300 counts per period in up-count mode (half that in up-down). HRPWM's ~150 ps step gives ≈ 3 mV |
 
 ---

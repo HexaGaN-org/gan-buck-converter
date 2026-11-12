@@ -6,6 +6,7 @@ Computer models of the converter, used to design the control loop before the har
 |---|---|---|
 | [voltage_mode_sim.py](voltage_mode_sim.py) | Voltage-mode control (firmware stage 2): plant, Type III controller, digital delay, soft-start, load step, worst-case part tolerances | Parameters from the inductor, polymer-capacitor and GaN FET datasheets |
 | [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing, illustrative TVS pulse, C203 ripple current and input-filter stability | Lumped screening model; lead/trace parasitics and C203 ESR are ASSUMED |
+| [efficiency_estimate.py](efficiency_estimate.py) | Component loss budget: theoretical efficiency vs load, input voltage and switching frequency | Datasheet losses only; layout parasitics excluded, inductor core loss and aux-buck efficiency ASSUMED |
 
 Planned next: average current mode (stage 3), and an LTspice switching simulation to check ripple and the current limit.
 
@@ -20,6 +21,7 @@ python voltage_mode_sim.py          # prints a summary, saves plots to output/
 python voltage_mode_sim.py --show   # also opens the plot windows
 python voltage_mode_sim.py --help   # options
 python input_hotplug_sim.py         # the input hot-plug check, plots saved to output/input_*.png
+python efficiency_estimate.py       # the efficiency estimate, plots saved to output/eff_*.png
 ```
 
 It runs in under ten seconds. All parameters are at the top of the script, each with its source. Values marked **ASSUMED** are not decided yet; update them as the design firms up.
@@ -130,6 +132,33 @@ The same leads and capacitors form an input filter in front of a converter whose
 **C203 now uses a higher-ripple part, but its damping is open.** The harmonic model gives about 0.44 A rms at 48 V/400 kHz and 0.68 A rms at 40 V/300 kHz, using the 51 V ceramic estimate at every input voltage. [Ymin rates VKME1452A101MV at 1.04 A rms at 100 kHz/105 °C](https://www.ymin.cn/chip-miniature-type-aluminum-electrolytic-capacitors-vkm-product/), about 1.53× the modeled worst operating current. C203 carries more of the ripple now that the ceramic bank beside it is smaller. Ymin does not publish an exact-part ESR or impedance here, so the assumed 0.32 Ω damping and resulting hot-plug/TVS estimates must be checked against measured samples and the built board. Confirm JLC assembly availability and footprint fit before release.
 
 Verification test 3 in `input_supply.md` measures the actual hot-plug with PWM disabled. A surge while switching also needs the fast input-trip response and switch-node overshoot checked against the driver's HS limit.
+
+---
+
+## Efficiency (`efficiency_estimate.py`)
+
+A loss budget built only from the chosen parts' datasheets, so it is the efficiency an ideal layout would allow. Trace and plane resistance, connector contact resistance, ringing, snubber loss and common-source inductance all need the board and are left out; the built board will land below these figures. FET conduction uses the hot maximum $R_{DS(on)}$ (4.8 mΩ), so the power-stage numbers are conservative in that respect.
+
+![Efficiency](output/eff_01_efficiency.png)
+
+| Whole board (J201 → J301), 48 V | 15 W | 30 W | 75 W | 112 W | 150 W | 200 W |
+|---|---|---|---|---|---|---|
+| 300 kHz | 89.4 % | 94.2 % | 96.8 % | 97.3 % | 97.4 % | 97.3 % |
+| 400 kHz | 89.2 % | 93.9 % | 96.6 % | 97.1 % | **97.2 %** | 97.1 % |
+| 500 kHz | 88.9 % | 93.6 % | 96.4 % | 96.8 % | 97.0 % | 96.9 % |
+
+The power stage alone (`V_IN` to J301) reaches 97.9 % at 150 W and peaks at about 98.0 % near 120 W. Input voltage barely matters: 97.3 % at 40 V, 97.1 % at 51 V (whole board, 150 W).
+
+![Loss breakdown](output/eff_02_loss_breakdown.png)
+
+At 150 W the board loses about 4.35 W:
+
+- **Housekeeping, 0.94 W.** The aux buck feeds about 150 mA at 5 V to the MCU, logic, sensing, LEDs and gate driver. It is fixed, so it is what pulls light-load efficiency down: at 30 W it is about half of the 1.9 W total.
+- **Power stage, 3.2 W.** The largest parts are the high-side turn-on overlap (0.66 W), low-side conduction (0.57 W) and the $Q_{oss}$ loss (0.41 W). Switching losses scale with frequency, which is why 300 kHz wins at full load.
+- **Inductor, 0.70 W**, of which 0.30 W is core loss. L301 has an iron-powder core and no published core-loss data, so that figure is ASSUMED; sweeping it from 0.15 to 0.6 W moves full-load efficiency between 97.3 % and 97.0 %.
+- **Input path, 0.21 W:** the fuse (9 mΩ), R201 and the hot Q201.
+
+Two inputs are assumptions worth replacing first: the inductor core loss (measure it, or ask Sunltech) and the aux-buck efficiency (80 % assumed; TI's curve for 48 V to 12 V reads about 88 % at this load, and a 5 V output will be lower). Verification test 7 in `power_stage.md` measures the real curve.
 
 ---
 

@@ -2,6 +2,8 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
+![Block diagram](docs/block-diagram.svg)
+
 > **Status (November 2026): schematic complete, layout starting.** All six subsheets are captured and wired on the root sheet. Footprints are placed on the PCB but not routed, and the board has not yet been updated from the latest schematic. Before layout freeze: re-run ERC, update the PCB from the schematic, and confirm the [dynamic PWM overlap protection](docs/design/enable.md#open-questions) and [+5V handover margin](docs/design/input_supply.md#values-published-to-other-sheets).
 
 ## At a glance
@@ -52,6 +54,7 @@ docs/
     edge-ai-dead-time-optimizer.md   Proposal: on-board model that picks the lowest-loss dead time and frequency
     pinmux-hardware.md              Physical MCU pin allocation frozen for PCB routing
   datasheets/                Datasheets, application notes and reference images the design notes link to
+  block-diagram.svg          Board block diagram (edit the SVG directly when the architecture changes)
   gan-buck-converter-BOM.xlsx  Cost and notes per sheet, one row per unique part, rebuilt from the schematic
 hardware/gan-buck-converter/
   gan-buck-converter.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 10 project (root sheet and board)
@@ -61,6 +64,7 @@ hardware/gan-buck-converter/
 simulations/
   voltage_mode_sim.py        Python model of the voltage-mode control loop: Bode plots, load step
   input_hotplug_sim.py       Input hot-plug ringing and damping, bulk-capacitor ripple, input-filter stability
+  efficiency_estimate.py     Component loss budget and theoretical efficiency vs load, input voltage and frequency
   README.md                  How to run it, how to read the plots, what we've learned
 ```
 

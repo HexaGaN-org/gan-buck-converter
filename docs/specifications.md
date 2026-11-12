@@ -14,8 +14,8 @@ The one-page target for the design. Change a value only by updating this file in
 | Switching frequency | 300 | 400 | 500 | kHz | 400 kHz nominal. Hardware is sized to run anywhere in 300–500 kHz so firmware can sweep it. Decision #4 in [design/power_stage.md](design/power_stage.md) |
 | Output voltage ripple | | | 50 | mV p-p | At 300 kHz worst case; ≈ 25 mV expected at 300 kHz and ≈ 19 mV at 400 kHz (power_stage decision #24) |
 | Load transient, 10 % → 90 % step | | | [TBD] | mV deviation | Settling time: [TBD] µs |
-| Efficiency at full load | [TBD] | | | % | ~95–96 % expected (~6 W loss at 150 W) |
-| Efficiency at 20 % load | [TBD] | | | % | |
+| Efficiency at full load | [TBD] | | | % | Estimated 97.2 % for the whole board (4.35 W loss) and 97.9 % for the power stage alone, at 150 W, 48 V, 400 kHz, before layout losses ([efficiency_estimate.py](../simulations/efficiency_estimate.py)) |
+| Efficiency at 20 % load | [TBD] | | | % | Estimated 93.9 % for the whole board at 30 W, 48 V, 400 kHz; the fixed housekeeping draw (≈ 0.94 W) dominates at light load |
 
 ## Protections
 
