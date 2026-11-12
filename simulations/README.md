@@ -11,6 +11,8 @@ Planned next: average current mode (stage 3), and an LTspice switching simulatio
 
 ---
 
+> **Parameters predate power_stage decision #24 (2026-11-12).** The output bank is now two 270 µF, 10 mΩ polymers plus two 22 µF ceramics, and the power-stage input bank is three 10 µF parts. `voltage_mode_sim.py` still models 470 µF at 25 mΩ with eight ceramics, and `input_hotplug_sim.py` still models the five-part input bank. Rerun both with the new values before relying on the results below. References such as C319 in the scripts and in this file are the old names.
+
 ## Quick start
 
 ```

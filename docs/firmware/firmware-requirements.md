@@ -157,7 +157,7 @@ Requirements:
 
 ### 5.6 Measure
 - Convert raw ADC numbers into real units (volts, amps, °C). The conversion factors are the published values in [design/sensing.md](../design/sensing.md).
-- ADC assignment: `I_OUT_SENSE` on ADC-A and `V_OUT_SENSE` on ADC-B, each **alone** on its ADC, so the control loop can sample both at the same instant without one disturbing the other. The four slower ADC readings (`V_IN_SENSE`, `I_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`) share ADC-C. With C404 now 1 nF, give `V_IN_SENSE` a long acquisition window (about 4 µs) and average its feedforward and UVLO readings in firmware.
+- ADC assignment: `I_OUT_SENSE` on ADC-A and `V_OUT_SENSE` on ADC-B, each **alone** on its ADC, so the control loop can sample both at the same instant without one disturbing the other. The four slower ADC readings (`V_IN_SENSE`, `I_IN_SENSE`, `HS_TEMP_SENSE`, `LS_TEMP_SENSE`) share ADC-C. With C405 now 1 nF, give `V_IN_SENSE` a long acquisition window (about 4 µs) and average its feedforward and UVLO readings in firmware.
 - At start-up, with switching off, measure the current sensor's zero reading and subtract it.
 
 ### 5.7 Talk to the laptop

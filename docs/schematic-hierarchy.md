@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** The physical MCU pin allocation is frozen for PCB routing in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). A TI `pinmux.syscfg` and generated firmware are still pending. Update this document, the hardware pin table, and the schematic together if a sheet interface or physical pin changes.
 
-**Current capture (2026-11-11):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below cross their sheet boundaries. The exported hierarchy has 229 annotated components and 156 nets; ERC reports zero violations under the project's configured checks after imported-symbol pin typing was corrected. The physical MCU pin allocation is recorded in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is named `XRSn`.
+**Current capture (2026-11-11):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below cross their sheet boundaries. As of 2026-11-11 the exported hierarchy had 229 annotated components and 156 nets, and ERC reported zero violations under the project's configured checks after imported-symbol pin typing was corrected. Since then the power-stage capacitor banks were reduced (219 components) and the whole schematic was re-annotated on 2026-11-12 ([reannotation-2026-11-12.md](reannotation-2026-11-12.md)); ERC has not been re-run on that state, and the PCB still carries the old names. The physical MCU pin allocation is recorded in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is named `XRSn`.
 
 ---
 
@@ -36,9 +36,9 @@ This document names each sheet by its file. The sheet symbols on the top sheet c
 |---|---|---|
 | J201 | input_supply | 48 V input |
 | J301 | power_stage | 12 V output |
-| USBC1 | comms_debug | USB-C to a host laptop (data only; never powers the board) |
-| H1 | comms_debug | JTAG debug header (2 × 10) |
-| SW1 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
+| USBC701 | comms_debug | USB-C to a host laptop (data only; never powers the board) |
+| H701 | comms_debug | JTAG debug header (2 × 10) |
+| SW601 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
 | J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
 | H101–H104 | top | Plated 3.2 mm M3 mounting holes, pads on no net (not connectors; listed here because they are the board's other mechanical interface) |
 
@@ -188,7 +188,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 - J301 12 V output connector
 - RC snubber footprint across the switch node (DNP by default)
 - `12V` LED on `V_OUT` (see [design/indicator-leds.md](design/indicator-leds.md))
-- Test points `TP_SW`, `TP_VOUT`, `TP_VIN`, with ground points `TP_GND1` / `TP_GND2` beside them for short scope grounding
+- Test points `TP_SW`, `TP_VOUT`, `TP_VIN`, with ground points `TP_GND301` / `TP_GND302` beside them for short scope grounding
 
 **Hierarchical labels**
 
@@ -214,7 +214,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 - Input-voltage divider from `V_IN`
 - Two RTD channels, one per GaN FET (each RTD is placed beside its FET in layout)
 - Per channel: RC filter and clamp to `+3V3` / `GNDA`
-- TP401–TP406 on the six filtered sense outputs and TP407 on `GNDA`; place accessible pads near their measurement circuits
+- TP402–TP407 on the six filtered sense outputs and TP401 on `GNDA`; place accessible pads near their measurement circuits
 
 **Hierarchical labels**
 
@@ -235,16 +235,16 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 
 ## 5 · MCU — `mcu.kicad_sch`
 
-**Responsible for:** the TMS320F280039C (U1, 64-pin LQFP) and everything it needs to run.
+**Responsible for:** the TMS320F280039C (U501, 64-pin LQFP) and everything it needs to run.
 
 **Contains**
-- U1 TMS320F280039C, 64-pin PM package
+- U501 TMS320F280039C, 64-pin PM package
 - Decoupling per TI's datasheet
 - Internal core-regulator strapping and core-supply capacitance
 - ADC reference and analog-supply capacitance
 - **The single net tie joining `GNDA` to `GND`**, at the ADC reference
 - Reset (`XRSn`) pull-up and capacitor
-- External 16 MHz crystal X1 (Monec **ESD16.0000F12M25F**), two **18 pF** load capacitors and a 0 Ω X2 series resistor (R4)
+- External 16 MHz crystal X501 (Monec **ESD16.0000F12M25F**), two **18 pF** load capacitors and a 0 Ω X2 series resistor (R503)
 - Boot-mode jumpers on the boot pins
 - `HEARTBEAT` and `FAULT` LEDs (see [design/indicator-leds.md](design/indicator-leds.md))
 
@@ -264,7 +264,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 | `TDO` | out | comms_debug |
 
 **Notes**
-- Every U1 pin assignment must match [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). The future TI `pinmux.syscfg` must implement that allocation. Design guidance is in [design/mcu.md](design/mcu.md).
+- Every U501 pin assignment must match [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). The future TI `pinmux.syscfg` must implement that allocation. Design guidance is in [design/mcu.md](design/mcu.md).
 
 ---
 
@@ -281,14 +281,14 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
    When `STAGE_EN` is low, both gates are held off. Sustained both-high PWM requests also make both outputs low. Simultaneous rising edges can pass briefly before the common inhibit path responds; this circuit has no proven dynamic break-before-make guarantee (enable.md finding #12). The LM5113-Q1 has independent inputs.
 3. During power-up and reset, `SUP_OK` is low, so the gates stay off until the MCU is running.
 
-   As drawn, the static both-high inhibit is a NAND of the two PWM requests (`PWM_ILK_OK`, U8), ANDed with `STAGE_EN` into `PWM_EN` (U5), which then gates each PWM (U4). This is Boolean-equivalent to the equations above only after propagation settles. enable.md decision #8 records an inverter + 3-input-AND form of the same logic.
+   As drawn, the static both-high inhibit is a NAND of the two PWM requests (`PWM_ILK_OK`, U605), ANDed with `STAGE_EN` into `PWM_EN` (U604), which then gates each PWM (U603). This is Boolean-equivalent to the equations above only after propagation settles. enable.md decision #8 records an inverter + 3-input-AND form of the same logic.
 
 **Contains**
-- Supervisor with window watchdog, TI TPS3813K33 (U7): monitors `+3V3`, produces `SUP_OK`, and pulls `XRSn` low through D1 / R15
-- SW1 on-board enable switch, with pull-down so *off* is the default
-- AND logic producing `STAGE_EN` (U3)
-- Static both-high inhibit and gating: SN74LVC1G00 NAND (U8) and SN74LVC2G08 AND gates (U4, U5) → `HS_PWM` / `LS_PWM`; the MCU ePWM dead-band provides dynamic non-overlap (enable decision #13), which still requires firmware and bench validation
-- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), TP601 on `STAGE_EN`, TP602 on `SUP_OK`, and TP603 on GND
+- Supervisor with window watchdog, TI TPS3813K33 (U601): monitors `+3V3`, produces `SUP_OK`, and pulls `XRSn` low through D601 / R602
+- SW601 on-board enable switch, with pull-down so *off* is the default
+- AND logic producing `STAGE_EN` (U602)
+- Static both-high inhibit and gating: SN74LVC1G00 NAND (U605) and SN74LVC2G08 AND gates (U603, U604) → `HS_PWM` / `LS_PWM`; the MCU ePWM dead-band provides dynamic non-overlap (enable decision #13), which still requires firmware and bench validation
+- `ARMED` LED on `STAGE_EN` (see [design/indicator-leds.md](design/indicator-leds.md)), TP603 on `STAGE_EN`, TP601 on `SUP_OK`, and TP602 on GND
 
 **Hierarchical labels**
 
@@ -311,9 +311,9 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 **Responsible for:** connecting the MCU to a host laptop (serial over USB) and to a JTAG debugger.
 
 **Contains**
-- USBC1 USB-C receptacle, CC pull-down resistors, USBLC6-2SC6 ESD protection on D+/D− (D701)
-- CP2102N USB-to-UART bridge (U703) with its decoupling
-- H1 TI JTAG header
+- USBC701 USB-C receptacle, CC pull-down resistors, USBLC6-2SC6 ESD protection on D+/D− (D701)
+- CP2102N USB-to-UART bridge (U701) with its decoupling
+- H701 TI JTAG header
 
 **Hierarchical labels**
 

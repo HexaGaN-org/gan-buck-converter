@@ -41,11 +41,11 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 |---|---|---|---|---|---|---|---|---|
 | LED201 | input_supply · Reza | `48V` | Input live, including charge left on the input capacitors | fuse node → R203 ∥ R204 → LED → GND | red · NCD0805R1 (C84256) | 2 × 100 kΩ 1206 (C17900) in parallel | 0.76 mA at 40 V · 0.92 at 48 V · 1.6 at the 82.4 V clamp | Beside J201 |
 | LED203 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R211 → LED → GND | white · KT-0805W (C34499) | R211 2.2 kΩ (C4190) | ≈ 0.95 mA (0.8–1.1) | Beside J202 |
-| LED301 | power_stage · Reza | `12V` | `V_OUT` live | `V_OUT` → R307 → LED → GND | green · KT-0805G (C2297) | R307 10 kΩ (C25804) | ≈ 0.9 mA | Beside J301 |
+| LED301 | power_stage · Reza | `12V` | `V_OUT` live | `V_OUT` → R302 → LED → GND | green · KT-0805G (C2297) | R302 10 kΩ (C25804) | ≈ 0.9 mA | Beside J301 |
 | LED202 | input_supply · Reza | `POWER` | Logic rails up (`+3V3` is the last rail in the chain) | `+3V3` → R209 → LED → GND | green · KT-0805G (C2297) | R209 330 Ω (C23138) | ≈ 1.4 mA (0.6–2.1) | Status row, position 1 |
-| LED501 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R501 → LED → GND | green · KT-0805G (C2297) | R501 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
-| LED601 | enable · Connor | `ARMED` | `STAGE_EN` high: the hardware enable chain allows switching | U5 → R601 → LED → GND | yellow · KT-0805Y (C2296) | R601 1 kΩ (C21190) | ≈ 1.1 mA (0.8–1.4) | Status row, position 3, at the SW1 end |
-| LED502 | mcu · Yunxi | `FAULT` | Latched fault; blinks a code | GPIO40 → R502 → LED → GND | red · NCD0805R1 (C84256) | R502 1 kΩ (C21190) | ≈ 1.1 mA (0.6–1.6) | Status row, position 4 |
+| LED502 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R509 → LED → GND | green · KT-0805G (C2297) | R509 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
+| LED601 | enable · Connor | `ARMED` | `STAGE_EN` high: the hardware enable chain allows switching | U604 → R612 → LED → GND | yellow · KT-0805Y (C2296) | R612 1 kΩ (C21190) | ≈ 1.1 mA (0.8–1.4) | Status row, position 3, at the SW601 end |
+| LED501 | mcu · Yunxi | `FAULT` | Latched fault; blinks a code | GPIO40 → R508 → LED → GND | red · NCD0805R1 (C84256) | R508 1 kΩ (C21190) | ≈ 1.1 mA (0.6–1.6) | Status row, position 4 |
 
 ---
 
@@ -84,7 +84,7 @@ The fault code is also reported over serial (firmware-requirements.md).
 
 ## Layout notes
 
-- **Status row:** POWER, HEARTBEAT, ARMED and FAULT in one line on the board edge you face at the bench, in that order (the order things come up during bring-up). Put SW1 at the ARMED end, so you see ARMED respond when you flip the switch. Choose the edge during layout.
+- **Status row:** POWER, HEARTBEAT, ARMED and FAULT in one line on the board edge you face at the bench, in that order (the order things come up during bring-up). Put SW601 at the ARMED end, so you see ARMED respond when you flip the switch. Choose the edge during layout.
 - **Connector LEDs:** each beside its own connector, on the board's outer side.
 - **48V:** beside J201, but don't let it push D201 away from J201. D201's connection to J201 stays as short as possible.
 - **Visibility:** keep every LED outboard of tall parts (L301 at 22 mm square, the C203 can, the screw terminals) so none is hidden from a side view.
@@ -104,14 +104,14 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 - [x] **Add** LED201 `48V`: NCD0805R1 (C84256), anode through **R203 and R204, 100 kΩ 1206 each (C17900), in parallel**, from the fuse node; cathode to GND.
 
 **power_stage (Reza)**
-- [x] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R307 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
+- [x] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R302 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
 
 **mcu (Yunxi)**
-- [x] LED1 → LED501 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R501 330 Ω** (C23138).
-- [x] LED2 → LED502 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R502, still 1 kΩ.
+- [x] LED1 → LED502 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R509 330 Ω** (C23138).
+- [x] LED2 → LED501 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R508, still 1 kΩ.
 
 **enable (Connor)**
-- [x] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R601 1 kΩ** (C21190).
+- [x] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R612 1 kΩ** (C21190).
 
 **Library cleanup (after the swaps, in its own commit)**
 - [ ] Remove the now-unused `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`. Keep `17-21SUYC_TR8`: LED601 uses it, and its footprint is identical to KENTO's own 0805 with KT-0805Y's pad numbering.
@@ -124,7 +124,7 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 |---|---|---|---|---|---|
 | 1 | Even brightness | All LEDs lit, room light, viewed from the status-row edge | No LED clearly dimmer or brighter than the rest | | |
 | 2 | 48V tracks the bus | Apply 48 V, then remove it with the stage off | Lights at once; dark within a few seconds of removal | | |
-| 3 | ARMED follows `STAGE_EN` | Flip SW1 with the MCU requesting enable, then with the MCU held in reset | Lit only when `STAGE_EN` is high; dark in reset | | |
+| 3 | ARMED follows `STAGE_EN` | Flip SW601 with the MCU requesting enable, then with the MCU held in reset | Lit only when `STAGE_EN` is high; dark in reset | | |
 | 4 | Firmware patterns | Idle, run, and force each fault | Patterns match the table above | | |
 
 ---
