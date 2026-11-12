@@ -4,7 +4,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 
 **Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
 
-**Status (2026-11-06):** implemented on all four sheets (PR #7, then commit `e85a5c7` for the 48V wiring and R211). input_supply was re-annotated in that commit; the references below are the current ones. One difference from the original plan: the 48V LED taps the fuse node instead of `V_IN` (decision #6).
+**Status (2026-11-06):** implemented on all four sheets (PR #7, then commit `e85a5c7` for the 48V wiring and R211). One difference from the original plan: the 48V LED taps the fuse node instead of `V_IN` (decision #6).
 
 ---
 
@@ -30,7 +30,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 | 2 | 2026-11-06 | Seven LEDs: 48V, EXT 5V, 12V at their connectors; POWER, HEARTBEAT, ARMED, FAULT in a status row | Fewer (no 12V); adding USB TX/RX activity LEDs on the CP2102N's GPIO.0 / GPIO.1 | 48V is the one safety indicator the board lacked. 12V kept so output state is visible at J301 without the e-load. USB activity left out: the serial terminal already shows traffic | comms_debug: GPIO.0 / GPIO.1 stay unconnected | Accepted |
 | 3 | 2026-11-06 | Colors as in the table below; all 0805 fee-free parts: KENTO KT-0805G (green), KT-0805Y (yellow), KT-0805W (white), NationStar NCD0805R1 (red) | Keeping the 0603 green (C12624, Extended: a loading fee) and 0603 red | One package, four part numbers, no fees. Yellow for ARMED makes the one state you must always notice unique. White sits on a 5 V rail, so its 2.6–3.2 V forward voltage still leaves headroom | mcu, enable: LED part and resistor changes | Accepted |
 | 4 | 2026-11-06 | 48V LED fed through **two 100 kΩ 1206 resistors in parallel** (50 kΩ) | One 47 kΩ 1206 (no fee-free part); one 100 kΩ 1206 (≈ 0.5 mA, half as bright as the rest); 0603 resistors (75 V rating, below the 82.4 V clamp) | Same part as R202, so no new part number; 200 V rating; ≈ 1 mA like the other LEDs | none | Accepted |
-| 5 | 2026-11-06 | Green LEDs on 3.3 V nets get 330 Ω | Driving them from `+5V` through a transistor | A green's 2.6–3.1 V forward voltage leaves little headroom on 3.3 V, so their current spreads 0.3–2 mA with part tolerance. Accepted for a power and a heartbeat light: still clearly visible, no extra parts | input_supply (R209), mcu (R10) | Accepted |
+| 5 | 2026-11-06 | Green LEDs on 3.3 V nets get 330 Ω | Driving them from `+5V` through a transistor | A green's 2.6–3.1 V forward voltage leaves little headroom on 3.3 V, so their current spreads 0.3–2 mA with part tolerance. Accepted for a power and a heartbeat light: still clearly visible, no extra parts | input_supply (R209), mcu (R509) | Accepted |
 | 6 | 2026-11-06 | 48V LED taps the **fuse node** (after F201 and D201, ahead of R201) rather than `V_IN` | `V_IN`, after R201 (the original plan) | Either works: the two nodes are 1 mΩ apart. At the fuse node the LED's ≈ 1 mA stays out of the input-current reading, as R202's gate-drive current does | input_supply: none | Accepted |
 
 ---
@@ -107,11 +107,11 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 - [x] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R302 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
 
 **mcu (Yunxi)**
-- [x] LED1 → LED502 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R10 1 kΩ → R509 330 Ω** (C23138).
-- [x] LED2 → LED501 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R11 → R508, still 1 kΩ.
+- [x] LED502 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R509: 1 kΩ → 330 Ω** (C23138).
+- [x] LED501 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R508 stays 1 kΩ.
 
 **enable (Connor)**
-- [x] LED3 → LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R24 100 Ω → R612 1 kΩ** (C21190).
+- [x] LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R612: 100 Ω → 1 kΩ** (C21190).
 
 **Library cleanup (after the swaps, in its own commit)**
 - [ ] Remove the now-unused `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`. Keep `17-21SUYC_TR8`: LED601 uses it, and its footprint is identical to KENTO's own 0805 with KT-0805Y's pad numbering.

@@ -235,7 +235,7 @@ Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 
 
 Digital inputs/outputs with peripheral functions selected in firmware. Each used pin below lists its own purpose, associated parts and known endpoints. Destination-sheet connector pin numbers and unselected parts stay TBD. Unassigned GPIOs have no new assignments or parts implied here.
 
-The former duplicate pull-downs R7-R9 were removed from this sheet on 2026-11-11. Enable-sheet R608/R611/R604 are now the single 10 kOhm default-off pull-downs on `MCU_PWMH`, `MCU_PWML` and `MCU_EN`, to be placed near their receiving logic. Each draws about 0.33 mA from a high 3.3 V MCU output. Keep the status LEDs off during startup and verify their current and package polarity.
+The former duplicate pull-downs were removed from this sheet on 2026-11-11. Enable-sheet R608/R611/R604 are now the single 10 kOhm default-off pull-downs on `MCU_PWMH`, `MCU_PWML` and `MCU_EN`, to be placed near their receiving logic. Each draws about 0.33 mA from a high 3.3 V MCU output. Keep the status LEDs off during startup and verify their current and package polarity.
 
 ##### GPIO0 - physical pin 52 - `MCU_PWMH`
 
@@ -283,7 +283,7 @@ The former duplicate pull-downs R7-R9 were removed from this sheet on 2026-11-11
 
 - **Function:** GPIO output driving the local green heartbeat/status LED.
 - **Connection:** `U501.46 -> R509`; `R509 -> LED502` anode; LED502 cathode `-> GND`. R509 is the series current-limiting resistor.
-- **Chosen parts for this pin:** `R509`, **330 Ohm**, **0603WAF3300T5E**, **LCSC C23138**; `LED502`, green **KT-0805G**, **LCSC C2297** (≈ 1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 green (C12624, an Extended part) and R10 1 kOhm.
+- **Chosen parts for this pin:** `R509`, **330 Ohm**, **0603WAF3300T5E**, **LCSC C23138**; `LED502`, green **KT-0805G**, **LCSC C2297** (≈ 1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 green (C12624, an Extended part) and its 1 kOhm resistor.
 
 ##### GPIO40 - physical pin 53 - `FAULT`
 
