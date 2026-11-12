@@ -26,7 +26,7 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four isolated NPTH M3 mounting holes (H101–H104), a main-specifications block and a power tree added. Bring-up safety notes still to add |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four plated M3 mounting holes (H101–H104), pads on no net, a main-specifications block and a power tree added. Bring-up safety notes still to add |
 | 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
 | 3 | power_stage | Reza Rahimzadeh | Captured; wired on the root sheet |
 | 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; wired on the root sheet |
@@ -81,7 +81,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 - Bring up the 5 V supply (through J202, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J202 cuts off above about 5.2–5.7 V.
 - Check polarity before connecting any electronic load or source. J201 (48 V in) and J301 (12 V out) are identical screw terminals: 48 V on J301 destroys the output capacitors.
 - Use a 48 V supply whose **DC output floats from earth**; keep the supply's chassis protective earth connected. Set supply OVP near 55 V if available. Above about 57 V the input TVS conducts continuously.
-- **Q201 grounding rule:** J201− is separate from board `GND`. Attach grounded scope clips only to board `GND`, never J201−. If both supply negative and board `GND` are earthed, USB/JTAG/scope wiring can carry input return current around Q201 during normal operation. Swapping the input leads alone does not create that bypass, but a fixed J201−-to-GND short defeats the reverse block. Keep H101–H104 isolated and their copper clear.
+- **Q201 grounding rule:** J201− is separate from board `GND`. Attach grounded scope clips only to board `GND`, never J201−. If both supply negative and board `GND` are earthed, USB/JTAG/scope wiring can carry input return current around Q201 during normal operation. Swapping the input leads alone does not create that bypass, but a fixed J201−-to-GND short defeats the reverse block. H101–H104 are plated but on no net: never connect them to `GND` or any other net, and keep other copper clear of their mounting hardware.
 - **Grounded-scope design limit:** Moving reverse protection to the positive rail alone does not eliminate the supply/scope earth loop. If J201− were then tied directly to board `GND`, reversed leads with a grounded scope attached could short supply positive to earth outside F201. Use the [grounding and scope note](docs/design/input_supply.md#grounding-and-scope-measurements) before changing this topology or using a shared-ground source.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.
 Normal return path:

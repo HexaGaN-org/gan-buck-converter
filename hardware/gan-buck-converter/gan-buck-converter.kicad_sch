@@ -233,9 +233,13 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:MountingHole"
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
@@ -243,7 +247,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "H"
-				(at 0 5.08 0)
+				(at 0 6.35 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -252,8 +256,8 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole"
-				(at 0 3.175 0)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -284,7 +288,7 @@
 					)
 				)
 			)
-			(property "Description" "Mounting Hole without connection"
+			(property "Description" "Mounting Hole with connection"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -306,7 +310,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "MountingHole*"
+			(property "ki_fp_filters" "MountingHole*Pad*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -317,9 +321,9 @@
 					)
 				)
 			)
-			(symbol "MountingHole_0_1"
+			(symbol "MountingHole_Pad_0_1"
 				(circle
-					(center 0 0)
+					(center 0 1.27)
 					(radius 1.27)
 					(stroke
 						(width 1.27)
@@ -327,6 +331,26 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -1121,6 +1145,17 @@
 		)
 		(uuid "98aa08eb-0bc2-40b1-9bf6-b8e614865723")
 	)
+	(text "H101-H104: plated M3 holes, pad on no net.\nDo not connect to GND: Q201 sits in the input return."
+		(exclude_from_sim no)
+		(at 219.71 154.305 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f99547f1-a3bb-4125-84ad-a4872394a1ad")
+	)
 	(text_box "+3V3\n+3.3V, 1.2A Max"
 		(exclude_from_sim no)
 		(at 139.7 172.72 0)
@@ -1402,6 +1437,22 @@
 			(type solid)
 		)
 		(uuid "0083db33-7af7-4a6e-b9d7-fdd0009118ef")
+	)
+	(no_connect
+		(at 247.65 135.89)
+		(uuid "906d6565-d5e6-4b40-b0f8-1513069869f8")
+	)
+	(no_connect
+		(at 223.52 135.89)
+		(uuid "2ec2121a-1ea2-4207-8df5-7571550fcd29")
+	)
+	(no_connect
+		(at 247.65 149.86)
+		(uuid "3b925c53-d0ee-4f11-92fc-861403938aba")
+	)
+	(no_connect
+		(at 223.52 149.86)
+		(uuid "8e9f4e66-501b-4187-b441-b8b4a97f0c58")
 	)
 	(wire
 		(pts
@@ -2180,7 +2231,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "Mechanical:MountingHole_Pad")
 		(at 247.65 133.35 0)
 		(unit 1)
 		(body_style 1)
@@ -2202,7 +2253,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "MountingHole_Pad"
 			(at 250.19 133.3499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2213,7 +2264,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
 			(at 247.65 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2235,7 +2286,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
+		(property "Description" "Mounting Hole with connection"
 			(at 247.65 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2245,6 +2296,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "b7b20528-18ee-45ec-a548-ee2679673bb5")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -2408,7 +2462,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "Mechanical:MountingHole_Pad")
 		(at 223.52 133.35 0)
 		(unit 1)
 		(body_style 1)
@@ -2430,7 +2484,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "MountingHole_Pad"
 			(at 226.06 133.3499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2441,7 +2495,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
 			(at 223.52 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2463,7 +2517,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
+		(property "Description" "Mounting Hole with connection"
 			(at 223.52 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -2473,6 +2527,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "ad276439-1f0c-4753-a256-aafeb0c69dde")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -2788,7 +2845,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "Mechanical:MountingHole_Pad")
 		(at 247.65 147.32 0)
 		(unit 1)
 		(body_style 1)
@@ -2810,7 +2867,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "MountingHole_Pad"
 			(at 250.19 147.3199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2821,7 +2878,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
 			(at 247.65 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -2843,7 +2900,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
+		(property "Description" "Mounting Hole with connection"
 			(at 247.65 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -2853,6 +2910,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "177aefc4-e778-4698-80e1-a3496e90d643")
 		)
 		(instances
 			(project "gan-buck-converter"
@@ -2864,7 +2924,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "Mechanical:MountingHole_Pad")
 		(at 223.52 147.32 0)
 		(unit 1)
 		(body_style 1)
@@ -2886,7 +2946,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "MountingHole_Pad"
 			(at 226.06 147.3199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2897,7 +2957,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
 			(at 223.52 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -2919,7 +2979,7 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
+		(property "Description" "Mounting Hole with connection"
 			(at 223.52 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -2929,6 +2989,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "421b80b1-319e-4f6f-9d0b-54aeac5699ad")
 		)
 		(instances
 			(project "gan-buck-converter"

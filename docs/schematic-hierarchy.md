@@ -40,7 +40,7 @@ This document names each sheet by its file. The sheet symbols on the top sheet c
 | H1 | comms_debug | JTAG debug header (2 × 10) |
 | SW1 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
 | J202 | input_supply | External 5 V input from a bench supply, for low-voltage bring-up. Keyed JST XH 2-pin, so 48 V leads can't land on it |
-| H101–H104 | top | Isolated 3.2 mm M3 non-plated mounting holes (not connectors; listed here because they are the board's other mechanical interface) |
+| H101–H104 | top | Plated 3.2 mm M3 mounting holes, pads on no net (not connectors; listed here because they are the board's other mechanical interface) |
 
 ---
 
@@ -113,7 +113,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 **Responsible for:** showing how the board fits together, and nothing else.
 
-**Contains:** the six sheet symbols wired together by their hierarchical pins; four isolated M3 NPTH mounting holes H101–H104 (`Mechanical:MountingHole`, footprint `MountingHole_3.2mm_M3`, excluded from the BOM); a *Main Specifications* text block; a *Power Tree* diagram; and the project title. References on this sheet use the 100 range.
+**Contains:** the six sheet symbols wired together by their hierarchical pins; four plated M3 mounting holes H101–H104 (`Mechanical:MountingHole_Pad` with a no-connect flag on each pin, footprint `MountingHole_3.2mm_M3_Pad`, excluded from the BOM and position files); a *Main Specifications* text block; a *Power Tree* diagram; and the project title. References on this sheet use the 100 range.
 
 **Power tree (2026-11-10).** A drawing only (text boxes and arrow graphics, nothing on the board or in the BOM). Rails are solid boxes, converters dashed. It shows each rail's voltage and maximum current; the values come from the design notes, which remain the reference if the two ever differ:
 
@@ -132,7 +132,7 @@ Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → 
 
 **As wired (2026-11-10):** the enable sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its symbol carries two pins for each; both are wired to the MCU's single pin. `XRSn` joins mcu, enable and comms_debug on one net.
 
-**Grounding note:** the holes have no electrical pad; keep copper clear around mounting hardware. Board `GND` is separated from J201− by Q201 ([design/input_supply.md](design/input_supply.md) decision #6). With normal lead polarity, an earthed supply negative plus earthed USB/JTAG/scope ground provides a parallel return path around Q201. That path can carry input current through external equipment; it does not by itself imply that a simple reversed-lead hookup energizes the board. Use a floating 48 V supply for the standalone prototype and review shared-ground installations separately.
+**Grounding note:** the holes are plated for a durable bearing surface under the screw heads, but their pads are on no net. Never tie them to `GND`; keep inner-plane clearance around each barrel and keep other copper clear of the washer and standoff footprint on both outer layers. Board `GND` is separated from J201− by Q201 ([design/input_supply.md](design/input_supply.md) decision #6). With normal lead polarity, an earthed supply negative plus earthed USB/JTAG/scope ground provides a parallel return path around Q201. That path can carry input current through external equipment; it does not by itself imply that a simple reversed-lead hookup energizes the board. Use a floating 48 V supply for the standalone prototype and review shared-ground installations separately.
 
 **Does not contain:** circuit components (the mounting holes are footprint-only).
 
