@@ -1,10 +1,10 @@
 # Indicator LEDs — Design Notes
 
-Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on four sheets (input_supply, power_stage, mcu, enable); each sheet's own note records its parts once they are in the schematic.
+Cross-sheet note: every indicator LED on the board. The LEDs sit on four sheets (input_supply, power_stage, mcu, enable).
 
 **Owner:** Reza Rahimzadeh · **Reviewer:** [NAME] · **Last updated:** 2026-11-06
 
-**Status (2026-11-06):** implemented on all four sheets (PR #7, then commit `e85a5c7` for the 48V wiring and R211). One difference from the original plan: the 48V LED taps the fuse node instead of `V_IN` (decision #6).
+**Status:** implemented on all four sheets.
 
 ---
 
@@ -37,7 +37,7 @@ Cross-sheet note: the plan for every indicator LED on the board. LEDs sit on fou
 
 ## The LEDs
 
-| Ref (planned) | Sheet · owner | Silkscreen | Shows | Driven by | Color · part | Resistor | Current | Location |
+| Ref | Sheet · owner | Silkscreen | Shows | Driven by | Color · part | Resistor | Current | Location |
 |---|---|---|---|---|---|---|---|---|
 | LED201 | input_supply · Reza | `48V` | Input live, including charge left on the input capacitors | fuse node → R203 ∥ R204 → LED → GND | red · NCD0805R1 (C84256) | 2 × 100 kΩ 1206 (C17900) in parallel | 0.76 mA at 40 V · 0.92 at 48 V · 1.6 at the 82.4 V clamp | Beside J201 |
 | LED203 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R211 → LED → GND | white · KT-0805W (C34499) | R211 2.2 kΩ (C4190) | ≈ 0.95 mA (0.8–1.1) | Beside J202 |
@@ -94,30 +94,6 @@ The fault code is also reported over serial (firmware-requirements.md).
 
 ---
 
-## Schematic changes
-
-Each owner makes these on their own sheet and updates that sheet's design note in the same commit.
-
-**input_supply (Reza)**
-- [x] LED202 `POWER`: keep KT-0805G; **R209 2.2 kΩ → 330 Ω** (C23138).
-- [x] LED203 `EXT 5V`: **replace the yellow with KT-0805W white (C34499)**, imported fresh from LCSC. **R211 2.2 kΩ** (C4190).
-- [x] **Add** LED201 `48V`: NCD0805R1 (C84256), anode through **R203 and R204, 100 kΩ 1206 each (C17900), in parallel**, from the fuse node; cathode to GND.
-
-**power_stage (Reza)**
-- [x] **Add** LED301 `12V`: KT-0805G (C2297), anode through **R302 10 kΩ** (C25804) to `V_OUT`; cathode to GND.
-
-**mcu (Yunxi)**
-- [x] LED502 `HEARTBEAT`: **0603 green C12624 → KT-0805G (C2297)**, which removes a loading fee. **R509: 1 kΩ → 330 Ω** (C23138).
-- [x] LED501 `FAULT`: **0603 red KT-0603R (C2286) → NCD0805R1 (C84256)**. R508 stays 1 kΩ.
-
-**enable (Connor)**
-- [x] LED601 `ARMED`: **green KT-0805G → yellow KT-0805Y (C2296)**. **R612: 100 Ω → 1 kΩ** (C21190).
-
-**Library cleanup (after the swaps, in its own commit)**
-- [ ] Remove the now-unused `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`. Keep `17-21SUYC_TR8`: LED601 uses it, and its footprint is identical to KENTO's own 0805 with KT-0805Y's pad numbering.
-
----
-
 ## Verification
 
 | # | Test | Method | Pass criterion | Result | Date |
@@ -131,5 +107,5 @@ Each owner makes these on their own sheet and updates that sheet's design note i
 
 ## Open questions
 
-- (Resolved 2026-11-06, commit `e85a5c7`: the 48V LED as first merged in #7 had one resistor feeding it, the other as a bleeder to `V_IN_RTN`, and its cathode on `V_IN_RTN`, which would have reverse-biased it at ≈ 48 V on a reversed input. Now R203 ∥ R204 feed it and the cathode is on GND.)
+- **Library cleanup:** remove the unused `0603_Green_509-620mcd` and `KT-0603R` symbols and footprints from `JLCImport`. Keep `17-21SUYC_TR8`: LED601 uses it, and its footprint matches KT-0805Y's pad numbering.
 - Status-row edge: choose during layout.

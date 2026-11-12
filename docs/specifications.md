@@ -1,6 +1,6 @@
 # Specifications — 48 V → 12 V GaN Synchronous Buck
 
-The one-page target for the design. Fill in every `[TBD]` before schematic capture starts, and change a value only by updating this file in a pull request.
+The one-page target for the design. Change a value only by updating this file in a pull request. Values still marked `[TBD]` are open; the design notes say what decides them.
 
 ## Electrical
 
@@ -12,7 +12,7 @@ The one-page target for the design. Fill in every `[TBD]` before schematic captu
 | Output power | | | 150 | W | Design target; ratings sized for 200 W headroom |
 | Input current | | 3.3 | 3.95 | A | At full load, ~95 % efficiency: typ at 48 V, max at 40 V. 5.3 A at 200 W and 40 V |
 | Switching frequency | 300 | 400 | 500 | kHz | 400 kHz nominal. Hardware is sized to run anywhere in 300–500 kHz so firmware can sweep it. Decision #4 in [design/power_stage.md](design/power_stage.md) |
-| Output voltage ripple | | | 50 | mV p-p | At 300 kHz worst case; ≈ 27 mV expected at 400 kHz |
+| Output voltage ripple | | | 50 | mV p-p | At 300 kHz worst case; ≈ 25 mV expected at 300 kHz and ≈ 19 mV at 400 kHz (power_stage decision #24) |
 | Load transient, 10 % → 90 % step | | | [TBD] | mV deviation | Settling time: [TBD] µs |
 | Efficiency at full load | [TBD] | | | % | ~95–96 % expected (~6 W loss at 150 W) |
 | Efficiency at 20 % load | [TBD] | | | % | |

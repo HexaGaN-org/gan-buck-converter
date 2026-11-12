@@ -2,9 +2,7 @@
 
 A GaN-based synchronous buck converter with an onboard C2000 microcontroller, digital control and layered protections. HexaGaN's first in-house power PCB, built as a learning platform for the team and a rehearsal for the universal control board's power-stage interface.
 
-> **Status (November 2026): pre-layout schematic review.** Circuitry on all six subsheets is captured and the root sheet is wired. A fresh hierarchy ERC reports zero violations under the project's configured checks; the PCB still has no placed footprints or outline. The [PWM overlap decision](docs/design/enable.md#open-questions) and [+5V handover margin](docs/design/input_supply.md#values-published-to-other-sheets) remain open before layout freeze.
-
-![Block diagram](docs/gan-buck-converter-block-diagram.png)
+> **Status (November 2026): schematic complete, layout starting.** All six subsheets are captured and wired on the root sheet. Footprints are placed on the PCB but not routed, and the board has not yet been updated from the latest schematic. Before layout freeze: re-run ERC, update the PCB from the schematic, and confirm the [dynamic PWM overlap protection](docs/design/enable.md#open-questions) and [+5V handover margin](docs/design/input_supply.md#values-published-to-other-sheets).
 
 ## At a glance
 
@@ -26,9 +24,9 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 
 | # | Sheet | Owner | Status |
 |---|---|---|---|
-| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four plated M3 mounting holes (H101–H104), pads on no net, a main-specifications block and a power tree added. Bring-up safety notes still to add |
+| 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four plated M3 mounting holes (H101–H104), pads on no net, a main-specifications block and a power tree |
 | 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
-| 3 | power_stage | Reza Rahimzadeh | Captured; wired on the root sheet |
+| 3 | power_stage | Reza Rahimzadeh | Captured, with reduced input and output capacitor banks (decision #24); wired on the root sheet |
 | 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; wired on the root sheet |
 | 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels wired on the root sheet |
 | 6 | enable | Connor Jin | Captured: watchdog, enable switch, `STAGE_EN` gating and static both-high inhibit. Dynamic overlap protection remains under review. Wired on the root sheet |
@@ -53,12 +51,12 @@ docs/
     firmware-requirements.md         Plain-language firmware guide for the firmware team
     edge-ai-dead-time-optimizer.md   Proposal: on-board model that picks the lowest-loss dead time and frequency
     pinmux-hardware.md              Physical MCU pin allocation frozen for PCB routing
-  datasheets/                Datasheets and reference images for key parts (MCU, crystal, JTAG pinout)
-  gan-buck-converter-BOM.xlsx  Cost and notes per sheet, refreshed from KiCad BOM exports
+  datasheets/                Datasheets, application notes and reference images the design notes link to
+  gan-buck-converter-BOM.xlsx  Cost and notes per sheet, one row per unique part, rebuilt from the schematic
 hardware/gan-buck-converter/
   gan-buck-converter.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 10 project (root sheet and board)
   sheets/                    The six hierarchical sheets
-  lib/                       hexagan library: hand-made symbols, footprints, 3D models
+  lib/                       hexagan library: hand-made symbols, footprints, 3D models (see lib/README.md)
   JLCImport.*                Parts imported from LCSC by the JLCImport plugin
 simulations/
   voltage_mode_sim.py        Python model of the voltage-mode control loop: Bode plots, load step
@@ -84,6 +82,3 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 - **Q201 grounding rule:** J201− is separate from board `GND`. Attach grounded scope clips only to board `GND`, never J201−. If both supply negative and board `GND` are earthed, USB/JTAG/scope wiring can carry input return current around Q201 during normal operation. Swapping the input leads alone does not create that bypass, but a fixed J201−-to-GND short defeats the reverse block. H101–H104 are plated but on no net: never connect them to `GND` or any other net, and keep other copper clear of their mounting hardware.
 - **Grounded-scope design limit:** Moving reverse protection to the positive rail alone does not eliminate the supply/scope earth loop. If J201− were then tied directly to board `GND`, reversed leads with a grounded scope attached could short supply positive to earth outside F201. Use the [grounding and scope note](docs/design/input_supply.md#grounding-and-scope-measurements) before changing this topology or using a shared-ground source.
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.
-Normal return path:
-board GND ── Q201 ── J201− ── supply negative
-If there is a grounded scope attached: board GND ── scope/USB ground ── earth ── supply negative

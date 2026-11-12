@@ -128,7 +128,7 @@ Owners and status for each sheet are in the [README](../README.md). Schematic co
 
 Path: `V_IN` → power stage → `V_OUT`; `V_IN` → aux regulator (LM5164) → `5V_AUX`; `5V_AUX` or `5V_EXT` → power mux (TPS2121) → `+5V` → LDO (LDL1117) → `+3V3`. Expected load on the low-voltage rails is about 150 mA.
 
-**Still to add:** a notes block with the bring-up safety rules from the README. Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assembly.md](guides/jlcpcb-assembly.md)).
+Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assembly.md](guides/jlcpcb-assembly.md)).
 
 **As wired (2026-11-10):** the enable sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its symbol carries two pins for each; both are wired to the MCU's single pin. `XRSn` joins mcu, enable and comms_debug on one net.
 

@@ -84,10 +84,10 @@ One row per calculation. Note where each input came from (specification, datashe
 | `MCU_EN` or `SW_EN` low → U603 outputs low | three gates (U602 gate 2, U604, U603) or four (U602 gates 1–2, U604, U603) | Up to 15.9 ns / 21.2 ns by summing maxima | Not a measured fault response |
 | Hung CPU, worst case | $t_{WD,max}$ | ePWM can keep switching open-loop for up to ≈ 124 ms | The ePWM runs without the CPU. The CMPSS overcurrent and overvoltage trips act in hardware throughout (sensing, mcu) |
 | **Signal levels** | | | |
-| `SW_EN`, switch closed | $3.3 \cdot R_{17} / (R_{16} + R_{17})$ | 3.0 V | LVC VIH 2.0 V at 3.0–3.6 V |
+| `SW_EN`, switch closed | $3.3 \cdot R_{607} / (R_{606} + R_{607})$ | 3.0 V | LVC VIH 2.0 V at 3.0–3.6 V |
 | Pull-down load on an MCU output | $3.3\,V / 10\,k\Omega$ | 0.33 mA per pin | One resistor on each net: R608 `MCU_PWMH`, R611 `MCU_PWML`, R604 `MCU_EN`; the MCU-side duplicates were removed 2026-11-11 |
-| `STAGE_EN_FB` fault current | $3.3\,V / R_{23}$ | 3.3 mA | If GPIO4 drove against `STAGE_EN` |
-| `ARMED` LED current | $(V_{OH} - V_F) / (R_{601} + R_{out})$ | 0.8–1.4 mA (≈ 1.1 mA typ) | KT-0805Y $V_F$ 1.8–2.4 V; ≈ 30 Ω LVC output resistance estimated from its VOH table |
+| `STAGE_EN_FB` fault current | $3.3\,V / R_{605}$ | 3.3 mA | If GPIO4 drove against `STAGE_EN` |
+| `ARMED` LED current | $(V_{OH} - V_F) / (R_{612} + R_{out})$ | 0.8–1.4 mA (≈ 1.1 mA typ) | KT-0805Y $V_F$ 1.8–2.4 V; ≈ 30 Ω LVC output resistance estimated from its VOH table |
 | `+3V3` load | sum | ≈ 1.5 mA, of which ≈ 1.1 mA is LED601 | TPS3813 ≤ 25 µA; three LVC2G08 and one LVC1G00 ≤ 10 µA each; SW601 0.3 mA when on |
 
 ---
@@ -171,16 +171,11 @@ How bring-up confirms this sheet works.
 
 ## Open questions
 
-- **Schematic field fixes before layout** (checked against commit `77f9e2e`):
-  - (Verified 2026-11-11: the sheet title block names Connor Jin as owner.)
-  - (Added 2026-11-11: TP603 on `STAGE_EN`, TP601 on `SUP_OK` (`WD_OK` in the contract), and TP602 on GND.) Place TP602 near the signal pads where probe access permits.
-  - (Resolved 2026-11-10: the root sheet is wired to mcu, power_stage and comms_debug.) This sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its root-sheet symbol has two pins for each; both are wired. Remove the duplicate labels when the sheet is next edited.
+- **Schematic and library tidy-ups:**
+  - Test pads: TP603 on `STAGE_EN`, TP601 on `SUP_OK` (`WD_OK` in the contract), TP602 on GND. Place TP602 near the signal pads where probe access permits.
+  - This sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its root-sheet symbol has two pins for each; both are wired. Remove the duplicate labels when the sheet is next edited.
   - `JLCImport` still holds the TPS3850G33DRCR footprint and 3D model, which nothing uses.
-- (Resolved 2026-11-06: schematic-hierarchy.md now describes the TPS3813, the single `SUP_OK` and the interlock as drawn.)
-- (Resolved: the interlock is drawn with U605 and U604's spare gate, decision #9. The `SN74LVC2G04` / `74LVC1G11` parts from #8 aren't used.)
 - **Dynamic shoot-through protection:** decision #13 relies on the MCU ePWM dead-band. Keep the current NAND/AND chain described as a static fault inhibit and verify non-overlap at the driver inputs and FET gates before applying full bus power.
 - **Restart after a fault.** Recovery is automatic: U601 releases after 20–30 ms, the MCU reboots, and firmware could re-enable straight away. Proposed firmware rule: after any reset other than power-on, stay off until a command over the UART, and log the cause.
 - **JTAG and the watchdog.** A halted core stops kicking, so with R602 fitted the debugger loses the MCU every 68–124 ms. Write the R602 procedure into the bring-up guide, or replace R602 with a 2-pin jumper.
-- (Resolved by decision #10: SW601 is an on-board switch, so there is no enable-switch header for the 5 V cable to land on.)
-- **Duplicate pull-downs resolved 2026-11-11.** The MCU-side duplicate pull-downs and their branches were removed. R604, R608, R611 remain here as the only pull-downs on the three MCU request nets; place them near the receiving logic.
-- **mcu.md** still says the supervisor and debugger reset circuitry on `XRSn` is unfinished; the supervisor half now exists on this sheet.
+- **Pull-down placement.** R604, R608 and R611 are the only pull-downs on the three MCU request nets; place them near the receiving logic.

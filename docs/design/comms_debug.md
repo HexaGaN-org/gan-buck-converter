@@ -20,7 +20,7 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 | Serial bridge | USB-to-UART bridge with decoupling and 3.3 V MCU-side I/O. CP2102N or equivalent. |
 | UART wiring | MCU `SCI_TX` (U501 pin 1, GPIO29 / SCIA_TX) -> bridge RX; bridge TX -> MCU `SCI_RX` (U501 pin 2, GPIO28 / SCIA_RX). |
 | Power | USB must not power the board. Bridge I/O uses board `+3V3`; ensure USB/UART connections cannot back-power the MCU when the board is off. |
-| Debug connector | H701 TI-compatible JTAG header carrying `TCK`, `TMS`, `TDI`, `TDO`, `XRSn`, target-voltage reference and GND; pinout must match the debugger. |
+| Debug connector | H701 TI-compatible JTAG header carrying `TCK`, `TMS`, `TDI`, `TDO`, `XRSn`, target-voltage reference and GND; pinout must match the debugger ([TI 20-pin JTAG connection, datasheet Figure 6-26](../datasheets/tms320f280039c-jtag-header.png)). |
 | Reset | Share active-low `XRSn` with MCU and enable sheets; debugger reset must be compatible with the existing open-drain reset network. |
 | Host link | Text commands and status at approximately 10-50 updates/s: state, fault, input/output voltage, current, temperature, duty and frequency. Serial work must not delay the control interrupt. |
 

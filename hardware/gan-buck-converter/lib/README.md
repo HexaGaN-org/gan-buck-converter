@@ -62,7 +62,7 @@ References:
 - [TI production part details](https://www.ti.com/product/TMS320F280039C/part-details/F280039CSPM)
 - [TI SPRSP61C datasheet](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf):
   Figure 5-4 for pinout, and PM0064A package/land-pattern drawings.
-- [Local TI package drawing](../../../docs/datasheets/mtqf008b.pdf), drawing 4215162/A.
+- [Local TI package drawing](../../../docs/datasheets/tms320f280039c-pm64-package.pdf), drawing 4215162/A.
 
 ## Import checks
 

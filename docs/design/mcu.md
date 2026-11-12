@@ -63,10 +63,10 @@ Input-current telemetry (`I_IN_SENSE`) uses U501 physical pin 9 (ADCC C9) for in
 Check page 57 for connections for Unused Pins
 
 Pins with internal pullup and pulldown:
-![alt text](../datasheets/pin-pullup-pulldown-table.png)
+![TMS320F280039C pins with internal pull-ups and pull-downs](../datasheets/tms320f280039c-pin-pulls.png)
 
 Connections for Unused Pins
-![alt text](../datasheets/image.png)
+![TMS320F280039C datasheet Table 5-10, connections for unused pins](../datasheets/tms320f280039c-unused-pins.png)
 
 - **Unused pins:** The current schematic marks physical pins 6, 7, 10-12, 18-20, 24, 25, 29-34, 47, 54-57 and 61-64 no-connect (25 pins total). Pins 8, 13, 14 and 15 are active sense inputs. No-connect markers do not enable internal pull-ups.
 - **Firmware:** Configure unused GPIO5-13, GPIO16, GPIO17, GPIO22, GPIO23, GPIO33 and GPIO41 as GPIO inputs with internal pull-ups enabled. Keep unused analog/DAC functions disabled.
@@ -204,7 +204,7 @@ Both pins default high for the planned flash boot, assuming OTP boot settings ar
 - **Chosen R503:** **0 Ohm**, **0603WAJ0000T5E / C15402**, as the initial selection. The crystal's 1 mW maximum drive rating meets TI's drive-rating screening. Board startup and frequency still require verification; any later damping resistance must preserve startup margin.
 - **Package/connections:** Two-terminal HC-49SMB SMD crystal, 3.2 mm maximum height. `X501.1 -> U501.42/X1` and C504; `X501.2 -> R503.1` and C503; `R503.2 -> U501.41/X2`. C503/C504 return to GND. Neither crystal terminal connects directly to GND.
 
-Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 4](../datasheets/monec-esd16.0000f12m25f.pdf#page=2); [TI frequency limits, p. 88](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=88); [TI crystal selection/testing and ESR table, pp. 94-95](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=94).
+Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 4](../datasheets/monec-esd16-crystal.pdf#page=2); [TI frequency limits, p. 88](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=88); [TI crystal selection/testing and ESR table, pp. 94-95](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=94).
 
 ##### GPIO18 / X2 - physical pin 41
 
