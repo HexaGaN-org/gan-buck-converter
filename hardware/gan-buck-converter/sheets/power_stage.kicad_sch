@@ -5496,12 +5496,7 @@
 		(color 0 0 0 0)
 		(uuid "13a8504a-4255-47f7-a534-925e7631f685")
 	)
-	(junction
-		(at 49.53 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "147d1d93-248a-477e-af31-b7021c245401")
-	)
+
 	(junction
 		(at 62.23 132.08)
 		(diameter 0)
@@ -5778,12 +5773,7 @@
 		(color 0 0 0 0)
 		(uuid "ce795422-84d1-49df-bf5c-9aa68f92aeee")
 	)
-	(junction
-		(at 90.17 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d6cad46d-f2b3-47f6-abcf-49344f5d6797")
-	)
+
 	(junction
 		(at 237.49 82.55)
 		(diameter 0)
@@ -5826,12 +5816,7 @@
 		(color 0 0 0 0)
 		(uuid "e325d0cb-48d7-474b-bb54-200af73a4fe5")
 	)
-	(junction
-		(at 69.85 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e523c6ac-db00-4e77-a750-1fe70a800c73")
-	)
+
 	(junction
 		(at 132.08 36.83)
 		(diameter 0)
@@ -5850,12 +5835,7 @@
 		(color 0 0 0 0)
 		(uuid "eaabb8b4-181a-4c65-9e1b-751d7c43edfb")
 	)
-	(junction
-		(at 69.85 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ece0c447-c33c-4dda-8b2f-79bc878cd4b2")
-	)
+
 	(junction
 		(at 134.62 57.15)
 		(diameter 0)
@@ -5868,18 +5848,8 @@
 		(color 0 0 0 0)
 		(uuid "f4e132ca-ba69-401e-bd14-19eb2e8aa85e")
 	)
-	(junction
-		(at 90.17 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f6c95f14-d755-4880-9488-cc0a91f47d94")
-	)
-	(junction
-		(at 49.53 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f7462f26-7cd0-4748-85ec-3098166e8efb")
-	)
+
+
 	(wire
 		(pts
 			(xy 257.81 59.69) (xy 257.81 67.31)
@@ -6010,16 +5980,7 @@
 		)
 		(uuid "0f4ce8fa-fedf-40aa-b0b9-b86d5598c56b")
 	)
-	(wire
-		(pts
-			(xy 69.85 66.04) (xy 69.85 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0feacd58-687f-444a-abd5-a89b8de2b602")
-	)
+
 	(wire
 		(pts
 			(xy 67.31 121.92) (xy 34.29 121.92)
@@ -6780,16 +6741,7 @@
 		)
 		(uuid "a34fb1f2-01bc-4929-bc74-a2d50e99487b")
 	)
-	(wire
-		(pts
-			(xy 90.17 66.04) (xy 90.17 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a61201f6-475b-4acd-b8e0-a2856a4604c8")
-	)
+
 	(wire
 		(pts
 			(xy 207.01 59.69) (xy 217.17 59.69)
@@ -6820,16 +6772,7 @@
 		)
 		(uuid "a898134e-d471-4ca2-b714-dff801577aa7")
 	)
-	(wire
-		(pts
-			(xy 90.17 36.83) (xy 90.17 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "abbe7469-58b4-447a-9177-cf43026a95b5")
-	)
+
 	(wire
 		(pts
 			(xy 271.78 35.56) (xy 271.78 36.83)
@@ -7080,16 +7023,7 @@
 		)
 		(uuid "cdb8c3f9-1fac-41b7-8c01-608f66007926")
 	)
-	(wire
-		(pts
-			(xy 69.85 36.83) (xy 69.85 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cdc8f438-fd50-498a-b9a8-9ac2b558bda1")
-	)
+
 	(wire
 		(pts
 			(xy 247.65 59.69) (xy 252.73 59.69)
@@ -7240,16 +7174,7 @@
 		)
 		(uuid "e21af99c-9061-4e6d-addd-132abbab6634")
 	)
-	(wire
-		(pts
-			(xy 49.53 55.88) (xy 49.53 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e8136ef4-65c9-431b-a218-1b78c9297802")
-	)
+
 	(wire
 		(pts
 			(xy 76.2 148.59) (xy 76.2 147.32)
@@ -7270,16 +7195,7 @@
 		)
 		(uuid "f1bb73af-55f7-4239-8ad7-be91f5b71118")
 	)
-	(wire
-		(pts
-			(xy 49.53 66.04) (xy 49.53 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f34a3cf4-7b57-4de1-8558-2f06218afcc2")
-	)
+
 	(wire
 		(pts
 			(xy 105.41 130.81) (xy 102.87 130.81)
@@ -8490,8 +8406,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 80.01 60.96 90)
+		(lib_id "JLCImport:CL32Y106KCV6PNE")
+		(at 156.21 -40.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8511,7 +8427,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "10uF"
 			(at 82.296 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8522,8 +8438,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 80.01 60.96 0)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8533,8 +8449,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 80.01 60.96 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8544,8 +8460,8 @@
 				)
 			)
 		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 80.01 60.96 0)
+		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8555,8 +8471,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C170101"
-			(at 80.01 60.96 0)
+		(property "LCSC" "C22380050"
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8567,7 +8483,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 80.01 60.96 0)
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8577,8 +8493,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 80.01 60.96 0)
+		(property "Manufacturer Part" "CL32Y106KCV6PNE"
+			(at 156.21 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8800,8 +8716,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 39.37 60.96 90)
+		(lib_id "JLCImport:CL32Y106KCV6PNE")
+		(at 115.57 -40.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8821,7 +8737,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "10uF"
 			(at 41.656 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8832,8 +8748,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 39.37 60.96 0)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8843,8 +8759,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 39.37 60.96 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8854,8 +8770,8 @@
 				)
 			)
 		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 39.37 60.96 0)
+		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8865,8 +8781,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C170101"
-			(at 39.37 60.96 0)
+		(property "LCSC" "C22380050"
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8877,7 +8793,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 39.37 60.96 0)
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8887,8 +8803,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 39.37 60.96 0)
+		(property "Manufacturer Part" "CL32Y106KCV6PNE"
+			(at 115.57 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8919,126 +8835,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 90.17 60.96 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "332c289f-6787-49b7-b05f-69ba49581d8e")
-		(property "Reference" "C308"
-			(at 92.456 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "2.2uF"
-			(at 92.456 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C170101"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 90.17 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c271b25e-d797-458d-963c-6f22e4661fc0")
-		)
-		(pin "2"
-			(uuid "4b5e1a61-321f-4390-9fb7-ab2767cf0a58")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C308")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C308")
-					(unit 1)
-				)
-			)
-		)
-	)
+
 	(symbol
 		(lib_id "JLCImport:FPM253WFR001TML")
 		(at 179.07 59.69 0)
@@ -11041,8 +10838,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 59.69 60.96 90)
+		(lib_id "JLCImport:CL32Y106KCV6PNE")
+		(at 135.89 -40.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11062,7 +10859,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "10uF"
 			(at 61.976 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11073,8 +10870,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 59.69 60.96 0)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11084,8 +10881,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 59.69 60.96 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410122016_Samsung-Electro-Mechanics-CL32Y106KCV6PNE_C22380050.pdf"
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11095,8 +10892,8 @@
 				)
 			)
 		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 59.69 60.96 0)
+		(property "Description" "100V 10uF X7S ±10% 1210 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11106,8 +10903,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C170101"
-			(at 59.69 60.96 0)
+		(property "LCSC" "C22380050"
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11118,7 +10915,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 59.69 60.96 0)
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11128,8 +10925,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 59.69 60.96 0)
+		(property "Manufacturer Part" "CL32Y106KCV6PNE"
+			(at 135.89 -40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12633,126 +12430,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 49.53 60.96 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "bc55ba97-bf23-417a-9fe1-40798db2f6d3")
-		(property "Reference" "C304"
-			(at 51.816 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "2.2uF"
-			(at 51.816 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C170101"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 49.53 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a110c66c-17a9-4411-820f-d2056d0dfa2a")
-		)
-		(pin "2"
-			(uuid "f6adceec-03b9-4bdc-8f22-bc210cb48b61")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C304")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C304")
-					(unit 1)
-				)
-			)
-		)
-	)
+
 	(symbol
 		(lib_id "JLCImport:0603WAF200KT5E")
 		(at 57.15 124.46 0)
@@ -13194,126 +12872,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 69.85 60.96 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d7685202-f846-41d4-afb9-5bee0ac81123")
-		(property "Reference" "C306"
-			(at 72.136 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "2.2uF"
-			(at 72.136 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C170101"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 69.85 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "32b90b16-5364-4475-8443-878eb4e45a54")
-		)
-		(pin "2"
-			(uuid "ab10dc9f-c7bd-4195-af87-3d011a42e36b")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "C306")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "C306")
-					(unit 1)
-				)
-			)
-		)
-	)
+
 	(symbol
 		(lib_id "JLCImport:CL31A226KAHNNNE")
 		(at 196.85 71.12 90)

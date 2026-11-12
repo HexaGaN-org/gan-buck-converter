@@ -60,15 +60,23 @@ L_LEAD_SWEEP = (0.5e-6, 1.0e-6, 2.0e-6)  # H, range checked
 R_LEAD = 0.05          # ohm, ASSUMED round trip: leads, terminals, fuse, Q201.
                        # Low on purpose; more resistance only adds damping
 
-# --- Input ceramics (power_stage.md #22, input_supply.md #26) ---
-# Power stage: 10.45 uF at 48 V and about 8.0 uF at 60 V from its design
-# note; interpolate to 51 V. U201: 5 x 2.2 uF with 35.375% retained at 51 V
-# from its recorded bias-curve readback. These are typical estimates only.
-C_POWER_51 = (10.45 + (8.0 - 10.45) * (51 - 48) / (60 - 48)) * 1e-6
+# --- Input ceramics (power_stage.md #23, input_supply.md #26) ---
+# Power stage: 5 x 10 uF X7S plus 4 x 100 nF X7R, estimated at 13.418 uF
+# at 48 V and 10.14 uF at 60 V from recorded bias-curve readbacks. Interpolate
+# each type to 51 V. Samsung's current exact-part library does not supply bias
+# graphs for the 10 uF part, so this is an unverified typical estimate.
+# U201: 5 x 2.2 uF X7R with 35.375% retained at 51 V from its recorded curve.
+C_POWER_BULK_51 = 5 * (2.65 + (2.0 - 2.65) * (51 - 48) / (60 - 48)) * 1e-6
+C_POWER_HF_51 = 4 * (0.042 + (0.035 - 0.042) * (51 - 48) / (60 - 48)) * 1e-6
+C_POWER_51 = C_POWER_BULK_51 + C_POWER_HF_51
 C_U201_51 = 5 * 2.2e-6 * (0.375 + (0.29 - 0.375) * (51 - 48) / (60 - 48))
 C_CER = C_POWER_51 + C_U201_51  # F, 51 V screening estimate
-C_CER_LOW = C_CER * 0.9 * 0.85  # F, illustrative tolerance and temperature corner
-C_CER_HIGH = C_CER * 1.1 * 1.15  # F, illustrative positive corner
+C_CER_LOW = (C_POWER_BULK_51 * 0.9 * 0.78
+             + (C_POWER_HF_51 + C_U201_51) * 0.9 * 0.85)
+C_CER_HIGH = (C_POWER_BULK_51 * 1.1 * 1.22
+              + (C_POWER_HF_51 + C_U201_51) * 1.1 * 1.15)
+# Illustrative tolerance/temperature multipliers only: X7S permits +/-22% and
+# X7R +/-15% without DC bias. Combined biased limits are not guaranteed here.
 ESR_CER = 0.005        # ohm, ASSUMED for the whole bank
 ESL_CER = 0.5e-9       # H, ASSUMED for the whole bank
 
