@@ -689,7 +689,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "KT-0805黄灯"
+			(property "Manufacturer Part" "KT-0805Y"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -700,7 +700,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "C2296 Hubei KENTO Elec KT-0805黄灯 LED0805-R-RD"
+			(property "ki_keywords" "C2296 Hubei KENTO Elec KT-0805Y LED0805-R-RD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -8951,7 +8951,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "KT-0805黄灯"
+		(property "Manufacturer Part" "KT-0805Y"
 			(at 213.36 128.27 0)
 			(hide yes)
 			(show_name no)

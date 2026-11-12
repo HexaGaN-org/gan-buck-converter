@@ -2459,7 +2459,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:PTS1206M2B1K00P100"
+		(symbol "JLCImport:PTS120601B1K00P100"
 			(pin_names
 				(offset 1.016)
 			)
@@ -2478,7 +2478,7 @@
 					)
 				)
 			)
-			(property "Value" "PTS1206M2B1K00P100"
+			(property "Value" "PTS120601B1K00P100"
 				(at 0 -3.016 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2488,7 +2488,7 @@
 					)
 				)
 			)
-			(property "Footprint" "JLCImport:PTS1206M2B1K00P100"
+			(property "Footprint" "hexagan:Vishay_PTS1206"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2499,7 +2499,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2311132315_Vishay-Intertech-PTS1206M2B1K00P100_C17211685.pdf"
+			(property "Datasheet" "https://www.vishay.com/docs/28762/pts.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2510,7 +2510,7 @@
 					)
 				)
 			)
-			(property "Description" "-55℃~+175℃ ±0.43℃ 1206 Temperature Sensors ROHS"
+			(property "Description" "Pt1000 1206 RTD, class F0.3, -55 to +155 C, 3850 ppm/K"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2521,7 +2521,7 @@
 					)
 				)
 			)
-			(property "LCSC" "C17211685"
+			(property "LCSC" "C141528"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2543,7 +2543,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "PTS1206M2B1K00P100"
+			(property "Manufacturer Part" "PTS120601B1K00P100"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2554,7 +2554,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "C17211685 PTS1206M2B1K00P100 R1206 Vishay Intertech"
+			(property "ki_keywords" "C141528 PTS120601B1K00P100 R1206 Vishay Intertech"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2565,7 +2565,7 @@
 					)
 				)
 			)
-			(symbol "PTS1206M2B1K00P100_0_1"
+			(symbol "PTS120601B1K00P100_0_1"
 				(rectangle
 					(start -2.54 1.016)
 					(end 2.54 -1.016)
@@ -10177,7 +10177,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:PTS1206M2B1K00P100")
+		(lib_id "JLCImport:PTS120601B1K00P100")
 		(at 50.8 125.73 270)
 		(unit 1)
 		(body_style 1)
@@ -10199,7 +10199,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PTS1206M2B1K00P100"
+		(property "Value" "PTS120601B1K00P100"
 			(at 54.61 126.9999 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10210,7 +10210,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "JLCImport:PTS1206M2B1K00P100"
+		(property "Footprint" "hexagan:Vishay_PTS1206"
 			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10221,7 +10221,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2311132315_Vishay-Intertech-PTS1206M2B1K00P100_C17211685.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/28762/pts.pdf"
 			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10232,7 +10232,7 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+175℃ ±0.43℃ 1206 Temperature Sensors ROHS"
+		(property "Description" "Pt1000 1206 RTD, class F0.3, -55 to +155 C, 3850 ppm/K"
 			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10243,7 +10243,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17211685"
+		(property "LCSC" "C141528"
 			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10265,7 +10265,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "PTS1206M2B1K00P100"
+		(property "Manufacturer Part" "PTS120601B1K00P100"
 			(at 50.8 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -13849,7 +13849,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:PTS1206M2B1K00P100")
+		(lib_id "JLCImport:PTS120601B1K00P100")
 		(at 50.8 172.72 270)
 		(unit 1)
 		(body_style 1)
@@ -13871,7 +13871,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PTS1206M2B1K00P100"
+		(property "Value" "PTS120601B1K00P100"
 			(at 54.61 173.9899 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13882,7 +13882,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "JLCImport:PTS1206M2B1K00P100"
+		(property "Footprint" "hexagan:Vishay_PTS1206"
 			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -13893,7 +13893,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2311132315_Vishay-Intertech-PTS1206M2B1K00P100_C17211685.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/28762/pts.pdf"
 			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -13904,7 +13904,7 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+175℃ ±0.43℃ 1206 Temperature Sensors ROHS"
+		(property "Description" "Pt1000 1206 RTD, class F0.3, -55 to +155 C, 3850 ppm/K"
 			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -13915,7 +13915,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17211685"
+		(property "LCSC" "C141528"
 			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -13937,7 +13937,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "PTS1206M2B1K00P100"
+		(property "Manufacturer Part" "PTS120601B1K00P100"
 			(at 50.8 172.72 0)
 			(hide yes)
 			(show_name no)

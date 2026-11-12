@@ -5781,224 +5781,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:FZ2A101M1313"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "FZ2A101M1313"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:FZ2A101M1313"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://item.szlcsc.com/245807.html"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+105℃ 100V 100uF 12.5mm 13.5mm 320mΩ 5000hrs@105℃ 500mA ±20% SMD,D12.5xL13.5mm Aluminum Electrolytic Capacitors - SMD ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C5260780"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "JARSON"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "FZ2A101M1313"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C5260780 CAP-SMD_BD12.5-L13.0-W13.0-FD FZ2A101M1313 JARSON"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "FZ2A101M1313_0_1"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -0.508 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.286 1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 1.778) (xy -1.778 0.762)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 1.778) (xy -0.508 -1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.1278 -1.7526)
-					(mid 0.4216 0.0211)
-					(end 1.1506 1.7856)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "JLCImport:KF635-6_35-2P"
 			(pin_names
 				(offset 1.016)
@@ -7223,6 +7005,224 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:VKME1452A101MV"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "VKME1452A101MV"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:VKME1452A101MV"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.ymin.cn/chip-miniature-type-aluminum-electrolytic-capacitors-vkm-product/"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "100uF 100V SMD aluminum electrolytic, 10x14.5mm, 1.04A rms at 105C/100kHz, +/-20%, ESR not specified"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C487440"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Ymin"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "VKME1452A101MV"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C487440 CAP-SMD_D10x14.5 VKME1452A101MV Ymin"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "VKME1452A101MV_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.286 1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 1.778) (xy -1.778 0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 1.778) (xy -0.508 -1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.1278 -1.7526)
+					(mid 0.4216 0.0211)
+					(end 1.1506 1.7856)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:whiteLEDSMD"
 			(pin_names
 				(offset 1.016)
@@ -8171,16 +8171,6 @@
 		)
 		(uuid "1f5b289e-a836-4aeb-801c-36d27743d3c2")
 	)
-	(text "U201 local input ceramics - place by VIN/GND\n"
-		(exclude_from_sim no)
-		(at 167.64 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "24d37a4f-fb68-463b-a576-1b1489ef3b16")
-	)
 	(text "Test Points\n"
 		(exclude_from_sim no)
 		(at 24.892 163.068 0)
@@ -8336,7 +8326,7 @@
 		(uuid "394c4500-d2b6-4295-aaf2-1bd0186799ac")
 	)
 	(junction
-		(at 153.67 88.9)
+		(at 152.4 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3995f4c9-65ab-4e92-ae6d-f7493609f7a4")
@@ -8396,7 +8386,7 @@
 		(uuid "68f983e3-3d81-4a70-be97-547f770a9941")
 	)
 	(junction
-		(at 167.64 78.74)
+		(at 166.37 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7465ce95-1756-4265-b7a3-8e2a43ab7615")
@@ -8432,7 +8422,7 @@
 		(uuid "7d34a93c-4a6d-457b-948f-5131c4a2d60b")
 	)
 	(junction
-		(at 167.64 88.9)
+		(at 166.37 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "80d43d18-2b3a-4982-baea-83ada2341741")
@@ -8552,7 +8542,7 @@
 		(uuid "cee8b8fc-f3d9-4938-b261-321406e85a2b")
 	)
 	(junction
-		(at 153.67 78.74)
+		(at 152.4 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d33915da-3750-4947-b8cd-96abaf81124b")
@@ -8755,7 +8745,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 78.74) (xy 153.67 78.74)
+			(xy 147.32 76.2) (xy 152.4 76.2)
 		)
 		(stroke
 			(width 0)
@@ -9385,7 +9375,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 88.9) (xy 181.61 88.9)
+			(xy 166.37 86.36) (xy 180.34 86.36)
 		)
 		(stroke
 			(width 0)
@@ -9575,7 +9565,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 78.74) (xy 167.64 78.74)
+			(xy 152.4 76.2) (xy 166.37 76.2)
 		)
 		(stroke
 			(width 0)
@@ -9585,7 +9575,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 88.9) (xy 153.67 88.9)
+			(xy 147.32 86.36) (xy 152.4 86.36)
 		)
 		(stroke
 			(width 0)
@@ -9735,7 +9725,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 78.74) (xy 181.61 78.74)
+			(xy 166.37 76.2) (xy 180.34 76.2)
 		)
 		(stroke
 			(width 0)
@@ -9775,7 +9765,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 88.9) (xy 167.64 88.9)
+			(xy 152.4 86.36) (xy 166.37 86.36)
 		)
 		(stroke
 			(width 0)
@@ -10342,50 +10332,6 @@
 			(justify left bottom)
 		)
 		(uuid "e0c443df-c86b-4687-9741-0ded0d315f1e")
-	)
-	(global_label "V_IN"
-		(shape bidirectional)
-		(at 148.59 78.74 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "035517d8-343a-49a8-9ebe-a2f8865ec7b2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.59 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 148.59 88.9 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a95f1551-e7d7-48eb-b406-a45b87ff1a44")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.59 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 	)
 	(hierarchical_label "I_SH_IN_N"
 		(shape output)
@@ -12181,7 +12127,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 167.64 83.82 270)
+		(at 166.37 81.28 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12191,7 +12137,7 @@
 		(dnp no)
 		(uuid "34674da3-3e0b-4723-be45-354e0e378803")
 		(property "Reference" "C214"
-			(at 159.766 82.55 90)
+			(at 158.496 80.01 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12202,7 +12148,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 159.766 85.09 90)
+			(at 158.496 82.55 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12213,7 +12159,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12224,7 +12170,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12235,7 +12181,7 @@
 			)
 		)
 		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12246,7 +12192,7 @@
 			)
 		)
 		(property "LCSC" "C170101"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12257,7 +12203,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12268,7 +12214,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 167.64 83.82 0)
+			(at 166.37 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12408,6 +12354,84 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "C210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hexagan:V_IN")
+		(at 147.32 76.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3fa339c8-02c1-44e8-aea5-860a2d901dc5")
+		(property "Reference" "#PWR0215"
+			(at 147.32 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "V_IN"
+			(at 147.32 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:FZ2A101M1313"
+			(at 147.32 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"V_IN\": protected 48 V input bus"
+			(at 147.32 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "35d1a8ee-e124-4b62-8524-b1bb357ff169")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -12769,6 +12793,84 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 147.32 86.36 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4bc317a7-7aaf-4a1c-baa6-ecd794310192")
+		(property "Reference" "#PWR0214"
+			(at 147.32 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 147.32 91.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 147.32 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d52072a5-93b0-4a90-a9b0-380ad903884d")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -14377,7 +14479,7 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:FZ2A101M1313")
+		(lib_id "JLCImport:VKME1452A101MV")
 		(at 114.3 45.72 270)
 		(unit 1)
 		(body_style 1)
@@ -14409,7 +14511,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "JLCImport:FZ2A101M1313"
+		(property "Footprint" "JLCImport:VKME1452A101MV"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14420,7 +14522,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://item.szlcsc.com/245807.html"
+		(property "Datasheet" "https://www.ymin.cn/chip-miniature-type-aluminum-electrolytic-capacitors-vkm-product/"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14431,7 +14533,7 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+105℃ 100V 100uF 12.5mm 13.5mm 320mΩ 5000hrs@105℃ 500mA ±20% SMD,D12.5xL13.5mm Aluminum Electrolytic Capacitors - SMD ROHS"
+		(property "Description" "100uF 100V SMD aluminum electrolytic, 10x14.5mm, 1.04A rms at 105C/100kHz, +/-20%, ESR not specified"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14442,7 +14544,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5260780"
+		(property "LCSC" "C487440"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14453,7 +14555,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JARSON"
+		(property "Manufacturer" "Ymin"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14464,7 +14566,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "FZ2A101M1313"
+		(property "Manufacturer Part" "VKME1452A101MV"
 			(at 114.3 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -14498,7 +14600,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 181.61 83.82 270)
+		(at 180.34 81.28 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14508,7 +14610,7 @@
 		(dnp no)
 		(uuid "7fcad063-b665-4693-b133-bf3e25bb4fb4")
 		(property "Reference" "C215"
-			(at 173.736 82.55 90)
+			(at 172.466 80.01 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14519,7 +14621,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 173.736 85.09 90)
+			(at 172.466 82.55 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14530,7 +14632,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14541,7 +14643,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14552,7 +14654,7 @@
 			)
 		)
 		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14563,7 +14665,7 @@
 			)
 		)
 		(property "LCSC" "C170101"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14574,7 +14676,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14585,7 +14687,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 181.61 83.82 0)
+			(at 180.34 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15207,7 +15309,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL31B225KCHSNNE")
-		(at 153.67 83.82 270)
+		(at 152.4 81.28 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15217,7 +15319,7 @@
 		(dnp no)
 		(uuid "91ff4e9c-a1ee-4b27-ada5-5c1dbcb15c65")
 		(property "Reference" "C213"
-			(at 145.796 82.55 90)
+			(at 144.526 80.01 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15228,7 +15330,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 145.796 85.09 90)
+			(at 144.526 82.55 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15239,7 +15341,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15250,7 +15352,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KCHSNNE_C170101.pdf"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15261,7 +15363,7 @@
 			)
 		)
 		(property "Description" "100V 2.2uF X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15272,7 +15374,7 @@
 			)
 		)
 		(property "LCSC" "C170101"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15283,7 +15385,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15294,7 +15396,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL31B225KCHSNNE"
-			(at 153.67 83.82 0)
+			(at 152.4 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

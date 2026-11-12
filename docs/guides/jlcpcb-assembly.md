@@ -31,20 +31,22 @@ JLCPCB offers two assembly services. The choice limits which parts and layouts y
 
 ## 2. Board fabrication rules
 
-Load the house rules into KiCad (**Board Setup → Design Rules → Constraints**, and the pre-defined track and via sizes) before routing, so DRC enforces them.
+Load the house rules into KiCad (**Board Setup → Design Rules → Constraints**, and the pre-defined track and via sizes) before routing, so DRC enforces them. The buck converter's [project-specific KiCad custom rules](../../hardware/gan-buck-converter/gan-buck-converter.kicad_dru) supplement its `.kicad_pro` constraints and netclasses. The current [JLCPCB rigid-PCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities) are the source for the fabrication limits below.
 
 | Rule | JLC limit | House rule |
 |---|---|---|
-| Trace width / spacing, 2 layers | 0.127 mm / 0.127 mm | 0.15 mm / 0.15 mm |
-| Trace width / spacing, 4–6 layers | 0.09 mm / 0.09 mm | 0.127 mm / 0.127 mm |
-| Via drill / pad, 2 layers | 0.3 mm / 0.5 mm | 0.3 mm / 0.6 mm |
-| Via drill / pad, 4+ layers | 0.2 mm / 0.45 mm | 0.3 mm / 0.6 mm |
-| Annular ring, 1 oz copper | 0.13 mm | 0.15 mm |
-| Annular ring, 2 oz copper | 0.2 mm | 0.2 mm |
+| Trace width / spacing, 2 layers, 1 oz | 0.10 mm / 0.10 mm | 0.15 mm / 0.15 mm |
+| Trace width / spacing, 4–6 layers, 1 oz | 0.09 mm / 0.09 mm | 0.127 mm / 0.127 mm |
+| Via drill / pad, 2+ layers | 0.15 mm / 0.25 mm; these small sizes cost more | 0.3 mm / 0.6 mm |
+| PTH annular ring, 2 layers, 1 oz | 0.18 mm absolute; 0.25 mm recommended | 0.25 mm |
+| PTH annular ring, 4+ layers, 1 oz | 0.15 mm absolute; 0.20 mm recommended | 0.20 mm preferred; 0.15 mm minimum |
+| PTH annular ring, 2 oz copper | 0.254 mm or above | 0.254 mm |
 | Copper to board edge | 0.2 mm | 0.3 mm |
-| Hole to hole, different nets | 0.5 mm | 0.5 mm |
-| Solder mask bridge | 0.2 mm (green), 0.254 mm (other colours) | Green mask; 0.2 mm |
-| Silkscreen line width / text height | 0.153 mm / 1.0 mm | 0.15 mm / 1.0 mm |
+| Via hole to via hole / pad hole to pad hole | 0.20 mm / 0.45 mm | 0.25 mm / 0.45 mm |
+| Solder mask bridge, 1 oz | 0.10 mm for green, red, yellow, blue or purple; 0.13 mm for black or white | Green mask; 0.20 mm |
+| Silkscreen line width / text height | 0.15 mm / 1.0 mm | 0.15 mm / 1.0 mm |
+
+The buck converter's existing KiCad project uses 0.20 mm minimum track width and ordinary-net clearance, 0.30 mm via drill, 0.50 mm minimum via pad, and 0.50 mm copper-to-edge clearance. Its `HV_48V` netclass uses 0.65 mm clearance. Those project values are stricter than the JLCPCB fabrication minima; the `.kicad_dru` file adds checks for annular rings, hole spacing, slot widths, and silkscreen. Mask bridge width, stackup, copper weight, finish, and panelization still need board setup or order-time review.
 
 **Copper weight.** Outer layers can be 1 oz or 2 oz. Inner layers are **0.5 oz** unless you choose JLCPCB's specific 4-layer 2 oz stackup, so never count on inner layers to carry high current. On a power board, carry current on the outer layers and use the inner layers for ground and signal. 2 oz outer copper helps current capacity but raises the minimum annular ring and makes fine-pitch pads harder to etch, so check it against the smallest-pitch part first.
 
@@ -122,7 +124,7 @@ Load the house rules into KiCad (**Board Setup → Design Rules → Constraints*
 
 ## References
 
-- [JLCPCB PCB manufacturing capabilities](https://api.jlcpcb.com/capabilities/Capabilities)
+- [JLCPCB PCB manufacturing capabilities](https://jlcpcb.com/capabilities/pcb-capabilities)
 - [JLCPCB PCB assembly capabilities](https://jlcpcb.com/capabilities/pcb-assembly-capabilities)
 - [What the JLCPCB assembly price includes](https://jlcpcb.com/help/article/40-pcb-assembly-price)
 - [JLCPCB: reducing prototype assembly cost](https://jlcpcb.com/blog/reduce-pcb-assembly-cost-prototype)

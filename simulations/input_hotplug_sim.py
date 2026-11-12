@@ -60,28 +60,36 @@ L_LEAD_SWEEP = (0.5e-6, 1.0e-6, 2.0e-6)  # H, range checked
 R_LEAD = 0.05          # ohm, ASSUMED round trip: leads, terminals, fuse, Q201.
                        # Low on purpose; more resistance only adds damping
 
-# --- Input ceramics (power_stage.md #22, input_supply.md #26) ---
-# Power stage: 10.45 uF at 48 V and about 8.0 uF at 60 V from its design
-# note; interpolate to 51 V. U201: 5 x 2.2 uF with 35.375% retained at 51 V
-# from its recorded bias-curve readback. These are typical estimates only.
-C_POWER_51 = (10.45 + (8.0 - 10.45) * (51 - 48) / (60 - 48)) * 1e-6
+# --- Input ceramics (power_stage.md #23, input_supply.md #26) ---
+# Power stage: 5 x 10 uF X7S plus 4 x 100 nF X7R, estimated at 13.418 uF
+# at 48 V and 10.14 uF at 60 V from recorded bias-curve readbacks. Interpolate
+# each type to 51 V. Samsung's current exact-part library does not supply bias
+# graphs for the 10 uF part, so this is an unverified typical estimate.
+# U201: 5 x 2.2 uF X7R with 35.375% retained at 51 V from its recorded curve.
+C_POWER_BULK_51 = 5 * (2.65 + (2.0 - 2.65) * (51 - 48) / (60 - 48)) * 1e-6
+C_POWER_HF_51 = 4 * (0.042 + (0.035 - 0.042) * (51 - 48) / (60 - 48)) * 1e-6
+C_POWER_51 = C_POWER_BULK_51 + C_POWER_HF_51
 C_U201_51 = 5 * 2.2e-6 * (0.375 + (0.29 - 0.375) * (51 - 48) / (60 - 48))
 C_CER = C_POWER_51 + C_U201_51  # F, 51 V screening estimate
-C_CER_LOW = C_CER * 0.9 * 0.85  # F, illustrative tolerance and temperature corner
-C_CER_HIGH = C_CER * 1.1 * 1.15  # F, illustrative positive corner
+C_CER_LOW = (C_POWER_BULK_51 * 0.9 * 0.78
+             + (C_POWER_HF_51 + C_U201_51) * 0.9 * 0.85)
+C_CER_HIGH = (C_POWER_BULK_51 * 1.1 * 1.22
+              + (C_POWER_HF_51 + C_U201_51) * 1.1 * 1.15)
+# Illustrative tolerance/temperature multipliers only: X7S permits +/-22% and
+# X7R +/-15% without DC bias. Combined biased limits are not guaranteed here.
 ESR_CER = 0.005        # ohm, ASSUMED for the whole bank
 ESL_CER = 0.5e-9       # H, ASSUMED for the whole bank
 
 # --- C203 bulk electrolytic (input_supply.md part selection) ---
-C_BULK = 100e-6        # F, JARSON FZ2A101M1313 (C5260780), 100 µF 100 V
+C_BULK = 100e-6        # F, Ymin VKME1452A101MV (C487440), 100 µF 100 V
 C_BULK_LOW = 80e-6     # F, -20% nameplate tolerance
 C_BULK_HIGH = 120e-6   # F, +20% nameplate tolerance
-ESR_BULK = 0.32        # ohm, ASSUMED ESR from 0.32-ohm impedance at 100 kHz/20 C
-                       # in JARSON's FZ datasheet; actual ESR/temperature are unknown
-# https://atta.szlcsc.com/upload/public/pdf/source/20240702/CB724D03555E79E98CBC22F7BB5AFDA6.pdf
+ESR_BULK = 0.32        # ohm, ASSUMED scenario, NOT Ymin's specified ESR
+                       # Ymin publishes no ESR/impedance for this exact part.
+                       # Sweep below is illustrative, not a guaranteed corner.
+# https://www.ymin.cn/chip-miniature-type-aluminum-electrolytic-capacitors-vkm-product/
 ESL_BULK = 20e-9       # H, ASSUMED: can ESL plus the trace to the power stage
-RIPPLE_RATING = 0.45   # A rms, exact JARSON FZ2A101M1313 at 100 kHz/105 C
-                       # LCSC lists 0.50 A; use manufacturer value pending clarification
+RIPPLE_RATING = 1.04   # A rms, Ymin VKME1452A101MV at 100 kHz/105 C
 
 # --- Limits to compare against ---
 # Hongjiacheng SMBJ51CA datasheet Rev 1.1, 25 C: breakdown 56.7-62.7 V
@@ -337,7 +345,7 @@ def main():
         cells = ", ".join(f"{bulk_ripple_rms(v, fsw):.2f} A at {v:.0f} V" for v in VIN_POINTS)
         print(f"  {fsw/1e3:.0f} kHz : {cells}")
     worst_ripple = max(bulk_ripple_rms(v, f) for v in VIN_POINTS for f in (300e3, 400e3))
-    print(f"  JARSON rating {RIPPLE_RATING} A rms (100 kHz/105 C): "
+    print(f"  Ymin rating {RIPPLE_RATING} A rms (100 kHz/105 C): "
           f"{'within rating' if worst_ripple <= RIPPLE_RATING else 'ABOVE rating, see input_supply.md'}")
 
     freqs = np.logspace(3, 7, 2000)

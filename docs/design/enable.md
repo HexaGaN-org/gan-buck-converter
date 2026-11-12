@@ -2,7 +2,7 @@
 
 Sheet: `sheets/enable.kicad_sch`
 
-**Owner:** Connor Jin · **Reviewer:** [NAME] · **Last updated:** 2026-11-11
+**Owner:** Connor Jin · **Reviewer:** [NAME] · **Last updated:** 2026-11-12
 
 ---
 
@@ -21,7 +21,9 @@ Targets are in [specifications.md](../specifications.md); boundaries and interfa
 - Pull-downs on `MCU_PWMH`, `MCU_PWML`, `MCU_EN`, `HS_PWM` and `LS_PWM`, and on the enable-switch input (SW1), so every undriven or floating state means *off*.
 - Provide `STAGE_EN_FB` so firmware can read whether the stage is enabled.
 
-**Status (2026-11-11):** captured: supervisor and watchdog, SW1 enable switch, `STAGE_EN` gating, static both-high inhibit as drawn (decision #9), and the `ARMED` LED (#11). Wired to mcu, power_stage and comms_debug on the root sheet (2026-11-10). Test pads for `STAGE_EN`, `SUP_OK`, and GND are in the schematic. Decision #13 assigns dynamic non-overlap to the MCU ePWM dead-band; the existing gates provide no guaranteed dynamic break-before-make. See the [PWM overlap and input-filter analysis](../reviews/2026-11-11-pwm-overlap-and-input-filter.md).
+**Status (2026-11-11):** captured: supervisor and watchdog, SW1 enable switch, `STAGE_EN` gating, static both-high inhibit as drawn (decision #9), and the `ARMED` LED (#11). Wired to mcu, power_stage and comms_debug on the root sheet (2026-11-10). Test pads for `STAGE_EN`, `SUP_OK`, and GND are in the schematic. Decision #13 assigns dynamic non-overlap to the MCU ePWM dead-band; the existing gates provide no guaranteed dynamic break-before-make. The power-stage input filters add delay but do not establish a positive dead-time margin at all corners.
+
+**5 V rail decision (2026-11-11):** No dedicated `5V_VALID` comparator or hardware inhibit is fitted. Firmware must leave `MCU_EN` and both PWM requests low until `+5V` is stable. This startup rule does not protect against a `+5V` dip while PWM is already active; the LM5113-Q1's VDD operating minimum is 4.5 V. Measure U301 VDD and the driver inputs during both J202/aux transitions before enabling full-power switching. The 3.3 V supervisor does not monitor this rail.
 
 **How the sheet implements it**
 
@@ -74,10 +76,10 @@ One row per calculation. Note where each input came from (specification, datashe
 | First-kick deadline after reset | $t_{WD,min} - t_{XRSn} - t_{boot}$ | $67.7 - 0.1 - 1.2 \approx 66$ ms | XRSn release from the MCU sheet's 4.7 kΩ × 22 nF (96 µs to 2.0 V); boot ROM to flash 1.2 ms max (F280039C datasheet §6.12) |
 | `XRSn` low level when U7 asserts | $V_{OL} + V_{F,D1}$ | ≈ 0.25 + 0.32 ≈ 0.57 V max | ≈ 0.59 mA from R1 plus 0.33 mA from R14 into RESET; VOL 0.2 V at 0.5 mA, 0.4 V at 2 mA (TPS3813); BAT46W ≤ 0.32 V near 0.6 mA (estimated from its 0.25 V / 0.1 mA and 0.45 V / 10 mA points). Against the MCU's 0.8 V VIL: 0.23 V margin |
 | **Logic timing (SN74LVC2G08)** | | | TI SN74LVC2G08 datasheet (SCES198), 3.3 V ± 0.3 V, 30/50 pF, -40 to 125 °C |
-| Gate delay | datasheet $t_{pd}$ | 1.0–5.3 ns | The 4.7 ns figure above applies only through 85 °C; see the [timing analysis](../reviews/2026-11-11-pwm-overlap-and-input-filter.md) |
+| Gate delay | datasheet $t_{pd}$ | 1.0–5.3 ns | The 4.7 ns figure above applies only through 85 °C; use the full-temperature limit for timing checks |
 | PWM path delay added | one gate (U4) | 1.0–5.3 ns per edge under datasheet load | Both paths share one die, but a 1 ns channel-skew guarantee is not specified here; measure the board |
 | **Interlock as drawn (decision #9)** | | | U8 (SN74LVC1G00) and U5's second gate feed U4 |
-| Static both-high inhibit reaction | U8, U5, then U4 | Up to 15.6 ns by summing published full-transition maxima | The direct rising path is only U4. This sum is not a maximum overlap guarantee; simultaneous rising requests can produce a pulse at both driver inputs. See the [timing analysis](../reviews/2026-11-11-pwm-overlap-and-input-filter.md) |
+| Static both-high inhibit reaction | U8, U5, then U4 | Up to 15.6 ns by summing published full-transition maxima | The direct rising path is only U4. This sum is not a maximum overlap guarantee; simultaneous rising requests can produce a pulse at both driver inputs |
 | `SUP_OK` low → U4 outputs low | four gates (U3 ×2, U5, U4) | Up to 21.2 ns by summing maxima | Then the LM5113 input filter, driver, and FET gates add delay; this is not a measured fault response |
 | `MCU_EN` or `SW_EN` low → U4 outputs low | three gates (U3 gate 2, U5, U4) or four (U3 gates 1–2, U5, U4) | Up to 15.9 ns / 21.2 ns by summing maxima | Not a measured fault response |
 | Hung CPU, worst case | $t_{WD,max}$ | ePWM can keep switching open-loop for up to ≈ 124 ms | The ePWM runs without the CPU. The CMPSS overcurrent and overvoltage trips act in hardware throughout (sensing, mcu) |

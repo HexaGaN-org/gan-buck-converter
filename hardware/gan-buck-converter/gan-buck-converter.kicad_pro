@@ -69,7 +69,13 @@
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -206,7 +212,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -233,7 +241,16 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        },
+        {
+          "diameter": 0.6,
+          "drill": 0.3
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -520,8 +537,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
-    "netclass_assignments": null,
+    "net_colors": {},
+    "netclass_assignments": {},
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -695,7 +712,7 @@
         "uuid": "81018c94-fb4c-45c9-bba6-c5ea3a6c5d76"
       }
     ],
-    "used_designators": "R1-19,R201-216,R301-307,R401-412,R501-502,R601,#FLG1-3,#FLG201-202,#FLG301-304,#PWR1-37,#PWR101-104,#PWR201-213,#PWR301-305,#PWR307-308,#PWR401-422,#PWR508,D1,D201-202,D301,#SYM101-109,C1-7,C201-212,C301-325,C401,C404,Cvcc2-4,Cvdd2-5,Cvddio2-4,F201,TP_5V_EXT201-202,H101-104,J201-202,J301,L201,L301,LED1-3,LED201-203,LED301,LED501-502,LED601,NT1,NT201-202,NT301-302,Q2,Q201-202,Q301-302,TP201-205,TP301,TP_3V3_201,TP_5V201,TP_5V_201,TP_5V_AUX201,TP_SW301,TP_VOUT301,U1-7,U201-203,U301-302,U401-408",
+    "used_designators": "#FLG1-3,#FLG201-202,#FLG301-304,#PWR1-37,#PWR101-104,#PWR201-215,#PWR301-305,#PWR307-308,#PWR401-422,#PWR508,#SYM101-109,C1-7,C201-212,C301-325,C401,C404,Cvcc2-4,Cvdd2-5,Cvddio2-4,D1,D201-202,D301,F201,H101-104,J201-202,J301,L201,L301,LED1-3,LED201-203,LED301,LED501-502,LED601,NT1,NT201-202,NT301-302,Q2,Q201-202,Q301-302,R1-19,R201-216,R301-307,R401-412,R501-502,R601,TP201-205,TP301,TP_3V3_201,TP_5V201,TP_5V_201,TP_5V_AUX201,TP_5V_EXT201-202,TP_SW301,TP_VOUT301,U1-7,U201-203,U301-302,U401-408",
     "variants": []
   },
   "sheets": [
