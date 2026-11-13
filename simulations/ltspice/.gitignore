@@ -1,5 +1,3 @@
-# Infineon's model is behind a myInfineon login: download it yourself (see README.md)
-infineon_coolgan_100v_g3.lib
 # LTspice run files
 *.raw
 *.op.raw
