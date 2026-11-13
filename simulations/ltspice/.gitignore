@@ -1,0 +1,7 @@
+# LTspice run files
+*.raw
+*.op.raw
+*.log
+*.net
+*.plt
+*.db

@@ -1,0 +1,79 @@
+* LM5113 / LM5113-Q1 half-bridge GaN driver -- BEHAVIOURAL model
+* Written for the gan-buck-converter power-stage simulation. NOT a TI model.
+* Every number is a 25 C typical from the TI datasheet (SNVS725I) unless marked ASSUMED.
+*
+* Modelled:   TTL input thresholds with hysteresis, input pull-downs, propagation delays,
+*             split outputs with pull-up / pull-down resistance and peak-current saturation,
+*             VDD and HB-HS undervoltage lockout, internal bootstrap diode that stops
+*             charging at the 5.2 V HB-HS clamp level, operating supply currents.
+* Not modelled: temperature, dv/dt immunity of the level shifter, minimum pulse width,
+*             package inductance, negative-HS behaviour.
+*
+* Pins: VDD HB HOH HOL HS HI LI VSS LOH LOL   (WSON-10 pin order 1..10)
+*
+.subckt LM5113_BEHAV VDD HB HOH HOL HS HI LI VSS LOH LOL
++ Rpu=2.1 Rpd=0.6 Isrc=1.2 Isnk=5 tpdon=28n tpdoff=26.5n tmatch=0
++ Vir=2.06 Vhys=0.4 Vuvdd=3.8 Vuvhb=3.2 Vuvhys=0.2 Vclamp=5.2
++ Iddo=1.6m Ihbo=1.2m tslew=0.7n Cin=2p Cout=20p intdiode=1
+* --- inputs: 200 k pull-down, Cin ASSUMED ---
+Rhi HI VSS 200k
+Chi HI VSS {Cin}
+Rli LI VSS 200k
+Cli LI VSS {Cin}
+* --- Schmitt triggers: rising Vir, falling Vir-Vhys ---
+Bhq hq0 0 V=u(V(HI,VSS)-(Vir-Vhys*V(hq)))
+Rhq hq0 hq 1k
+Chq hq 0 0.1p
+Blq lq0 0 V=u(V(LI,VSS)-(Vir-Vhys*V(lq)))
+Rlq lq0 lq 1k
+Clq lq 0 0.1p
+* --- undervoltage lockouts ---
+Buvd uvd0 0 V=u(V(VDD,VSS)-(Vuvdd-Vuvhys*V(uvd)))
+Ruvd uvd0 uvd 1k
+Cuvd uvd 0 1p
+Buvh uvh0 0 V=u(V(HB,HS)-(Vuvhb-Vuvhys*V(uvh)))
+Ruvh uvh0 uvh 1k
+Cuvh uvh 0 1p
+* --- propagation delays: turn-on tpdon, turn-off tpdoff (tpdon >= tpdoff) ---
+* tmatch adds delay to the high-side channel only (HO-LO delay matching, 1.5 ns typ, 8 ns max)
+Ehb hqb 0 hq 0 1
+Thf hqb 0 hdf 0 Td={tpdoff+tmatch} Z0=1k
+Rhf hdf 0 1k
+Thn hqb 0 hdn 0 Td={tpdon+tmatch} Z0=1k
+Rhn hdn 0 1k
+Elb lqb 0 lq 0 1
+Tlf lqb 0 ldf 0 Td={tpdoff} Z0=1k
+Rlf ldf 0 1k
+Tln lqb 0 ldn 0 Td={tpdon} Z0=1k
+Rln ldn 0 1k
+* --- output state 0..1, slewed (tslew ASSUMED; gives roughly the datasheet 1 nF rise time) ---
+Bhs hs0 0 V=u(V(hdf)-0.5)*u(V(hdn)-0.5)*V(uvd)*V(uvh)
+Rhs hs0 hst 1k
+Chs hst 0 {tslew/1k}
+Bls ls0 0 V=u(V(ldf)-0.5)*u(V(ldn)-0.5)*V(uvd)
+Rls ls0 lst 1k
+Cls lst 0 {tslew/1k}
+* --- output stages: resistive near zero volts, saturating at the peak current ---
+* Pull-up and pull-down cross-fade over tslew; Cout (ASSUMED) keeps the pins defined mid-transition.
+Bhup HB HOH I=V(hst)*Isrc*tanh(V(HB,HOH)/(Rpu*Isrc))
+Bhdn HOL HS I=(1-V(hst))*Isnk*tanh(V(HOL,HS)/(Rpd*Isnk))
+Blup VDD LOH I=V(lst)*Isrc*tanh(V(VDD,LOH)/(Rpu*Isrc))
+Bldn LOL VSS I=(1-V(lst))*Isnk*tanh(V(LOL,VSS)/(Rpd*Isnk))
+Choh HOH HS {Cout}
+Chol HOL HS {Cout}
+Cloh LOH VSS {Cout}
+Clol LOL VSS {Cout}
+Rhoh HOH HS 1Meg
+Rhol HOL HS 1Meg
+Rloh LOH VSS 1Meg
+Rlol LOL VSS 1Meg
+* --- operating supply currents (datasheet 500 kHz values scaled to 400 kHz) ---
+Idd VDD VSS {Iddo}
+Ihb HB HS {Ihbo}
+* --- internal bootstrap diode, cut off when HB-HS reaches the clamp level ---
+* Fitted to VDL 0.45 V at 100 uA, VDH 0.90 V at 100 mA, RD 1.85 ohm. intdiode=0 removes it.
+Dbs VDD nbs LM5113_DBS
+Bbs nbs HB I=intdiode*V(nbs,HB)*20*max(min((Vclamp-V(HB,HS))/0.05,1),0)
+Rbs nbs HB 100Meg
+.model LM5113_DBS D(Is=6.2n N=1.77 Rs=1.39 Cjo=3p)
+.ends LM5113_BEHAV
