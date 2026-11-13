@@ -87,3 +87,15 @@ and drive/startup validation still required before population. No 3D model is as
 
 `hexagan:V_IN` and `hexagan:V_OUT` preserve the incoming
 power-stage and sensing power-net names. They share the existing project library.
+
+## Input and output XT connectors
+
+The saved schematic and PCB use `JLCImport:XT30PW-M` for J201 (C431092) and
+`JLCImport:XT60PW-F_C428722` for J301 (C428722), with matching JLC-imported
+symbols and 3D models. On J201 the power pads are **2 positive, 1 return**;
+support pads 3/4 are no-connect. On J301 the power pads are **3 positive, 4
+ground**; support pads 1/2 are no-connect. The `hexagan` XT symbol and
+footprint copies remain as unused alternatives and have different numbering,
+so never pair one of them with a JLC-imported counterpart. The placed symbol
+instances carry the JLCPCB part and manufacturer fields.
+See the [connector selection, harness, and fit checks](../../../docs/design/input-output-connectors.md).

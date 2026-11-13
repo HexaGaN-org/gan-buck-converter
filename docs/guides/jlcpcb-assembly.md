@@ -46,7 +46,26 @@ Load the house rules into KiCad (**Board Setup → Design Rules → Constraints*
 | Solder mask bridge, 1 oz | 0.10 mm for green, red, yellow, blue or purple; 0.13 mm for black or white | Green mask; 0.20 mm |
 | Silkscreen line width / text height | 0.15 mm / 1.0 mm | 0.15 mm / 1.0 mm |
 
-The buck converter's existing KiCad project uses 0.20 mm minimum track width and ordinary-net clearance, 0.30 mm via drill, 0.50 mm minimum via pad, and 0.50 mm copper-to-edge clearance. Its `HV_48V` netclass uses 0.65 mm clearance. Those project values are stricter than the JLCPCB fabrication minima; the `.kicad_dru` file adds checks for annular rings, hole spacing, slot widths, and silkscreen. Mask bridge width, stackup, copper weight, finish, and panelization still need board setup or order-time review.
+The buck converter's existing KiCad project uses 0.20 mm minimum track width and ordinary-net clearance, 0.30 mm via drill, 0.50 mm minimum via pad, and 0.50 mm copper-to-edge clearance. Its high-voltage netclasses use 0.65 mm clearance. Those project values are stricter than the JLCPCB fabrication minima; the `.kicad_dru` file adds checks for annular rings, hole spacing, slot widths, and silkscreen. Mask bridge width, stackup, copper weight, finish, and panelization still need board setup or order-time review.
+
+### Routing classes and colors
+
+The PCB Editor's track and via menus can use each netclass's preferred sizes. Choose **Track: use netclass width** and **Via: use netclass sizes**; the additional track presets are 0.20, 0.25, 0.30, 0.40, 0.50, 0.80, 1.20, 2.00, and 3.00 mm for local neck-downs or wider routing. The colors distinguish the matching nets in the Appearance panel's Nets tab.
+
+| Netclass (color) | Track / clearance (mm) | Via pad / drill (mm) | Assigned paths |
+|---|---:|---:|---|
+| `HV_48V` (red) | 1.20 / 0.65 | 0.80 / 0.40 | J201, fuse, reverse-protection input and `V_IN` |
+| `SW_MAIN` (magenta) | 2.00 / 0.65 | 0.80 / 0.40 | Main GaN `SW_NODE` |
+| `HV_CONTROL` (orange) | 0.30 / 0.65 | 0.60 / 0.30 | High-side gate, bootstrap, auxiliary buck switch, snubber midpoint, reverse-FET gate |
+| `HV_KELVIN` (yellow) | 0.20 / 0.65 | 0.60 / 0.30 | Input-shunt Kelvin pair |
+| `OUT_POWER` (green) | 2.00 / 0.25 | 0.80 / 0.40 | Inductor-to-shunt path and `V_OUT` |
+| `LV_POWER` (cyan) | 0.50 / 0.20 | 0.60 / 0.30 | `+5V`, `+3V3`, auxiliary and external 5 V rails |
+| `GATE_LV` (teal) | 0.30 / 0.20 | 0.60 / 0.30 | Low-side gate drive |
+| `ANALOG_SENSE` (violet) | 0.20 / 0.20 | 0.60 / 0.30 | `GNDA`, output Kelvin, ADC sense and amplifier input/output nets |
+| `GND_RETURN` (muted blue) | 0.40 / 0.20 | 0.60 / 0.30 | `GND`; maintain a continuous In1.Cu plane under the GaN loop |
+| `Default` (automatic) | 0.20 / 0.20 | 0.60 / 0.30 | Remaining logic and support nets |
+
+These track widths are routing starters, not enforced minimum widths or current ratings. Route the 12.5 A output path and the switch node with broad outer-layer copper; verify temperature rise and use multiple vias where current changes layers. The 0.65 mm clearance cannot fit between some pads inside fine-pitch parts, so the `.kicad_dru` file sets a 0.20 mm floor only for pad pairs on the same footprint. Cross-component clearance violations still require placement review; netclass assignments alone are not a fabrication check.
 
 **Copper weight.** Outer layers can be 1 oz or 2 oz. Inner layers are **0.5 oz** unless you choose JLCPCB's specific 4-layer 2 oz stackup, so never count on inner layers to carry high current. On a power board, carry current on the outer layers and use the inner layers for ground and signal. 2 oz outer copper helps current capacity but raises the minimum annular ring and makes fine-pitch pads harder to etch, so check it against the smallest-pitch part first.
 
@@ -62,6 +81,7 @@ The buck converter's existing KiCad project uses 0.20 mm minimum track width and
 - **Choosing parts** (library-type order, consolidating values, passive size, derating): follow the rules in [preferred-parts.md](preferred-parts.md).
 - **Check stock before freezing the BOM.** A part out of stock at JLCPCB must be bought through Global Sourcing, which can impose large minimum order quantities and delays the build until parts arrive.
 - **Avoid through-hole parts** except where a connector truly needs one. Through-hole parts are hand-soldered and charged per joint plus a labour fee per order.
+- **Buck input/output exception:** J201 [C431092](https://jlcpcb.com/partdetail/XT30PW-M30.G.Y/C431092) and J301 [C428722](https://jlcpcb.com/partdetail/AMASS-XT60PWF/C428722) are Extended, wave-solder parts that JLCPCB lists for Economic and Standard PCBA. Keep their `LCSC` fields and through-hole BOM entries; confirm their stock, Extended loading charges and through-hole labor in the actual order preview. The [soldered cable mates and polarity mapping](../design/input-output-connectors.md) are separate purchases.
 - **Parts JLCPCB should not place** (DNP parts, parts we will hand-solder, test points) get *Exclude from BOM* and *Exclude from position files* set in their footprint attributes.
 
 ---
@@ -71,6 +91,7 @@ The buck converter's existing KiCad project uses 0.20 mm minimum track width and
 - **Use footprints from the project library** whose origin and pin 1 follow the standard (KiCad library / IPC-7351) convention. Placement errors almost always come from footprints with unusual origins or rotations.
 - **Mark pin 1 and polarity** in silkscreen on every IC, diode, LED and polarized capacitor, and keep reference designators readable.
 - **Keep parts at least 1 mm from the board edge** (house rule), more if the board will be panelized with mouse bites.
+- **Buck connector exception:** the XT30 input and XT60 output mating faces are intended to reach or slightly overhang the board edge. Check their mounting holes, pads, assembly access, mated cable clearance, and the final outline against the actual parts. Their current PCB positions and the rest of the board placement are tentative; do not treat the saved layout as fabrication ready.
 - **Keep all assembled parts on the top side**, unless the service decision in section 1 says otherwise.
 - **Leave room around fine-pitch and bottom-terminated parts** (QFN, LGA, BGA) for rework with hot air: about 1–2 mm clear of tall neighbours.
 - **Fiducials:** Economic does not need them, and JLCPCB adds its own. Standard PCBA requires them and edge rails; add them in JLCPCB's order options or in the layout.

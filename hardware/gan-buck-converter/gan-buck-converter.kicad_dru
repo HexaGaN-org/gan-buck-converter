@@ -3,8 +3,9 @@
 # JLCPCB rigid FR-4, four layers, 1 oz outer / 0.5 oz inner copper.
 # Source: https://jlcpcb.com/capabilities/pcb-capabilities (checked 2026-11-11).
 # This supplements the project constraints and netclasses in the .kicad_pro file.
-# Keep the HV_48V netclass clearance of 0.65 mm. Do not add a generic
-# clearance rule here, because it could override that larger netclass value.
+# Keep the HV_48V, SW_MAIN, HV_CONTROL, and HV_KELVIN netclass clearances
+# of 0.65 mm. Do not add a generic clearance rule here, because it could
+# override those larger netclass values.
 
 # JLCPCB's absolute multilayer 1 oz PTH annular-ring minimum is 0.15 mm;
 # 0.20 mm or more is recommended for plated through-hole pads.
@@ -61,3 +62,10 @@
 (rule "JLCPCB back legend lines"
     (condition "A.Type == 'Graphic' && A.Layer == 'B.SilkS' && A.Line_Width > 0mm")
     (constraint assertion "A.Line_Width >= 0.15mm"))
+
+# Package land patterns can have less than 0.65 mm between their own pins.
+# Keep the 0.65 mm netclass clearance for routing and between components;
+# only pad pairs belonging to the same physical footprint use this floor.
+(rule "Same-footprint pad clearance"
+    (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.Parent == B.Parent")
+    (constraint clearance (min 0.20mm)))
