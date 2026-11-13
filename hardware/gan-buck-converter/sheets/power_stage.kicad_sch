@@ -4764,6 +4764,217 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:XT60PW-F_C428722"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 7.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "XT60PW-F_C428722"
+				(at 0 -9.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:XT60PW-F_C428722"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Changzhou-Amass-Elec-XT60PW-F_C428722.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Horizontal plug Yellow - Power connector / plug connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C428722"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Changzhou Amass Elec"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "XT60PW-F"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C428722 Changzhou Amass Elec TH_2P-XT60PW-F XT60PW-F"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "XT60PW-F_C428722_0_1"
+				(circle
+					(center -6.35 1.27)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -5.08) (xy 0.8611 -5.0702) (xy 0.9564 -5.0413) (xy 1.0442 -4.9944) (xy 1.1212 -4.9312)
+						(xy 1.1844 -4.8542) (xy 1.2313 -4.7664) (xy 1.2602 -4.6711) (xy 1.27 -4.572) (xy 1.2602 2.1311)
+						(xy 1.2313 2.2264) (xy 1.1844 2.3142) (xy 1.1212 2.3912) (xy 1.0442 2.4544) (xy 0.9564 2.5013)
+						(xy 0.8611 2.5302) (xy 0.762 2.54) (xy -7.2111 2.5302) (xy -7.3064 2.5013) (xy -7.3942 2.4544)
+						(xy -7.4712 2.3912) (xy -7.5344 2.3142) (xy -7.5813 2.2264) (xy -7.6102 2.1311) (xy -7.62 2.032)
+						(xy -7.6102 -4.6711) (xy -7.5813 -4.7664) (xy -7.5344 -4.8542) (xy -7.4712 -4.9312) (xy -7.3942 -4.9944)
+						(xy -7.3064 -5.0413) (xy -7.2111 -5.0702) (xy -7.112 -5.08) (xy 0.762 -5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -10.16 0 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "hexagan:V_IN"
 			(power global)
 			(pin_numbers
@@ -5414,7 +5625,7 @@
 	)
 	(rectangle
 		(start 13.97 16.51)
-		(end 226.06 90.17)
+		(end 247.65 90.17)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -5795,6 +6006,14 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fe40829d-4611-4c09-b066-023baff096b9")
+	)
+	(no_connect
+		(at 223.52 76.2)
+		(uuid "c3d8e1b3-0d46-43ab-b9a1-8725d8b1b8cf")
+	)
+	(no_connect
+		(at 223.52 63.5)
+		(uuid "f1118313-b10f-4362-b90e-2c8dca04354e")
 	)
 	(wire
 		(pts
@@ -8142,6 +8361,127 @@
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "C303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:XT60PW-F_C428722")
+		(at 223.52 68.58 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "34d397a5-4037-402e-9b6f-4d136b77dc57")
+		(property "Reference" "J301"
+			(at 226.06 68.5799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "XT60PW-F_C428722"
+			(at 226.06 71.1199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:XT60PW-F_C428722"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Changzhou-Amass-Elec-XT60PW-F_C428722.pdf"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Horizontal plug Yellow - Power connector / plug connector"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C428722"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Changzhou Amass Elec"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "XT60PW-F"
+			(at 223.52 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a118cc05-8a05-4c6d-924c-219233659ad9")
+		)
+		(pin "3"
+			(uuid "4452d527-0e04-4f86-a4f0-7c7c89fc80aa")
+		)
+		(pin "4"
+			(uuid "9ef3b219-4139-44b1-8367-033832e7bc22")
+		)
+		(pin "2"
+			(uuid "bb2e4684-4fb1-475f-8373-90c41c001e0b")
+		)
+		(instances
+			(project "gan-buck-converter"
+				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
+					(reference "J301")
 					(unit 1)
 				)
 			)
@@ -11903,127 +12243,6 @@
 			(project "power_stage"
 				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
 					(reference "TP_GND2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:KF635-6_35-2P")
-		(at 218.44 69.85 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "eeb52a12-ed9c-4c88-8b2e-5f8e0cb1d91a")
-		(property "Reference" "J301"
-			(at 215.9 75.184 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "KF635-6_35-2P"
-			(at 222.25 71.1199 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:KF635-6_35-2P"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2303171000_Cixi-Kefa-Elec-KF635-6-35-2P_C475102.pdf"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-40℃~+105℃ 1 10~22 1x2P 2 2P 32A 4 450V 6.35mm Green Through Hole 插件,P=6.35mm Screw Terminal Blocks ROHS"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C475102"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Cixi Kefa Elec"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "KF635-6.35-2P"
-			(at 218.44 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b6af5527-6087-47c4-93a4-bca67d9ccf98")
-		)
-		(pin "2"
-			(uuid "4fb50e57-dc6d-4bc9-a634-545f757e197f")
-		)
-		(instances
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "J301")
-					(unit 1)
-				)
-			)
-			(project "power_stage"
-				(path "/ff83566a-1a00-49fa-964b-85a0e44f76ce"
-					(reference "J301")
 					(unit 1)
 				)
 			)

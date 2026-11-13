@@ -34,8 +34,8 @@ This document names each sheet by its file. The sheet symbols on the top sheet c
 
 | Ref | Sheet | Function |
 |---|---|---|
-| J201 | input_supply | 48 V input |
-| J301 | power_stage | 12 V output |
+| J201 | input_supply | 48 V input, XT30PW-M30.G.Y male, C431092; JLC-imported symbol pin 2 positive, pin 1 `V_IN_RTN`; pins 3/4 mounting tabs, no-connect |
+| J301 | power_stage | 12 V output, XT60PW-F female, C428722; JLC-imported symbol pin 3 `V_OUT`, pin 4 `GND`; pins 1/2 mounting tabs, no-connect |
 | USBC701 | comms_debug | USB-C to a host laptop (data only; never powers the board) |
 | H701 | comms_debug | JTAG debug header (2 × 10) |
 | SW601 | enable | On-board hardware enable switch (MSK12C02 slide switch) |

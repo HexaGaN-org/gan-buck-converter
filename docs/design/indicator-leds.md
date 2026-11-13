@@ -87,7 +87,7 @@ The fault code is also reported over serial (firmware-requirements.md).
 - **Status row:** POWER, HEARTBEAT, ARMED and FAULT in one line on the board edge you face at the bench, in that order (the order things come up during bring-up). Put SW601 at the ARMED end, so you see ARMED respond when you flip the switch. Choose the edge during layout.
 - **Connector LEDs:** each beside its own connector, on the board's outer side.
 - **48V:** beside J201, but don't let it push D201 away from J201. D201's connection to J201 stays as short as possible.
-- **Visibility:** keep every LED outboard of tall parts (L301 at 22 mm square, the C203 can, the screw terminals) so none is hidden from a side view.
+- **Visibility:** keep every LED outboard of tall parts (L301 at 22 mm square, the C203 can, the XT30/XT60 connectors) so none is hidden from a side view.
 - **Routing:** route LED traces away from the switch node and the gate loop. They carry milliamps of DC and need no special routing.
 - **Silkscreen:** each LED gets a label next to it (column above).
 - **Orientation:** point all cathode marks the same way, to make assembly inspection quick.
