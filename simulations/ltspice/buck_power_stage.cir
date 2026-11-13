@@ -1,0 +1,69 @@
+* gan-buck-converter power stage: 48 V to 12 V synchronous buck, IGC033S10S1 x2 + LM5113-Q1
+* Plain-netlist twin of buck_power_stage.asc (same circuit, same directives).
+* Open in LTspice with File > Open, then Run. Node and part names follow the KiCad power_stage sheet.
+V1 VSRC 0 {Vin}
+L_SRC VSRC V_IN {Lsrc} Rser=20m ic={Iin0}
+C203 V_IN 0 100u Rser=0.32 ic={Vin}
+C301 V_IN 0 {3*Cbulk} Rser=1m Lser=0.25n ic={Vin}
+L_BUS V_IN VIN_HF {Lbus}
+C304 VIN_HF 0 {4*Chf} Rser=5m ic={Vin}
+L_LOOP VIN_HF D_HS {Lloop}
+XQ301 D_HS G_HS S_HS IGC033S10S1_L1
+L_CSH S_HS SW_NODE {Lcs}
+XQ302 SW_NODE G_LS S_LS IGC033S10S1_L1
+L_CSL S_LS 0 {Lcs}
+L301 SW_NODE I_SH_OUT_P 6.8u Rser=2.1m ic={IL0}
+R301 I_SH_OUT_P V_OUT 1m
+C308 V_OUT 0 {2*Coc} Rser=2.5m Lser=0.3n ic={Vout0}
+C316 V_OUT 0 540u Rser=5m Lser=1.5n ic={Vout0}
+I1 V_OUT 0 {Iout}
+V2 P5SRC 0 {Vdrv}
+R_5V P5SRC P5V 50m
+C311 P5V 0 100n ic={Vdrv}
+C312 P5V 0 4u Rser=5m ic={Vdrv}
+XU301 P5V HB HOH HS_DRIVE SW_NODE HI LI 0 LS_DRIVE LS_DRIVE LM5113_BEHAV
+R304 P5V N_BST 100
+D301 N_BST HB BAT46W
+C313 HB SW_NODE 100n ic={Vbst0}
+R305 HOH HS_DRIVE {Rgon}
+L_GH HS_DRIVE G_HS {Lgate}
+L_GL LS_DRIVE G_LS {Lgate}
+V3 HS_PWM 0 PULSE(0 3.3 {tdt} 2n 2n {D*Tsw} {Tsw})
+V4 LS_PWM 0 PULSE(3.3 0 0 2n 2n {D*Tsw+2*tdt} {Tsw})
+R307 HS_PWM HI 1k
+C315 HI 0 22p
+R306 LS_PWM LI 1k
+C314 LI 0 22p ic=3.3
+.model BAT46W D(Is=1.2u N=1.1 Rs=1.8 Cjo=10p Vj=0.3 M=0.4 BV=100)
+.param Vin=48 Vdrv=5 Iout=12.5 fsw=400k D=0.2567 tdt=10n Rgon=2
+.param Lloop=1n Lcs=0.15n Lgate=2n Lbus=0.6n Lsrc=1u
+.param Cbulk=2.65u Chf=42n Coc=5.7u
+.param Tsw={1/fsw} Ncyc=10 Nmeas=4 t1={Ncyc*Tsw} t0={(Ncyc-Nmeas)*Tsw}
+.param Vout0=12 Vbst0=4.5 dIL={(Vin-Vout0)*D*Tsw/6.8u} IL0={Iout-dIL/2+0.15} Iin0={Iout*Vout0/Vin}
+.temp 80
+.tran 0 {t1} {t0} 0.25n uic
+.lib infineon_coolgan_100v_g3.lib
+.lib lm5113_behavioral.lib
+.meas tran Vout_avg avg V(V_OUT) from {t0} to {t1}
+.meas tran Vout_ripple_pp pp V(V_OUT) from {t0} to {t1}
+.meas tran IL_avg avg I(L301) from {t0} to {t1}
+.meas tran IL_ripple_pp pp I(L301) from {t0} to {t1}
+.meas tran Vin_hf_ripple_pp pp V(VIN_HF) from {t0} to {t1}
+.meas tran P_Q301 avg (V(D_HS)-V(S_HS))*I(L_LOOP)+(V(G_HS)-V(S_HS))*I(L_GH) from {t0} to {t1}
+.meas tran P_Q302 avg (V(SW_NODE)-V(S_LS))*(I(L_CSL)-I(L_GL))+(V(G_LS)-V(S_LS))*I(L_GL) from {t0} to {t1}
+.meas tran P_cell_in avg V(VIN_HF)*I(L_LOOP) from {t0} to {t1}
+.meas tran P_to_vout avg V(V_OUT)*I(L301) from {t0} to {t1}
+.meas tran P_driver avg -V(P5SRC)*I(V2) from {t0} to {t1}
+.meas tran Efficiency param P_to_vout/(P_cell_in+P_driver)
+.meas tran Vsw_max max V(SW_NODE) from {t0} to {t1}
+.meas tran Vsw_min min V(SW_NODE) from {t0} to {t1}
+.meas tran Vds_Q301_max max V(D_HS)-V(S_HS) from {t0} to {t1}
+.meas tran Vds_Q302_max max V(SW_NODE)-V(S_LS) from {t0} to {t1}
+.meas tran Vgs_Q301_max max V(G_HS)-V(S_HS) from {t0} to {t1}
+.meas tran Vgs_Q301_min min V(G_HS)-V(S_HS) from {t0} to {t1}
+.meas tran Vgs_Q302_max max V(G_LS)-V(S_LS) from {t0} to {t1}
+.meas tran Vgs_Q302_min min V(G_LS)-V(S_LS) from {t0} to {t1}
+.meas tran Vgs_Q302_bump_while_off max (V(G_LS)-V(S_LS))*u(1-V(LS_DRIVE)) from {t0} to {t1}
+.meas tran Vbst_avg avg V(HB)-V(SW_NODE) from {t0} to {t1}
+.meas tran Vbst_min min V(HB)-V(SW_NODE) from {t0} to {t1}
+.end
