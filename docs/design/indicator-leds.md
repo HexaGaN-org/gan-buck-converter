@@ -43,7 +43,7 @@ Cross-sheet note: every indicator LED on the board. The LEDs sit on four sheets 
 | LED203 | input_supply · Reza | `EXT 5V` | J202 is live | `5V_EXT` → R211 → LED → GND | white · KT-0805W (C34499) | R211 2.2 kΩ (C4190) | ≈ 0.95 mA (0.8–1.1) | Beside J202 |
 | LED301 | power_stage · Reza | `12V` | `V_OUT` live | `V_OUT` → R302 → LED → GND | green · KT-0805G (C2297) | R302 10 kΩ (C25804) | ≈ 0.9 mA | Beside J301 |
 | LED202 | input_supply · Reza | `POWER` | Logic rails up (`+3V3` is the last rail in the chain) | `+3V3` → R209 → LED → GND | green · KT-0805G (C2297) | R209 330 Ω (C23138) | ≈ 1.4 mA (0.6–2.1) | Status row, position 1 |
-| LED502 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO39 → R509 → LED → GND | green · KT-0805G (C2297) | R509 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
+| LED502 | mcu · Yunxi | `HEARTBEAT` | Firmware running; blink rate shows the mode | GPIO41 → R509 → LED → GND | green · KT-0805G (C2297) | R509 330 Ω (C23138) | ≈ 1 mA (0.3–1.8) | Status row, position 2 |
 | LED601 | enable · Connor | `ARMED` | `STAGE_EN` high: the hardware enable chain allows switching | U604 → R612 → LED → GND | yellow · KT-0805Y (C2296) | R612 1 kΩ (C21190) | ≈ 1.1 mA (0.8–1.4) | Status row, position 3, at the SW601 end |
 | LED501 | mcu · Yunxi | `FAULT` | Latched fault; blinks a code | GPIO40 → R508 → LED → GND | red · NCD0805R1 (C84256) | R508 1 kΩ (C21190) | ≈ 1.1 mA (0.6–1.6) | Status row, position 4 |
 

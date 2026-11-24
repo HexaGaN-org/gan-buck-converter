@@ -11566,7 +11566,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "21352922-f126-43eb-b19e-8cbb7a1b4ddc")
-		(property "Reference" "J201"
+		(property "Reference" "CN201"
 			(at 27.94 45.7199 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11669,7 +11669,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "J201")
+					(reference "CN201")
 					(unit 1)
 				)
 			)

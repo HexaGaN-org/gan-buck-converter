@@ -4831,12 +4831,6 @@
 		(uuid "3726a808-2957-4c57-a8a5-304885da3923")
 	)
 	(junction
-		(at 171.45 102.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "50723518-e9f1-4a9b-9002-750eed138be0")
-	)
-	(junction
 		(at 189.23 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4871,6 +4865,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b38e9e66-20ad-4164-8e25-83295d8d0ea7")
+	)
+	(junction
+		(at 171.45 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9609715-b813-43a4-834f-51e37ab76ea7")
 	)
 	(junction
 		(at 139.7 120.65)
@@ -4915,7 +4915,7 @@
 		(uuid "86532aa7-d4ba-45dc-85a4-049b4ad8373b")
 	)
 	(no_connect
-		(at 132.08 125.73)
+		(at 132.08 87.63)
 		(uuid "87131966-2f21-4adb-964e-57865655bed4")
 	)
 	(no_connect
@@ -4959,7 +4959,7 @@
 		(uuid "eb5fc83b-f87e-40e7-8321-519873cc2856")
 	)
 	(no_connect
-		(at 132.08 151.13)
+		(at 132.08 146.05)
 		(uuid "f0d71e48-e12a-4542-b9b3-f58bb3b90508")
 	)
 	(no_connect
@@ -5037,16 +5037,6 @@
 			(type default)
 		)
 		(uuid "0f7a4db8-f082-49f7-962b-4f933403e1d2")
-	)
-	(wire
-		(pts
-			(xy 171.45 102.87) (xy 173.99 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "12cdc59b-898e-4c8e-8083-384b317a73cb")
 	)
 	(wire
 		(pts
@@ -5520,7 +5510,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 87.63) (xy 153.67 87.63)
+			(xy 132.08 125.73) (xy 138.43 125.73)
 		)
 		(stroke
 			(width 0)
@@ -5620,7 +5610,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 146.05) (xy 162.56 146.05)
+			(xy 132.08 151.13) (xy 134.62 151.13)
 		)
 		(stroke
 			(width 0)
@@ -5660,7 +5650,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 146.05) (xy 162.56 151.13)
+			(xy 162.56 148.59) (xy 162.56 151.13)
 		)
 		(stroke
 			(width 0)
@@ -5747,6 +5737,16 @@
 			(type default)
 		)
 		(uuid "cfb80aa9-9d6a-465f-9a14-007c4cdf454b")
+	)
+	(wire
+		(pts
+			(xy 171.45 102.87) (xy 173.99 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d187808a-383d-41e7-8e57-9ebd40e38cbc")
 	)
 	(wire
 		(pts
@@ -5918,6 +5918,16 @@
 		)
 		(uuid "1fdb574e-988e-46e2-b7f5-750382daa06f")
 	)
+	(label "HEARTBEAT"
+		(at 134.62 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b583cc4-b45a-4b90-a814-fc79aca36abe")
+	)
 	(label "BOOT_GPIO32"
 		(at 172.72 137.16 180)
 		(effects
@@ -5947,6 +5957,16 @@
 			(justify right bottom)
 		)
 		(uuid "d997adbc-887b-42b4-a239-e3b95e8b4c9f")
+	)
+	(label "HEARTBEAT"
+		(at 162.56 148.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dd325977-00b3-4d85-87f5-70ac8b42589e")
 	)
 	(hierarchical_label "MCU_EN"
 		(shape output)
@@ -6049,7 +6069,7 @@
 	)
 	(hierarchical_label "STAGE_EN_FB"
 		(shape input)
-		(at 153.67 87.63 0)
+		(at 138.43 125.73 0)
 		(effects
 			(font
 				(size 1.27 1.27)

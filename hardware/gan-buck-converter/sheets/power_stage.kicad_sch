@@ -8378,7 +8378,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "34d397a5-4037-402e-9b6f-4d136b77dc57")
-		(property "Reference" "J301"
+		(property "Reference" "U302"
 			(at 226.06 68.5799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8481,7 +8481,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/0444207b-857e-41da-9181-e6569e333c47"
-					(reference "J301")
+					(reference "U302")
 					(unit 1)
 				)
 			)
@@ -10786,7 +10786,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "ae587f8f-7f99-42a9-b230-0fa5d121be5c")
 		(property "Reference" "R306"
@@ -11040,7 +11040,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "b6b9402b-2483-44f6-b6d9-7926f56733ba")
 		(property "Reference" "R307"
