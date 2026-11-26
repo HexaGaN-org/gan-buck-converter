@@ -14420,7 +14420,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:TPS2121RUXR")
-		(at 97.79 121.92 180)
+		(at 97.79 121.92 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14430,7 +14430,7 @@
 		(dnp no)
 		(uuid "7622e288-4778-4c2c-84fe-5a8e69a563ea")
 		(property "Reference" "U203"
-			(at 97.79 135.89 0)
+			(at 97.79 107.95 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14440,7 +14440,7 @@
 			)
 		)
 		(property "Value" "TPS2121RUXR"
-			(at 97.79 133.35 0)
+			(at 97.79 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

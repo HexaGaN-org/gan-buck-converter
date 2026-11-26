@@ -46,11 +46,11 @@ Load the house rules into KiCad (**Board Setup → Design Rules → Constraints*
 | Solder mask bridge, 1 oz | 0.10 mm for green, red, yellow, blue or purple; 0.13 mm for black or white | Green mask; 0.20 mm |
 | Silkscreen line width / text height | 0.15 mm / 1.0 mm | 0.15 mm / 1.0 mm |
 
-The buck converter's existing KiCad project uses 0.20 mm minimum track width and ordinary-net clearance, 0.30 mm via drill, 0.50 mm minimum via pad, and 0.50 mm copper-to-edge clearance. Its high-voltage netclasses use 0.65 mm clearance. Those project values are stricter than the JLCPCB fabrication minima; the `.kicad_dru` file adds checks for annular rings, hole spacing, slot widths, and silkscreen. Mask bridge width, stackup, copper weight, finish, and panelization still need board setup or order-time review.
+The buck converter's current KiCad project uses 0.20 mm minimum track width and default clearance, 0.30 mm minimum via drill, 0.50 mm minimum via pad, and 0.50 mm copper-to-edge clearance. The 2026-11-26 checkpoint has the `Default` netclass and per-zone clearance settings. The `.kicad_dru` file adds checks for annular rings, hole and pad spacing, and silkscreen. Review mask bridge width, stackup, copper weight, finish and panelization before ordering.
 
 ### Routing classes and colors
 
-The PCB Editor's track and via menus can use each netclass's preferred sizes. Choose **Track: use netclass width** and **Via: use netclass sizes**; the additional track presets are 0.20, 0.25, 0.30, 0.40, 0.50, 0.80, 1.20, 2.00, and 3.00 mm for local neck-downs or wider routing. The colors distinguish the matching nets in the Appearance panel's Nets tab.
+The table records the intended routing classes. Restore and assign them before checking layout clearance, especially the 0.65 mm high-voltage target. After assigning them, choose **Track: use netclass width** and **Via: use netclass sizes** to route with the class preferences.
 
 | Netclass (color) | Track / clearance (mm) | Via pad / drill (mm) | Assigned paths |
 |---|---:|---:|---|
@@ -65,7 +65,7 @@ The PCB Editor's track and via menus can use each netclass's preferred sizes. Ch
 | `GND_RETURN` (muted blue) | 0.40 / 0.20 | 0.60 / 0.30 | `GND`; maintain a continuous In1.Cu plane under the GaN loop |
 | `Default` (automatic) | 0.20 / 0.20 | 0.60 / 0.30 | Remaining logic and support nets |
 
-These track widths are routing starters, not enforced minimum widths or current ratings. Route the 12.5 A output path and the switch node with broad outer-layer copper; verify temperature rise and use multiple vias where current changes layers. The 0.65 mm clearance cannot fit between some pads inside fine-pitch parts, so the `.kicad_dru` file sets a 0.20 mm floor only for pad pairs on the same footprint. Cross-component clearance violations still require placement review; netclass assignments alone are not a fabrication check.
+Use these widths as starting points. Route the 12.5 A output path and the switch node with broad outer-layer copper, then verify temperature rise and the layer transitions carrying load current. Fine-pitch packages may need specific exceptions to the 0.65 mm rule. Check their land patterns and cross-component clearances when reinstating that rule.
 
 **Copper weight.** Outer layers can be 1 oz or 2 oz. Inner layers are **0.5 oz** unless you choose JLCPCB's specific 4-layer 2 oz stackup, so never count on inner layers to carry high current. On a power board, carry current on the outer layers and use the inner layers for ground and signal. 2 oz outer copper helps current capacity but raises the minimum annular ring and makes fine-pitch pads harder to etch, so check it against the smallest-pitch part first.
 

@@ -6,7 +6,7 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 
 > **PCB layout in progress (2026-11-26).** The saved board has partial routing in the auxiliary supply, half-bridge and sensing sections. The XT30 input and XT60 output are on opposite sides of the board, with label placement and mechanical fit still to verify. [PCB stackup](docs/design/stackup.md) · [Connector layout](docs/design/input-output-connectors.md)
 >
-> KiCad 10.0.8 reported 1 ERC error, 10 ERC warnings, 635 DRC violations and 92 unconnected items. The PCB and schematic have zero netlist parity issues. Correct the U203 power-mux connections, add the L2 ground plane and finish routing before fabrication. [U203 wiring issue](docs/design/input_supply.md#layout-notes)
+> This checkpoint restores the intended U203 power-mux connections and advances power, sensing and probe routing. KiCad 10.0.8 reported **0 ERC errors, 10 ERC warnings, 649 DRC violations, 31 unconnected items and zero schematic-to-PCB parity issues**. Before fabrication, complete the L2 ground plane, connect the remaining nets and resolve the clearance violations. [Power stage layout](docs/design/power_stage.md#layout-notes) · [PCB stackup](docs/design/stackup.md)
 
 ## At a glance
 

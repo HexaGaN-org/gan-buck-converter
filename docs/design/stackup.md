@@ -22,10 +22,12 @@ Copper and dielectric total **1.5182 mm**. KiCad shows **1.5382 mm** including s
 
 - Size the outer-layer copper for the main DC power and return paths, including the 12.5 A output path. Use multiple vias where heavy current changes layers. Keep `SW_NODE` copper compact and reserve the inner layers for ground return and reference. [Power Stage layout notes](power_stage.md#layout-notes)
 - When a ground-referenced signal changes between outer layers, place a nearby `GND` stitching via to connect its two reference planes. Check that the routed signal stays over continuous ground on the adjacent inner layer.
+- Route signals primarily on `F.Cu` and `B.Cu`. A short crossover on L3 is acceptable in a quiet area if its clearance slot stays clear of bottom-side signal return paths. Keep both inner ground layers continuous around the GaN stage.
+- Use local top-side power pours where they give regulators or banks of supply pins a shorter feed. In the crowded U501 area, feed the `+3V3` decouplers from nearby vias to `B.Cu` and keep the cap-to-pin and cap-to-ground connections short. Preserve the local `GNDA` return paths.
 - Join local `GNDA` to board `GND` at NT501. Maintain copper clearance around the plated H101–H104 mounting holes on all layers to keep the hardware isolated from board `GND`. [MCU design notes](mcu.md) · [Input and Supply layout notes](input_supply.md#layout-notes)
 
 ## KiCad and fabrication checks
 
-As of 2026-11-26, the saved board has the physical stackup entered, top-side `GND` and `GNDA` zones, an `In2.Cu` `GND` zone and bottom-side power zones. Add the `In1.Cu` `GND` zone to complete the intended stackup. [Current PCB](../../hardware/gan-buck-converter/gan-buck-converter.kicad_pcb)
+As of the latest 2026-11-26 checkpoint, the board has top-side `GND`, `GNDA` and local power pours, including `+3V3`, with power distribution on `B.Cu`. `In2.Cu` has a `GND` pour. Add the planned `In1.Cu` `GND` pour before reviewing the switching return. [Current PCB](../../hardware/gan-buck-converter/gan-buck-converter.kicad_pcb)
 
 After adding the L2 zone, refill the zones and inspect each inner layer on its own. Check that via and pad clearances leave a continuous path from the low-side source to the input-capacitor grounds and that ground remains continuous beneath signals. Run DRC after inspecting the fills. If 2 oz outer copper is selected for fabrication, confirm the supplier's dielectric thicknesses and update the KiCad stackup and fabrication rules for that option. Confirm finished thickness tolerance at ordering. [KiCad Physical Stackup](https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html#physical-stackup)

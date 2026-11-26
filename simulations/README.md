@@ -8,6 +8,7 @@ Computer models of the converter, used to design the control loop before the har
 | [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing, illustrative TVS pulse, C203 ripple current and input-filter stability | Lumped screening model; lead/trace parasitics and C203 ESR are ASSUMED |
 | [efficiency_estimate.py](efficiency_estimate.py) | Component loss budget: theoretical efficiency vs load, input voltage and switching frequency | Datasheet losses only; layout parasitics excluded, inductor core loss and aux-buck efficiency ASSUMED |
 | [ltspice/](ltspice/README.md) | Switching simulation of the power stage in LTspice: both GaN FETs (Infineon's model), gate drive, bootstrap and capacitor banks, open loop at full load | Results from an ngspice run of the same circuit. Layout parasitics are ASSUMED |
+| [KiPI board setup](../hardware/gan-buck-converter/gan-buck-converter.kipi-setup.yml) | Exploratory PCB power-integrity setup with a 48 V source at C203 and a 12 V converter model | Draft. The saved setup has an empty load list. Set the target loads and rerun on the intended PCB revision before using its results. |
 
 Planned next: average current mode (stage 3), and adding the controller and current limit to the LTspice simulation.
 

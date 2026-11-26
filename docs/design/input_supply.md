@@ -202,7 +202,7 @@ Numbers other sheets depend on. Update the dependent sheet's owner when one chan
 
 What the layout owner must know: loops to keep small, parts to place first, keep-outs, thermal needs.
 
-**U203 wiring issue (2026-11-26).** The saved TPS2121 symbol is rotated relative to its wires. The exported netlist connects IN1 (pin 7) and OUT (pin 1) to `GND` and connects the device ground pin (12) to `5V_EXT`. Restore the schematic connections from decisions #13 and #28 and sync the PCB before routing or powering the mux. Verify pin 7 on `5V_EXT`, pin 2 on `5V_AUX`, both OUT pins (1 and 8) on `+5V`, and pin 12 on `GND`. [TPS2121 pin functions](../datasheets/tps2121.pdf#page=4)
+**U203 connections restored (2026-11-26).** The schematic and PCB agree on pin 7 for `5V_EXT`, pin 2 for `5V_AUX`, pins 1 and 8 for `+5V`, and pin 12 for `GND`. The former U203 ERC error is cleared. The handover test remains pending. [TPS2121 pin functions](../datasheets/tps2121.pdf#page=4)
 
 - **D201 right at J201**, with short, wide connections to both terminals. Every nanohenry between them adds L·di/dt on top of the 82.4 V clamp and spends the 7.6 V margin.
 - **`V_IN_RTN` is its own copper.** It runs from J201− to D201 and Q201's drain pads only; it reaches GND only through Q201. A stray via or pour that touches GND bypasses the reverse-polarity protection.
@@ -211,6 +211,7 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - The XT30 input (`CN201` in KiCad) is on the left and the XT60 output (`U302`) is on the right. Align `48V IN` and `12V OUT` silkscreen with their connectors. Check pad 2 positive on the XT30 and pad 3 positive on the XT60, and leave room to grip and fully mate the plugs. J202 uses a keyed JST XH plug. [Connector and harness details](input-output-connectors.md)
 - Place C203 between Q201 and the power stage, not inside the power loop. The trace inductance between C203 and the power-stage ceramics keeps switching ripple out of C203 (the ripple estimate assumes about 20 nH).
 - Size `V_IN`, `V_IN_RTN` and GND copper for 5.3 A (200 W at 40 V).
+- **48 V routing checkpoint.** The latest zone refill reports an open `V_IN` connection between the aux-converter input zone and `stitch_zone_1` at the input shunt. Check the via connections and continuity of the bottom `V_IN` feed before closing this route. DRC also reports isolated copper in the right-side `48V_1` zone.
 - **R201 (shunt):** in the high-side path after the front end, before C203 and U201's tap. Place each net tie (NT201, NT202) against the **inner edge** of its shunt pad, and route `I_SH_IN_P` / `I_SH_IN_N` as a tight pair from there to the sensing amplifier, away from the switch node.
 - **U201 (LM5164):** Place C206, C207 and C208–C210 as one local bank across VIN (2) and GND (1), with the shortest two parts immediately at the pins and the other three closely beside them. All five need a short return to the same local GND copper to count as high-frequency input capacitance. Keep SW (8) short to L201; put R206, R208 and C204 at FB (5); route the Type-3 network and FB away from SW except R205's own end; tie the exposed pad to GND copper.
 - **U203 (TPS2121):** C213 and C214 as close to IN1 and OUT as possible; wide traces for IN1, IN2 and OUT. Keep the dividers short to PR1, OV1 and CP2.
