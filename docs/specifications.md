@@ -24,11 +24,11 @@ The one-page target for the design. Change a value only by updating this file in
 | Cycle-by-cycle overcurrent | ≈ 22 A | Truncate the PWM pulse, every cycle | CMPSS3 high comparator on `I_OUT_SENSE` → ePWM trip zone (cycle-by-cycle). Above the 18.9 A worst-case peak (200 W, 300 kHz); with ≈ 2.4 A of trip lag and offset, peaks stay near 24.4 A, below L301's 31 A $I_{sat}$ |
 | Output overvoltage | 13.2 V (+10 %) | Disable PWM, latch off | CMPSS1 on `V_OUT_SENSE` → ePWM trip zone (one-shot) |
 | Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC, in firmware. Proposed 38 V on / 36 V off ([design/input_supply.md](design/input_supply.md)) |
-| Input overvoltage, fast | ≈ 55 V | Target ≈ 1 µs trip, latch off; verify on hardware | CMPSS3 low comparator on `V_IN_SENSE` (pin 15), inverted to trip above its DAC threshold → separate ePWM one-shot trip. Decision #24 in [design/input_supply.md](design/input_supply.md) |
+| Input overvoltage, fast | ≈ 55 V | Target ≈ 1 µs trip, latch off; verify on hardware | CMPSS3 low comparator on `V_IN_SENSE` (pin 11), inverted to trip above its DAC threshold → separate ePWM one-shot trip. Decision #24 in [design/input_supply.md](design/input_supply.md) |
 | Overtemperature | [TBD] °C | Disable PWM | RTDs + ADC, in firmware |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
 
-Each comparator threshold is a DAC code referenced to VDDA (`+3V3`); the pins, comparators and codes are in [firmware/firmware-requirements.md](firmware/firmware-requirements.md) §5.3 and [design/mcu.md](design/mcu.md). CMPSS3's high and low comparators use separate DACs and ePWM trip responses. The schematic's current `V_IN_SENSE` pin 15 and `I_IN_SENSE` pin 9 are retained.
+Each comparator threshold is a DAC code referenced to VDDA (`+3V3`); the pins, comparators and codes are in [firmware/firmware-requirements.md](firmware/firmware-requirements.md) §5.3 and [design/mcu.md](design/mcu.md). CMPSS3's high and low comparators use separate DACs and ePWM trip responses. `V_IN_SENSE` uses pin 11, and `I_IN_SENSE` uses pin 18.
 
 ## Components
 

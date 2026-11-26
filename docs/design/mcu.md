@@ -56,7 +56,7 @@ U501 controls the 48 V-to-12 V buck converter using the TMS320F280039C, 64-pin P
 
 See [specifications](../specifications.md) for converter targets.
 
-Input-current telemetry (`I_IN_SENSE`) uses U501 physical pin 9 (ADCC C9) for input power and the firmware input-current limit.
+Input-current telemetry (`I_IN_SENSE`) uses U501 physical pin 18 (ADCC C1) for input power and the firmware input-current limit.
 
 ---
 
@@ -301,10 +301,10 @@ This table is summarized in the [routing pin assignment](../firmware/pinmux-hard
 | `MCU_PWML` | out | 51 | GPIO1 / EPWM1_B | enable; low-side PWM, paired dead time |
 | `I_OUT_SENSE` | in | 8 | A3 on **ADCA, alone**; CMPSS3 high comparator (`CMP3_HP5`) | sensing; current feedback and cycle-by-cycle overcurrent trip |
 | `V_OUT_SENSE` | in | 14 | B7 on **ADCB, alone**; CMPSS1 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip |
-| `V_IN_SENSE` | in | 15 (as wired) | C15 on ADCC; CMPSS3 low comparator (`CMP3_LP2`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
-| `I_IN_SENSE` | in | 9 (as wired) | C605 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
-| `HS_TEMP_SENSE` | in | 23 | C14 on ADCC; ADC only | sensing; high-side FET temperature |
-| `LS_TEMP_SENSE` | in | 13 | C502 on ADCC; ADC only | sensing; low-side FET temperature |
+| `V_IN_SENSE` | in | 11 | C4 on ADCC; CMPSS3 low comparator (`CMP3_LP4`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
+| `I_IN_SENSE` | in | 18 | C1 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
+| `HS_TEMP_SENSE` | in | 20 | C11 on ADCC; ADC only | sensing; high-side FET temperature |
+| `LS_TEMP_SENSE` | in | 25 | C10 on ADCC; ADC only | sensing; low-side FET temperature |
 | `MCU_EN` | out | 50 | GPIO2 | enable; request switching |
 | `WD_IN` | out | 49 | GPIO3 | enable; external watchdog check-in |
 | `STAGE_EN_FB` | in | 54 | GPIO23 | enable, hardware enable feedback |
@@ -315,6 +315,6 @@ This table is summarized in the [routing pin assignment](../firmware/pinmux-hard
 
 Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local.
 
-**Protection and ADC plan (updated 2026-11-11).** CMPSS3 is shared: its high comparator reads `I_OUT_SENSE` on pin 8 for cycle-by-cycle overcurrent, and its low comparator reads `V_IN_SENSE` on pin 15 for latched input overvoltage. Set the low comparator's DAC to about 1.43 V and invert its output so a voltage **above** the limit trips. CMPSS1 high handles output overvoltage on `V_OUT_SENSE`; CMPSS2 is unused. The high and low comparators in CMPSS3 have separate threshold DACs and filters, but their ePWM X-BAR trip routes and fault responses must remain distinct. The DAC reference is VDDA (`+3V3`); VDAC is taken by `I_OUT_SENSE` on pin 8. Route overcurrent as cycle-by-cycle and both overvoltages as one-shot (latched). Thresholds, DAC codes and setup order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves; `V_IN_SENSE`, `I_IN_SENSE` and both temperature signals share ADCC.
+**Protection and ADC plan (updated 2026-11-11).** CMPSS3 is shared: its high comparator reads `I_OUT_SENSE` on pin 8 for cycle-by-cycle overcurrent, and its low comparator reads `V_IN_SENSE` on pin 11 for latched input overvoltage. Set the low comparator's DAC to about 1.43 V and invert its output so a voltage **above** the limit trips. CMPSS1 high handles output overvoltage on `V_OUT_SENSE`; CMPSS2 is unused. The high and low comparators in CMPSS3 have separate threshold DACs and filters, but their ePWM X-BAR trip routes and fault responses must remain distinct. The DAC reference is VDDA (`+3V3`); VDAC is taken by `I_OUT_SENSE` on pin 8. Route overcurrent as cycle-by-cycle and both overvoltages as one-shot (latched). Thresholds, DAC codes and setup order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves; `V_IN_SENSE`, `I_IN_SENSE` and both temperature signals share ADCC.
 
-**Pin mapping:** keep the schematic's existing `V_IN_SENSE` pin 15 and `I_IN_SENSE` pin 9. Pin 15 supports `CMP3_LP2`; pin 18 supports `CMP4_HP2` but is no longer needed for this trip ([TI F28003x datasheet](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf), analog pin table). Confirm the CMPSS3 input mux and separate trip routes in SysConfig when firmware is implemented.
+**Sensing pin placement.** U501 uses pins 8, 11 and 14 on one edge and 18, 20 and 25 on the adjacent edge. Configure the CMPSS3 low input mux to select 4 (`CMP3_LP4`) for `V_IN_SENSE` on pin 11. Confirm the mux and separate trip routes in SysConfig when firmware is implemented. [TI F28003x datasheet, analog signals](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=39)

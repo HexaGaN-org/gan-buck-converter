@@ -12,6 +12,8 @@ One note per schematic sheet, recording why the sheet looks the way it does: dec
 | Comms and Debug | [comms_debug.md](comms_debug.md) |
 | Indicator LEDs (cross-sheet) | [indicator-leds.md](indicator-leds.md) |
 
+For the board-wide layer assignments and plane routing, see [PCB Stackup](stackup.md).
+
 ## How to use
 
 - Each sheet's owner maintains its note.

@@ -7938,7 +7938,8 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL10C220JB8NNNC")
-		(at 88.9 138.43 90)
+		(at 88.9 138.43 270)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7948,7 +7949,7 @@
 		(dnp no)
 		(uuid "20b512ad-5250-426f-bcea-47588a89cc1a")
 		(property "Reference" "C314"
-			(at 91.948 137.16 90)
+			(at 85.852 137.16 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7959,7 +7960,7 @@
 			)
 		)
 		(property "Value" "22pF"
-			(at 91.948 139.7 90)
+			(at 85.852 139.7 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

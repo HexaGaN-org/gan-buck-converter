@@ -4887,7 +4887,7 @@
 		(uuid "32ff0732-6c68-408c-b961-b9842b9df153")
 	)
 	(no_connect
-		(at 73.66 132.08)
+		(at 73.66 121.92)
 		(uuid "435d4bed-9461-4248-b721-78c33e4e7aab")
 	)
 	(no_connect
@@ -4911,7 +4911,7 @@
 		(uuid "83f0022a-7dc3-4739-8984-b5f30daebd4a")
 	)
 	(no_connect
-		(at 73.66 129.54)
+		(at 73.66 116.84)
 		(uuid "86532aa7-d4ba-45dc-85a4-049b4ad8373b")
 	)
 	(no_connect
@@ -4939,7 +4939,7 @@
 		(uuid "a0a6809a-9339-4c45-a352-1309476a8041")
 	)
 	(no_connect
-		(at 73.66 137.16)
+		(at 73.66 124.46)
 		(uuid "a43a4c3d-d762-4cca-b563-4586807c6a85")
 	)
 	(no_connect
@@ -4947,7 +4947,7 @@
 		(uuid "d7f85e3a-271b-4091-a594-8717425b7b8c")
 	)
 	(no_connect
-		(at 73.66 142.24)
+		(at 73.66 129.54)
 		(uuid "e98938dc-ad20-4fe8-8012-2080b1d08540")
 	)
 	(no_connect
@@ -4967,7 +4967,7 @@
 		(uuid "f16dd80b-c791-4713-be63-883fe918a05f")
 	)
 	(no_connect
-		(at 73.66 144.78)
+		(at 73.66 111.76)
 		(uuid "f238e5c2-0af2-4fa8-bbc2-73c77ddf4425")
 	)
 	(no_connect
@@ -5000,7 +5000,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 121.92) (xy 73.66 121.92)
+			(xy 63.5 132.08) (xy 73.66 132.08)
 		)
 		(stroke
 			(width 0)
@@ -5180,7 +5180,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 111.76) (xy 73.66 111.76)
+			(xy 63.5 144.78) (xy 73.66 144.78)
 		)
 		(stroke
 			(width 0)
@@ -5250,7 +5250,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 116.84) (xy 73.66 116.84)
+			(xy 63.5 142.24) (xy 73.66 142.24)
 		)
 		(stroke
 			(width 0)
@@ -5380,7 +5380,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 124.46) (xy 73.66 124.46)
+			(xy 63.5 137.16) (xy 73.66 137.16)
 		)
 		(stroke
 			(width 0)
@@ -6058,7 +6058,7 @@
 	)
 	(hierarchical_label "V_IN_SENSE"
 		(shape input)
-		(at 63.5 111.76 180)
+		(at 63.5 144.78 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6113,7 +6113,7 @@
 	)
 	(hierarchical_label "HS_TEMP_SENSE"
 		(shape input)
-		(at 63.5 121.92 180)
+		(at 63.5 132.08 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6135,7 +6135,7 @@
 	)
 	(hierarchical_label "LS_TEMP_SENSE"
 		(shape input)
-		(at 63.5 124.46 180)
+		(at 63.5 137.16 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6157,7 +6157,7 @@
 	)
 	(hierarchical_label "I_IN_SENSE"
 		(shape input)
-		(at 63.5 116.84 180)
+		(at 63.5 142.24 180)
 		(effects
 			(font
 				(size 1.27 1.27)

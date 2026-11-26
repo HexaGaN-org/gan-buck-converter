@@ -110,7 +110,7 @@ How to set them up. Each trip uses a comparator with its own threshold DAC. Outp
 |---|---|---|---|---|
 | Overcurrent | CMPSS3, high comparator (`CMP3_HP5`) | `I_OUT_SENSE`, pin 8 | 2.75 V → 3413 | Cycle-by-cycle: the pulse ends, and the next period starts normally |
 | Output overvoltage | CMPSS1, high comparator (`CMP1_HP4`) | `V_OUT_SENSE`, pin 14 | 2.20 V → 2731 | One-shot: off until cleared |
-| Input overvoltage | CMPSS3, low comparator (`CMP3_LP2`), output inverted | `V_IN_SENSE`, pin 15 | 1.43 V → 1773 | One-shot: off until cleared |
+| Input overvoltage | CMPSS3, low comparator (`CMP3_LP4`), output inverted | `V_IN_SENSE`, pin 11 | 1.43 V → 1773 | One-shot: off until cleared |
 
 - **DAC reference:** VDDA, which is `+3V3`. DAC code = volts ÷ 3.3 × 4096. Don't use the VDAC option: that pin carries `I_OUT_SENSE`. The current trip's DAC and the current sensor's zero both follow `+3V3`, so that error cancels; the two voltage trips inherit `+3V3`'s ±3 %, which is fine for protection.
 - **Path:** comparator → its digital filter (a few samples, to ignore switching noise) → ePWM X-BAR → digital compare → trip zone. Route CMPSS3 `CTRIPH` and `CTRIPL` to distinct ePWM X-BAR trip inputs: high goes to the cycle-by-cycle response, low to the one-shot response. Every trip forces **both** PWM outputs low. Do not use the OR-combined CMPSS3 output for these two different fault responses.

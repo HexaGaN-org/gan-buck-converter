@@ -1,8 +1,8 @@
 # F280039C Hardware Pin Assignment
 
-**Status:** Physical pin allocation for PCB routing, revised on 2026-11-21. This records the saved seven-sheet KiCad schematic for the 64-pin PM package, F280039CSPMR. A TI SysConfig `pinmux.syscfg` file and generated firmware have not yet been created or compiled.
+**Physical pin allocation for PCB routing, revised 2026-11-26.** This records the saved seven-sheet KiCad schematic for the 64-pin PM package, F280039CSPMR. The TI SysConfig `pinmux.syscfg` file and generated firmware are pending.
 
-The package pins and available functions below were checked against the [TI F28003x datasheet, Rev. C, Figure 5-4 and Tables 5-2/5-6](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf). Schematic nets were checked against a fresh KiCad XML netlist export of `hardware/gan-buck-converter/gan-buck-converter.kicad_sch` on 2026-11-21. "TI + netlist" records the physical pin, supported function, and saved schematic connection. Firmware tests for peripheral routing and trips are pending.
+The package pins and available functions below were checked against the TI F28003x datasheet. The six sensing connections were verified in a fresh KiCad XML netlist on 2026-11-26. "TI + netlist" records the physical pin, supported function and saved schematic connection. Firmware tests for peripheral routing and trips are pending. [TI F28003x datasheet](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf)
 
 | Board signal or circuit | U501 pin | MCU pad and intended function | Source check / firmware status |
 |---|---:|---|---|
@@ -17,10 +17,10 @@ The package pins and available functions below were checked against the [TI F280
 | `FAULT` LED via R508 | 53 | GPIO40 / output | TI package + netlist; GPIO setup pending |
 | `I_OUT_SENSE` | 8 | ADCA A3 / CMPSS3 high positive input 5 | TI analog table + netlist; ADC/CMPSS/ePWM trip route pending |
 | `V_OUT_SENSE` | 14 | ADCB B7 / CMPSS1 high positive input 4 | TI analog table + netlist; ADC/CMPSS/ePWM trip route pending |
-| `V_IN_SENSE` | 15 | ADCC C15 / CMPSS3 low positive input 2 | TI analog table + netlist; inverted overvoltage trip route pending |
-| `I_IN_SENSE` | 9 | ADCC C9 | TI analog table + netlist; ADC setup pending |
-| `HS_TEMP_SENSE` | 23 | ADCC C14 | TI analog table + netlist; ADC setup pending |
-| `LS_TEMP_SENSE` | 13 | ADCC C2 | TI analog table + netlist; ADC setup pending |
+| `V_IN_SENSE` | 11 | ADCC C4 / CMPSS3 low positive input 4 | TI analog table + netlist; inverted overvoltage trip route pending |
+| `I_IN_SENSE` | 18 | ADCC C1 | TI analog table + netlist; ADC setup pending |
+| `HS_TEMP_SENSE` | 20 | ADCC C11 | TI analog table + netlist; ADC setup pending |
+| `LS_TEMP_SENSE` | 25 | ADCC C10 | TI analog table + netlist; ADC setup pending |
 | `BOOT_GPIO24`, R504 and JP501 | 35 | GPIO24 / boot strap | TI package + netlist; OTP boot settings must be checked |
 | `BOOT_GPIO32`, R505 and JP502 | 40 | GPIO32 / boot strap | TI package + netlist; OTP boot settings must be checked |
 | `TCK` | 36 | TCK input | TI package + netlist; reserve for JTAG |

@@ -15,7 +15,7 @@ The schematic symbols carry `LCSC`, `Manufacturer`, `Manufacturer Part`, `Footpr
 
 **The active JLC footprints use different pad numbering.** On J201 XT30, pad 2 goes to F201 and pad 1 to `V_IN_RTN` (not board `GND`); pads 3/4 are mounting supports and are no-connect. On J301 XT60, pad 3 goes to `V_OUT` and pad 4 to `GND`; pads 1/2 are mounting supports and are no-connect. The unused `hexagan` alternative footprints use different numbering, so never mix a JLC symbol with an alternative footprint. Check the molded polarity marks on the actual connector before soldering the harness.
 
-The saved PCB currently has both connector footprints near the same right edge, with overlapping courtyards; `12V OUT` silkscreen remains near the left edge. These positions, rotations, body overhang, and the overall placement are **tentative**. Move and validate the output connector and its label before fabrication. The layout is **not fabrication ready**: KiCad reports DRC violations, routing remains incomplete, and the new connector pads still need power-copper routes. Reserve clearance for the fully inserted cable plugs, fingers, insulation and strain relief when finishing layout.
+The 2026-11-26 PCB places the input XT30 (`CN201` in KiCad) on the left and the output XT60 (`U302`) on the right. The saved `48V IN` and `12V OUT` silkscreen labels are on the opposite sides from their connectors and need relocating. Verify connector rotation, body overhang and edge clearance before fabrication. Reserve clearance for the fully inserted cable plugs, fingers, insulation and strain relief.
 
 ## Cable harnesses
 

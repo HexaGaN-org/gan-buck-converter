@@ -8658,12 +8658,6 @@
 		(uuid "98cafd4b-1b6b-4362-995a-cac79e6a3aea")
 	)
 	(junction
-		(at 106.68 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b4f0547-63fb-4fbd-8c99-9135aa0d5796")
-	)
-	(junction
 		(at 134.62 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8740,6 +8734,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cee8b8fc-f3d9-4938-b261-321406e85a2b")
+	)
+	(junction
+		(at 106.68 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cf123148-1729-47ab-ac16-293811381d93")
 	)
 	(junction
 		(at 152.4 76.2)
@@ -14420,7 +14420,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:TPS2121RUXR")
-		(at 97.79 121.92 0)
+		(at 97.79 121.92 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14428,10 +14428,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7622e288-4778-4c2c-84fe-5a8e69a563ea")
 		(property "Reference" "U203"
-			(at 97.79 107.95 0)
+			(at 97.79 135.89 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14441,7 +14440,7 @@
 			)
 		)
 		(property "Value" "TPS2121RUXR"
-			(at 97.79 110.49 0)
+			(at 97.79 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

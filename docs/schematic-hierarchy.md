@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** The physical MCU pin allocation is frozen for PCB routing in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). A TI `pinmux.syscfg` and generated firmware are still pending. Update this document, the hardware pin table, and the schematic together if a sheet interface or physical pin changes.
 
-**Current capture (2026-11-12):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below cross their sheet boundaries. The hierarchy has 219 annotated components. ERC reported zero violations under the project's configured checks on 2026-11-11, after imported-symbol pin typing was corrected; it has not been re-run since the power-stage capacitor banks were reduced on 2026-11-12, and the PCB has not yet been updated from the schematic. The physical MCU pin allocation is recorded in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is named `XRSn`.
+**Current capture (2026-11-26).** All six sheets are captured and the root sheet is wired. The latest layout checkpoint adds two local RTD return net ties and updates the U501 sensing pins. KiCad reports zero schematic-to-PCB netlist parity issues. ERC reports one U203 power-pin error and ten warnings. Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is `XRSn`. [MCU pin allocation](firmware/pinmux-hardware.md) · [U203 wiring issue](design/input_supply.md#layout-notes)
 
 ---
 

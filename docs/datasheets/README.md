@@ -77,6 +77,7 @@ Find the datasheet, specification, or mechanical drawing by KiCad reference desi
 
 - [TMS320F280039C 64-pin PM package drawing](tms320f280039c-pm64-package.pdf)
 - [Infineon IGC033S10S1 half-bridge evaluation board guide](infineon-ug122052-igc033s10s1-half-bridge-eval.pdf)
+- [Infineon PCB layout guidelines for MOSFET gate drivers](infineon-applicationnote-gatedriver-mosfet-pcb-layout-guidelines-for-mosfet-gatedriver-applicationnotes-en.pdf)
 - [EPC PCB layout rules for GaN converters](epc-pcb-layout-rules-2025.pdf)
 - [EPC WP010 on PCB layout](epc-wp010-optimizing-pcb-layout.pdf)
 - [EPC high-performance GaN layout techniques](epc-high-performance-gan-layout-techniques.pdf)
