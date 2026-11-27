@@ -4,9 +4,9 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 
 ![Block diagram](docs/block-diagram.svg)
 
-> **PCB layout in progress (2026-11-26).** The saved board has partial routing in the auxiliary supply, half-bridge and sensing sections. The XT30 input and XT60 output are on opposite sides of the board, with label placement and mechanical fit still to verify. [PCB stackup](docs/design/stackup.md) · [Connector layout](docs/design/input-output-connectors.md)
+> **PCB layout in progress (2026-11-27).** The 120 × 80 mm board has a centered 107 × 67 mm mounting pattern and front-silkscreen labels for the power, gate and sensing test points. The XT30 input and XT60 output have matching labels at their respective edges. [Mechanical specifications](docs/specifications.md#mechanical-and-other) · [Connector layout](docs/design/input-output-connectors.md)
 >
-> This checkpoint restores the intended U203 power-mux connections and advances power, sensing and probe routing. KiCad 10.0.8 reported **0 ERC errors, 10 ERC warnings, 649 DRC violations, 31 unconnected items and zero schematic-to-PCB parity issues**. Before fabrication, complete the L2 ground plane, connect the remaining nets and resolve the clearance violations. [Power stage layout](docs/design/power_stage.md#layout-notes) · [PCB stackup](docs/design/stackup.md)
+> With zones refilled, KiCad reports **one +3.3 V open, zero clearance violations under the current rules, zero schematic-to-PCB parity issues and 398 silkscreen warnings**. KiPI estimates **96.73% board efficiency** at 48 V input, 12.5 A output and 400 kHz, with the intended auxiliary loads. [KiPI results](simulations/README.md#routed-board-kipi-and-ngspice-2026-11-27) · [PCB stackup](docs/design/stackup.md)
 
 ## At a glance
 

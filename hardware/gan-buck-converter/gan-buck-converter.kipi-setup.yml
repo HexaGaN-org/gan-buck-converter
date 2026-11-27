@@ -3,7 +3,8 @@ vrms:
   output:
     ref: C203
     net: V_IN
-    pins: []
+    pins:
+    - '1'
   voltage: 48.0
   kind: source
   efficiency: 0.9
@@ -13,7 +14,8 @@ vrms:
   ground:
     ref: C203
     net: GND
-    pins: []
+    pins:
+    - '2'
   input_ground: null
   ground_sense: null
   phases: []
@@ -35,7 +37,8 @@ vrms:
   output:
     ref: R301
     net: V_OUT
-    pins: []
+    pins:
+    - '2'
   voltage: 12.0
   kind: smps
   efficiency: 0.9790000000000001
@@ -43,12 +46,17 @@ vrms:
   input:
     ref: Q301
     net: V_IN
-    pins: []
+    pins:
+    - '2'
+    - '4'
   sense: null
   ground:
     ref: Q302
     net: GND
-    pins: []
+    pins:
+    - '3'
+    - '5'
+    - '6'
   input_ground: null
   ground_sense: null
   phases: []
@@ -63,43 +71,67 @@ vrms:
   acc_pct: true
   acc_dv: false
   load_line_mohm: 0.0
-  bandwidth_khz: 48.0
+  bandwidth_khz: 10
   mesh_sense: false
   sense_points: []
-- name: U502
-  output:
-    ref: C203
-    net: GND
-    pins: []
-  voltage: 0.0
-  kind: source
-  efficiency: 0.9
-  quiescent_a: 0.0
-  input: null
-  sense: null
+loads:
+- name: 12.5 A load at U302
+  supply:
+    ref: U302
+    net: V_OUT
+    pins:
+    - '3'
+  current: 12.5
   ground:
-    ref: U501
+    ref: U302
+    net: GND
+    pins:
+    - '4'
+  tol_min: null
+  tol_max: null
+  tol_pct: true
+  tol_dv: false
+  dc_tol_min: null
+  dc_tol_max: null
+  dc_tol_pct: true
+  dc_tol_dv: false
+  ac_tol_min: null
+  ac_tol_max: null
+  ac_tol_pct: true
+  ac_tol_dv: false
+  groups: []
+  sources: false
+links:
+- name: R301 output shunt
+  side_a:
+    ref: R301
+    net: Net-(L301-Pad2)
+    pins:
+    - '1'
+  side_b:
+    ref: R301
+    net: V_OUT
+    pins:
+    - '2'
+  resistance: 0.001
+  esl_h: null
+  spice: null
+  more_sides: []
+- name: NT501 analog ground tie
+  side_a:
+    ref: NT501
+    net: GND
+    pins:
+    - '1'
+  side_b:
+    ref: NT501
     net: GNDA
-    pins: []
-  input_ground: null
-  ground_sense: null
-  phases: []
-  current_limit_a: null
-  dropout_v: 0.0
-  vin_min: null
-  vin_max: null
-  vin_pct: false
-  vin_dv: false
-  acc_min: null
-  acc_max: null
-  acc_pct: true
-  acc_dv: false
-  load_line_mohm: 0.0
-  bandwidth_khz: 50.0
-  mesh_sense: false
-  sense_points: []
-loads: []
-links: []
+    pins:
+    - '2'
+  resistance: 0.0
+  esl_h: null
+  spice: null
+  more_sides: []
 settings:
   max_edge_mm: 0.5
   min_angle_deg: 28.0
@@ -187,10 +219,132 @@ nets:
 - V_OUT
 - GND
 - GNDA
+- Net-(L301-Pad2)
 excluded_nets: []
 stackup: null
-caps: []
-probes: []
+caps:
+- name: Main input ceramics
+  capacitance_f: 2.6499999999999996e-06
+  esl_h: 7.500000000000001e-10
+  esr_ohm: 0.003
+  refs:
+  - C301
+  - C302
+  - C303
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+- name: High-frequency input ceramics
+  capacitance_f: 4.2e-08
+  esl_h: 4.0000000000000007e-10
+  esr_ohm: 0.02
+  refs:
+  - C304
+  - C305
+  - C306
+  - C307
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+- name: Output ceramics
+  capacitance_f: 5.7e-06
+  esl_h: 6.0e-10
+  esr_ohm: 0.005
+  refs:
+  - C308
+  - C309
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+- name: Output polymers
+  capacitance_f: 0.00027
+  esl_h: 3.0000000000000004e-09
+  esr_ohm: 0.01
+  refs:
+  - C316
+  - C317
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+- name: Auxiliary buck input ceramics
+  capacitance_f: 8.259999999999999e-07
+  esl_h: 5.0e-10
+  esr_ohm: 0.005
+  refs:
+  - C206
+  - C207
+  - C208
+  - C209
+  - C210
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+- name: Input damping electrolytic
+  capacitance_f: 9.999999999999999e-05
+  esl_h: 5.0e-09
+  esr_ohm: 0.32
+  refs:
+  - C203
+  rated_v: null
+  kept_at_rated_pct: 40.0
+  dielectric: ''
+  aging_pct_per_decade: 0.0
+  mfg_tolerance_pct: null
+  spice: null
+probes:
+- name: VIN at C304
+  rail:
+    ref: C304
+    net: V_IN
+    pins:
+    - '2'
+  ground:
+    ref: C304
+    net: GND
+    pins:
+    - '1'
+  target_ohm: null
+  target_hz: null
+  target_custom: false
+  target_points: []
+  step_a: null
+  slew_a_per_us: null
+  package: ''
+  die_port: 0
+- name: VOUT at U302
+  rail:
+    ref: U302
+    net: V_OUT
+    pins:
+    - '3'
+  ground:
+    ref: U302
+    net: GND
+    pins:
+    - '4'
+  target_ohm: null
+  target_hz: null
+  target_custom: false
+  target_points: []
+  step_a: null
+  slew_a_per_us: null
+  package: ''
+  die_port: 0
 packages: []
 ac:
   f_start_hz: 1000.0
@@ -221,8 +375,8 @@ aggressors:
   topology: buck
   vin_v: 48.0
   fsw_hz: 400000.0
-  rise_s: 2.0e-09
-  fall_s: 2.0e-09
+  rise_s: 2.6e-09
+  fall_s: 5.4e-09
   duty: null
   load_a: 12.5
   phases:
@@ -233,11 +387,16 @@ aggressors:
     high_side:
       ref: Q301
       net: V_IN
-      pins: []
+      pins:
+      - '2'
+      - '4'
     low_side:
       ref: Q302
       net: GND
-      pins: []
+      pins:
+      - '3'
+      - '5'
+      - '6'
     input_caps:
     - C301
     - C302
@@ -251,14 +410,16 @@ aggressors:
     - C309
     - C316
     - C317
-    coss_f: null
-    qrr_c: 0.0
-    rds_on_hs_ohm: null
-    rds_on_ls_ohm: null
+    coss_f: 5.4e-10
+    qrr_c: 0
+    rds_on_hs_ohm: 0.0048
+    rds_on_ls_ohm: 0.0048
     package_l_h: 0.0
     inductor_axis: vertical
     inductor_shielded: true
-  ripple_probes: []
+  ripple_probes:
+  - VIN at C304
+  - VOUT at U302
   min_ring_zeta: 0.05
   soft_edge_zeta: 0.5
 victims: []
@@ -267,7 +428,7 @@ noise:
   f_max_hz: null
   max_harmonics: 4000
   periods_shown: 2
-  dead_time_ns: 20.0
+  dead_time_ns: 18
   segment_mm: 0.5
   window_mm: 3.0
   board_model: true

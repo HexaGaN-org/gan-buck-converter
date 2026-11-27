@@ -12,10 +12,10 @@ The one-page target for the design. Change a value only by updating this file in
 | Output power | | | 150 | W | Design target; ratings sized for 200 W headroom |
 | Input current | | 3.3 | 3.95 | A | At full load, ~95 % efficiency: typ at 48 V, max at 40 V. 5.3 A at 200 W and 40 V |
 | Switching frequency | 300 | 400 | 500 | kHz | 400 kHz nominal. Hardware is sized to run anywhere in 300–500 kHz so firmware can sweep it. Decision #4 in [design/power_stage.md](design/power_stage.md) |
-| Output voltage ripple | | | 50 | mV p-p | At 300 kHz worst case; ≈ 25 mV expected at 300 kHz and ≈ 19 mV at 400 kHz (power_stage decision #24) |
+| Output voltage ripple | | | 50 | mV p-p | KiPI estimates 30.0 mV at 48 V, 12.5 A, 400 kHz and 35.6 mV at 51 V, 12.5 A, 300 kHz, both at 20 MHz bandwidth at the output pads. [Ripple sweep](../simulations/README.md#commutation-loop-and-waveforms) |
 | Load transient, 10 % → 90 % step | | | [TBD] | mV deviation | Settling time: [TBD] µs |
-| Efficiency at full load | [TBD] | | | % | Estimated 97.2 % for the whole board (4.35 W loss) and 97.9 % for the power stage alone, at 150 W, 48 V, 400 kHz, before layout losses ([efficiency_estimate.py](../simulations/efficiency_estimate.py)) |
-| Efficiency at 20 % load | [TBD] | | | % | Estimated 93.9 % for the whole board at 30 W, 48 V, 400 kHz; the fixed housekeeping draw (≈ 0.94 W) dominates at light load |
+| Efficiency at full load | [TBD] | | | % | Modeled 96.73 % from input to output solder pads (5.06 W loss) at 48 V, 12.5 A, 400 kHz. [Loss budget](../simulations/README.md#board-efficiency) |
+| Efficiency at 20 % load | [TBD] | | | % | Modeled 93.72 % at 48 V, 2.5 A, 400 kHz with the intended housekeeping load. [Loss budget](../simulations/README.md#board-efficiency) |
 
 ## Protections
 
@@ -47,8 +47,8 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 
 | Parameter | Value |
 |---|---|
-| Board size | [TBD] |
-| Mounting | 4 × plated 3.2 mm M3 holes (H101–H104 on the top sheet), pads on no net. Positions and copper clearance: [TBD] with the board outline. Board `GND` is separated from the 48 V supply negative by Q201 ([design/input_supply.md](design/input_supply.md) decision #6) |
+| Board size | 120 × 80 mm in the current PCB layout |
+| Mounting | Four plated Ø3.2 mm holes for M3 hardware (H101–H104), with electrically floating annular rings. The centers form a 107 × 67 mm rectangle, inset 6.50 mm from both adjacent edges. Washer and standoff clearance to nearby copper remains open. [Mounting isolation](design/input_supply.md#open-questions) |
 | Layer count | 4, JLCPCB JLC04161H-1080 nominal 1.6 mm ordering option: 0.035 mm outer copper (about 1 oz), 0.0152 mm inner copper (about 0.5 oz), 0.0764 mm L1–L2 and L3–L4 prepreg, 1.265 mm core. JLC's calculated copper-plus-dielectric stack is 1.5182 mm; KiCad's model is 1.5382 mm including 0.01 mm solder mask on each face. Confirm the production option and mechanical thickness tolerance at order time; [design/power_stage.md](design/power_stage.md) decision #19 |
 | High-voltage net clearance | Target 0.65 mm for the input, switch, high-side drive, bootstrap and input-shunt Kelvin nets. The target accounts for the documented 82.4 V rated-pulse reference. The current project has a 0.20 mm default netclass and some individual zone clearances. Restore the intended rules and verify actual copper spacing, package exceptions and solder-mask openings before fabrication. [Routing-class targets](guides/jlcpcb-assembly.md#routing-classes-and-colors) |
 | Input / output connectors | J201: Amass XT30PW-M30.G.Y male (C431092, 15 A) at the 48 V input, JLC footprint pad 2 positive and pad 1 return; J301: Amass XT60PW-F female (C428722, 30 A) at the 12 V output, JLC footprint pad 3 `V_OUT` and pad 4 `GND`. Both are right angle, keyed, through-hole, JLCPCB Economic-compatible wave-solder parts. Placement and routing are tentative; see [input-output-connectors.md](design/input-output-connectors.md). |

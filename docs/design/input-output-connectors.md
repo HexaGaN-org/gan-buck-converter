@@ -1,6 +1,6 @@
 # Input and output plug connectors
 
-Decision recorded 2026-11-13. J201 is the 48 V input and J301 is the 12 V output. They are different keyed XT sizes; their final board positions are undecided. Neither is a crimp system: the mating cable plugs have solder cups, so there is no crimp contact or crimp tool to buy.
+Decision recorded 2026-11-13. J201 is the 48 V input and J301 is the 12 V output. They use different keyed XT sizes, both with solder-cup mating plugs.
 
 ## Board parts and JLCPCB data
 
@@ -15,7 +15,7 @@ The schematic symbols carry `LCSC`, `Manufacturer`, `Manufacturer Part`, `Footpr
 
 **The active JLC footprints use different pad numbering.** On J201 XT30, pad 2 goes to F201 and pad 1 to `V_IN_RTN` (not board `GND`); pads 3/4 are mounting supports and are no-connect. On J301 XT60, pad 3 goes to `V_OUT` and pad 4 to `GND`; pads 1/2 are mounting supports and are no-connect. The unused `hexagan` alternative footprints use different numbering, so never mix a JLC symbol with an alternative footprint. Check the molded polarity marks on the actual connector before soldering the harness.
 
-The 2026-11-26 PCB places the input XT30 (`CN201` in KiCad) on the left and the output XT60 (`U302`) on the right. The saved `48V IN` and `12V OUT` silkscreen labels are on the opposite sides from their connectors and need relocating. Verify connector rotation, body overhang and edge clearance before fabrication. Reserve clearance for the fully inserted cable plugs, fingers, insulation and strain relief.
+The saved PCB places the input XT30 (`CN201` in KiCad) on the left with `48V IN` beside it and the output XT60 (`U302`) on the right with `12V OUT` beside it. Verify connector rotation, body overhang and edge clearance before fabrication. Reserve clearance for the fully inserted cable plugs, fingers, insulation and strain relief.
 
 ## Cable harnesses
 

@@ -169,6 +169,16 @@ What the layout owner must know: loops to keep small, parts to place first, keep
 - **Divider nodes are high impedance** (125 kΩ and 19.5 kΩ). Keep R401 / R405 with U401 and R402 / R406 with U402, and the nodes short. Take R401's top from the output capacitors or J301, not from the shunt's copper, so the reading is the voltage the load sees.
 - R402 has up to 80 V across it: keep the usual spacing from low-voltage copper around its `V_IN` end.
 
+| Probe pad | Front silkscreen | Signal |
+|---|---|---|
+| TP401 | `GNDA` | Analog ground |
+| TP402 | `VO_S` | Output voltage sense |
+| TP403 | `VI_S` | Input voltage sense |
+| TP404 | `IO_S` | Output current sense |
+| TP405 | `T_HS` | High-side temperature sense |
+| TP406 | `IIN_S` | Input current sense |
+| TP407 | `T_LS` | Low-side temperature sense |
+
 ---
 
 ## Verification

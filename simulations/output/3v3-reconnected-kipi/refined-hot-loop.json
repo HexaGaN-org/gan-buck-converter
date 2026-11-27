@@ -1,0 +1,42 @@
+{
+  "report": {
+    "phase": 1,
+    "loop_l_h": 5.355523778349545e-10,
+    "package_l_h": 0.0,
+    "cap_loops_h": {
+      "C301": 3.6550185979040662e-09,
+      "C302": 3.725377237308491e-09,
+      "C303": 3.423384896266682e-09,
+      "C304": 3.0447866474232914e-09,
+      "C305": 3.025719916537603e-09,
+      "C306": 2.9520326236447735e-09,
+      "C307": 2.9712138953435176e-09
+    },
+    "c_sw_f": 5.411905698347564e-10,
+    "coss_f": 5.4e-10,
+    "coss_default": false,
+    "c_copper_f": 1.1905698347564717e-12,
+    "r_loop_ohm": 0.007107627202623635,
+    "f_ring_hz": 295626965.44462657,
+    "zeta": 0.05,
+    "image_plane": "In2.Cu",
+    "notes": [
+      "C301: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C302: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C304: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C306: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C308: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C309: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C316: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C317: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "L301: shielded, winding axis vertical: its stray field is that of 3.43 turns round 5.2 mm at 3 mm above the board (a tenth of its turns: the shield keeps the rest in)"
+    ],
+    "zeta_loop": 0.0035724715546643425,
+    "qrr_c": 0.0,
+    "qrr_default": false,
+    "traced": true
+  },
+  "warnings": [],
+  "max_edge_mm": 0.7,
+  "mesh_points": 323942
+}
