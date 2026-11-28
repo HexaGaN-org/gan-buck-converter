@@ -12,10 +12,12 @@ One note per schematic sheet, recording why the sheet looks the way it does: dec
 | Comms and Debug | [comms_debug.md](comms_debug.md) |
 | Indicator LEDs (cross-sheet) | [indicator-leds.md](indicator-leds.md) |
 
+For the board-wide layer assignments and plane routing, see [PCB Stackup](stackup.md).
+
 ## How to use
 
 - Each sheet's owner maintains its note.
 - Update the note in the **same pull request** as the schematic change it explains.
-- Datasheets and application notes the notes rely on live in [../datasheets/](../datasheets/); link those copies. Link other parts to the manufacturer's page.
+- Use the [component datasheet index](../datasheets/README.md) to find local copies by schematic reference. Link to the manufacturer's page for parts without a local copy.
 - Never delete a decision: mark it *Superseded* and add the new one.
 - For a new board or sheet, start from [_template.md](_template.md).

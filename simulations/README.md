@@ -8,8 +8,57 @@ Computer models of the converter, used to design the control loop before the har
 | [input_hotplug_sim.py](input_hotplug_sim.py) | The 48 V input: hot-plug ringing, illustrative TVS pulse, C203 ripple current and input-filter stability | Lumped screening model; lead/trace parasitics and C203 ESR are ASSUMED |
 | [efficiency_estimate.py](efficiency_estimate.py) | Component loss budget: theoretical efficiency vs load, input voltage and switching frequency | Datasheet losses only; layout parasitics excluded, inductor core loss and aux-buck efficiency ASSUMED |
 | [ltspice/](ltspice/README.md) | Switching simulation of the power stage in LTspice: both GaN FETs (Infineon's model), gate drive, bootstrap and capacitor banks, open loop at full load | Results from an ngspice run of the same circuit. Layout parasitics are ASSUMED |
+| [KiPI board setup](../hardware/gan-buck-converter/gan-buck-converter.kipi-setup.yml) | PCB power-integrity setup with a 48 V source at C203, a 12 V converter model and a 12.5 A load at U302 | Project setup for the power stage. The routed-board efficiency run applies its source at CN201 to include the input path. |
 
 Planned next: average current mode (stage 3), and adding the controller and current limit to the LTspice simulation.
+
+---
+
+## Routed board KiPI and ngspice (2026-11-27)
+
+KiPI 1.0.2 used the Q201-equipped PCB at commit `34a5a8d`, with 1,155 track segments, 497 vias and 32 zones. The current layout connects CN201 pin 1 directly to `GND`. Keep the archived efficiency setup with its source PCB and use the current return topology when modeling the new board. [Simulated PCB revision](https://github.com/HexaGaN-org/gan-buck-converter/tree/34a5a8d9eed4287f3b78bd3c5dbb7f172f4f74ce/hardware/gan-buck-converter) · [Current input circuit](../docs/design/input_supply.md)
+
+The AC field solve used PARDISO at 43 frequencies through 1.224 GHz. The [nominal noise setup](output/3v3-reconnected-kipi/nominal-noise.kipi-setup.yml) drives the buck input at C203, and the [board efficiency setup](output/3v3-reconnected-kipi/48V-12.5A-400kHz.kipi-setup.yml) drives the XT30 input at CN201. The [KiPI summary](output/3v3-reconnected-kipi/kipi-summary.json) records the hash of the KiCad-saved file before Git normalizes its line endings.
+
+### PCB connectivity
+
+KiCad 10 reported one missing connection, zero clearance violations under the saved project rules, zero schematic parity issues and 398 silkscreen warnings after zone refill. The open is between front `stitch_zone_0` at (106.40, 83.80) mm and back `3v3` at (105.90, 79.25) mm. KiPI found 7 of 60 `+3V3` pads unreachable from U202 pins 2 and 4. The affected pads are C403.2, C408.2, C409.2, R410.2, U402.5, U404.5 and U405.7. The efficiency model includes the intended auxiliary rail loads. [Pad connectivity](output/3v3-reconnected-kipi/3v3-connectivity.json)
+
+### Commutation loop and waveforms
+
+At 48 V, 12.5 A and 400 kHz, KiPI estimates **0.535 nH** effective commutation-loop inductance including capacitor ESL, **7.11 mΩ** effective loop resistance, and **296 MHz** ringing. A finer mesh gives 0.536 nH and approximately the same frequency. KiPI uses 540 pF of device output capacitance, a lumped damping floor and zero added package inductance for this calculation. Varying inductance or device capacitance gave 243–342 MHz. [Hot-loop paths and branch currents](output/3v3-reconnected-kipi/kipi-hot-loops.png) · [Finer mesh](output/3v3-reconnected-kipi/refined-hot-loop.json) · [Sensitivity sweep](output/3v3-reconnected-kipi/model-sensitivity.json)
+
+| Nominal waveform | Predicted value |
+|---|---:|
+| KiPI switch-node range | −1.50 to 59.31 V |
+| L301 current ripple | 3.33 A p-p |
+| C304 input ripple at 20 MHz bandwidth | 0.86 V p-p |
+| U302 output ripple at 20 MHz bandwidth | 30.0 mV p-p |
+| U302 output ripple across the modeled bandwidth | 59.1 mV p-p |
+
+The nine KiPI ripple cases peak at 35.6 mV p-p at U302 with a 20 MHz filter, at 51 V, 12.5 A and 300 kHz. The quasi-static field model adds uncertainty at the upper end of the frequency range. KiPI reports truncated paths in some capacitor overlays. It uses straight-line paths in the output overlay where R301 divides the nets, while the DC and AC solves include the shunt. [Waveforms](output/3v3-reconnected-kipi/kipi-waveforms.png) · [Ripple sweep](output/3v3-reconnected-kipi/ripple-sweep.json)
+
+### Gate and driver stress
+
+The ngspice edge replay uses Infineon's IGC033S10S1 model, a behavioral LM5113-Q1, lumped gate and return parasitics, and the nominal L301 current ramp. R303 and C310 are DNP. The nominal switch node rings at 298 MHz and spans −4.25 to 52.23 V. The nominal R305 value is 2 Ω. Q302's off-state gate reaches **1.29 V**, compared with Infineon's 1.2 V minimum threshold at its specified test current. Shared-source inductance scenarios give 0.66–1.75 V. The 4.7 Ω R305 case slows high-side turn-on and gives 1.10 V. [Edge waveforms](output/3v3-reconnected-kipi/ngspice-edges.png) · [Infineon datasheet](https://www.infineon.com/assets/row/public/documents/24/49/infineon-igc033s10s1-datasheet-en.pdf)
+
+U301 HS-to-VSS reaches −3.41 V in the nominal replay. The 18 ns commanded dead-time case goes below TI's −5 V rating. The 60 ps timestep case reaches approximately −10 V for a subnanosecond excursion, with about 0.10 ns continuously below −5 V. The peak varies with timestep and the behavioral driver lacks negative-HS protection behavior. The efficiency model uses 18 ns of effective dead time. [Driver voltage plot](output/3v3-reconnected-kipi/driver-HS-dead-time.png) · [Edge sweep](output/3v3-reconnected-kipi/ngspice-edge-sweep.json) · [TI datasheet](https://www.ti.com/lit/ds/symlink/lm5113-q1.pdf)
+
+### Board efficiency
+
+From CN201 to U302 solder pads, the 48 V, 12.5 A, 400 kHz case draws 154.68 W and delivers 149.62 W. Loss is **5.06 W**, for **96.73% efficiency**. With 1 mΩ assumed per mating contact, efficiency is 96.51%. Extracted copper and dielectric losses total approximately 0.46 W, including the switch-node copper. The power balance includes device and magnetic losses, series components and the intended housekeeping loads. [Loss breakdown and efficiency curves](output/3v3-reconnected-kipi/board-efficiency.png) · [Numerical loss audit](output/3v3-reconnected-kipi/board-efficiency.json)
+
+| Input (V) | Load (A) | PWM (kHz) | Total loss (W) | Efficiency |
+|---:|---:|---:|---:|---:|
+| 48 | 12.50 | 400 | 5.06 | 96.73% |
+| 48 | 6.25 | 400 | 2.85 | 96.34% |
+| 48 | 2.50 | 400 | 2.01 | 93.72% |
+| 40 | 12.50 | 400 | 4.92 | 96.82% |
+| 51 | 12.50 | 400 | 5.12 | 96.69% |
+| 48 | 12.50 | 300 | 4.74 | 96.93% |
+| 48 | 12.50 | 500 | 5.44 | 96.49% |
+
+Full-load loss scenarios span 96.26–96.91% across the modeled copper and FET temperatures, inductor core loss, auxiliary efficiency and dead time. The nominal case uses 4.8 mΩ hot GaN on-resistance, 0.30 W assumed core loss and 80% auxiliary conversion efficiency. Harness loss, inductor AC winding loss and thermal feedback remain unquantified. [Loss sensitivity](output/3v3-reconnected-kipi/model-sensitivity.json)
 
 ---
 
@@ -124,7 +173,7 @@ Plugging the board into a live supply connects the bench leads' inductance to th
 
 All three nominal no-TVS results sit below the fitted SMBJ51CA's **56.7 V minimum breakdown at 1 mA**, the 0.5 µH case by only 0.1 V, so the illustrative same-node TVS branch, anchored to the [Hongjiacheng datasheet endpoints](https://xonstorage.z8.web.core.windows.net/pdf/hongjiacheng_smbj170a__xonlink.pdf), does not conduct with nominal values. Sweeping ceramic capacitance (8.34–15.14 µF using separate X7S and X7R illustrative tolerance/temperature factors), C203 (80–120 µF), an **assumed** ESR range (0.16–0.64 Ω), and leads (0.5–2 µH) gives up to 67.1 V without the TVS, or about 2.86 A peak and 1.21 mJ in the low-breakdown TVS model. These are sensitivity results, **not** manufacturer-guaranteed I–V, pulse-energy or thermal ratings. The manufacturer's 600 W rating applies to a 10/1000 µs pulse with temperature derating.
 
-D201 is upstream of the low-side Q201; C203 and the ceramics are downstream. The model collapses them into one node, omits Q201's initial body-diode behavior and layout parasitics, and drives the leads with an ideal 51 V step. Its nominal inrush reaches about 229 A; a real bench supply and cables will differ. Neither the modeled TVS pulse nor the fuse's 10.3 A²s melting I²t qualifies the hardware. Do not assume live hot-plug is safe until the first board is measured with the intended supply and leads.
+This hot-plug model uses a lumped node and assumes 50 mΩ around the leads and the earlier input path with Q201. It drives the leads with an ideal 51 V step and predicts nominal inrush of up to 229 A. Real lead inductance, supply current limit and the current fused-node and C203 voltages need measurement before routine live connection. [Input verification](../docs/design/input_supply.md#verification)
 
 ![Input filter impedance](output/input_02_filter_impedance.png)
 
@@ -138,7 +187,7 @@ Verification test 3 in `input_supply.md` measures the actual hot-plug with PWM d
 
 ## Efficiency (`efficiency_estimate.py`)
 
-A loss budget built only from the chosen parts' datasheets, so it is the efficiency an ideal layout would allow. Trace and plane resistance, connector contact resistance, ringing, snubber loss and common-source inductance all need the board and are left out; the built board will land below these figures. FET conduction uses the hot maximum $R_{DS(on)}$ (4.8 mΩ), so the power-stage numbers are conservative in that respect.
+This layout-independent loss budget uses datasheet values and assumptions for inductor core loss and the auxiliary regulator. The input model includes the earlier Q201 path. The GaN conduction estimate uses the hot maximum $R_{DS(on)}$ of 4.8 mΩ. [Routed-board efficiency](#board-efficiency)
 
 ![Efficiency](output/eff_01_efficiency.png)
 

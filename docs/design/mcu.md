@@ -56,7 +56,7 @@ U501 controls the 48 V-to-12 V buck converter using the TMS320F280039C, 64-pin P
 
 See [specifications](../specifications.md) for converter targets.
 
-Input-current telemetry (`I_IN_SENSE`) uses U501 physical pin 9 (ADCC C9) for input power and the firmware input-current limit.
+Input-current telemetry (`I_IN_SENSE`) uses U501 physical pin 18 (ADCC C1) for input power and the firmware input-current limit.
 
 ---
 
@@ -68,8 +68,8 @@ Pins with internal pullup and pulldown:
 Connections for Unused Pins
 ![TMS320F280039C datasheet Table 5-10, connections for unused pins](../datasheets/tms320f280039c-unused-pins.png)
 
-- **Unused pins:** The current schematic marks physical pins 6, 7, 10-12, 18-20, 24, 25, 29-34, 47, 54-57 and 61-64 no-connect (25 pins total). Pins 8, 13, 14 and 15 are active sense inputs. No-connect markers do not enable internal pull-ups.
-- **Firmware:** Configure unused GPIO5-13, GPIO16, GPIO17, GPIO22, GPIO23, GPIO33 and GPIO41 as GPIO inputs with internal pull-ups enabled. Keep unused analog/DAC functions disabled.
+- **Unused pins:** The current schematic marks physical pins 6, 7, 10-12, 18-20, 24, 25, 29-34, 46-48, 56-57 and 61-64 no-connect (25 pins total). Pins 8, 13, 14 and 15 are active sense inputs. No-connect markers do not enable internal pull-ups.
+- **Firmware:** Configure unused GPIO4-13, GPIO16, GPIO17, GPIO22, GPIO33 and GPIO39 as GPIO inputs with internal pull-ups enabled. Keep unused analog/DAC functions disabled.
 
 ---
 
@@ -202,20 +202,20 @@ Both pins default high for the planned flash boot, assuming OTP boot settings ar
 - **Population/configuration:** Populate the crystal, both load capacitors and the X2 series resistor. Configure firmware for a **16 MHz** external crystal and recalculate the PLL settings for the planned 120 MHz CPU clock. Keep connections short.
 - **Chosen load capacitors:** `C503 = C504 = 18 pF`, **Samsung CL10C180JB8NNNC**, **[JLCPCB C1647](https://jlcpcb.com/partdetail/1999-CL10C180JB8NNNC/C1647)** (Basic), C0G, +/-5%, 50 V, 0603. Initial calculation: `CL = C503*C504/(C503+C504) + Cstray = 9 pF + 3 pF = 12 pF`. The 3 pF stray term is an estimate; adjust the capacitor values using the actual layout/frequency result.
 - **Chosen R503:** **0 Ohm**, **0603WAJ0000T5E / C15402**, as the initial selection. The crystal's 1 mW maximum drive rating meets TI's drive-rating screening. Board startup and frequency still require verification; any later damping resistance must preserve startup margin.
-- **Package/connections:** Two-terminal HC-49SMB SMD crystal, 3.2 mm maximum height. `X501.1 -> U501.42/X1` and C504; `X501.2 -> R503.1` and C503; `R503.2 -> U501.41/X2`. C503/C504 return to GND. Neither crystal terminal connects directly to GND.
+- **Package and routing:** Two-terminal HC-49SMB SMD crystal, 3.2 mm maximum height. X501 pad 2 is above pad 1 in the current top view. Place C503 close to pad 2 and C504 close to pad 1. Keep X501, R503 and both load capacitors beside U501.41/X2 and U501.42/X1. Keep Cvddio503 and Cvdd502 close to U501.43/VDDIO and U501.44/VDD. Place JTAG pull-ups R501, R506 and R507 toward H701 with short branches off their signal routes. Place R504 and R505 with their boot jumpers outside the crystal routing area.
 
 Sources: [Monec ESD16.0000F12M25F specifications, p. 2, and package drawing, p. 4](../datasheets/monec-esd16-crystal.pdf#page=2); [TI frequency limits, p. 88](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=88); [TI crystal selection/testing and ESR table, pp. 94-95](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=94).
 
 ##### GPIO18 / X2 - physical pin 41
 
 - **Function:** Crystal oscillator output; reserve GPIO18 for the external crystal.
-- **Intended connection:** `U501.41/X2 -> R503.2`; `R503.1 -> X501.2` and `C503.2`; `C503.1 -> GND`. The resistor is in series with the crystal branch, and C503 is on the crystal side of it.
+- **Connection:** `U501.41/X2 -> R503.2`. Connect `R503.1` to `X501.2` and `C503.2`. Connect `C503.1` to GND.
 - **Chosen parts for this pin:** `R503`, **0 Ohm**, **0603WAJ0000T5E**, **LCSC C15402**; `C503`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal X501 as above.
 
 ##### GPIO19 / X1 - physical pin 42
 
 - **Function:** Crystal oscillator input; reserve GPIO19 for the external crystal.
-- **Connection:** `U501.42/X1 -> X501.1` and `C504.2`; `C504.1 -> GND`.
+- **Connection:** `U501.42/X1 -> X501.1` and `C504.2`. Connect `C504.1` to GND.
 - **Chosen parts for this pin:** `C504`, **18 pF**, **Samsung CL10C180JB8NNNC**, **JLCPCB/LCSC C1647**; shared crystal X501 as above.
 
 #### ADC inputs (`Ax`, `Bx`, `Cx`)
@@ -261,10 +261,10 @@ The former duplicate pull-downs were removed from this sheet on 2026-11-11. Enab
 - **Connection:** `U501.49 -> WD_IN` -> enable sheet U601 (TPS3813K33) pin 1. The watchdog timing is documented in [enable.md](enable.md); firmware must implement the kick schedule.
 - **Chosen parts for this pin:** No local support part selected for this pin; the watchdog is owned by the enable sheet.
 
-##### GPIO4 - physical pin 48 - `STAGE_EN_FB`
+##### GPIO23 - physical pin 54 - `STAGE_EN_FB`
 
 - **Function:** GPIO input reading the hardware-enable state.
-- **Connection:** Enable sheet U602 pin 3 (`STAGE_EN`) through R605 to `STAGE_EN_FB -> U501.48`.
+- **Connection:** Enable sheet U602 pin 3 (`STAGE_EN`) through R605 to `STAGE_EN_FB -> U501.54`.
 - **Chosen parts for this pin:** No local support part selected for this pin.
 
 ##### GPIO28 - physical pin 2 - `SCI_RX`
@@ -279,10 +279,10 @@ The former duplicate pull-downs were removed from this sheet on 2026-11-11. Enab
 - **Connection:** `U501.1 -> SCI_TX` -> comms_debug SCI_TX input -> bridge RX. CP2102N-A02-GQFN24R U701 pin 20 is RXD.
 - **Chosen parts for this pin:** No local support part selected for this pin; UART bridge is on comms_debug.
 
-##### GPIO39 - physical pin 46 - `HEARTBEAT`
+##### GPIO41 - physical pin 55 - `HEARTBEAT`
 
 - **Function:** GPIO output driving the local green heartbeat/status LED.
-- **Connection:** `U501.46 -> R509`; `R509 -> LED502` anode; LED502 cathode `-> GND`. R509 is the series current-limiting resistor.
+- **Connection:** `U501.55 -> HEARTBEAT -> R509 -> LED502` anode. Connect LED502 cathode to GND. R509 limits the LED current.
 - **Chosen parts for this pin:** `R509`, **330 Ohm**, **0603WAF3300T5E**, **LCSC C23138**; `LED502`, green **KT-0805G**, **LCSC C2297** (≈ 1 mA; [indicator-leds.md](indicator-leds.md)). Replaces the 0603 green (C12624, an Extended part) and its 1 kOhm resistor.
 
 ##### GPIO40 - physical pin 53 - `FAULT`
@@ -301,20 +301,20 @@ This table is summarized in the [routing pin assignment](../firmware/pinmux-hard
 | `MCU_PWML` | out | 51 | GPIO1 / EPWM1_B | enable; low-side PWM, paired dead time |
 | `I_OUT_SENSE` | in | 8 | A3 on **ADCA, alone**; CMPSS3 high comparator (`CMP3_HP5`) | sensing; current feedback and cycle-by-cycle overcurrent trip |
 | `V_OUT_SENSE` | in | 14 | B7 on **ADCB, alone**; CMPSS1 (`CMP1_HP4`) | sensing; output feedback and latched overvoltage trip |
-| `V_IN_SENSE` | in | 15 (as wired) | C15 on ADCC; CMPSS3 low comparator (`CMP3_LP2`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
-| `I_IN_SENSE` | in | 9 (as wired) | C605 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
-| `HS_TEMP_SENSE` | in | 23 | C14 on ADCC; ADC only | sensing; high-side FET temperature |
-| `LS_TEMP_SENSE` | in | 13 | C502 on ADCC; ADC only | sensing; low-side FET temperature |
+| `V_IN_SENSE` | in | 11 | C4 on ADCC; CMPSS3 low comparator (`CMP3_LP4`) | sensing; feedforward, UVLO and the fast input-overvoltage trip (input_supply #24) |
+| `I_IN_SENSE` | in | 18 | C1 on ADCC; ADC only | sensing; input current (telemetry, input power, firmware current limit) |
+| `HS_TEMP_SENSE` | in | 20 | C11 on ADCC; ADC only | sensing; high-side FET temperature |
+| `LS_TEMP_SENSE` | in | 25 | C10 on ADCC; ADC only | sensing; low-side FET temperature |
 | `MCU_EN` | out | 50 | GPIO2 | enable; request switching |
 | `WD_IN` | out | 49 | GPIO3 | enable; external watchdog check-in |
-| `STAGE_EN_FB` | in | 48 | GPIO4 | enable; hardware enable feedback |
+| `STAGE_EN_FB` | in | 54 | GPIO23 | enable, hardware enable feedback |
 | `SCI_TX` | out | 1 | GPIO29 / SCIA_TX | comms_debug; MCU TX to bridge RX |
 | `SCI_RX` | in | 2 | GPIO28 / SCIA_RX | comms_debug; MCU RX from bridge TX |
-| HEARTBEAT LED | out | 46 | GPIO39 | LED502 via R509 (green) |
+| `HEARTBEAT` | out | 55 | GPIO41 | LED502 via R509 (green) |
 | FAULT LED | out | 53 | GPIO40 | LED501 via R508 (red) |
 
 Reserve the fixed debug/boot pins above. Use hierarchical labels for signals between sheets; LEDs stay local.
 
-**Protection and ADC plan (updated 2026-11-11).** CMPSS3 is shared: its high comparator reads `I_OUT_SENSE` on pin 8 for cycle-by-cycle overcurrent, and its low comparator reads `V_IN_SENSE` on pin 15 for latched input overvoltage. Set the low comparator's DAC to about 1.43 V and invert its output so a voltage **above** the limit trips. CMPSS1 high handles output overvoltage on `V_OUT_SENSE`; CMPSS2 is unused. The high and low comparators in CMPSS3 have separate threshold DACs and filters, but their ePWM X-BAR trip routes and fault responses must remain distinct. The DAC reference is VDDA (`+3V3`); VDAC is taken by `I_OUT_SENSE` on pin 8. Route overcurrent as cycle-by-cycle and both overvoltages as one-shot (latched). Thresholds, DAC codes and setup order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves; `V_IN_SENSE`, `I_IN_SENSE` and both temperature signals share ADCC.
+**Protection and ADC plan (updated 2026-11-11).** CMPSS3 is shared: its high comparator reads `I_OUT_SENSE` on pin 8 for cycle-by-cycle overcurrent, and its low comparator reads `V_IN_SENSE` on pin 11 for latched input overvoltage. Set the low comparator's DAC to about 1.43 V and invert its output so a voltage **above** the limit trips. CMPSS1 high handles output overvoltage on `V_OUT_SENSE`; CMPSS2 is unused. The high and low comparators in CMPSS3 have separate threshold DACs and filters, but their ePWM X-BAR trip routes and fault responses must remain distinct. The DAC reference is VDDA (`+3V3`); VDAC is taken by `I_OUT_SENSE` on pin 8. Route overcurrent as cycle-by-cycle and both overvoltages as one-shot (latched). Thresholds, DAC codes and setup order are in [firmware-requirements.md](../firmware/firmware-requirements.md) §5.3. `I_OUT_SENSE` and `V_OUT_SENSE` each have an ADC to themselves; `V_IN_SENSE`, `I_IN_SENSE` and both temperature signals share ADCC.
 
-**Pin mapping:** keep the schematic's existing `V_IN_SENSE` pin 15 and `I_IN_SENSE` pin 9. Pin 15 supports `CMP3_LP2`; pin 18 supports `CMP4_HP2` but is no longer needed for this trip ([TI F28003x datasheet](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf), analog pin table). Confirm the CMPSS3 input mux and separate trip routes in SysConfig when firmware is implemented.
+**Sensing pin placement.** U501 uses pins 8, 11 and 14 on one edge and 18, 20 and 25 on the adjacent edge. Configure the CMPSS3 low input mux to select 4 (`CMP3_LP4`) for `V_IN_SENSE` on pin 11. Confirm the mux and separate trip routes in SysConfig when firmware is implemented. [TI F28003x datasheet, analog signals](https://www.ti.com/lit/ds/symlink/tms320f280039c.pdf#page=39)

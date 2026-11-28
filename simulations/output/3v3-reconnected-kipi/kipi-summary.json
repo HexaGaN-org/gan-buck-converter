@@ -1,0 +1,162 @@
+{
+  "board": {
+    "name": "gan-buck-converter.kicad_pcb",
+    "sha256": "0f097d84ed31368d8713b32b611cc3e7ad13117420bc5d75168d2935067835c8",
+    "tracks": 1155,
+    "vias": 497,
+    "zones": 32,
+    "KiPI": "1.0.2"
+  },
+  "operating": {
+    "topology": "buck",
+    "vin": 48.0,
+    "vout": 12.0,
+    "iout": 12.5,
+    "iin": 3.1920326864147084,
+    "duty": 0.251796875,
+    "efficiency": 0.9790000000000001,
+    "phases": 1,
+    "notes": [
+      "Topology: buck",
+      "Vin 48 V (entered), Vout 12 V (R301)",
+      "Iout 12.5 A (entered)",
+      "Duty 0.2518"
+    ]
+  },
+  "hot_loop": {
+    "phase": 1,
+    "loop_l_h": 5.354351846774766e-10,
+    "package_l_h": 0.0,
+    "cap_loops_h": {
+      "C301": 3.654665016307255e-09,
+      "C302": 3.72497203509545e-09,
+      "C303": 3.4219881544938344e-09,
+      "C304": 3.0439434695352147e-09,
+      "C305": 3.025032630249253e-09,
+      "C306": 2.9514427847256873e-09,
+      "C307": 2.9699884987305573e-09
+    },
+    "c_sw_f": 5.411905698347564e-10,
+    "coss_f": 5.4e-10,
+    "coss_default": false,
+    "c_copper_f": 1.1905698347564717e-12,
+    "r_loop_ohm": 0.007106569569436392,
+    "f_ring_hz": 295659316.2902212,
+    "zeta": 0.05,
+    "image_plane": "In2.Cu",
+    "notes": [
+      "C301: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C304: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+      "C308: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C309: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C316: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "C317: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+      "L301: shielded, winding axis vertical: its stray field is that of 3.43 turns round 5.2 mm at 3 mm above the board (a tenth of its turns: the shield keeps the rest in)"
+    ],
+    "zeta_loop": 0.0035723308437824778,
+    "qrr_c": 0.0,
+    "qrr_default": false,
+    "traced": true
+  },
+  "field": {
+    "solver": "pardiso, Schur complement on 37 terminals",
+    "solves": 43,
+    "unknowns": 485163,
+    "high_Hz": 1224000000.000002
+  },
+  "nominal_waveforms": {
+    "V_SW": {
+      "min": -1.50498608060939,
+      "max": 59.310305192020465,
+      "pp": 60.81529127262986,
+      "mean": 12.026250038039366,
+      "rms": 24.045047574221766,
+      "pp_20MHz": 48.01269055021946
+    },
+    "I_L301": {
+      "min": 10.833916096370295,
+      "max": 14.16609767536739,
+      "pp": 3.332181578997094,
+      "mean": 12.5,
+      "rms": 12.536966209114544,
+      "pp_20MHz": 3.30083100740012
+    },
+    "I_Q301_pulsed": {
+      "min": -7.779107802809272,
+      "max": 20.046686228079096,
+      "pp": 27.825794030888368,
+      "mean": 3.147455008088234,
+      "rms": 6.30260943478325,
+      "pp_20MHz": 14.874278883668648
+    },
+    "VIN at C304": {
+      "min": -2.3801743393520303,
+      "max": 2.1043622504614143,
+      "pp": 4.484536589813445,
+      "mean": 0.0,
+      "rms": 0.1698037587864599,
+      "pp_20MHz": 0.8636748098903148
+    },
+    "VOUT at U302": {
+      "min": -0.03112085744964893,
+      "max": 0.02797826563257984,
+      "pp": 0.05909912308222877,
+      "mean": 0.0,
+      "rms": 0.007879828363528168,
+      "pp_20MHz": 0.02998921045460259
+    },
+    "VIN at C203": {
+      "min": -3.4683690844268136,
+      "max": 3.3835847505706647,
+      "pp": 6.851953834997478,
+      "mean": 0.0,
+      "rms": 0.195240918929371,
+      "pp_20MHz": 0.6203530161994224
+    }
+  },
+  "capacitor_current_rms_A": {
+    "C203": 0.426121200451437,
+    "C206": 0.37326408646441994,
+    "C207": 0.3735479532685136,
+    "C208": 0.3731742336970324,
+    "C209": 0.3734307623419625,
+    "C210": 0.37469501270891886,
+    "C301": 1.2233300384755503,
+    "C302": 1.2357440614581583,
+    "C303": 1.2251210409981863,
+    "C304": 0.3090489991035612,
+    "C305": 0.3090011184949651,
+    "C306": 0.32921906968431053,
+    "C307": 0.3302666582103983,
+    "C308": 0.22163071073840415,
+    "C309": 0.21569313887415548,
+    "C316": 0.5408859230665913,
+    "C317": 0.550714297876535
+  },
+  "notes": [
+    "Topology: buck",
+    "Vin 48 V (entered), Vout 12 V (R301)",
+    "Iout 12.5 A (entered)",
+    "Duty 0.2518",
+    "Inductor ripple 3.33 A p-p; harmonics to 1224 MHz (3060)",
+    "Phase 1: hot loop 0.535 nH (package 0 nH, traced through the copper), switch node 541.2 pF to ground (Coss 540 pF + copper 1.19 pF), R 7.11 m\u03a9; rings at 295.7 MHz, \u03b6 = 0.05 (least damping; the loop alone gives 0.00357)",
+    "Phase 1: rising edge hard, \u03b6 = 0.05; falling edge soft (the inductor's 14.2 A carries it, 5.4 ns, into a body diode's clamp), \u03b6 = 0.5",
+    "Board model: 17 capacitor(s) on the rails, 485163 unknowns, 43 field solves, plane capacitance 0.828 nF",
+    "Ripple at probe VIN at C304: 4485 mV p-p, 170 mV rms",
+    "Ripple at probe VOUT at U302: 59.1 mV p-p, 7.88 mV rms",
+    "Ripple at probe VIN at C203: 6852 mV p-p, 195 mV rms",
+    "Near field 5 mm over the board: strongest H 385 A/m at (144.3, 65.8) mm, at 0.4 MHz, from L301 field",
+    "Near field 5 mm over the board: strongest E 3.85e+03 V/m at (134.3, 65.9) mm, at 0.4 MHz, from /Power Stage/SW_NODE switch node",
+    "Radiated estimate at 3 m: 62.3 dB\u00b5V/m at 720.4 MHz (CISPR 32 class B limit 47), mostly C302 loop; the loops only, no cables or enclosure"
+  ],
+  "warnings": [
+    "Phase 1: C301: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+    "Phase 1: C304: a line of its loop did not reach its end through the copper; the drawn path is cut short there",
+    "Phase 1: C308: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+    "Phase 1: C309: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+    "Phase 1: C316: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+    "Phase 1: C317: L301's pads or Q301's switch-node pads are not on the board: its loop is drawn straight between the pads",
+    "Phase 1: L301: shielded, winding axis vertical: its stray field is that of 3.43 turns round 5.2 mm at 3 mm above the board (a tenth of its turns: the shield keeps the rest in)",
+    "The board model is quasi-static: above about 1 GHz (here to 1.22 GHz) it is approximate"
+  ]
+}

@@ -4831,12 +4831,6 @@
 		(uuid "3726a808-2957-4c57-a8a5-304885da3923")
 	)
 	(junction
-		(at 171.45 102.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "50723518-e9f1-4a9b-9002-750eed138be0")
-	)
-	(junction
 		(at 189.23 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4873,6 +4867,12 @@
 		(uuid "b38e9e66-20ad-4164-8e25-83295d8d0ea7")
 	)
 	(junction
+		(at 171.45 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9609715-b813-43a4-834f-51e37ab76ea7")
+	)
+	(junction
 		(at 139.7 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4887,7 +4887,7 @@
 		(uuid "32ff0732-6c68-408c-b961-b9842b9df153")
 	)
 	(no_connect
-		(at 73.66 132.08)
+		(at 73.66 121.92)
 		(uuid "435d4bed-9461-4248-b721-78c33e4e7aab")
 	)
 	(no_connect
@@ -4911,11 +4911,11 @@
 		(uuid "83f0022a-7dc3-4739-8984-b5f30daebd4a")
 	)
 	(no_connect
-		(at 73.66 129.54)
+		(at 73.66 116.84)
 		(uuid "86532aa7-d4ba-45dc-85a4-049b4ad8373b")
 	)
 	(no_connect
-		(at 132.08 125.73)
+		(at 132.08 87.63)
 		(uuid "87131966-2f21-4adb-964e-57865655bed4")
 	)
 	(no_connect
@@ -4939,7 +4939,7 @@
 		(uuid "a0a6809a-9339-4c45-a352-1309476a8041")
 	)
 	(no_connect
-		(at 73.66 137.16)
+		(at 73.66 124.46)
 		(uuid "a43a4c3d-d762-4cca-b563-4586807c6a85")
 	)
 	(no_connect
@@ -4947,7 +4947,7 @@
 		(uuid "d7f85e3a-271b-4091-a594-8717425b7b8c")
 	)
 	(no_connect
-		(at 73.66 142.24)
+		(at 73.66 129.54)
 		(uuid "e98938dc-ad20-4fe8-8012-2080b1d08540")
 	)
 	(no_connect
@@ -4959,7 +4959,7 @@
 		(uuid "eb5fc83b-f87e-40e7-8321-519873cc2856")
 	)
 	(no_connect
-		(at 132.08 151.13)
+		(at 132.08 146.05)
 		(uuid "f0d71e48-e12a-4542-b9b3-f58bb3b90508")
 	)
 	(no_connect
@@ -4967,7 +4967,7 @@
 		(uuid "f16dd80b-c791-4713-be63-883fe918a05f")
 	)
 	(no_connect
-		(at 73.66 144.78)
+		(at 73.66 111.76)
 		(uuid "f238e5c2-0af2-4fa8-bbc2-73c77ddf4425")
 	)
 	(no_connect
@@ -5000,7 +5000,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 121.92) (xy 73.66 121.92)
+			(xy 63.5 132.08) (xy 73.66 132.08)
 		)
 		(stroke
 			(width 0)
@@ -5037,16 +5037,6 @@
 			(type default)
 		)
 		(uuid "0f7a4db8-f082-49f7-962b-4f933403e1d2")
-	)
-	(wire
-		(pts
-			(xy 171.45 102.87) (xy 173.99 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "12cdc59b-898e-4c8e-8083-384b317a73cb")
 	)
 	(wire
 		(pts
@@ -5190,7 +5180,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 111.76) (xy 73.66 111.76)
+			(xy 63.5 144.78) (xy 73.66 144.78)
 		)
 		(stroke
 			(width 0)
@@ -5260,7 +5250,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 116.84) (xy 73.66 116.84)
+			(xy 63.5 142.24) (xy 73.66 142.24)
 		)
 		(stroke
 			(width 0)
@@ -5390,7 +5380,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 124.46) (xy 73.66 124.46)
+			(xy 63.5 137.16) (xy 73.66 137.16)
 		)
 		(stroke
 			(width 0)
@@ -5520,7 +5510,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 87.63) (xy 153.67 87.63)
+			(xy 132.08 125.73) (xy 138.43 125.73)
 		)
 		(stroke
 			(width 0)
@@ -5620,7 +5610,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 146.05) (xy 162.56 146.05)
+			(xy 132.08 151.13) (xy 134.62 151.13)
 		)
 		(stroke
 			(width 0)
@@ -5660,7 +5650,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 146.05) (xy 162.56 151.13)
+			(xy 162.56 148.59) (xy 162.56 151.13)
 		)
 		(stroke
 			(width 0)
@@ -5747,6 +5737,16 @@
 			(type default)
 		)
 		(uuid "cfb80aa9-9d6a-465f-9a14-007c4cdf454b")
+	)
+	(wire
+		(pts
+			(xy 171.45 102.87) (xy 173.99 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d187808a-383d-41e7-8e57-9ebd40e38cbc")
 	)
 	(wire
 		(pts
@@ -5918,6 +5918,16 @@
 		)
 		(uuid "1fdb574e-988e-46e2-b7f5-750382daa06f")
 	)
+	(label "HEARTBEAT"
+		(at 134.62 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b583cc4-b45a-4b90-a814-fc79aca36abe")
+	)
 	(label "BOOT_GPIO32"
 		(at 172.72 137.16 180)
 		(effects
@@ -5947,6 +5957,16 @@
 			(justify right bottom)
 		)
 		(uuid "d997adbc-887b-42b4-a239-e3b95e8b4c9f")
+	)
+	(label "HEARTBEAT"
+		(at 162.56 148.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dd325977-00b3-4d85-87f5-70ac8b42589e")
 	)
 	(hierarchical_label "MCU_EN"
 		(shape output)
@@ -6038,7 +6058,7 @@
 	)
 	(hierarchical_label "V_IN_SENSE"
 		(shape input)
-		(at 63.5 111.76 180)
+		(at 63.5 144.78 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6049,7 +6069,7 @@
 	)
 	(hierarchical_label "STAGE_EN_FB"
 		(shape input)
-		(at 153.67 87.63 0)
+		(at 138.43 125.73 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6093,7 +6113,7 @@
 	)
 	(hierarchical_label "HS_TEMP_SENSE"
 		(shape input)
-		(at 63.5 121.92 180)
+		(at 63.5 132.08 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6115,7 +6135,7 @@
 	)
 	(hierarchical_label "LS_TEMP_SENSE"
 		(shape input)
-		(at 63.5 124.46 180)
+		(at 63.5 137.16 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6137,7 +6157,7 @@
 	)
 	(hierarchical_label "I_IN_SENSE"
 		(shape input)
-		(at 63.5 116.84 180)
+		(at 63.5 142.24 180)
 		(effects
 			(font
 				(size 1.27 1.27)

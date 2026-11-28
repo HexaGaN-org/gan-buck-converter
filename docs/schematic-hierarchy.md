@@ -4,7 +4,7 @@ This document is the contract between sheets: what each sheet is responsible for
 
 > **Status:** The physical MCU pin allocation is frozen for PCB routing in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). A TI `pinmux.syscfg` and generated firmware are still pending. Update this document, the hardware pin table, and the schematic together if a sheet interface or physical pin changes.
 
-**Current capture (2026-11-12):** All six sheets are captured and **the root sheet is wired**: every sheet pin connects to its counterpart, so all signals in the glossary below cross their sheet boundaries. The hierarchy has 219 annotated components. ERC reported zero violations under the project's configured checks on 2026-11-11, after imported-symbol pin typing was corrected; it has not been re-run since the power-stage capacitor banks were reduced on 2026-11-12, and the PCB has not yet been updated from the schematic. The physical MCU pin allocation is recorded in [firmware/pinmux-hardware.md](firmware/pinmux-hardware.md). Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is named `XRSn`.
+**Current capture (2026-11-26).** All six sheets are captured and the root sheet is wired. The latest layout checkpoint restores U203's intended connections in both the schematic and PCB. KiCad reports zero ERC errors, ten ERC warnings and zero schematic-to-PCB netlist parity issues. Dynamic PWM overlap protection and power-rail handover margins remain open design decisions before layout freeze. The reset interface is `XRSn`. [MCU pin allocation](firmware/pinmux-hardware.md) · [U203 pin assignments](design/input_supply.md#layout-notes)
 
 ---
 
@@ -34,8 +34,8 @@ This document names each sheet by its file. The sheet symbols on the top sheet c
 
 | Ref | Sheet | Function |
 |---|---|---|
-| J201 | input_supply | 48 V input, XT30PW-M30.G.Y male, C431092; JLC-imported symbol pin 2 positive, pin 1 `V_IN_RTN`; pins 3/4 mounting tabs, no-connect |
-| J301 | power_stage | 12 V output, XT60PW-F female, C428722; JLC-imported symbol pin 3 `V_OUT`, pin 4 `GND`; pins 1/2 mounting tabs, no-connect |
+| CN201 (J201 in design notes) | input_supply | 48 V input, XT30PW-M30.G.Y male, C431092. Pin 2 positive, pin 1 `GND`. Pins 3 and 4 are mounting tabs. |
+| U302 (J301 in design notes) | power_stage | 12 V output, XT60PW-F female, C428722. Pin 3 `V_OUT`, pin 4 `GND`. Pins 1 and 2 are mounting tabs. |
 | USBC701 | comms_debug | USB-C to a host laptop (data only; never powers the board) |
 | H701 | comms_debug | JTAG debug header (2 × 10) |
 | SW601 | enable | On-board hardware enable switch (MSK12C02 slide switch) |
@@ -132,7 +132,7 @@ Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assem
 
 **As wired (2026-11-10):** the enable sheet has two hierarchical labels each for `MCU_PWMH` and `MCU_PWML`, so its symbol carries two pins for each; both are wired to the MCU's single pin. `XRSn` joins mcu, enable and comms_debug on one net.
 
-**Grounding note:** the holes are plated for a durable bearing surface under the screw heads, but their pads are on no net. Never tie them to `GND`; keep inner-plane clearance around each barrel and keep other copper clear of the washer and standoff footprint on both outer layers. Board `GND` is separated from J201− by Q201 ([design/input_supply.md](design/input_supply.md) decision #6). With normal lead polarity, an earthed supply negative plus earthed USB/JTAG/scope ground provides a parallel return path around Q201. That path can carry input current through external equipment; it does not by itself imply that a simple reversed-lead hookup energizes the board. Use a floating 48 V supply for the standalone prototype and review shared-ground installations separately.
+**Grounding.** The plated mounting rings float electrically. Keep inner copper clear of each barrel and outer copper clear of the washer and standoff footprint. The 48 V input negative shares board `GND`. [Grounding and scope measurements](design/input_supply.md#grounding-and-scope-measurements)
 
 **Does not contain:** circuit components (the mounting holes are footprint-only).
 
@@ -145,12 +145,11 @@ Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assem
 **Responsible for:** protecting the board from the 48 V input and generating the low-voltage rails.
 
 **Contains**
-- J201 48 V input connector
+- CN201 48 V input connector with pin 1 directly connected to `GND`
 - Input fuse
 - TVS diode, clamping below the 90 V switch-node limit (see [design/power_stage.md](design/power_stage.md))
-- Reverse-polarity protection
 - Input bulk capacitance (the low-ESR ceramic capacitors for the switching loop are on power_stage)
-- Input current-sense shunt (1 mΩ, high side), after the fuse, TVS and reverse-polarity protection and ahead of `V_IN`, with Kelvin connections brought out as `I_SH_IN_P` / `I_SH_IN_N` through a net tie at each shunt pad
+- Input current-sense shunt (1 mΩ, high side) between the fused input node and `V_IN`, with Kelvin connections brought out as `I_SH_IN_P` / `I_SH_IN_N` through a net tie at each shunt pad
 - Auxiliary step-down regulator (LM5164), 48 V → `5V_AUX`, rated for the full input range and the 82.4 V TVS clamp
 - J202 external 5 V input (keyed JST XH header), with reverse-polarity protection. Overcurrent is limited by the bench supply and the mux
 - Two-input power multiplexer (TPS2121): `5V_EXT` and `5V_AUX` feed `+5V`, with reverse-current blocking, fast switchover and an overvoltage cutoff on `5V_EXT`. R212 = 26.1 kΩ lets healthy aux take over before J202 is removed in the nominal case; the actual source near two equal 5 V supplies is tolerance dependent.
@@ -158,7 +157,7 @@ Fiducials are not placed: Economic PCBA does not need them ([guides/jlcpcb-assem
 - 3.3 V LDO (ST LDL1117S33R) from `+5V` → `+3V3`. No separate analog rail: MCU VDDA runs from `+3V3`
 - `POWER` LED on `+3V3` and test points on every low-voltage rail (`V_IN` uses power_stage's `TP_VIN`)
 
-**Interface:** power nets (`V_IN`, `+5V`, `+3V3`, `GND`), plus the input-shunt Kelvin pair. `5V_AUX`, `5V_EXT` and `V_IN_RTN` (J201 negative, ahead of the reverse-polarity FET) stay local to this sheet.
+**Interface.** Power nets `V_IN`, `+5V`, `+3V3` and `GND` cross the sheet boundary alongside the input-shunt Kelvin pair. `5V_AUX` and `5V_EXT` are local. KiCad resolves the old `V_IN_RTN` label to `GND` on the common input return.
 
 **Hierarchical labels**
 

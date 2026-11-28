@@ -3236,624 +3236,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:BSC070N10NS3G"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q"
-				(at 0 9.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "BSC070N10NS3G"
-				(at 0 -7.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:BSC070N10NS3G"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Infineon-Technologies-BSC070N10NS3G_C501502.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+150℃ 1 N-channel 100V 114W 21pF 3.5V 3nF 42nC@10V 520pF 7mΩ@10V 90A N-Channel TDSON-8(5x6) MOSFETs ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C501502"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Infineon Technologies"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "BSC070N10NS3G"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "BSC070N10NS3G C501502 Infineon Technologies PG-TDSON-8_L5.0-W6.0-P1.27-BL-EP"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "BSC070N10NS3G_0_1"
-				(polyline
-					(pts
-						(xy -2.286 1.905) (xy -2.286 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.286 0) (xy -5.08 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 2.286) (xy -1.778 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 0.508) (xy -1.778 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -1.27) (xy -1.778 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -1.778) (xy 0.762 -1.778) (xy 0.762 1.778) (xy -1.778 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 0) (xy -0.508 0.381) (xy -0.508 -0.381) (xy -1.524 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center -0.889 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 0 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 0) (xy -1.778 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 0.381) (xy 1.143 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.381) (xy 0.381 -0.254) (xy 1.143 -0.254) (xy 0.762 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(hide yes)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(hide yes)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 0 0)
-					(length 2.54)
-					(name "G"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(hide yes)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(hide yes)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(hide yes)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "JLCImport:BZT52C12_C19077410"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "BZT52C12_C19077410"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Diode_SMD:D_SOD-123"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2501071555_hongjiacheng-BZT52C12_C19077410.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+150℃ 1 Independent 100nA@8V 11.4V~12.6V 12V 150Ω 25Ω 350mW SOD-123 Zener Diodes ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C19077410"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "hongjiacheng"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "BZT52C12"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "BZT52C12 C19077410 SOD-123_L2.7-W1.6-LS3.7-RD hongjiacheng"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "BZT52C12_C19077410_0_1"
-				(polyline
-					(pts
-						(xy -2.032 2.032) (xy -1.27 1.524) (xy -1.27 -1.524) (xy -0.508 -2.032)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.778) (xy -1.27 0) (xy 1.27 -1.778) (xy 1.27 1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "JLCImport:CC0603KRX7R9BB104"
 			(pin_names
 				(offset 1.016)
@@ -8460,13 +7842,7 @@
 		(uuid "1249cb41-78e6-45f8-9eb8-862471270420")
 	)
 	(junction
-		(at 83.82 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "169434a2-5277-4757-9c3d-751ccfe05471")
-	)
-	(junction
-		(at 58.42 59.69)
+		(at 60.96 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "17550c4e-c510-4fa6-abe6-ca67aca2d90b")
@@ -8512,12 +7888,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2e4ddd55-fa5d-4d27-a46e-e9c23a60e185")
-	)
-	(junction
-		(at 83.82 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37e2295a-6c27-43d2-9e1a-9ee1c886e7e8")
 	)
 	(junction
 		(at 255.27 68.58)
@@ -8640,10 +8010,10 @@
 		(uuid "90bcd0cf-1641-4090-9273-0610d5d6f9c3")
 	)
 	(junction
-		(at 83.82 46.99)
+		(at 92.71 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "90c5a5b4-e6f7-47a1-a6f9-07d66576b7de")
+		(uuid "90ee6e43-7bdb-4843-83d4-b7879524ad12")
 	)
 	(junction
 		(at 191.77 113.03)
@@ -8656,12 +8026,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "98cafd4b-1b6b-4362-995a-cac79e6a3aea")
-	)
-	(junction
-		(at 106.68 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b4f0547-63fb-4fbd-8c99-9135aa0d5796")
 	)
 	(junction
 		(at 134.62 115.57)
@@ -8688,16 +8052,16 @@
 		(uuid "aceb6ed2-8764-496c-80e2-61c0db042a2b")
 	)
 	(junction
-		(at 92.71 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b46bb35d-c7b1-47a4-9546-873b8f8b49f4")
-	)
-	(junction
 		(at 148.59 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b8b30826-4d37-4adc-b1bc-15c334e37b45")
+	)
+	(junction
+		(at 97.79 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b96a9c3a-99ae-4c3c-8c6d-0be8578b8110")
 	)
 	(junction
 		(at 168.91 68.58)
@@ -8730,16 +8094,10 @@
 		(uuid "c4d06cc3-24b2-44c6-b565-a5f277b8bce8")
 	)
 	(junction
-		(at 58.42 34.29)
+		(at 106.68 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "cae86717-f714-4cbf-8cf3-d375aab765bf")
-	)
-	(junction
-		(at 97.79 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "cee8b8fc-f3d9-4938-b261-321406e85a2b")
+		(uuid "cf123148-1729-47ab-ac16-293811381d93")
 	)
 	(junction
 		(at 152.4 76.2)
@@ -8789,6 +8147,12 @@
 		(color 0 0 0 0)
 		(uuid "f657255e-6168-47d9-ad8d-63bd871e2ece")
 	)
+	(junction
+		(at 60.96 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f8111244-d2da-49f3-8a6b-5a5a3405c66b")
+	)
 	(no_connect
 		(at 203.2 45.72)
 		(uuid "14e902a4-6286-49b2-89b3-a3575bc1e030")
@@ -8830,6 +8194,16 @@
 			(type default)
 		)
 		(uuid "09988958-c807-48f8-a5b5-290f07cc13e0")
+	)
+	(wire
+		(pts
+			(xy 53.34 34.29) (xy 60.96 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0be0ed05-309e-4c82-9942-2e5e79b8b658")
 	)
 	(wire
 		(pts
@@ -8943,7 +8317,7 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 52.07) (xy 58.42 59.69)
+			(xy 60.96 52.07) (xy 60.96 59.69)
 		)
 		(stroke
 			(width 0)
@@ -8980,16 +8354,6 @@
 			(type default)
 		)
 		(uuid "23eb9862-09bb-4593-9617-2a517389fb47")
-	)
-	(wire
-		(pts
-			(xy 68.58 46.99) (xy 68.58 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "240fd8a7-2c53-4a44-9117-1d6e1b594fb6")
 	)
 	(wire
 		(pts
@@ -9033,16 +8397,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 34.29) (xy 92.71 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2520760d-aa8e-4367-8f79-5b75fa5f7a30")
-	)
-	(wire
-		(pts
 			(xy 52.07 115.57) (xy 88.9 115.57)
 		)
 		(stroke
@@ -9073,7 +8427,7 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 34.29) (xy 58.42 41.91)
+			(xy 60.96 34.29) (xy 60.96 41.91)
 		)
 		(stroke
 			(width 0)
@@ -9303,16 +8657,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 58.42) (xy 83.82 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b2ff430-fab2-43bc-af14-8e4eaa47cb2d")
-	)
-	(wire
-		(pts
 			(xy 191.77 113.03) (xy 191.77 115.57)
 		)
 		(stroke
@@ -9490,16 +8834,6 @@
 			(type default)
 		)
 		(uuid "6ba75cb4-6c95-47f6-b18b-5c64fee5b0e0")
-	)
-	(wire
-		(pts
-			(xy 83.82 46.99) (xy 68.58 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c0b822a-3a4e-4622-95bd-5887d86cb35f")
 	)
 	(wire
 		(pts
@@ -9810,16 +9144,6 @@
 			(type default)
 		)
 		(uuid "942cba14-761d-4ebe-aa69-aa270cfcbbdd")
-	)
-	(wire
-		(pts
-			(xy 73.66 59.69) (xy 97.79 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "945822f0-9359-4f10-b449-62ac9ccb3eac")
 	)
 	(wire
 		(pts
@@ -10153,16 +9477,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 46.99) (xy 83.82 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d009eb15-4f69-4424-afc6-c43890865f2b")
-	)
-	(wire
-		(pts
 			(xy 39.37 115.57) (xy 39.37 119.38)
 		)
 		(stroke
@@ -10190,16 +9504,6 @@
 			(type default)
 		)
 		(uuid "d2c4b864-4c7a-49b0-8010-6c5b2c16cabc")
-	)
-	(wire
-		(pts
-			(xy 83.82 45.72) (xy 83.82 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2e5a4c7-2281-4130-88c7-9a0030e69412")
 	)
 	(wire
 		(pts
@@ -10253,13 +9557,13 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 34.29) (xy 83.82 35.56)
+			(xy 60.96 34.29) (xy 92.71 34.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dce39992-0b91-4e32-96e1-6e44ec150056")
+		(uuid "dd5ce1c1-832e-4fe3-bd0a-0c379ec60600")
 	)
 	(wire
 		(pts
@@ -10393,7 +9697,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 59.69) (xy 63.5 59.69)
+			(xy 39.37 59.69) (xy 97.79 59.69)
 		)
 		(stroke
 			(width 0)
@@ -11566,7 +10870,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "21352922-f126-43eb-b19e-8cbb7a1b4ddc")
-		(property "Reference" "J201"
+		(property "Reference" "CN201"
 			(at 27.94 45.7199 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11669,7 +10973,7 @@
 		(instances
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "J201")
+					(reference "CN201")
 					(unit 1)
 				)
 			)
@@ -13534,143 +12838,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:BSC070N10NS3G")
-		(at 68.58 59.69 90)
-		(mirror x)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "636d9a54-994c-45e1-b54e-ca1cb88428f1")
-		(property "Reference" "Q201"
-			(at 68.58 63.5 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "BSC070N10NS3G"
-			(at 68.58 66.04 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:BSC070N10NS3G"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Infineon-Technologies-BSC070N10NS3G_C501502.pdf"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+150℃ 1 N-channel 100V 114W 21pF 3.5V 3nF 42nC@10V 520pF 7mΩ@10V 90A N-Channel TDSON-8(5x6) MOSFETs ROHS"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C501502"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Infineon Technologies"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BSC070N10NS3G"
-			(at 68.58 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "6"
-			(uuid "abf746b2-c4c3-489f-afe3-af42c5453682")
-		)
-		(pin "5"
-			(uuid "33135acd-4d27-4c9c-83df-a1c98d4a5e0d")
-		)
-		(pin "7"
-			(uuid "06a39b4c-d74d-42d6-9c52-88022e9ef9b1")
-		)
-		(pin "4"
-			(uuid "b97b2263-a058-4b5a-9c4c-c0642106bc1a")
-		)
-		(pin "8"
-			(uuid "1af40430-e831-4d68-90ae-ee77bd40214c")
-		)
-		(pin "2"
-			(uuid "abf3edc0-d84b-4bae-8379-937212bf7b2c")
-		)
-		(pin "1"
-			(uuid "e6ecf652-3c28-4c39-8094-edf8c9b54cf7")
-		)
-		(pin "3"
-			(uuid "db5386ce-5caf-49c8-86b5-e38ae32466fa")
-		)
-		(instances
-			(project "input_supply"
-				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
-					(reference "Q201")
-					(unit 1)
-				)
-			)
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "Q201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 27.94 182.88 0)
 		(unit 1)
@@ -14428,7 +13595,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7622e288-4778-4c2c-84fe-5a8e69a563ea")
 		(property "Reference" "U203"
 			(at 97.79 107.95 0)
@@ -14562,126 +13728,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "U203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:1206W4F1003T5E")
-		(at 83.82 40.64 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "78071263-812c-4004-b1a6-9df1e7c34e29")
-		(property "Reference" "R202"
-			(at 76.962 39.37 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100k"
-			(at 76.962 41.91 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010145_UNI-ROYAL-Uniroyal-Elec-1206W4F1003T5E_C17900.pdf"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100kΩ 200V 250mW Thick Film Resistor ±1% ±100ppm/℃ 1206 Chip Resistor - Surface Mount ROHS"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C17900"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "1206W4F1003T5E"
-			(at 83.82 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "88cac83c-71f6-4984-a6f1-0f40c3d019de")
-		)
-		(pin "2"
-			(uuid "4f432f75-e942-4354-9ebd-091df8dc17a2")
-		)
-		(instances
-			(project "input_supply"
-				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
-					(reference "R202")
-					(unit 1)
-				)
-			)
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -15643,6 +14689,7 @@
 		(uuid "9b7ab0a6-60e5-4b93-961d-8dc3bb38d51e")
 		(property "Reference" "R203"
 			(at 86.106 39.37 90)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15654,6 +14701,7 @@
 		)
 		(property "Value" "100k"
 			(at 86.106 41.91 90)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15752,7 +14800,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:SMBJ51CA_C41376101")
-		(at 58.42 46.99 270)
+		(at 60.96 46.99 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15762,7 +14810,7 @@
 		(dnp no)
 		(uuid "9ba46ac6-1e81-421e-9226-e7786f84611e")
 		(property "Reference" "D201"
-			(at 51.562 45.466 90)
+			(at 54.102 45.466 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15773,7 +14821,7 @@
 			)
 		)
 		(property "Value" "SMBJ51CA"
-			(at 56.388 48.26 90)
+			(at 58.928 48.26 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15784,7 +14832,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:SMBJ51CA_C41376101"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15795,7 +14843,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2409191648_hongjiacheng-SMBJ51CA_C41376101.pdf"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15806,7 +14854,7 @@
 			)
 		)
 		(property "Description" "-55℃~+150℃ 51V 5uA 600W@10/1000us 62.7V 7.28A 82.4V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15817,7 +14865,7 @@
 			)
 		)
 		(property "LCSC" "C41376101"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15828,7 +14876,7 @@
 			)
 		)
 		(property "Manufacturer" "hongjiacheng"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15839,7 +14887,7 @@
 			)
 		)
 		(property "Manufacturer Part" "SMBJ51CA"
-			(at 58.42 46.99 0)
+			(at 60.96 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17104,126 +16152,6 @@
 			(project "gan-buck-converter"
 				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
 					(reference "R216")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:BZT52C12_C19077410")
-		(at 83.82 53.34 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dd1c9ebd-14de-4f92-970c-ca275be04581")
-		(property "Reference" "D202"
-			(at 71.628 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BZT52C12"
-			(at 71.628 54.61 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2501071555_hongjiacheng-BZT52C12_C19077410.pdf"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+150℃ 1 Independent 100nA@8V 11.4V~12.6V 12V 150Ω 25Ω 350mW SOD-123 Zener Diodes ROHS"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C19077410"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "hongjiacheng"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BZT52C12"
-			(at 83.82 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ad000f61-5710-4ad5-b1d7-da06c9baa5d7")
-		)
-		(pin "2"
-			(uuid "8cab3448-b093-4522-9692-7c59042f7561")
-		)
-		(instances
-			(project "input_supply"
-				(path "/48927020-95e9-4c06-9ec1-581064e801e0"
-					(reference "D202")
-					(unit 1)
-				)
-			)
-			(project "gan-buck-converter"
-				(path "/81018c94-fb4c-45c9-bba6-c5ea3a6c5d76/4b8aa320-60ae-4662-bdb4-bbf72b4f9843"
-					(reference "D202")
 					(unit 1)
 				)
 			)
