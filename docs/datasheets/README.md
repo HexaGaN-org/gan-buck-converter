@@ -9,15 +9,15 @@ Find the datasheet, specification, or mechanical drawing by KiCad reference desi
 | U201 | Auxiliary buck regulator | TI `LM5164DDAR` | [Datasheet](lm5164.pdf) | [Source](https://www.ti.com/lit/ds/symlink/lm5164.pdf) |
 | U202 | 3.3 V LDO | STMicroelectronics `LDL1117S33R` | [Datasheet](ldl1117.pdf) | [Source](https://www.st.com/resource/en/datasheet/ldl1117.pdf) |
 | U203 | Power mux | TI `TPS2121RUXR` | [Datasheet](tps2121.pdf) | [Source](https://www.ti.com/lit/ds/symlink/tps2121.pdf) |
-| Q201 | Input protection MOSFET | Infineon `BSC070N10NS3G` | [Datasheet](bsc070n10ns3-g.pdf) | [Source](https://www.infineon.com/part/BSC070N10NS3-G) |
 | Q202 | External 5 V protection MOSFET | Alpha & Omega Semiconductor `AO3401A` | [Datasheet](ao3401a.pdf) | [Source](https://www.aosmd.com/res/datasheets/AO3401A.pdf) |
 | D201 | Input TVS | Hongjiacheng `SMBJ51CA` | [Datasheet](hongjiacheng-smbj51ca.pdf) | [Source](https://datasheet.lcsc.com/datasheet/pdf/29e006ceaae5808e6d17d021de7bda89.pdf?productCode=C41376101) |
-| D202 | Gate clamp Zener | Hongjiacheng `BZT52C12` | [Datasheet](hongjiacheng-bzt52c12.pdf) | [Source](https://datasheet.lcsc.com/datasheet/pdf/02a7f2c734d5d8407bcaa05ee2a504ab.pdf?productCode=C19077410) |
 | F201 | Input fuse | Littelfuse `0451007.MRL` | [Datasheet](littelfuse-451-453.pdf) | [Source](https://www.littelfuse.com/assetdocs/fuse-451-and-453-datasheet?assetguid=533cd5cc-956c-4243-867f-6ab5a62f6ba1) |
 | L201 | Auxiliary buck inductor | Changjiang `FNR8040S470MT` | [Series PDF](changjiang-fnr8040s470mt.pdf#page=17) | [Source](https://datasheet.lcsc.com/datasheet/pdf/a0b12ba9dfe6b9e66b6bb852b7c71c03.pdf?productCode=C168137) |
 | C203 | Input bulk capacitor | Ymin `VKME1452A101MV` | [Part specification](ymin-vkm.pdf#page=3) | [Source](https://datasheet.lcsc.com/datasheet/pdf/26b51735fb5c2e65f594023df50aaf97.pdf?productCode=C487440) |
 | C206, C207, C208, C209, C210 | Auxiliary buck input MLCC bank | Samsung Electro-Mechanics `CL31B225KCHSNNE` | [Datasheet](samsung-cl31b225kchsnne.pdf) | [Source](https://evelta.com/content/datasheets/110-CL31B225KCHSNNE.pdf) |
 | C205, C213, C214, C308, C309 | 22 µF rail capacitors | Samsung Electro-Mechanics `CL31A226KAHNNNE` | [Datasheet](samsung-cl31a226kahnnne.pdf) | [Source](https://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL31A226KAHNNNE_Spec.pdf) |
+
+The earlier 48 V return circuit used Q201, an Infineon BSC070N10NS3G, and D202, a Hongjiacheng BZT52C12 gate clamp. Their datasheets support the archived input circuit and loss estimates. [Q201](bsc070n10ns3-g.pdf) · [D202](hongjiacheng-bzt52c12.pdf)
 
 ## Main power stage
 

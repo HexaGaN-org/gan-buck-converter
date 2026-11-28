@@ -4,9 +4,9 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 
 ![Block diagram](docs/block-diagram.svg)
 
-> **PCB layout in progress (2026-11-27).** The 120 × 80 mm board has a centered 107 × 67 mm mounting pattern and front-silkscreen labels for the power, gate and sensing test points. The XT30 input and XT60 output have matching labels at their respective edges. [Mechanical specifications](docs/specifications.md#mechanical-and-other) · [Connector layout](docs/design/input-output-connectors.md)
+> **PCB layout in progress (2026-11-27).** The XT30 input return now connects directly to board `GND`. The 48 V input relies on correct harness polarity. The 120 × 80 mm board has a centered 107 × 67 mm mounting pattern and front-silkscreen test-point labels. [Input circuit](docs/design/input_supply.md) · [Connector layout](docs/design/input-output-connectors.md)
 >
-> With zones refilled, KiCad reports **one +3.3 V open, zero clearance violations under the current rules, zero schematic-to-PCB parity issues and 398 silkscreen warnings**. KiPI estimates **96.73% board efficiency** at 48 V input, 12.5 A output and 400 kHz, with the intended auxiliary loads. [KiPI results](simulations/README.md#routed-board-kipi-and-ngspice-2026-11-27) · [PCB stackup](docs/design/stackup.md)
+> With zones refilled, KiCad reports **one +3.3 V open, zero clearance violations under the current rules, zero schematic-to-PCB parity issues and 398 silkscreen warnings**. ERC reports zero errors and 11 warnings, including the old `V_IN_RTN` label sharing `GND`. The published KiPI efficiency and ringing results use the earlier board with Q201. [KiPI results](simulations/README.md#routed-board-kipi-and-ngspice-2026-11-27) · [PCB stackup](docs/design/stackup.md)
 
 ## At a glance
 
@@ -20,7 +20,7 @@ A GaN-based synchronous buck converter with an onboard C2000 microcontroller, di
 | Control | Staged bring-up: open loop → voltage mode → average current mode |
 | Protections | Cycle-by-cycle overcurrent (CMPSS), output overvoltage, input undervoltage lockout, overtemperature, hardware enable, and static both-high PWM inhibit. Dynamic overlap protection is under review before layout freeze |
 | Host interface | USB-C serial (CP2102N USB-UART bridge, ESD-protected) and a TI-compatible JTAG header |
-| Assembly | JLCPCB Economic PCBA, single-sided |
+| Assembly | Single-sided JLCPCB Economic PCBA. [Five-board estimate](docs/guides/jlcpcb-assembly.md#7-five-board-prototype-estimate) |
 
 Targets are in [docs/specifications.md](docs/specifications.md); each sheet's decisions and parts are in its design note in [docs/design/](docs/design/).
 
@@ -29,7 +29,7 @@ Targets are in [docs/specifications.md](docs/specifications.md); each sheet's de
 | # | Sheet | Owner | Status |
 |---|---|---|---|
 | 1 | Top (root sheet) | Reza Rahimzadeh | Wired: all six sheet symbols connected by their hierarchical pins. Four plated M3 mounting holes (H101–H104), pads on no net, a main-specifications block and a power tree |
-| 2 | input_supply | Reza Rahimzadeh | Schematic complete: 48 V protection, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
+| 2 | input_supply | Reza Rahimzadeh | Fused 48 V input with a TVS and common return, input shunt, aux regulator, 5 V mux and 3.3 V LDO. Wired on the root sheet |
 | 3 | power_stage | Reza Rahimzadeh | Captured, with reduced input and output capacitor banks (decision #24); wired on the root sheet |
 | 4 | sensing | Connor Jin | Circuitry captured (six channels); labels aligned with the MCU sheet; wired on the root sheet |
 | 5 | mcu | Yunxi He | Captured, with 16 MHz external crystal; all interface labels wired on the root sheet |
@@ -85,6 +85,6 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before your first commit: tool setup, th
 - Bring up the 5 V supply (through J202, the keyed external 5 V input, set to 5.0 V) before applying 48 V. J202 cuts off above about 5.2–5.7 V.
 - Check polarity before connecting any electronic load or source. J201 is a male XT30 48 V input and J301 is a female XT60 12 V output; they require separate soldered adapter cables. 48 V on J301 destroys the output capacitors. See the [connector and harness instructions](docs/design/input-output-connectors.md).
 - Use a 48 V supply whose **DC output floats from earth**; keep the supply's chassis protective earth connected. Set supply OVP near 55 V if available. Above about 57 V the input TVS conducts continuously.
-- **Q201 grounding rule:** J201− is separate from board `GND`. Attach grounded scope clips only to board `GND`, never J201−. If both supply negative and board `GND` are earthed, USB/JTAG/scope wiring can carry input return current around Q201 during normal operation. Swapping the input leads alone does not create that bypass, but a fixed J201−-to-GND short defeats the reverse block. H101–H104 are plated but on no net: never connect them to `GND` or any other net, and keep other copper clear of their mounting hardware.
-- **Grounded-scope design limit:** Moving reverse protection to the positive rail alone does not eliminate the supply/scope earth loop. If J201− were then tied directly to board `GND`, reversed leads with a grounded scope attached could short supply positive to earth outside F201. Use the [grounding and scope note](docs/design/input_supply.md#grounding-and-scope-measurements) before changing this topology or using a shared-ground source.
+- Attach ordinary grounded probe clips at a board `GND` test point. The XT30 negative pin shares `GND`. With an earth-bonded supply and reversed input leads, a grounded scope, USB or JTAG connection can short the supply outside F201. [Grounding and scope measurements](docs/design/input_supply.md#grounding-and-scope-measurements)
+- Keep the plated H101–H104 rings electrically floating and check copper clearance around the mounting hardware. [Mechanical specifications](docs/specifications.md#mechanical-and-other)
 - The power stage stays disabled until the hardware enable is asserted. Firmware alone cannot enable it.

@@ -1,6 +1,6 @@
 # Input and output plug connectors
 
-Decision recorded 2026-11-13. J201 is the 48 V input and J301 is the 12 V output. They use different keyed XT sizes, both with solder-cup mating plugs.
+J201 (CN201 in KiCad) is the 48 V input and J301 (U302 in KiCad) is the 12 V output. They use different keyed XT sizes, both with solder-cup mating plugs.
 
 ## Board parts and JLCPCB data
 
@@ -13,7 +13,7 @@ The schematic symbols carry `LCSC`, `Manufacturer`, `Manufacturer Part`, `Footpr
 
 **Rating discrepancy to resolve before fabrication:** [JLCPCB lists C431092](https://jlcpcb.com/partdetail/XT30PW-M30.G.Y/C431092) at 15 A and 500 V DC. [Amass's 2025 catalog](https://www.china-amass.com/public/upload/20250319/41b7a7787d7c61edc3371469ba98f193.pdf) explicitly includes XT30PW-M30.G.Y in the XT30PW family rated 20 A maximum, 500 V DC, and 100 mating cycles. [Amass's XT30PW-M product page](https://www.china-amass.net/xt30pw-m-product/) instead lists 20 A with 16 AWG at up to 85 K rise, 80 V DC, and 20 mating cycles. An [older XT30PW-M sheet](https://www.tme.eu/Document/6eb2005a51a52592b3f19e8a450c54c8/XT30PW-M.pdf) gives yet another mating-cycle figure. The 48 V nominal input is below both voltage figures, but the conflicting specifications should be confirmed for the exact purchased part. [Amass's XT60PW-F page](https://www.china-amass.net/xt60pw-f-product/) lists 35 A at up to 85 K rise, 80 V DC, and 100 mating cycles; [LCSC describes C428722](https://www.lcsc.com/product-detail/C428722.html) as 30 A. Use the lower 15 A and 30 A catalog current figures for the board plan and confirm the exact revision with Amass or JLCPCB if a rating near the limit matters.
 
-**The active JLC footprints use different pad numbering.** On J201 XT30, pad 2 goes to F201 and pad 1 to `V_IN_RTN` (not board `GND`); pads 3/4 are mounting supports and are no-connect. On J301 XT60, pad 3 goes to `V_OUT` and pad 4 to `GND`; pads 1/2 are mounting supports and are no-connect. The unused `hexagan` alternative footprints use different numbering, so never mix a JLC symbol with an alternative footprint. Check the molded polarity marks on the actual connector before soldering the harness.
+**Pad assignments for the active JLC footprints.** The XT30 input uses pad 2 for positive through F201 and pad 1 for board `GND`. Pads 3 and 4 are mechanical. The XT60 output uses pad 3 for `V_OUT` and pad 4 for `GND`. Pads 1 and 2 are mechanical. The `hexagan` alternative footprints use a different pin map. Check the molded polarity marks before soldering the harness.
 
 The saved PCB places the input XT30 (`CN201` in KiCad) on the left with `48V IN` beside it and the output XT60 (`U302`) on the right with `12V OUT` beside it. Verify connector rotation, body overhang and edge clearance before fabrication. Reserve clearance for the fully inserted cable plugs, fingers, insulation and strain relief.
 
@@ -26,7 +26,7 @@ The saved PCB places the input XT30 (`CN201` in KiCad) on the left with `48V IN`
 
 The PCB connectors are the only items in the PCBA BOM. The cable plugs and wire must be bought separately from LCSC or another distributor; parts purchased into JLCPCB's assembly library cannot be shipped as loose harness parts. Slide the XT60 cover and heat-shrink over the wires before soldering. Tin the wire and solder cup, make each joint without softening the housing, insulate both contacts, add strain relief, then continuity-check end to end and test for no `+`-to-`-` short. A temperature-controlled soldering iron and suitable solder are needed; **crimp-tool cost is $0** for this choice. Build or buy the two bench adapter leads before first power-on.
 
-Use the **female** plug on the supply cable so an unplugged energized supply does not expose male pins. Keep the 48 V source switched off while mating or unmating J201. The [input hot-plug test](input_supply.md#verification) is a controlled verification step, not normal operation. The [grounding and scope rules](input_supply.md#grounding-and-scope-measurements) still apply: J201 negative is `V_IN_RTN`, separated from board `GND` by Q201.
+Use the **female** plug on the 48 V supply cable. With the source off, confirm that its positive lead reaches pad 2 and its negative lead reaches pad 1. The 48 V input depends on this wiring because the input return is connected directly to board ground. Keep the source off when mating or unmating the plug during normal operation. [Grounding and scope measurements](input_supply.md#grounding-and-scope-measurements)
 
 ## Price and ordering check
 

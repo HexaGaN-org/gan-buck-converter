@@ -16,7 +16,9 @@ Planned next: average current mode (stage 3), and adding the controller and curr
 
 ## Routed board KiPI and ngspice (2026-11-27)
 
-KiPI 1.0.2 used the saved PCB with 1,155 track segments, 497 vias and 32 zones. The AC field solve used PARDISO at 43 frequencies through 1.224 GHz. The [nominal noise setup](output/3v3-reconnected-kipi/nominal-noise.kipi-setup.yml) drives the buck input at C203, and the [board efficiency setup](output/3v3-reconnected-kipi/48V-12.5A-400kHz.kipi-setup.yml) drives the XT30 input at CN201. The [KiPI summary](output/3v3-reconnected-kipi/kipi-summary.json) records the hash of the KiCad-saved file before Git normalizes its line endings.
+KiPI 1.0.2 used the Q201-equipped PCB at commit `34a5a8d`, with 1,155 track segments, 497 vias and 32 zones. The current layout connects CN201 pin 1 directly to `GND`. Keep the archived efficiency setup with its source PCB and use the current return topology when modeling the new board. [Simulated PCB revision](https://github.com/HexaGaN-org/gan-buck-converter/tree/34a5a8d9eed4287f3b78bd3c5dbb7f172f4f74ce/hardware/gan-buck-converter) · [Current input circuit](../docs/design/input_supply.md)
+
+The AC field solve used PARDISO at 43 frequencies through 1.224 GHz. The [nominal noise setup](output/3v3-reconnected-kipi/nominal-noise.kipi-setup.yml) drives the buck input at C203, and the [board efficiency setup](output/3v3-reconnected-kipi/48V-12.5A-400kHz.kipi-setup.yml) drives the XT30 input at CN201. The [KiPI summary](output/3v3-reconnected-kipi/kipi-summary.json) records the hash of the KiCad-saved file before Git normalizes its line endings.
 
 ### PCB connectivity
 
@@ -171,7 +173,7 @@ Plugging the board into a live supply connects the bench leads' inductance to th
 
 All three nominal no-TVS results sit below the fitted SMBJ51CA's **56.7 V minimum breakdown at 1 mA**, the 0.5 µH case by only 0.1 V, so the illustrative same-node TVS branch, anchored to the [Hongjiacheng datasheet endpoints](https://xonstorage.z8.web.core.windows.net/pdf/hongjiacheng_smbj170a__xonlink.pdf), does not conduct with nominal values. Sweeping ceramic capacitance (8.34–15.14 µF using separate X7S and X7R illustrative tolerance/temperature factors), C203 (80–120 µF), an **assumed** ESR range (0.16–0.64 Ω), and leads (0.5–2 µH) gives up to 67.1 V without the TVS, or about 2.86 A peak and 1.21 mJ in the low-breakdown TVS model. These are sensitivity results, **not** manufacturer-guaranteed I–V, pulse-energy or thermal ratings. The manufacturer's 600 W rating applies to a 10/1000 µs pulse with temperature derating.
 
-D201 is upstream of the low-side Q201; C203 and the ceramics are downstream. The model collapses them into one node, omits Q201's initial body-diode behavior and layout parasitics, and drives the leads with an ideal 51 V step. Its nominal inrush reaches about 229 A; a real bench supply and cables will differ. Neither the modeled TVS pulse nor the fuse's 10.3 A²s melting I²t qualifies the hardware. Do not assume live hot-plug is safe until the first board is measured with the intended supply and leads.
+This hot-plug model uses a lumped node and assumes 50 mΩ around the leads and the earlier input path with Q201. It drives the leads with an ideal 51 V step and predicts nominal inrush of up to 229 A. Real lead inductance, supply current limit and the current fused-node and C203 voltages need measurement before routine live connection. [Input verification](../docs/design/input_supply.md#verification)
 
 ![Input filter impedance](output/input_02_filter_impedance.png)
 
@@ -185,7 +187,7 @@ Verification test 3 in `input_supply.md` measures the actual hot-plug with PWM d
 
 ## Efficiency (`efficiency_estimate.py`)
 
-This layout-independent loss budget uses datasheet values and assumptions for inductor core loss and the auxiliary regulator. FET conduction uses the hot maximum $R_{DS(on)}$ of 4.8 mΩ. The routed PCB model adds extracted copper, dielectric and switch-node losses. [Board efficiency](#board-efficiency)
+This layout-independent loss budget uses datasheet values and assumptions for inductor core loss and the auxiliary regulator. The input model includes the earlier Q201 path. The GaN conduction estimate uses the hot maximum $R_{DS(on)}$ of 4.8 mΩ. [Routed-board efficiency](#board-efficiency)
 
 ![Efficiency](output/eff_01_efficiency.png)
 

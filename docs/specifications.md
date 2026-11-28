@@ -4,6 +4,8 @@ The one-page target for the design. Change a value only by updating this file in
 
 ## Electrical
 
+The KiPI values below are from the routed board with Q201. The current 48 V input uses a direct ground return. [Simulation revision](../simulations/README.md#routed-board-kipi-and-ngspice-2026-11-27)
+
 | Parameter | Min | Typ | Max | Unit | Notes |
 |---|---|---|---|---|---|
 | Input voltage | 40 | 48 | 51 | V | Max is set by the input TVS: SMBJ51CA, 51 V standoff, 82.4 V clamp, below the 90 V gate-driver HS rating. Decision #2 in [design/input_supply.md](design/input_supply.md). Below 60 V (SELV) |
@@ -25,6 +27,7 @@ The one-page target for the design. Change a value only by updating this file in
 | Output overvoltage | 13.2 V (+10 %) | Disable PWM, latch off | CMPSS1 on `V_OUT_SENSE` → ePWM trip zone (one-shot) |
 | Input undervoltage lockout | [TBD] V on / [TBD] V off | Hold PWM off | ADC, in firmware. Proposed 38 V on / 36 V off ([design/input_supply.md](design/input_supply.md)) |
 | Input overvoltage, fast | ≈ 55 V | Target ≈ 1 µs trip, latch off; verify on hardware | CMPSS3 low comparator on `V_IN_SENSE` (pin 11), inverted to trip above its DAC threshold → separate ePWM one-shot trip. Decision #24 in [design/input_supply.md](design/input_supply.md) |
+| Input polarity | Correct harness polarity required on the 48 V input | Confirm polarity at CN201 before power-on | Keyed XT30 and checked harness at 48 V. Q202 protects the separate 5 V input. [Input return](design/input_supply.md#grounding-and-scope-measurements) |
 | Overtemperature | [TBD] °C | Disable PWM | RTDs + ADC, in firmware |
 | Hardware enable | — | No switching without it | Hardware logic, independent of firmware |
 
@@ -39,7 +42,7 @@ The headline parts per sheet. The exact part on the board (MPN, LCSC number, foo
 | power_stage | 2 × Infineon IGC033S10S1 GaN FETs (100 V); TI LM5113-Q1 gate driver (90 V); 6.8 µH Sunltech SLB2212P6R8MTT inductor; 1 mΩ shunt in series with the inductor | Chosen | [design/power_stage.md](design/power_stage.md) |
 | mcu | TI TMS320F280039C, 64-pin LQFP (PM) | Chosen. Confirm pin-mux and stock before schematic freeze | [design/mcu.md](design/mcu.md) |
 | sensing | TI INA241A3 current-sense amplifiers on the output and input shunts; TLV9061 buffers on the voltage and temperature channels; two 1 kΩ platinum RTDs beside the GaN FETs | Captured | [design/sensing.md](design/sensing.md) |
-| input_supply | SMBJ51CA bidirectional TVS; 7 A fuse; low-side reverse-polarity FET (Infineon BSC070N10NS3G); 100 µF damping electrolytic; TI LM5164 aux regulator (100 V, 1 A); TI TPS2121 power mux; JST XH J202; 1 mΩ input current-sense shunt; ST LDL1117S33R 3.3 V LDO | Chosen; schematic complete | [design/input_supply.md](design/input_supply.md) |
+| input_supply | SMBJ51CA bidirectional TVS, 7 A fuse, 100 µF damping electrolytic, TI LM5164 aux regulator (100 V, 1 A), TI TPS2121 power mux, JST XH J202 with AO3401A reverse-polarity FET, 1 mΩ high-side input shunt and ST LDL1117S33R 3.3 V LDO | Schematic captured with direct 48 V return to `GND` | [design/input_supply.md](design/input_supply.md) |
 | enable | TI TPS3813K33 supervisor with window watchdog; SN74LVC2G08 AND gates and an SN74LVC1G00 NAND forming `STAGE_EN` and a static both-high inhibit; SW601 enable switch | Captured; dynamic PWM overlap protection open | [design/enable.md](design/enable.md) |
 | comms_debug | Silicon Labs CP2102N USB-UART bridge; USBLC6-2SC6 ESD protection; USB-C receptacle (data only); 2 × 10 JTAG header | Captured | [design/comms_debug.md](design/comms_debug.md) |
 

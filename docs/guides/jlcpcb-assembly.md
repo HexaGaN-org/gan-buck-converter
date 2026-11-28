@@ -143,6 +143,27 @@ Use these widths as starting points. Route the 12.5 A output path and the switch
 
 ---
 
+## 7. Five-board prototype estimate
+
+The 2026-11-27 estimate uses the 120 × 80 mm, four-layer board with the common 48 V return and 181 fitted parts per board across 76 part numbers. It assumes five boards with top-side Economic assembly and the through-hole connectors fitted. The parts budget includes JLCPCB's minimum purchase quantities and assembly attrition.
+
+| Cost for five in USD | Estimate |
+|---|---:|
+| Parts at the specified catalog part numbers | $303 |
+| Parts with the two in-stock alternatives priced on 2026-11-27 | $347 |
+| Feeder loading for 46 Extended part numbers | Up to $141 |
+| Setup, assembly stencil and SMT/THT labor | $19 |
+| Bare boards | $30–$50 |
+| Inspection allowance | $0–$25 |
+| **Total with the specified parts when available** | **$490–$540** |
+| **Total with the priced alternatives** | **$535–$585** |
+
+The parts check found zero stock for U201 LM5164DDAR (C477928) and the three SN74LVC2G08DCUR gates (C91875). The higher estimate priced LM5164QDDARQ1 (C2072225) and SN74LVC2G08DCUT (C91872). The schematic records the specified part numbers. Confirm stock and proposed substitutions when placing the order. [Regulator alternate](https://jlcpcb.com/partdetail/TexasInstruments-LM5164QDDARQ1/C2072225) · [Gate alternate](https://jlcpcb.com/partdetail/TexasInstruments-SN74LVC2G08DCUT/C91872)
+
+The U.S. delivered planning range with the priced alternatives is **$750–$840**, using $25–$50 assumed freight and JLCPCB's published 35% PCB/SMT duty pre-collection. Confirm shipping and duties for the actual destination. [Assembly fees](https://jlcpcb.com/help/article/pcb-assembly-price) · [Comparable four-layer quotation](https://jlcpcb.com/blog/reduce-pcb-assembly-cost-prototype) · [U.S. import policy](https://jlcpcb.com/help/article/us-tariff-policy-faq)
+
+---
+
 ## References
 
 - [JLCPCB PCB manufacturing capabilities](https://jlcpcb.com/capabilities/pcb-capabilities)

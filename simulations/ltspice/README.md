@@ -207,7 +207,7 @@ A behavioural model written for this project from the LM5113 datasheet (SNVS725I
 
 ### Left out entirely
 
-The DNP snubber (R303, C310), LED301 and R302, test points and net ties, the sensing sheet's loads on `SW_NODE`, `V_OUT` and the shunt, and everything on the input_supply sheet except C203 (fuse, Q201, R201, TVS).
+The circuit omits the DNP snubber (R303, C310), LED301 and R302, test points and net ties, and the sensing sheet's loads on `SW_NODE`, `V_OUT` and the shunt. C203 is the only part from the input supply sheet in this model.
 
 ### Cross-check method
 

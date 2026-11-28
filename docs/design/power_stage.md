@@ -199,7 +199,7 @@ where $s$ is the assembled solder standoff and $g$ is the compressed pad gap. Su
 
 How bring-up confirms this sheet works.
 
-The layout-based simulation estimates a 296 MHz commutation-loop mode. The device-level replay identifies Q302 off-state gate voltage and U301 HS-to-VSS undershoot as the first waveforms to compare on the bench. [KiPI waveforms and device stress results](../../simulations/README.md#commutation-loop-and-waveforms)
+The simulation of the earlier Q201-equipped PCB estimates a 296 MHz commutation-loop mode. The device-level replay identifies Q302 off-state gate voltage and U301 HS-to-VSS undershoot as the first waveforms to compare on the bench. [KiPI waveforms and device stress results](../../simulations/README.md#commutation-loop-and-waveforms)
 
 | # | Test | Method / equipment | Pass criterion | Result | Date |
 |---|---|---|---|---|---|
